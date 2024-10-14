@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BankingManagementSystem.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SignIn_Form" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SignIn Form</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
