@@ -46,6 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HomePageCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePageCustomers.Designer.cs">
+      <DependentUpon>HomePageCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="signInpage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,21 +71,28 @@
     <Compile Include="SignupPage.Designer.cs">
       <DependentUpon>SignupPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdatePersonalDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePersonalDetailsForm.Designer.cs">
+      <DependentUpon>UpdatePersonalDetailsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HomePageCustomers.resx">
+      <DependentUpon>HomePageCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="signInpage.resx">
       <DependentUpon>signInpage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SignupPage.resx">
       <DependentUpon>SignupPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatePersonalDetailsForm.resx">
+      <DependentUpon>UpdatePersonalDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\askari-bank-seeklogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New-Default-pic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

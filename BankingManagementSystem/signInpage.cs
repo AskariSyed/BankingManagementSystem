@@ -38,5 +38,13 @@ namespace BankingManagementSystem
         {
 
         }
+
+        private void SignIn_btn_SigninForm_Click(object sender, EventArgs e)
+        {
+            HomePageCustomers homePageCustomers = new HomePageCustomers();  
+            this.Hide();
+            homePageCustomers.Show();
+
+        }
     }
 }

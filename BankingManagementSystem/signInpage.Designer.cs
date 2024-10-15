@@ -40,6 +40,7 @@
             this.Signup_instr_label_signinForm = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.SignIn_btn_SigninForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AKBL_logoimage_picturebox_signin_page)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // Username_label_signinForm
             // 
             this.Username_label_signinForm.AutoSize = true;
-            this.Username_label_signinForm.Location = new System.Drawing.Point(661, 332);
+            this.Username_label_signinForm.Location = new System.Drawing.Point(662, 270);
             this.Username_label_signinForm.Name = "Username_label_signinForm";
             this.Username_label_signinForm.Size = new System.Drawing.Size(111, 23);
             this.Username_label_signinForm.TabIndex = 5;
@@ -106,7 +107,7 @@
             // password_label_signinForm
             // 
             this.password_label_signinForm.AutoSize = true;
-            this.password_label_signinForm.Location = new System.Drawing.Point(661, 444);
+            this.password_label_signinForm.Location = new System.Drawing.Point(662, 382);
             this.password_label_signinForm.Name = "password_label_signinForm";
             this.password_label_signinForm.Size = new System.Drawing.Size(107, 23);
             this.password_label_signinForm.TabIndex = 6;
@@ -117,7 +118,7 @@
             this.Username_txtBox_signinForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Username_txtBox_signinForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Username_txtBox_signinForm.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.Username_txtBox_signinForm.Location = new System.Drawing.Point(666, 376);
+            this.Username_txtBox_signinForm.Location = new System.Drawing.Point(667, 314);
             this.Username_txtBox_signinForm.Name = "Username_txtBox_signinForm";
             this.Username_txtBox_signinForm.Size = new System.Drawing.Size(312, 24);
             this.Username_txtBox_signinForm.TabIndex = 7;
@@ -127,7 +128,7 @@
             // 
             this.Passworde_txtBox_signinForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Passworde_txtBox_signinForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Passworde_txtBox_signinForm.Location = new System.Drawing.Point(666, 508);
+            this.Passworde_txtBox_signinForm.Location = new System.Drawing.Point(667, 446);
             this.Passworde_txtBox_signinForm.Name = "Passworde_txtBox_signinForm";
             this.Passworde_txtBox_signinForm.PasswordChar = '*';
             this.Passworde_txtBox_signinForm.Size = new System.Drawing.Size(312, 24);
@@ -148,7 +149,7 @@
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Arial", 9F);
-            this.button1.Location = new System.Drawing.Point(836, 569);
+            this.button1.Location = new System.Drawing.Point(837, 507);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 27);
             this.button1.TabIndex = 12;
@@ -160,12 +161,27 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(830, 538);
+            this.checkBox1.Location = new System.Drawing.Point(831, 476);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(147, 23);
             this.checkBox1.TabIndex = 13;
             this.checkBox1.Text = "Show Password";
             this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // SignIn_btn_SigninForm
+            // 
+            this.SignIn_btn_SigninForm.BackColor = System.Drawing.Color.Transparent;
+            this.SignIn_btn_SigninForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SignIn_btn_SigninForm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.SignIn_btn_SigninForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignIn_btn_SigninForm.ForeColor = System.Drawing.Color.Black;
+            this.SignIn_btn_SigninForm.Location = new System.Drawing.Point(751, 588);
+            this.SignIn_btn_SigninForm.Name = "SignIn_btn_SigninForm";
+            this.SignIn_btn_SigninForm.Size = new System.Drawing.Size(228, 36);
+            this.SignIn_btn_SigninForm.TabIndex = 14;
+            this.SignIn_btn_SigninForm.Text = "Sign In";
+            this.SignIn_btn_SigninForm.UseVisualStyleBackColor = false;
+            this.SignIn_btn_SigninForm.Click += new System.EventHandler(this.SignIn_btn_SigninForm_Click);
             // 
             // signInpage
             // 
@@ -175,6 +191,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1064, 667);
+            this.Controls.Add(this.SignIn_btn_SigninForm);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AKBL_logoimage_picturebox_signin_page);
@@ -190,7 +207,7 @@
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "signInpage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -214,6 +231,7 @@
         private System.Windows.Forms.Label Signup_instr_label_signinForm;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button SignIn_btn_SigninForm;
     }
 }
 
