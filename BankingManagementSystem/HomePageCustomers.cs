@@ -54,5 +54,10 @@ namespace BankingManagementSystem
             updatePersonalDetailsForm.Show();
 
         }
+
+        private void AccountNumber_Label_HomePageUSer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

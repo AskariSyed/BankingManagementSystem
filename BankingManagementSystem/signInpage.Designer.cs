@@ -38,7 +38,7 @@
             this.Username_txtBox_signinForm = new System.Windows.Forms.TextBox();
             this.Passworde_txtBox_signinForm = new System.Windows.Forms.TextBox();
             this.Signup_instr_label_signinForm = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ForgetPassword_BTN_SigninpageForm = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SignIn_btn_SigninForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AKBL_logoimage_picturebox_signin_page)).BeginInit();
@@ -144,17 +144,18 @@
             this.Signup_instr_label_signinForm.TabIndex = 2;
             this.Signup_instr_label_signinForm.Text = "Dont have an account?";
             // 
-            // button1
+            // ForgetPassword_BTN_SigninpageForm
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Arial", 9F);
-            this.button1.Location = new System.Drawing.Point(837, 507);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 27);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Forgot Password?";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ForgetPassword_BTN_SigninpageForm.BackColor = System.Drawing.Color.Transparent;
+            this.ForgetPassword_BTN_SigninpageForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ForgetPassword_BTN_SigninpageForm.Font = new System.Drawing.Font("Arial", 9F);
+            this.ForgetPassword_BTN_SigninpageForm.Location = new System.Drawing.Point(837, 507);
+            this.ForgetPassword_BTN_SigninpageForm.Name = "ForgetPassword_BTN_SigninpageForm";
+            this.ForgetPassword_BTN_SigninpageForm.Size = new System.Drawing.Size(140, 27);
+            this.ForgetPassword_BTN_SigninpageForm.TabIndex = 12;
+            this.ForgetPassword_BTN_SigninpageForm.Text = "Forgot Password?";
+            this.ForgetPassword_BTN_SigninpageForm.UseVisualStyleBackColor = false;
+            this.ForgetPassword_BTN_SigninpageForm.Click += new System.EventHandler(this.ForgetPassword_BTN_SigninpageForm_Click);
             // 
             // checkBox1
             // 
@@ -193,7 +194,7 @@
             this.ClientSize = new System.Drawing.Size(1064, 667);
             this.Controls.Add(this.SignIn_btn_SigninForm);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ForgetPassword_BTN_SigninpageForm);
             this.Controls.Add(this.AKBL_logoimage_picturebox_signin_page);
             this.Controls.Add(this.Exit_btn_signinForm);
             this.Controls.Add(this.Signup_btn_signinForm);
@@ -229,7 +230,7 @@
         private System.Windows.Forms.TextBox Username_txtBox_signinForm;
         private System.Windows.Forms.TextBox Passworde_txtBox_signinForm;
         private System.Windows.Forms.Label Signup_instr_label_signinForm;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ForgetPassword_BTN_SigninpageForm;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button SignIn_btn_SigninForm;
     }

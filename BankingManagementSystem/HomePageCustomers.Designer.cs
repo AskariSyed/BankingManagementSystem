@@ -35,25 +35,38 @@ namespace BankingManagementSystem
             this.Account_Statment_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Privacy_And_Security_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TransactionHistory_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Logout_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
             this.Exit_btn_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Greeting_Label_btn_HomeFormUser = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.AccountSummary_label_HOmePageUSerForm = new System.Windows.Forms.Label();
+            this.AccountNumber_Label_HomePageUSer = new System.Windows.Forms.Label();
+            this.AC_NO_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
+            this.Available_Balance_Label_HomePageUSer = new System.Windows.Forms.Label();
+            this.Available_Balance_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Account_type_Detail_label_HomePageUserInfoForm = new System.Windows.Forms.Label();
+            this.Account_type_label_HomeUSerSiginForm = new System.Windows.Forms.Label();
+            this.Transacion_Options_label_HOmePageUSerForm = new System.Windows.Forms.Label();
+            this.AC_Title_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
+            this.AccountTitle_Label_HomePageUSer = new System.Windows.Forms.Label();
+            this.Recent_Transaction_label_HOmePageUSerForm = new System.Windows.Forms.Label();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SideLeft_panel_HomePageForm
@@ -110,6 +123,17 @@ namespace BankingManagementSystem
             this.TransactionHistory_btn_HomeFormUser.TabIndex = 7;
             this.TransactionHistory_btn_HomeFormUser.Text = "Transaction History";
             this.TransactionHistory_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Logout_btn_HomeFormUser
             // 
@@ -172,10 +196,10 @@ namespace BankingManagementSystem
             // Greeting_Label_btn_HomeFormUser
             // 
             this.Greeting_Label_btn_HomeFormUser.AutoSize = true;
-            this.Greeting_Label_btn_HomeFormUser.Font = new System.Drawing.Font("Modern No. 20", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Greeting_Label_btn_HomeFormUser.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Greeting_Label_btn_HomeFormUser.Location = new System.Drawing.Point(336, 47);
             this.Greeting_Label_btn_HomeFormUser.Name = "Greeting_Label_btn_HomeFormUser";
-            this.Greeting_Label_btn_HomeFormUser.Size = new System.Drawing.Size(236, 38);
+            this.Greeting_Label_btn_HomeFormUser.Size = new System.Drawing.Size(181, 30);
             this.Greeting_Label_btn_HomeFormUser.TabIndex = 21;
             this.Greeting_Label_btn_HomeFormUser.Text = "Hello Hassan";
             // 
@@ -187,10 +211,63 @@ namespace BankingManagementSystem
             this.splitter1.TabIndex = 22;
             this.splitter1.TabStop = false;
             // 
+            // AccountSummary_label_HOmePageUSerForm
+            // 
+            this.AccountSummary_label_HOmePageUSerForm.AutoSize = true;
+            this.AccountSummary_label_HOmePageUSerForm.BackColor = System.Drawing.Color.Transparent;
+            this.AccountSummary_label_HOmePageUSerForm.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccountSummary_label_HOmePageUSerForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.AccountSummary_label_HOmePageUSerForm.Location = new System.Drawing.Point(332, 95);
+            this.AccountSummary_label_HOmePageUSerForm.Name = "AccountSummary_label_HOmePageUSerForm";
+            this.AccountSummary_label_HOmePageUSerForm.Size = new System.Drawing.Size(273, 50);
+            this.AccountSummary_label_HOmePageUSerForm.TabIndex = 28;
+            this.AccountSummary_label_HOmePageUSerForm.Text = "Account Summary ";
+            // 
+            // AccountNumber_Label_HomePageUSer
+            // 
+            this.AccountNumber_Label_HomePageUSer.AutoSize = true;
+            this.AccountNumber_Label_HomePageUSer.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccountNumber_Label_HomePageUSer.Location = new System.Drawing.Point(337, 170);
+            this.AccountNumber_Label_HomePageUSer.Name = "AccountNumber_Label_HomePageUSer";
+            this.AccountNumber_Label_HomePageUSer.Size = new System.Drawing.Size(117, 24);
+            this.AccountNumber_Label_HomePageUSer.TabIndex = 29;
+            this.AccountNumber_Label_HomePageUSer.Text = "Account Number : ";
+            this.AccountNumber_Label_HomePageUSer.Click += new System.EventHandler(this.AccountNumber_Label_HomePageUSer_Click);
+            // 
+            // AC_NO_Detail_HomepageUSerForm
+            // 
+            this.AC_NO_Detail_HomepageUSerForm.AutoSize = true;
+            this.AC_NO_Detail_HomepageUSerForm.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AC_NO_Detail_HomepageUSerForm.Location = new System.Drawing.Point(528, 170);
+            this.AC_NO_Detail_HomepageUSerForm.Name = "AC_NO_Detail_HomepageUSerForm";
+            this.AC_NO_Detail_HomepageUSerForm.Size = new System.Drawing.Size(86, 24);
+            this.AC_NO_Detail_HomepageUSerForm.TabIndex = 30;
+            this.AC_NO_Detail_HomepageUSerForm.Text = "8907648729\r\n";
+            // 
+            // Available_Balance_Label_HomePageUSer
+            // 
+            this.Available_Balance_Label_HomePageUSer.AutoSize = true;
+            this.Available_Balance_Label_HomePageUSer.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Available_Balance_Label_HomePageUSer.Location = new System.Drawing.Point(337, 242);
+            this.Available_Balance_Label_HomePageUSer.Name = "Available_Balance_Label_HomePageUSer";
+            this.Available_Balance_Label_HomePageUSer.Size = new System.Drawing.Size(120, 24);
+            this.Available_Balance_Label_HomePageUSer.TabIndex = 31;
+            this.Available_Balance_Label_HomePageUSer.Text = "Available Balance : ";
+            // 
+            // Available_Balance_Detail_HomepageUSerForm
+            // 
+            this.Available_Balance_Detail_HomepageUSerForm.AutoSize = true;
+            this.Available_Balance_Detail_HomepageUSerForm.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Available_Balance_Detail_HomepageUSerForm.Location = new System.Drawing.Point(552, 242);
+            this.Available_Balance_Detail_HomepageUSerForm.Name = "Available_Balance_Detail_HomepageUSerForm";
+            this.Available_Balance_Detail_HomepageUSerForm.Size = new System.Drawing.Size(53, 24);
+            this.Available_Balance_Detail_HomepageUSerForm.TabIndex = 32;
+            this.Available_Balance_Detail_HomepageUSerForm.Text = "50,000\r\n";
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox6.Location = new System.Drawing.Point(800, 568);
+            this.pictureBox6.Location = new System.Drawing.Point(975, 528);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(216, 86);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -200,7 +277,7 @@ namespace BankingManagementSystem
             // pictureBox5
             // 
             this.pictureBox5.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox5.Location = new System.Drawing.Point(800, 184);
+            this.pictureBox5.Location = new System.Drawing.Point(975, 159);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(216, 86);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -210,7 +287,7 @@ namespace BankingManagementSystem
             // pictureBox4
             // 
             this.pictureBox4.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox4.Location = new System.Drawing.Point(991, 280);
+            this.pictureBox4.Location = new System.Drawing.Point(821, 252);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(216, 86);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,7 +297,7 @@ namespace BankingManagementSystem
             // pictureBox3
             // 
             this.pictureBox3.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox3.Location = new System.Drawing.Point(800, 376);
+            this.pictureBox3.Location = new System.Drawing.Point(975, 344);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(216, 86);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,50 +307,146 @@ namespace BankingManagementSystem
             // pictureBox2
             // 
             this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox2.Location = new System.Drawing.Point(991, 472);
+            this.pictureBox2.Location = new System.Drawing.Point(821, 436);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(216, 86);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // button1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(728, 418);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(255, 44);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Recieve Money";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(350, 418);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(255, 44);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "Send Money";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // Account_type_Detail_label_HomePageUserInfoForm
+            // 
+            this.Account_type_Detail_label_HomePageUserInfoForm.AutoSize = true;
+            this.Account_type_Detail_label_HomePageUserInfoForm.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account_type_Detail_label_HomePageUserInfoForm.Location = new System.Drawing.Point(929, 248);
+            this.Account_type_Detail_label_HomePageUserInfoForm.Name = "Account_type_Detail_label_HomePageUserInfoForm";
+            this.Account_type_Detail_label_HomePageUserInfoForm.Size = new System.Drawing.Size(54, 24);
+            this.Account_type_Detail_label_HomePageUserInfoForm.TabIndex = 35;
+            this.Account_type_Detail_label_HomePageUserInfoForm.Text = "Savings";
+            // 
+            // Account_type_label_HomeUSerSiginForm
+            // 
+            this.Account_type_label_HomeUSerSiginForm.AutoSize = true;
+            this.Account_type_label_HomeUSerSiginForm.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account_type_label_HomeUSerSiginForm.Location = new System.Drawing.Point(738, 248);
+            this.Account_type_label_HomeUSerSiginForm.Name = "Account_type_label_HomeUSerSiginForm";
+            this.Account_type_label_HomeUSerSiginForm.Size = new System.Drawing.Size(95, 24);
+            this.Account_type_label_HomeUSerSiginForm.TabIndex = 34;
+            this.Account_type_label_HomeUSerSiginForm.Text = "Account Type : ";
+            // 
+            // Transacion_Options_label_HOmePageUSerForm
+            // 
+            this.Transacion_Options_label_HOmePageUSerForm.AutoSize = true;
+            this.Transacion_Options_label_HOmePageUSerForm.BackColor = System.Drawing.Color.Transparent;
+            this.Transacion_Options_label_HOmePageUSerForm.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Transacion_Options_label_HOmePageUSerForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.Transacion_Options_label_HOmePageUSerForm.Location = new System.Drawing.Point(332, 311);
+            this.Transacion_Options_label_HOmePageUSerForm.Name = "Transacion_Options_label_HOmePageUSerForm";
+            this.Transacion_Options_label_HOmePageUSerForm.Size = new System.Drawing.Size(291, 50);
+            this.Transacion_Options_label_HOmePageUSerForm.TabIndex = 36;
+            this.Transacion_Options_label_HOmePageUSerForm.Text = "Transaction Options";
+            // 
+            // AC_Title_Detail_HomepageUSerForm
+            // 
+            this.AC_Title_Detail_HomepageUSerForm.AutoSize = true;
+            this.AC_Title_Detail_HomepageUSerForm.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AC_Title_Detail_HomepageUSerForm.Location = new System.Drawing.Point(929, 170);
+            this.AC_Title_Detail_HomepageUSerForm.Name = "AC_Title_Detail_HomepageUSerForm";
+            this.AC_Title_Detail_HomepageUSerForm.Size = new System.Drawing.Size(163, 24);
+            this.AC_Title_Detail_HomepageUSerForm.TabIndex = 38;
+            this.AC_Title_Detail_HomepageUSerForm.Text = "Muhammad Hassan Askari";
+            // 
+            // AccountTitle_Label_HomePageUSer
+            // 
+            this.AccountTitle_Label_HomePageUSer.AutoSize = true;
+            this.AccountTitle_Label_HomePageUSer.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccountTitle_Label_HomePageUSer.Location = new System.Drawing.Point(738, 170);
+            this.AccountTitle_Label_HomePageUSer.Name = "AccountTitle_Label_HomePageUSer";
+            this.AccountTitle_Label_HomePageUSer.Size = new System.Drawing.Size(93, 24);
+            this.AccountTitle_Label_HomePageUSer.TabIndex = 37;
+            this.AccountTitle_Label_HomePageUSer.Text = "Account Title : ";
+            // 
+            // Recent_Transaction_label_HOmePageUSerForm
+            // 
+            this.Recent_Transaction_label_HOmePageUSerForm.AutoSize = true;
+            this.Recent_Transaction_label_HOmePageUSerForm.BackColor = System.Drawing.Color.Transparent;
+            this.Recent_Transaction_label_HOmePageUSerForm.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Recent_Transaction_label_HOmePageUSerForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.Recent_Transaction_label_HOmePageUSerForm.Location = new System.Drawing.Point(332, 527);
+            this.Recent_Transaction_label_HOmePageUSerForm.Name = "Recent_Transaction_label_HOmePageUSerForm";
+            this.Recent_Transaction_label_HOmePageUSerForm.Size = new System.Drawing.Size(299, 50);
+            this.Recent_Transaction_label_HOmePageUSerForm.TabIndex = 39;
+            this.Recent_Transaction_label_HOmePageUSerForm.Text = "Recent Transactions";
             // 
             // HomePageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 803);
+            this.Controls.Add(this.Recent_Transaction_label_HOmePageUSerForm);
+            this.Controls.Add(this.AC_Title_Detail_HomepageUSerForm);
+            this.Controls.Add(this.AccountTitle_Label_HomePageUSer);
+            this.Controls.Add(this.Transacion_Options_label_HOmePageUSerForm);
+            this.Controls.Add(this.Account_type_Detail_label_HomePageUserInfoForm);
+            this.Controls.Add(this.Account_type_label_HomeUSerSiginForm);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Available_Balance_Detail_HomepageUSerForm);
+            this.Controls.Add(this.Available_Balance_Label_HomePageUSer);
+            this.Controls.Add(this.AC_NO_Detail_HomepageUSerForm);
+            this.Controls.Add(this.AccountNumber_Label_HomePageUSer);
+            this.Controls.Add(this.AccountSummary_label_HOmePageUSerForm);
+            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.Greeting_Label_btn_HomeFormUser);
+            this.Controls.Add(this.Exit_btn_btn_HomeFormUser);
+            this.Controls.Add(this.SideLeft_panel_HomePageForm);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.Greeting_Label_btn_HomeFormUser);
-            this.Controls.Add(this.Exit_btn_btn_HomeFormUser);
-            this.Controls.Add(this.SideLeft_panel_HomePageForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HomePageCustomers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomePageCustomers";
             this.Load += new System.EventHandler(this.HomePageCustomers_Load);
             this.SideLeft_panel_HomePageForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,8 +470,19 @@ namespace BankingManagementSystem
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
-
-        
+        private Label AccountSummary_label_HOmePageUSerForm;
+        private Label AccountNumber_Label_HomePageUSer;
+        private Label AC_NO_Detail_HomepageUSerForm;
+        private Label Available_Balance_Label_HomePageUSer;
+        private Label Available_Balance_Detail_HomepageUSerForm;
+        private Button button1;
+        private Button button2;
+        private Label Account_type_Detail_label_HomePageUserInfoForm;
+        private Label Account_type_label_HomeUSerSiginForm;
+        private Label Transacion_Options_label_HOmePageUSerForm;
+        private Label AC_Title_Detail_HomepageUSerForm;
+        private Label AccountTitle_Label_HomePageUSer;
+        private Label Recent_Transaction_label_HOmePageUSerForm;
     }
 
 

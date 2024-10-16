@@ -46,5 +46,11 @@ namespace BankingManagementSystem
             homePageCustomers.Show();
 
         }
+
+        private void ForgetPassword_BTN_SigninpageForm_Click(object sender, EventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();   
+            forgotPassword.Show();
+        }
     }
 }

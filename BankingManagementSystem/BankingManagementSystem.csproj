@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomePageCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="UpdatePersonalDetailsForm.Designer.cs">
       <DependentUpon>UpdatePersonalDetailsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePageCustomers.resx">
       <DependentUpon>HomePageCustomers.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\New-Default-pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show-password-3-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
