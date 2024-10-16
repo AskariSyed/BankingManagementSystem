@@ -39,16 +39,19 @@ namespace BankingManagementSystem
 
         private void Signup_Btn_SignupScreen_Click(object sender, EventArgs e)
         {
-            if (randomCode == (EnterOTP_txtBox_SignupUserForm.Text.ToString())){
-                EnterOTP_txtBox_SignupUserForm.ForeColor = Color.Green;
-                MessageBox.Show("Email Verified Successfully");
+            //if (randomCode == (EnterOTP_txtBox_SignupUserForm.Text.ToString())){
+            //    EnterOTP_txtBox_SignupUserForm.ForeColor = Color.Green;
+            //    MessageBox.Show("Email Verified Successfully");
 
-            }
-            else
-            {
-                EnterOTP_txtBox_SignupUserForm.ForeColor= Color.Red;
-                MessageBox.Show("OTP does not Match");
-            }
+            //}
+            //else
+            //{
+            //    EnterOTP_txtBox_SignupUserForm.ForeColor= Color.Red;
+            //    MessageBox.Show("OTP does not Match");
+            //}
+            Terms_and_Conditions terms_And_Conditions = new Terms_and_Conditions();
+            this.Hide();
+            terms_And_Conditions.Show();
         }
 
         private void EmailGenerateOTP_btn_SignupUSerForm_Click(object sender, EventArgs e)

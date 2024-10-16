@@ -34,8 +34,6 @@
             this.Username_txtBox_ForgotPasswordForm = new System.Windows.Forms.TextBox();
             this.PhoneNumber_txtBOx_ForgotPasswrod_Form = new System.Windows.Forms.TextBox();
             this.PhoneNmber_Label_ForgOPasswordForm = new System.Windows.Forms.Label();
-            this.Phone_OTP_textBox_ForgotPAssword_Form = new System.Windows.Forms.TextBox();
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form = new System.Windows.Forms.Button();
             this.Email_OTP_textBox_ForgotPAssword_Form = new System.Windows.Forms.TextBox();
             this.Generate_OTP_Email_Btn_ForgotPasswrod_Form = new System.Windows.Forms.Button();
             this.Email_txtBOx_ForgotPasswrod_Form = new System.Windows.Forms.TextBox();
@@ -103,34 +101,17 @@
             this.PhoneNmber_Label_ForgOPasswordForm.TabIndex = 3;
             this.PhoneNmber_Label_ForgOPasswordForm.Text = "Phone Number";
             // 
-            // Phone_OTP_textBox_ForgotPAssword_Form
-            // 
-            this.Phone_OTP_textBox_ForgotPAssword_Form.Location = new System.Drawing.Point(308, 331);
-            this.Phone_OTP_textBox_ForgotPAssword_Form.Name = "Phone_OTP_textBox_ForgotPAssword_Form";
-            this.Phone_OTP_textBox_ForgotPAssword_Form.Size = new System.Drawing.Size(106, 22);
-            this.Phone_OTP_textBox_ForgotPAssword_Form.TabIndex = 65;
-            this.Phone_OTP_textBox_ForgotPAssword_Form.Text = "Enter OTP";
-            // 
-            // Generate_OTP_Phone_Btn_ForgotPasswrod_Form
-            // 
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.BackColor = System.Drawing.Color.Transparent;
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.FlatAppearance.BorderSize = 0;
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.Location = new System.Drawing.Point(420, 327);
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.Name = "Generate_OTP_Phone_Btn_ForgotPasswrod_Form";
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.Size = new System.Drawing.Size(127, 31);
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.TabIndex = 64;
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.Text = "Generate OTP";
-            this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form.UseVisualStyleBackColor = false;
-            // 
             // Email_OTP_textBox_ForgotPAssword_Form
             // 
+            this.Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Gray;
             this.Email_OTP_textBox_ForgotPAssword_Form.Location = new System.Drawing.Point(308, 396);
             this.Email_OTP_textBox_ForgotPAssword_Form.Name = "Email_OTP_textBox_ForgotPAssword_Form";
             this.Email_OTP_textBox_ForgotPAssword_Form.Size = new System.Drawing.Size(106, 22);
             this.Email_OTP_textBox_ForgotPAssword_Form.TabIndex = 69;
             this.Email_OTP_textBox_ForgotPAssword_Form.Text = "Enter OTP";
+            this.Email_OTP_textBox_ForgotPAssword_Form.Click += new System.EventHandler(this.Email_OTP_textBox_ForgotPAssword_Form_Click);
+            this.Email_OTP_textBox_ForgotPAssword_Form.TextChanged += new System.EventHandler(this.Email_OTP_textBox_ForgotPAssword_Form_TextChanged);
+            this.Email_OTP_textBox_ForgotPAssword_Form.Leave += new System.EventHandler(this.Email_OTP_textBox_ForgotPAssword_Form_Leave);
             // 
             // Generate_OTP_Email_Btn_ForgotPasswrod_Form
             // 
@@ -144,6 +125,7 @@
             this.Generate_OTP_Email_Btn_ForgotPasswrod_Form.TabIndex = 68;
             this.Generate_OTP_Email_Btn_ForgotPasswrod_Form.Text = "Generate OTP";
             this.Generate_OTP_Email_Btn_ForgotPasswrod_Form.UseVisualStyleBackColor = false;
+            this.Generate_OTP_Email_Btn_ForgotPasswrod_Form.Click += new System.EventHandler(this.Generate_OTP_Email_Btn_ForgotPasswrod_Form_Click);
             // 
             // Email_txtBOx_ForgotPasswrod_Form
             // 
@@ -223,6 +205,7 @@
             this.Save_Password_BTN__ForgotPasswrod_Form.TabIndex = 74;
             this.Save_Password_BTN__ForgotPasswrod_Form.Text = "Save Passsword";
             this.Save_Password_BTN__ForgotPasswrod_Form.UseVisualStyleBackColor = false;
+            this.Save_Password_BTN__ForgotPasswrod_Form.Click += new System.EventHandler(this.Save_Password_BTN__ForgotPasswrod_Form_Click);
             // 
             // Exit_btn__ForgotPasswrod_Form
             // 
@@ -254,8 +237,6 @@
             this.Controls.Add(this.Generate_OTP_Email_Btn_ForgotPasswrod_Form);
             this.Controls.Add(this.Email_txtBOx_ForgotPasswrod_Form);
             this.Controls.Add(this.Email_Label_ForgOPasswordForm);
-            this.Controls.Add(this.Phone_OTP_textBox_ForgotPAssword_Form);
-            this.Controls.Add(this.Generate_OTP_Phone_Btn_ForgotPasswrod_Form);
             this.Controls.Add(this.PhoneNumber_txtBOx_ForgotPasswrod_Form);
             this.Controls.Add(this.PhoneNmber_Label_ForgOPasswordForm);
             this.Controls.Add(this.Username_txtBox_ForgotPasswordForm);
@@ -279,8 +260,6 @@
         private System.Windows.Forms.TextBox Username_txtBox_ForgotPasswordForm;
         private System.Windows.Forms.TextBox PhoneNumber_txtBOx_ForgotPasswrod_Form;
         private System.Windows.Forms.Label PhoneNmber_Label_ForgOPasswordForm;
-        private System.Windows.Forms.TextBox Phone_OTP_textBox_ForgotPAssword_Form;
-        private System.Windows.Forms.Button Generate_OTP_Phone_Btn_ForgotPasswrod_Form;
         private System.Windows.Forms.TextBox Email_OTP_textBox_ForgotPAssword_Form;
         private System.Windows.Forms.Button Generate_OTP_Email_Btn_ForgotPasswrod_Form;
         private System.Windows.Forms.TextBox Email_txtBOx_ForgotPasswrod_Form;

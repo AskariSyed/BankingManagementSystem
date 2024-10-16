@@ -83,6 +83,7 @@ namespace BankingManagementSystem
             this.SideLeft_panel_HomePageForm.Name = "SideLeft_panel_HomePageForm";
             this.SideLeft_panel_HomePageForm.Size = new System.Drawing.Size(302, 806);
             this.SideLeft_panel_HomePageForm.TabIndex = 0;
+            this.SideLeft_panel_HomePageForm.Paint += new System.Windows.Forms.PaintEventHandler(this.SideLeft_panel_HomePageForm_Paint);
             // 
             // Account_Statment_btn_HomeFormUser
             // 
@@ -163,6 +164,7 @@ namespace BankingManagementSystem
             this.TermsAndConditions_btn_HomeFormUser.TabIndex = 5;
             this.TermsAndConditions_btn_HomeFormUser.Text = "Terms and Conditions";
             this.TermsAndConditions_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.TermsAndConditions_btn_HomeFormUser.Click += new System.EventHandler(this.TermsAndConditions_btn_HomeFormUser_Click);
             // 
             // Update_AccountInfo_HomePageUserForm
             // 

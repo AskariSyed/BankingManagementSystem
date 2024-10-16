@@ -50,8 +50,6 @@
             this.ChooseAccountType_Label_signupForm = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Signup_Btn_SignupScreen = new System.Windows.Forms.Button();
-            this.Generate_SMS_OTP_Btn_SignupBox = new System.Windows.Forms.Button();
-            this.SMS_OTP_textBox_SignupForm = new System.Windows.Forms.TextBox();
             this.AKBL_logoimage_picturebox_signUp_page = new System.Windows.Forms.PictureBox();
             this.EnterOTP_txtBox_SignupUserForm = new System.Windows.Forms.TextBox();
             this.EmailGenerateOTP_btn_SignupUSerForm = new System.Windows.Forms.Button();
@@ -290,27 +288,6 @@
             this.Signup_Btn_SignupScreen.UseVisualStyleBackColor = false;
             this.Signup_Btn_SignupScreen.Click += new System.EventHandler(this.Signup_Btn_SignupScreen_Click);
             // 
-            // Generate_SMS_OTP_Btn_SignupBox
-            // 
-            this.Generate_SMS_OTP_Btn_SignupBox.BackColor = System.Drawing.Color.Transparent;
-            this.Generate_SMS_OTP_Btn_SignupBox.FlatAppearance.BorderSize = 0;
-            this.Generate_SMS_OTP_Btn_SignupBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.Generate_SMS_OTP_Btn_SignupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Generate_SMS_OTP_Btn_SignupBox.Location = new System.Drawing.Point(304, 609);
-            this.Generate_SMS_OTP_Btn_SignupBox.Name = "Generate_SMS_OTP_Btn_SignupBox";
-            this.Generate_SMS_OTP_Btn_SignupBox.Size = new System.Drawing.Size(116, 31);
-            this.Generate_SMS_OTP_Btn_SignupBox.TabIndex = 39;
-            this.Generate_SMS_OTP_Btn_SignupBox.Text = "Generate OTP";
-            this.Generate_SMS_OTP_Btn_SignupBox.UseVisualStyleBackColor = false;
-            // 
-            // SMS_OTP_textBox_SignupForm
-            // 
-            this.SMS_OTP_textBox_SignupForm.Location = new System.Drawing.Point(108, 612);
-            this.SMS_OTP_textBox_SignupForm.Name = "SMS_OTP_textBox_SignupForm";
-            this.SMS_OTP_textBox_SignupForm.Size = new System.Drawing.Size(190, 22);
-            this.SMS_OTP_textBox_SignupForm.TabIndex = 40;
-            this.SMS_OTP_textBox_SignupForm.Text = "Enter OTP";
-            // 
             // AKBL_logoimage_picturebox_signUp_page
             // 
             this.AKBL_logoimage_picturebox_signUp_page.BackColor = System.Drawing.Color.Transparent;
@@ -396,8 +373,6 @@
             this.Controls.Add(this.Email_txtBox_Sigupfrom);
             this.Controls.Add(this.EmailGenerateOTP_btn_SignupUSerForm);
             this.Controls.Add(this.EnterOTP_txtBox_SignupUserForm);
-            this.Controls.Add(this.SMS_OTP_textBox_SignupForm);
-            this.Controls.Add(this.Generate_SMS_OTP_Btn_SignupBox);
             this.Controls.Add(this.Signup_Btn_SignupScreen);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ChooseAccountType_Label_signupForm);
@@ -458,8 +433,6 @@
         private System.Windows.Forms.Label ChooseAccountType_Label_signupForm;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button Signup_Btn_SignupScreen;
-        private System.Windows.Forms.Button Generate_SMS_OTP_Btn_SignupBox;
-        private System.Windows.Forms.TextBox SMS_OTP_textBox_SignupForm;
         private System.Windows.Forms.TextBox EnterOTP_txtBox_SignupUserForm;
         private System.Windows.Forms.Button EmailGenerateOTP_btn_SignupUSerForm;
         private System.Windows.Forms.TextBox Email_txtBox_Sigupfrom;
