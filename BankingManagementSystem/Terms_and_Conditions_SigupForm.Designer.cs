@@ -1,6 +1,6 @@
 ﻿namespace BankingManagementSystem
 {
-    partial class Terms_and_Conditions
+    partial class Terms_and_Conditions_SigupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Terms_and_Conditions));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Terms_and_Conditions_SigupForm));
             this.AccountNumber_Label_HomePageUSer = new System.Windows.Forms.Label();
             this.AccountSummary_label_HOmePageUSerForm = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,14 +41,15 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Accept_Terms_and_Condition_btn_Page_Form = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Accept_Terms_and_Condition_btn_Page_Form = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -63,6 +64,7 @@
             this.AccountNumber_Label_HomePageUSer.Size = new System.Drawing.Size(131, 24);
             this.AccountNumber_Label_HomePageUSer.TabIndex = 34;
             this.AccountNumber_Label_HomePageUSer.Text = "Acceptance of Terms";
+            this.AccountNumber_Label_HomePageUSer.Click += new System.EventHandler(this.AccountNumber_Label_HomePageUSer_Click);
             // 
             // AccountSummary_label_HOmePageUSerForm
             // 
@@ -75,6 +77,7 @@
             this.AccountSummary_label_HOmePageUSerForm.Size = new System.Drawing.Size(273, 50);
             this.AccountSummary_label_HOmePageUSerForm.TabIndex = 33;
             this.AccountSummary_label_HOmePageUSerForm.Text = "Account Summary ";
+            this.AccountSummary_label_HOmePageUSerForm.Click += new System.EventHandler(this.AccountSummary_label_HOmePageUSerForm_Click);
             // 
             // textBox1
             // 
@@ -89,6 +92,7 @@
             this.textBox1.TabIndex = 40;
             this.textBox1.Text = "By using this Banking Management System, you agree to these Terms and Conditions." +
     " If you do not agree with any part of these terms, you must not use the system.";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -103,6 +107,7 @@
             this.textBox2.TabIndex = 42;
             this.textBox2.Text = "You must be at least 18 years old to create an account and use our services. By u" +
     "sing this system, you represent and warrant that you meet this age requirement.";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
@@ -113,6 +118,7 @@
             this.label1.Size = new System.Drawing.Size(58, 24);
             this.label1.TabIndex = 41;
             this.label1.Text = "Eligibility";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox3
             // 
@@ -126,6 +132,7 @@
             this.textBox3.Size = new System.Drawing.Size(689, 155);
             this.textBox3.TabIndex = 44;
             this.textBox3.Text = resources.GetString("textBox3.Text");
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label2
             // 
@@ -136,6 +143,7 @@
             this.label2.Size = new System.Drawing.Size(130, 24);
             this.label2.TabIndex = 43;
             this.label2.Text = "Account Registration";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox4
             // 
@@ -150,6 +158,7 @@
             this.textBox4.TabIndex = 46;
             this.textBox4.Text = "Your use of the Banking Management System is also governed by our Privacy Policy," +
     " which explains how we collect, use, and protect your personal information.\r\n";
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label3
             // 
@@ -160,6 +169,7 @@
             this.label3.Size = new System.Drawing.Size(88, 24);
             this.label3.TabIndex = 45;
             this.label3.Text = "Privacy Policy";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox5
             // 
@@ -175,6 +185,7 @@
             this.textBox5.Text = "We may update these Terms and Conditions from time to time. We will notify you of" +
     " any changes by posting the new terms on this page. You are advised to review th" +
     "ese terms periodically for any changes";
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label4
             // 
@@ -185,10 +196,12 @@
             this.label4.Size = new System.Drawing.Size(115, 24);
             this.label4.TabIndex = 47;
             this.label4.Text = "Changes to Terms";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.textBox8);
             this.panel1.Controls.Add(this.label7);
@@ -216,28 +229,66 @@
             this.panel1.TabIndex = 49;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // textBox6
+            // linkLabel1
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Agency FB", 12F);
-            this.textBox6.Location = new System.Drawing.Point(134, 722);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(694, 55);
-            this.textBox6.TabIndex = 50;
-            this.textBox6.Text = resources.GetString("textBox6.Text");
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Agency FB", 12F);
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabel1.Location = new System.Drawing.Point(130, 911);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(171, 24);
+            this.linkLabel1.TabIndex = 58;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "AskariDigitalOTP@gmail.com";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // label5
+            // textBox8
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 691);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 24);
-            this.label5.TabIndex = 49;
-            this.label5.Text = "Governing Law";
+            this.textBox8.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Enabled = false;
+            this.textBox8.Font = new System.Drawing.Font("Agency FB", 12F);
+            this.textBox8.Location = new System.Drawing.Point(134, 880);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(694, 55);
+            this.textBox8.TabIndex = 56;
+            this.textBox8.Text = "If you have any questions or concerns about these Terms and Conditions, please co" +
+    "ntact us at ";
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 857);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 24);
+            this.label7.TabIndex = 55;
+            this.label7.Text = "Contact Information";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(134, 1008);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(334, 33);
+            this.button2.TabIndex = 54;
+            this.button2.Text = "Reject";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Accept_Terms_and_Condition_btn_Page_Form
+            // 
+            this.Accept_Terms_and_Condition_btn_Page_Form.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.Accept_Terms_and_Condition_btn_Page_Form.Location = new System.Drawing.Point(518, 1008);
+            this.Accept_Terms_and_Condition_btn_Page_Form.Name = "Accept_Terms_and_Condition_btn_Page_Form";
+            this.Accept_Terms_and_Condition_btn_Page_Form.Size = new System.Drawing.Size(334, 33);
+            this.Accept_Terms_and_Condition_btn_Page_Form.TabIndex = 53;
+            this.Accept_Terms_and_Condition_btn_Page_Form.Text = "Accept ";
+            this.Accept_Terms_and_Condition_btn_Page_Form.UseVisualStyleBackColor = false;
+            this.Accept_Terms_and_Condition_btn_Page_Form.Click += new System.EventHandler(this.Accept_Terms_and_Condition_btn_Page_Form_Click);
             // 
             // textBox7
             // 
@@ -264,50 +315,30 @@
             this.label6.Text = "Termination";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // Accept_Terms_and_Condition_btn_Page_Form
+            // textBox6
             // 
-            this.Accept_Terms_and_Condition_btn_Page_Form.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.Accept_Terms_and_Condition_btn_Page_Form.Location = new System.Drawing.Point(518, 1008);
-            this.Accept_Terms_and_Condition_btn_Page_Form.Name = "Accept_Terms_and_Condition_btn_Page_Form";
-            this.Accept_Terms_and_Condition_btn_Page_Form.Size = new System.Drawing.Size(334, 33);
-            this.Accept_Terms_and_Condition_btn_Page_Form.TabIndex = 53;
-            this.Accept_Terms_and_Condition_btn_Page_Form.Text = "Accept ";
-            this.Accept_Terms_and_Condition_btn_Page_Form.UseVisualStyleBackColor = false;
-            this.Accept_Terms_and_Condition_btn_Page_Form.Click += new System.EventHandler(this.Accept_Terms_and_Condition_btn_Page_Form_Click);
+            this.textBox6.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Enabled = false;
+            this.textBox6.Font = new System.Drawing.Font("Agency FB", 12F);
+            this.textBox6.Location = new System.Drawing.Point(134, 722);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(694, 55);
+            this.textBox6.TabIndex = 50;
+            this.textBox6.Text = resources.GetString("textBox6.Text");
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
-            // button2
+            // label5
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(134, 1008);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(334, 33);
-            this.button2.TabIndex = 54;
-            this.button2.Text = "Reject";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Agency FB", 12F);
-            this.textBox8.Location = new System.Drawing.Point(134, 880);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(694, 55);
-            this.textBox8.TabIndex = 56;
-            this.textBox8.Text = "If you have any questions or concerns about these Terms and Conditions, please co" +
-    "ntact us at AskariDigitalOTP@gmail.com\r\n.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 857);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 24);
-            this.label7.TabIndex = 55;
-            this.label7.Text = "Contact Information";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 691);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 24);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "Governing Law";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox3
             // 
@@ -318,8 +349,9 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 57;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // Terms_and_Conditions
+            // Terms_and_Conditions_SigupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -327,7 +359,7 @@
             this.ClientSize = new System.Drawing.Size(924, 803);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Terms_and_Conditions";
+            this.Name = "Terms_and_Conditions_SigupForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Terms_and_Conditions";
             this.Load += new System.EventHandler(this.Terms_and_Conditions_Load);
@@ -360,5 +392,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

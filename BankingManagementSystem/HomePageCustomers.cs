@@ -67,8 +67,9 @@ namespace BankingManagementSystem
 
         private void TermsAndConditions_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            Terms_and_Conditions terms_And_Conditions = new Terms_and_Conditions(); 
-            terms_And_Conditions.Show();    
+            TermsAndCondition_HomePageUser termsAndCondition_HomePageUser = new TermsAndCondition_HomePageUser();
+            termsAndCondition_HomePageUser.Show();
+            
         }
     }
 }

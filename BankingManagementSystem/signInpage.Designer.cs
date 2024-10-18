@@ -123,6 +123,7 @@
             this.Username_txtBox_signinForm.Size = new System.Drawing.Size(312, 24);
             this.Username_txtBox_signinForm.TabIndex = 7;
             this.Username_txtBox_signinForm.UseWaitCursor = true;
+            this.Username_txtBox_signinForm.TextChanged += new System.EventHandler(this.Username_txtBox_signinForm_TextChanged);
             // 
             // Passworde_txtBox_signinForm
             // 

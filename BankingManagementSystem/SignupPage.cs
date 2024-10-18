@@ -49,7 +49,7 @@ namespace BankingManagementSystem
             //    EnterOTP_txtBox_SignupUserForm.ForeColor= Color.Red;
             //    MessageBox.Show("OTP does not Match");
             //}
-            Terms_and_Conditions terms_And_Conditions = new Terms_and_Conditions();
+            Terms_and_Conditions_SigupForm terms_And_Conditions = new Terms_and_Conditions_SigupForm();
             this.Hide();
             terms_And_Conditions.Show();
         }

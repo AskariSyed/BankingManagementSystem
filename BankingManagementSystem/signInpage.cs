@@ -52,5 +52,10 @@ namespace BankingManagementSystem
             ForgotPassword forgotPassword = new ForgotPassword();   
             forgotPassword.Show();
         }
+
+        private void Username_txtBox_signinForm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
