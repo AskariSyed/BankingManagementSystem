@@ -117,23 +117,23 @@
             // 
             this.Username_txtBox_signinForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Username_txtBox_signinForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Username_txtBox_signinForm.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.Username_txtBox_signinForm.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Username_txtBox_signinForm.Location = new System.Drawing.Point(667, 314);
             this.Username_txtBox_signinForm.Name = "Username_txtBox_signinForm";
             this.Username_txtBox_signinForm.Size = new System.Drawing.Size(312, 24);
             this.Username_txtBox_signinForm.TabIndex = 7;
-            this.Username_txtBox_signinForm.UseWaitCursor = true;
             this.Username_txtBox_signinForm.TextChanged += new System.EventHandler(this.Username_txtBox_signinForm_TextChanged);
             // 
             // Passworde_txtBox_signinForm
             // 
             this.Passworde_txtBox_signinForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Passworde_txtBox_signinForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Passworde_txtBox_signinForm.UseSystemPasswordChar = true;
             this.Passworde_txtBox_signinForm.Location = new System.Drawing.Point(667, 446);
             this.Passworde_txtBox_signinForm.Name = "Passworde_txtBox_signinForm";
-            this.Passworde_txtBox_signinForm.PasswordChar = '*';
             this.Passworde_txtBox_signinForm.Size = new System.Drawing.Size(312, 24);
             this.Passworde_txtBox_signinForm.TabIndex = 8;
+            this.Passworde_txtBox_signinForm.TextChanged += new System.EventHandler(this.Passworde_txtBox_signinForm_TextChanged);
             // 
             // Signup_instr_label_signinForm
             // 
@@ -162,6 +162,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(831, 476);
             this.checkBox1.Name = "checkBox1";
@@ -169,6 +170,7 @@
             this.checkBox1.TabIndex = 13;
             this.checkBox1.Text = "Show Password";
             this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // SignIn_btn_SigninForm
             // 

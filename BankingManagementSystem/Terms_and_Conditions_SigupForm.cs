@@ -40,7 +40,7 @@ namespace BankingManagementSystem
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            panel1.AutoScrollPosition = new Point(0, 0);
+           
 
         }
 

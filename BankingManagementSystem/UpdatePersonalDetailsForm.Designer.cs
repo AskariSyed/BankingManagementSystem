@@ -106,6 +106,7 @@
             this.Account_Statment_btn_UpdatePersonalINfor_Form.TabIndex = 9;
             this.Account_Statment_btn_UpdatePersonalINfor_Form.Text = "Account Statement";
             this.Account_Statment_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
+            this.Account_Statment_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Account_Statment_btn_UpdatePersonalINfor_Form_Click);
             // 
             // Privacy_And_Security_btn_UpdatePersonalINfor_Form
             // 

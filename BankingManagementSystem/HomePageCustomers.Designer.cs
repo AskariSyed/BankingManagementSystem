@@ -60,6 +60,13 @@ namespace BankingManagementSystem
             this.AC_Title_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
             this.AccountTitle_Label_HomePageUSer = new System.Windows.Forms.Label();
             this.Recent_Transaction_label_HOmePageUSerForm = new System.Windows.Forms.Label();
+            this.TransactionsTable_HomePageUser = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -67,6 +74,7 @@ namespace BankingManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).BeginInit();
             this.SuspendLayout();
             // 
             // SideLeft_panel_HomePageForm
@@ -410,11 +418,90 @@ namespace BankingManagementSystem
             this.Recent_Transaction_label_HOmePageUSerForm.TabIndex = 39;
             this.Recent_Transaction_label_HOmePageUSerForm.Text = "Recent Transactions";
             // 
+            // TransactionsTable_HomePageUser
+            // 
+            this.TransactionsTable_HomePageUser.AllowUserToAddRows = false;
+            this.TransactionsTable_HomePageUser.AllowUserToDeleteRows = false;
+            this.TransactionsTable_HomePageUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.TransactionsTable_HomePageUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.TransactionsTable_HomePageUser.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.TransactionsTable_HomePageUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.TransactionsTable_HomePageUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TransactionsTable_HomePageUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.TransactionsTable_HomePageUser.Location = new System.Drawing.Point(308, 590);
+            this.TransactionsTable_HomePageUser.Name = "TransactionsTable_HomePageUser";
+            this.TransactionsTable_HomePageUser.ReadOnly = true;
+            this.TransactionsTable_HomePageUser.RowHeadersWidth = 51;
+            this.TransactionsTable_HomePageUser.RowTemplate.Height = 24;
+            this.TransactionsTable_HomePageUser.Size = new System.Drawing.Size(812, 138);
+            this.TransactionsTable_HomePageUser.TabIndex = 40;
+            this.TransactionsTable_HomePageUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransactionsTable_HomePageUser_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Transaction ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 123;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Transaction Type";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Transaction Date";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 128;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 104;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Branch ID";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 87;
+            // 
             // HomePageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 803);
+            this.Controls.Add(this.TransactionsTable_HomePageUser);
             this.Controls.Add(this.Recent_Transaction_label_HOmePageUSerForm);
             this.Controls.Add(this.AC_Title_Detail_HomepageUSerForm);
             this.Controls.Add(this.AccountTitle_Label_HomePageUSer);
@@ -449,6 +536,7 @@ namespace BankingManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,6 +573,13 @@ namespace BankingManagementSystem
         private Label AC_Title_Detail_HomepageUSerForm;
         private Label AccountTitle_Label_HomePageUSer;
         private Label Recent_Transaction_label_HOmePageUSerForm;
+        private DataGridView TransactionsTable_HomePageUser;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 
 

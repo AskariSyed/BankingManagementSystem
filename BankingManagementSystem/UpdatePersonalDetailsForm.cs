@@ -19,6 +19,7 @@ namespace BankingManagementSystem
         public UpdatePersonalDetailsForm()
         {
             InitializeComponent();
+         
         }
 
         private void UpdatePersonalDetailsForm_Load(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace BankingManagementSystem
         private void HomePage_Update_personalInfo_btn_Form_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HomePageCustomers homePageCustomers = new HomePageCustomers();
+            HomePageCustomers homePageCustomers = new HomePageCustomers(GlobalData.CurrentCustomer);
             homePageCustomers.Show();
         }
 
@@ -144,6 +145,11 @@ namespace BankingManagementSystem
                 EnterOTP_txtBox_UpdateUserInfoForm.Text = "Enter OTP"; // Reset the default text if left empty
                 EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Gray; // Set the text color back to gray
             }
+        }
+
+        private void Account_Statment_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -266,7 +266,7 @@
             // 
             // panel1
             // 
-            this.panel1.AutoScroll = true;
+            this.panel1.AutoScroll = false;
             this.panel1.Controls.Add(this.Exit_btn_TermsandCondition_HomePageFormUser);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.pictureBox3);
