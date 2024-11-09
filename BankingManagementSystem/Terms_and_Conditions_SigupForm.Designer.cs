@@ -45,7 +45,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.RejectButton_Sigupform = new System.Windows.Forms.Button();
             this.Accept_Terms_and_Condition_btn_Page_Form = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -205,7 +205,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.textBox8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.RejectButton_Sigupform);
             this.panel1.Controls.Add(this.Accept_Terms_and_Condition_btn_Page_Form);
             this.panel1.Controls.Add(this.textBox7);
             this.panel1.Controls.Add(this.label6);
@@ -279,16 +279,16 @@
             this.label7.Text = "Contact Information";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // button2
+            // RejectButton_Sigupform
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(134, 1008);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(334, 33);
-            this.button2.TabIndex = 54;
-            this.button2.Text = "Reject";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.RejectButton_Sigupform.BackColor = System.Drawing.Color.Red;
+            this.RejectButton_Sigupform.Location = new System.Drawing.Point(134, 1008);
+            this.RejectButton_Sigupform.Name = "RejectButton_Sigupform";
+            this.RejectButton_Sigupform.Size = new System.Drawing.Size(334, 33);
+            this.RejectButton_Sigupform.TabIndex = 54;
+            this.RejectButton_Sigupform.Text = "Reject";
+            this.RejectButton_Sigupform.UseVisualStyleBackColor = false;
+            this.RejectButton_Sigupform.Click += new System.EventHandler(this.RejectButton_Sigupform_Click);
             // 
             // Accept_Terms_and_Condition_btn_Page_Form
             // 
@@ -389,7 +389,7 @@
         private System.Windows.Forms.Button Accept_Terms_and_Condition_btn_Page_Form;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button RejectButton_Sigupform;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel linkLabel1;
     }

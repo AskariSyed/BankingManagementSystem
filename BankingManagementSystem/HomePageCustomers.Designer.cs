@@ -363,6 +363,7 @@ namespace BankingManagementSystem
             this.Account_type_Detail_label_HomePageUserInfoForm.Size = new System.Drawing.Size(54, 24);
             this.Account_type_Detail_label_HomePageUserInfoForm.TabIndex = 35;
             this.Account_type_Detail_label_HomePageUserInfoForm.Text = "Savings";
+            this.Account_type_Detail_label_HomePageUserInfoForm.Click += new System.EventHandler(this.Account_type_Detail_label_HomePageUserInfoForm_Click);
             // 
             // Account_type_label_HomeUSerSiginForm
             // 
@@ -450,7 +451,7 @@ namespace BankingManagementSystem
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 123;
+            this.dataGridViewTextBoxColumn1.Width = 113;
             // 
             // dataGridViewTextBoxColumn2
             // 

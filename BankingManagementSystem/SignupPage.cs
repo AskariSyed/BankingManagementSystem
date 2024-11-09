@@ -6,15 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BankingManagementSystem
 {
     public partial class SignupPage : Form
     {
-        String randomCode;
+        String randomCode=null;
         public SignupPage()
         {
             InitializeComponent();
@@ -39,20 +42,197 @@ namespace BankingManagementSystem
 
         private void Signup_Btn_SignupScreen_Click(object sender, EventArgs e)
         {
-            //if (randomCode == (EnterOTP_txtBox_SignupUserForm.Text.ToString())){
-            //    EnterOTP_txtBox_SignupUserForm.ForeColor = Color.Green;
-            //    MessageBox.Show("Email Verified Successfully");
+            string username = Username_txtBox_signUpForm.Text;
+            string name = Name_txtBox_signUpForm.Text;
+            string cnic = Cnic_maskedtextbox_signupform.Text;
+            string address = Address_txtbox_SignupForm.Text;
+            DateTime dob = dateTimePicker_Signuppage.Value;
+            string accountType = AccountTypeComboBox.Text;
+            string contactNumber = ContactNumber_MaskedTextBox_sigupform.Text;
+            string password = Password_txtBox_signUpForm.Text;
+            string confirmPassword = ConfirmPassword_txtBox_SgnupuserPAge.Text;
+            string email = Email_txtBox_Sigupfrom.Text;
 
-            //}
-            //else
-            //{
-            //    EnterOTP_txtBox_SignupUserForm.ForeColor= Color.Red;
-            //    MessageBox.Show("OTP does not Match");
-            //}
-            Terms_and_Conditions_SigupForm terms_And_Conditions = new Terms_and_Conditions_SigupForm();
-            this.Hide();
-            terms_And_Conditions.Show();
+            int accountTypeID = 0;
+
+            if (username == ""|| name == "" || cnic == "" || address == ""|| accountType == "" || contactNumber == "" || password == "")
+            {
+                MessageBox.Show("All Fields are Mandatory \n please fill the form completely");
+                return;
+            }
+
+            if(username.Contains(" "))
+            {
+                MessageBox.Show("Username Could Not contain blank Spaces");
+                return;
+            }
+
+
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM USERS WHERE USERNAME = :username";
+
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("username", username));
+
+                    int usernameCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (usernameCount > 0)
+                    {
+                        MessageBox.Show("Username already exists. Please choose a different username.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username is available.", "Username Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                
+            }
+
+
+            switch (accountType)
+            {
+                case "Savings":
+                    {
+                        accountTypeID = 1;
+                        break;
+                    }
+                case "Current":
+                    {
+                        accountTypeID = 2;
+                        break;
+                    }
+                case "Fixed Deposit":
+                    {
+                        accountTypeID = 3;
+                        break;
+                    }
+                case "Joint Account":
+                    {
+                        accountTypeID = 4;
+                        break;
+                    }
+            }
+            int newCustomerID = 0;
+
+            string dobFormatted = dob.ToString("yyyy-MM-dd");
+
+
+            string selectedCity = Branch_ComboBox_SigupPAge.SelectedItem.ToString();
+            int selectedBranchID = 0;
+
+            if (GlobalData.cityBranchIDs.ContainsKey(selectedCity))
+            {
+                selectedBranchID = GlobalData.cityBranchIDs[selectedCity];
+                MessageBox.Show($"Selected Branch ID: {selectedBranchID}");
+            }
+            else
+            {
+                selectedBranchID = 0;
+                MessageBox.Show("PLease select a branch");
+                return;
+            }
+            if (selectedBranchID == 0)
+            {
+                MessageBox.Show("Please Select A Branch ", "Select a Branch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DateTime today = DateTime.Today;
+            DateTime eighteenYearsAgo = today.AddYears(-18);
+
+            if (dob > eighteenYearsAgo)
+            {
+                MessageBox.Show("You must be at least 18 years old to sign up.", "Age Restriction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (password != confirmPassword)
+            {
+                MessageBox.Show("Both Passwords doesn't Match", "Re-Enter Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidPassword(password))
+            {
+                MessageBox.Show("Password is Invalid \n It Should Contain \n One Upper Case\n One Special Character \n and no Space", "Invalid Password ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (randomCode == null)
+            {
+                MessageBox.Show("Please Verify The Email First", "Verify Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (randomCode != EnterOTP_txtBox_SignupUserForm.Text)
+            {
+                MessageBox.Show("Invalid OTP", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (randomCode == EnterOTP_txtBox_SignupUserForm.Text)
+            {
+                bool isUnique = false;
+                long AccountNumberAssigned = 0;
+                Random random = new Random();
+
+                Terms_and_Conditions_SigupForm terms_And_Conditions = new Terms_and_Conditions_SigupForm();
+                this.Hide();
+                terms_And_Conditions.Show();
+
+                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                {
+                    conn.Open();
+
+                    while (!isUnique)
+                    {
+                        AccountNumberAssigned = (long)(random.Next(100000, 1000000)) * 10000 + random.Next(10000, 100000);
+                        string query = "SELECT COUNT(*) FROM Account WHERE account_id = :accountId";
+
+                        using (OracleCommand cmd = new OracleCommand(query, conn))
+                        {
+                            cmd.Parameters.Add(new OracleParameter("accountId", AccountNumberAssigned));
+                            int count = Convert.ToInt32(cmd.ExecuteScalar());
+                            if (count == 0)
+                            {
+                                isUnique = true;
+                                MessageBox.Show($"Unique Account Number Assigned: {AccountNumberAssigned}");
+                            }
+                        }
+                    }
+
+                    string getMaxCustomerIdQuery = "SELECT MAX(customer_ID) FROM CUSTOMERS";
+                    try
+                    {
+                        using (OracleCommand cmd = new OracleCommand(getMaxCustomerIdQuery, conn))
+                        {
+                            object result = cmd.ExecuteScalar();
+                            int maxCustomerId = (result != DBNull.Value) ? Convert.ToInt32(result) : 0;
+                            newCustomerID = maxCustomerId + 1;
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("New customer Id is : " + newCustomerID, "New Customer ID");
+                    //Here i want to call UpdateTabels method
+
+                    UpdateTable(username, name, cnic, address, dobFormatted, accountTypeID, contactNumber, password, email, selectedBranchID, AccountNumberAssigned, newCustomerID);
+
+
+
+                }
+
+
+
+          
+            }
         }
+
+
 
         private void EmailGenerateOTP_btn_SignupUSerForm_Click(object sender, EventArgs e)
 
@@ -141,5 +321,104 @@ namespace BankingManagementSystem
                 EnterOTP_txtBox_SignupUserForm.ForeColor = System.Drawing.Color.Gray; // Set the text color back to gray
             }
         }
+
+        public bool IsValidPassword(string input)
+        {
+            bool hasCapital = input.Any(char.IsUpper);
+            bool hasDigit = input.Any(char.IsDigit);
+            bool hasSpecial = input.Any(c => !char.IsLetterOrDigit(c));
+            bool hasNoSpace = !input.Contains(" ");
+
+            return hasCapital && hasDigit && hasSpecial && hasNoSpace;
+        }
+
+
+        private void UpdateTable(string username, string name, string cnic, string address, string dobFormatted, int accountTypeiD,
+                              string contactNumber, string password, string email, int selectedBranchID, long accountNumberAssigned,int newcustomerID)
+        {
+            // Assuming UpdateTables will handle the logic of inserting data into your relevant tables
+            string userID = "CUS" + newcustomerID.ToString();
+
+            string userInsertQuery = @"
+        INSERT INTO users (USER_ID, USERNAME, PASSWORDHASH, ROLE, LAST_LOGIN, EMAIL, CUSTOMER_ID)
+        VALUES (:USER_ID, :USERNAME, :PASSWORDHASH, 'Customer', CURRENT_TIMESTAMP, :EMAIL, :CUSTOMER_ID)";
+
+            string customerInsertQuery = @"
+        INSERT INTO customers (CUSTOMER_ID, NAME, DATE_OF_BIRTH, ADDRESS, CONTACT_NUMBER, EMAIL, NATIONAL_ID, DATE_JOINED, CUSTOMER_TYPE, USER_ID)
+        VALUES (:CUSTOMER_ID, :NAME, TO_DATE(:DATE_OF_BIRTH, 'YYYY-MM-DD'), :ADDRESS, :CONTACT_NUMBER, :EMAIL, :CNIC, CURRENT_DATE, 'Standard', :USER_ID)";
+
+            string accountInsertQuery = @"
+        INSERT INTO account (ACCOUNT_ID, CUSTOMER_ID, ACCOUNT_BALANCE, DATE_OPENED, STATUS, BRANCH_ID, ACCOUNT_TYPE)
+        VALUES (:ACCOUNT_ID, :CUSTOMER_ID, 0.00, CURRENT_DATE, 'Active', :BRANCH_ID, :ACCOUNT_TYPE)";
+
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                {
+                    conn.Open();
+                    using (OracleTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+
+                         
+
+                            // Insert into Customers table
+                            using (OracleCommand customerCmd = new OracleCommand(customerInsertQuery, conn))
+                            {
+                                customerCmd.Parameters.Add(":CUSTOMER_ID", OracleDbType.Int32).Value = newcustomerID;
+                                customerCmd.Parameters.Add(":NAME", OracleDbType.Varchar2).Value = name;
+                                customerCmd.Parameters.Add(":DATE_OF_BIRTH", OracleDbType.Varchar2).Value = dobFormatted;
+                                customerCmd.Parameters.Add(":ADDRESS", OracleDbType.Varchar2).Value = address;
+                                customerCmd.Parameters.Add(":CONTACT_NUMBER", OracleDbType.Varchar2).Value = contactNumber;
+                                customerCmd.Parameters.Add(":EMAIL", OracleDbType.Varchar2).Value = email;
+                                customerCmd.Parameters.Add(":CNIC", OracleDbType.Varchar2).Value = cnic;
+                                customerCmd.Parameters.Add(":USER_ID", OracleDbType.Varchar2).Value = userID;
+
+                                customerCmd.ExecuteNonQuery();
+                            }
+
+                            using (OracleCommand userCmd = new OracleCommand(userInsertQuery, conn))
+                            {
+                                userCmd.Parameters.Add(":USER_ID", OracleDbType.Varchar2).Value = userID;
+                                userCmd.Parameters.Add(":USERNAME", OracleDbType.Varchar2).Value = username;
+                                userCmd.Parameters.Add(":PASSWORDHASH", OracleDbType.Varchar2).Value = password;
+                                userCmd.Parameters.Add(":EMAIL", OracleDbType.Varchar2).Value = email;
+                                userCmd.Parameters.Add(":CUSTOMER_ID", OracleDbType.Int32).Value = newcustomerID;
+
+                                userCmd.ExecuteNonQuery();
+                            }
+
+                            // Insert into Account table
+                            using (OracleCommand accountCmd = new OracleCommand(accountInsertQuery, conn))
+                            {
+                                accountCmd.Parameters.Add(":ACCOUNT_ID", OracleDbType.Int64).Value = accountNumberAssigned;
+                                accountCmd.Parameters.Add(":CUSTOMER_ID", OracleDbType.Int32).Value = newcustomerID;
+                                accountCmd.Parameters.Add(":BRANCH_ID", OracleDbType.Int32).Value = selectedBranchID;
+                                accountCmd.Parameters.Add(":ACCOUNT_TYPE", OracleDbType.Int32).Value = Convert.ToInt32(accountTypeiD);
+
+                                accountCmd.ExecuteNonQuery();
+                            }
+
+                            // Commit transaction
+                            transaction.Commit();
+                            MessageBox.Show("Customer and Account data inserted successfully!");
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback transaction on error
+                            transaction.Rollback();
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inserting data: " + ex.Message);
+            }
+        }
     }
+
+
 }

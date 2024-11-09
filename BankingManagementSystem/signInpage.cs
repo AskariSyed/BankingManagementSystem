@@ -48,14 +48,11 @@ namespace BankingManagementSystem
             string username = Username_txtBox_signinForm.Text;
             string password = Passworde_txtBox_signinForm.Text;
 
-            string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
-            using (OracleConnection conn = new OracleConnection(connString))
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
             {
                 try
                 {
                     conn.Open();
-
-                    // First, validate the user and get their CUSTOMER_ID from USERS table
                     string query = "SELECT CUSTOMER_ID FROM USERS WHERE EMAIL = :username AND PASSWORDHASH = :password";
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {

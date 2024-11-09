@@ -127,11 +127,6 @@ namespace BankingManagementSystem
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -150,6 +145,12 @@ namespace BankingManagementSystem
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RejectButton_Sigupform_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            signInpage signInpage = new signInpage();
         }
     }
 }

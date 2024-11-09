@@ -57,9 +57,8 @@ namespace BankingManagementSystem
             this.userID = UserID;   
             this.customerId= customerID;
 
-            string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
 
-            using (OracleConnection conn = new OracleConnection(connString))
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
             {
                 try
                 {
@@ -92,8 +91,7 @@ namespace BankingManagementSystem
 
         private void LoadCustomerByUserID()
         {
-            string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
-            using (OracleConnection conn = new OracleConnection(connString))
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
             {
                 try
                 {
@@ -123,8 +121,7 @@ namespace BankingManagementSystem
         }
         private void LoadCustomerByCustomerID()
         {
-            string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
-            using (OracleConnection conn = new OracleConnection(connString))
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
             {
                 try
                 {

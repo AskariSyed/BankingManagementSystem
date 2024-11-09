@@ -36,19 +36,19 @@
             this.Username_label_signUpForm = new System.Windows.Forms.Label();
             this.signUp_label_signUpForm = new System.Windows.Forms.Label();
             this.SignIn_instr_label_signupForm = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ConfirmPassword_txtBox_SgnupuserPAge = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Cnic_maskedtextbox_signupform = new System.Windows.Forms.MaskedTextBox();
             this.DateOfBirth_label_signuppage = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_Signuppage = new System.Windows.Forms.DateTimePicker();
             this.Email_label_signupForm = new System.Windows.Forms.Label();
             this.Address_label_signupForm = new System.Windows.Forms.Label();
             this.ContactNumber_label_signupForm = new System.Windows.Forms.Label();
             this.ContactNumber_MaskedTextBox_sigupform = new System.Windows.Forms.MaskedTextBox();
             this.ChooseAccountType_Label_signupForm = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.AccountTypeComboBox = new System.Windows.Forms.ComboBox();
             this.Signup_Btn_SignupScreen = new System.Windows.Forms.Button();
             this.AKBL_logoimage_picturebox_signUp_page = new System.Windows.Forms.PictureBox();
             this.EnterOTP_txtBox_SignupUserForm = new System.Windows.Forms.TextBox();
@@ -57,6 +57,8 @@
             this.Username_txtBox_signUpForm = new System.Windows.Forms.TextBox();
             this.Name_txtBox_signUpForm = new System.Windows.Forms.TextBox();
             this.Address_txtbox_SignupForm = new System.Windows.Forms.TextBox();
+            this.Branch_ComboBox_SigupPAge = new System.Windows.Forms.ComboBox();
+            this.Branch_Label_SignUpForm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AKBL_logoimage_picturebox_signUp_page)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,15 +143,15 @@
             this.SignIn_instr_label_signupForm.TabIndex = 12;
             this.SignIn_instr_label_signupForm.Text = "Already have an account?";
             // 
-            // textBox1
+            // ConfirmPassword_txtBox_SgnupuserPAge
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(835, 585);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(312, 15);
-            this.textBox1.TabIndex = 22;
+            this.ConfirmPassword_txtBox_SgnupuserPAge.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ConfirmPassword_txtBox_SgnupuserPAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ConfirmPassword_txtBox_SgnupuserPAge.Location = new System.Drawing.Point(835, 585);
+            this.ConfirmPassword_txtBox_SgnupuserPAge.Name = "ConfirmPassword_txtBox_SgnupuserPAge";
+            this.ConfirmPassword_txtBox_SgnupuserPAge.PasswordChar = '*';
+            this.ConfirmPassword_txtBox_SgnupuserPAge.Size = new System.Drawing.Size(312, 15);
+            this.ConfirmPassword_txtBox_SgnupuserPAge.TabIndex = 22;
             // 
             // label1
             // 
@@ -200,14 +202,14 @@
             this.DateOfBirth_label_signuppage.TabIndex = 28;
             this.DateOfBirth_label_signuppage.Text = "Date Of Birth";
             // 
-            // dateTimePicker1
+            // dateTimePicker_Signuppage
             // 
-            this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePicker1.Location = new System.Drawing.Point(835, 382);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(298, 22);
-            this.dateTimePicker1.TabIndex = 29;
-            this.dateTimePicker1.Value = new System.DateTime(2024, 10, 14, 0, 0, 0, 0);
+            this.dateTimePicker_Signuppage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateTimePicker_Signuppage.Location = new System.Drawing.Point(835, 382);
+            this.dateTimePicker_Signuppage.Name = "dateTimePicker_Signuppage";
+            this.dateTimePicker_Signuppage.Size = new System.Drawing.Size(298, 22);
+            this.dateTimePicker_Signuppage.TabIndex = 29;
+            this.dateTimePicker_Signuppage.Value = new System.DateTime(2024, 10, 14, 0, 0, 0, 0);
             // 
             // Email_label_signupForm
             // 
@@ -258,19 +260,19 @@
             this.ChooseAccountType_Label_signupForm.TabIndex = 36;
             this.ChooseAccountType_Label_signupForm.Text = "Choose Account Type ";
             // 
-            // comboBox1
+            // AccountTypeComboBox
             // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.AccountTypeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AccountTypeComboBox.FormattingEnabled = true;
+            this.AccountTypeComboBox.Items.AddRange(new object[] {
             "Savings",
             "Current",
             "Fixed Deposit",
             "Joint Account"});
-            this.comboBox1.Location = new System.Drawing.Point(108, 496);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(312, 24);
-            this.comboBox1.TabIndex = 37;
+            this.AccountTypeComboBox.Location = new System.Drawing.Point(108, 496);
+            this.AccountTypeComboBox.Name = "AccountTypeComboBox";
+            this.AccountTypeComboBox.Size = new System.Drawing.Size(312, 24);
+            this.AccountTypeComboBox.TabIndex = 37;
             // 
             // Signup_Btn_SignupScreen
             // 
@@ -359,6 +361,47 @@
             this.Address_txtbox_SignupForm.Size = new System.Drawing.Size(312, 91);
             this.Address_txtbox_SignupForm.TabIndex = 47;
             // 
+            // Branch_ComboBox_SigupPAge
+            // 
+            this.Branch_ComboBox_SigupPAge.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Branch_ComboBox_SigupPAge.FormattingEnabled = true;
+            this.Branch_ComboBox_SigupPAge.Items.AddRange(new object[] {
+            "Islamabad",
+            "Karachi",
+            "Lahore",
+            "Peshawar",
+            "Quetta",
+            "Rawalpindi",
+            "Multan",
+            "Faisalabad",
+            "Sialkot",
+            "Gujranwala",
+            "Sukkur",
+            "Abbottabad",
+            "Bahawalpur",
+            "Sargodha",
+            "Mardan",
+            "Dera Ghazi Khan",
+            "Larkana",
+            "Jhelum",
+            "Mirpur",
+            "Muzaffarabad",
+            "Rahim Yar Khan"});
+            this.Branch_ComboBox_SigupPAge.Location = new System.Drawing.Point(834, 496);
+            this.Branch_ComboBox_SigupPAge.Name = "Branch_ComboBox_SigupPAge";
+            this.Branch_ComboBox_SigupPAge.Size = new System.Drawing.Size(308, 24);
+            this.Branch_ComboBox_SigupPAge.TabIndex = 48;
+            // 
+            // Branch_Label_SignUpForm
+            // 
+            this.Branch_Label_SignUpForm.AutoSize = true;
+            this.Branch_Label_SignUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.Branch_Label_SignUpForm.Location = new System.Drawing.Point(831, 450);
+            this.Branch_Label_SignUpForm.Name = "Branch_Label_SignUpForm";
+            this.Branch_Label_SignUpForm.Size = new System.Drawing.Size(81, 23);
+            this.Branch_Label_SignUpForm.TabIndex = 49;
+            this.Branch_Label_SignUpForm.Text = "Branch";
+            // 
             // SignupPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -367,6 +410,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1244, 850);
+            this.Controls.Add(this.Branch_Label_SignUpForm);
+            this.Controls.Add(this.Branch_ComboBox_SigupPAge);
             this.Controls.Add(this.Address_txtbox_SignupForm);
             this.Controls.Add(this.Name_txtBox_signUpForm);
             this.Controls.Add(this.Username_txtBox_signUpForm);
@@ -374,18 +419,18 @@
             this.Controls.Add(this.EmailGenerateOTP_btn_SignupUSerForm);
             this.Controls.Add(this.EnterOTP_txtBox_SignupUserForm);
             this.Controls.Add(this.Signup_Btn_SignupScreen);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.AccountTypeComboBox);
             this.Controls.Add(this.ChooseAccountType_Label_signupForm);
             this.Controls.Add(this.ContactNumber_MaskedTextBox_sigupform);
             this.Controls.Add(this.ContactNumber_label_signupForm);
             this.Controls.Add(this.Address_label_signupForm);
             this.Controls.Add(this.Email_label_signupForm);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker_Signuppage);
             this.Controls.Add(this.DateOfBirth_label_signuppage);
             this.Controls.Add(this.Cnic_maskedtextbox_signupform);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ConfirmPassword_txtBox_SgnupuserPAge);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Exit_btn_signinForm);
             this.Controls.Add(this.SignIn_btn_signUpForm);
@@ -419,19 +464,19 @@
         private System.Windows.Forms.Label Username_label_signUpForm;
         private System.Windows.Forms.Label signUp_label_signUpForm;
         private System.Windows.Forms.Label SignIn_instr_label_signupForm;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ConfirmPassword_txtBox_SgnupuserPAge;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox Cnic_maskedtextbox_signupform;
         private System.Windows.Forms.Label DateOfBirth_label_signuppage;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Signuppage;
         private System.Windows.Forms.Label Email_label_signupForm;
         private System.Windows.Forms.Label Address_label_signupForm;
         private System.Windows.Forms.Label ContactNumber_label_signupForm;
         private System.Windows.Forms.MaskedTextBox ContactNumber_MaskedTextBox_sigupform;
         private System.Windows.Forms.Label ChooseAccountType_Label_signupForm;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox AccountTypeComboBox;
         private System.Windows.Forms.Button Signup_Btn_SignupScreen;
         private System.Windows.Forms.TextBox EnterOTP_txtBox_SignupUserForm;
         private System.Windows.Forms.Button EmailGenerateOTP_btn_SignupUSerForm;
@@ -439,5 +484,7 @@
         private System.Windows.Forms.TextBox Username_txtBox_signUpForm;
         private System.Windows.Forms.TextBox Name_txtBox_signUpForm;
         private System.Windows.Forms.TextBox Address_txtbox_SignupForm;
+        private System.Windows.Forms.ComboBox Branch_ComboBox_SigupPAge;
+        private System.Windows.Forms.Label Branch_Label_SignUpForm;
     }
 }

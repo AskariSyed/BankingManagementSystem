@@ -104,15 +104,13 @@ namespace BankingManagementSystem
         private void LoadTransactions(string accountId)
         {
            
-
-            string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
             string query = @"SELECT * FROM transaction 
                      WHERE account_id = :accountId 
                      ORDER BY TRANSACTION_DATE DESC 
                      FETCH FIRST 3 ROWS ONLY";
 
-            using (OracleConnection conn = new OracleConnection(connString))
-            {
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+             {
                 try
                 {
                     conn.Open();
@@ -128,7 +126,7 @@ namespace BankingManagementSystem
 
                             if (!reader.HasRows)
                             {
-                                MessageBox.Show("No transactions found for this account.");
+                                TransactionsTable_HomePageUser.Hide();
                             }
 
                             while (reader.Read())
@@ -152,6 +150,11 @@ namespace BankingManagementSystem
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
+        }
+
+        private void Account_type_Detail_label_HomePageUserInfoForm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

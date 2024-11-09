@@ -42,8 +42,8 @@ namespace BankingManagementSystem
 
         public void  LoadAccountByCustomerID(int customerId)
         {
-            string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
-            using (OracleConnection conn = new OracleConnection(connString))
+ 
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
             {
                 try
                 {
@@ -68,9 +68,9 @@ namespace BankingManagementSystem
                                     this.dateOpened = reader["DATE_OPENED"].ToString();
                                     this.status = (Account.statusType)Enum.Parse(typeof(Account.statusType), reader["STATUS"].ToString());
                                     this.branchID = Convert.ToInt32(reader["BRANCH_ID"]);
-                                    this.type = (Account.accountType)Enum.Parse(typeof(Account.accountType), reader["ACCOUNT_TYPE"].ToString());
+                                    int adjustedAccountTypeValue = int.Parse(reader["ACCOUNT_TYPE"].ToString()) - 1;
+                                    this.type = (Account.accountType)Enum.Parse(typeof(Account.accountType), adjustedAccountTypeValue.ToString());
                                 };
-                                MessageBox.Show(this.accountId.ToString());
 
                           
                             }
