@@ -32,18 +32,18 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Username_Label_ForgOPasswordForm = new System.Windows.Forms.Label();
             this.Username_txtBox_ForgotPasswordForm = new System.Windows.Forms.TextBox();
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form = new System.Windows.Forms.TextBox();
             this.PhoneNmber_Label_ForgOPasswordForm = new System.Windows.Forms.Label();
             this.Email_OTP_textBox_ForgotPAssword_Form = new System.Windows.Forms.TextBox();
             this.Generate_OTP_Email_Btn_ForgotPasswrod_Form = new System.Windows.Forms.Button();
             this.Email_txtBOx_ForgotPasswrod_Form = new System.Windows.Forms.TextBox();
             this.Email_Label_ForgOPasswordForm = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ConfirmPassword_txtbox_FrgotpasswordPage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Password_txtBox_signUpForm = new System.Windows.Forms.TextBox();
+            this.Password_txtBox_ForgetUpForm = new System.Windows.Forms.TextBox();
             this.password_label_signUpForm = new System.Windows.Forms.Label();
             this.Save_Password_BTN__ForgotPasswrod_Form = new System.Windows.Forms.Button();
             this.Exit_btn__ForgotPasswrod_Form = new System.Windows.Forms.Button();
+            this.s = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +56,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Username_Label_ForgOPasswordForm
             // 
@@ -68,6 +69,7 @@
             this.Username_Label_ForgOPasswordForm.Size = new System.Drawing.Size(111, 23);
             this.Username_Label_ForgOPasswordForm.TabIndex = 1;
             this.Username_Label_ForgOPasswordForm.Text = "Username";
+            this.Username_Label_ForgOPasswordForm.Click += new System.EventHandler(this.Username_Label_ForgOPasswordForm_Click);
             // 
             // Username_txtBox_ForgotPasswordForm
             // 
@@ -78,16 +80,7 @@
             this.Username_txtBox_ForgotPasswordForm.Name = "Username_txtBox_ForgotPasswordForm";
             this.Username_txtBox_ForgotPasswordForm.Size = new System.Drawing.Size(239, 15);
             this.Username_txtBox_ForgotPasswordForm.TabIndex = 2;
-            // 
-            // PhoneNumber_txtBOx_ForgotPasswrod_Form
-            // 
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form.ForeColor = System.Drawing.Color.Black;
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form.Location = new System.Drawing.Point(308, 306);
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form.Name = "PhoneNumber_txtBOx_ForgotPasswrod_Form";
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form.Size = new System.Drawing.Size(239, 15);
-            this.PhoneNumber_txtBOx_ForgotPasswrod_Form.TabIndex = 4;
+            this.Username_txtBox_ForgotPasswordForm.TextChanged += new System.EventHandler(this.Username_txtBox_ForgotPasswordForm_TextChanged);
             // 
             // PhoneNmber_Label_ForgOPasswordForm
             // 
@@ -100,6 +93,7 @@
             this.PhoneNmber_Label_ForgOPasswordForm.Size = new System.Drawing.Size(155, 23);
             this.PhoneNmber_Label_ForgOPasswordForm.TabIndex = 3;
             this.PhoneNmber_Label_ForgOPasswordForm.Text = "Phone Number";
+            this.PhoneNmber_Label_ForgOPasswordForm.Click += new System.EventHandler(this.PhoneNmber_Label_ForgOPasswordForm_Click);
             // 
             // Email_OTP_textBox_ForgotPAssword_Form
             // 
@@ -136,6 +130,7 @@
             this.Email_txtBOx_ForgotPasswrod_Form.Name = "Email_txtBOx_ForgotPasswrod_Form";
             this.Email_txtBOx_ForgotPasswrod_Form.Size = new System.Drawing.Size(239, 15);
             this.Email_txtBOx_ForgotPasswrod_Form.TabIndex = 67;
+            this.Email_txtBOx_ForgotPasswrod_Form.TextChanged += new System.EventHandler(this.Email_txtBOx_ForgotPasswrod_Form_TextChanged);
             // 
             // Email_Label_ForgOPasswordForm
             // 
@@ -148,17 +143,19 @@
             this.Email_Label_ForgOPasswordForm.Size = new System.Drawing.Size(63, 23);
             this.Email_Label_ForgOPasswordForm.TabIndex = 66;
             this.Email_Label_ForgOPasswordForm.Text = "Email";
+            this.Email_Label_ForgOPasswordForm.Click += new System.EventHandler(this.Email_Label_ForgOPasswordForm_Click);
             // 
-            // textBox1
+            // ConfirmPassword_txtbox_FrgotpasswordPage
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(308, 513);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(239, 15);
-            this.textBox1.TabIndex = 73;
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.Enabled = false;
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.Location = new System.Drawing.Point(308, 513);
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.Name = "ConfirmPassword_txtbox_FrgotpasswordPage";
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.PasswordChar = '*';
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.Size = new System.Drawing.Size(239, 15);
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.TabIndex = 73;
+            this.ConfirmPassword_txtbox_FrgotpasswordPage.TextChanged += new System.EventHandler(this.ConfirmPassword_txtbox_FrgotpasswordPage_TextChanged);
             // 
             // label1
             // 
@@ -169,17 +166,19 @@
             this.label1.Size = new System.Drawing.Size(190, 23);
             this.label1.TabIndex = 72;
             this.label1.Text = "Confirm Password";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Password_txtBox_signUpForm
+            // Password_txtBox_ForgetUpForm
             // 
-            this.Password_txtBox_signUpForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Password_txtBox_signUpForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Password_txtBox_signUpForm.Enabled = false;
-            this.Password_txtBox_signUpForm.Location = new System.Drawing.Point(308, 453);
-            this.Password_txtBox_signUpForm.Name = "Password_txtBox_signUpForm";
-            this.Password_txtBox_signUpForm.PasswordChar = '*';
-            this.Password_txtBox_signUpForm.Size = new System.Drawing.Size(239, 15);
-            this.Password_txtBox_signUpForm.TabIndex = 71;
+            this.Password_txtBox_ForgetUpForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Password_txtBox_ForgetUpForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Password_txtBox_ForgetUpForm.Enabled = false;
+            this.Password_txtBox_ForgetUpForm.Location = new System.Drawing.Point(308, 453);
+            this.Password_txtBox_ForgetUpForm.Name = "Password_txtBox_ForgetUpForm";
+            this.Password_txtBox_ForgetUpForm.PasswordChar = '*';
+            this.Password_txtBox_ForgetUpForm.Size = new System.Drawing.Size(239, 15);
+            this.Password_txtBox_ForgetUpForm.TabIndex = 71;
+            this.Password_txtBox_ForgetUpForm.TextChanged += new System.EventHandler(this.Password_txtBox_ForgetUpForm_TextChanged);
             // 
             // password_label_signUpForm
             // 
@@ -190,6 +189,7 @@
             this.password_label_signUpForm.Size = new System.Drawing.Size(107, 23);
             this.password_label_signUpForm.TabIndex = 70;
             this.password_label_signUpForm.Text = "Password";
+            this.password_label_signUpForm.Click += new System.EventHandler(this.password_label_signUpForm_Click);
             // 
             // Save_Password_BTN__ForgotPasswrod_Form
             // 
@@ -222,22 +222,32 @@
             this.Exit_btn__ForgotPasswrod_Form.UseVisualStyleBackColor = true;
             this.Exit_btn__ForgotPasswrod_Form.Click += new System.EventHandler(this.Exit_btn__ForgotPasswrod_Form_Click);
             // 
+            // s
+            // 
+            this.s.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.s.Location = new System.Drawing.Point(308, 302);
+            this.s.Mask = "0000-0000000";
+            this.s.Name = "s";
+            this.s.Size = new System.Drawing.Size(239, 22);
+            this.s.TabIndex = 76;
+            this.s.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.s_MaskInputRejected);
+            // 
             // ForgotPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 698);
+            this.Controls.Add(this.s);
             this.Controls.Add(this.Exit_btn__ForgotPasswrod_Form);
             this.Controls.Add(this.Save_Password_BTN__ForgotPasswrod_Form);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ConfirmPassword_txtbox_FrgotpasswordPage);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Password_txtBox_signUpForm);
+            this.Controls.Add(this.Password_txtBox_ForgetUpForm);
             this.Controls.Add(this.password_label_signUpForm);
             this.Controls.Add(this.Email_OTP_textBox_ForgotPAssword_Form);
             this.Controls.Add(this.Generate_OTP_Email_Btn_ForgotPasswrod_Form);
             this.Controls.Add(this.Email_txtBOx_ForgotPasswrod_Form);
             this.Controls.Add(this.Email_Label_ForgOPasswordForm);
-            this.Controls.Add(this.PhoneNumber_txtBOx_ForgotPasswrod_Form);
             this.Controls.Add(this.PhoneNmber_Label_ForgOPasswordForm);
             this.Controls.Add(this.Username_txtBox_ForgotPasswordForm);
             this.Controls.Add(this.Username_Label_ForgOPasswordForm);
@@ -258,17 +268,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Username_Label_ForgOPasswordForm;
         private System.Windows.Forms.TextBox Username_txtBox_ForgotPasswordForm;
-        private System.Windows.Forms.TextBox PhoneNumber_txtBOx_ForgotPasswrod_Form;
         private System.Windows.Forms.Label PhoneNmber_Label_ForgOPasswordForm;
         private System.Windows.Forms.TextBox Email_OTP_textBox_ForgotPAssword_Form;
         private System.Windows.Forms.Button Generate_OTP_Email_Btn_ForgotPasswrod_Form;
         private System.Windows.Forms.TextBox Email_txtBOx_ForgotPasswrod_Form;
         private System.Windows.Forms.Label Email_Label_ForgOPasswordForm;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ConfirmPassword_txtbox_FrgotpasswordPage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Password_txtBox_signUpForm;
+        private System.Windows.Forms.TextBox Password_txtBox_ForgetUpForm;
         private System.Windows.Forms.Label password_label_signUpForm;
         private System.Windows.Forms.Button Save_Password_BTN__ForgotPasswrod_Form;
         private System.Windows.Forms.Button Exit_btn__ForgotPasswrod_Form;
+        private System.Windows.Forms.MaskedTextBox s;
     }
 }

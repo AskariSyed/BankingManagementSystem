@@ -53,10 +53,12 @@ namespace BankingManagementSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT CUSTOMER_ID FROM USERS WHERE EMAIL = :username AND PASSWORDHASH = :password";
+                    string query = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password";
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("username", username));
+                        cmd.Parameters.Add(new OracleParameter("email", username));
+
                         cmd.Parameters.Add(new OracleParameter("password", password));
                         object result = cmd.ExecuteScalar();
                         if (result != null)
@@ -67,11 +69,123 @@ namespace BankingManagementSystem
                             HomePageCustomers homePageCustomers = new HomePageCustomers(customer);
                             this.Hide();
                             homePageCustomers.Show();
-                            MessageBox.Show("Login successful!");
+                            int newAuditID = 0;
+
+                            string userId = "CUS" + customerId;
+
+                            string getMaxLogIDQuery = "SELECT MAX(audit_log_Id) FROM auditlog";
+                            try
+                            {
+                                using (OracleCommand ocmd = new OracleCommand(getMaxLogIDQuery, conn))
+                                {
+                                    object resultLOGID = ocmd.ExecuteScalar();
+                                    int maxAuditLogId = (resultLOGID != DBNull.Value) ? Convert.ToInt32(resultLOGID) : 0;
+                                    newAuditID = maxAuditLogId + 1;
+
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+
+                            string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                            "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+                            try
+                            {
+                                using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                                {
+                                    insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
+                                    insertCmd.Parameters.Add(new OracleParameter("userId", userId)); // USER_ID as "CUS" + customer_id
+                                    insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Logged In successfully"));
+                                    insertCmd.ExecuteNonQuery();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Invalid email or password. Please try again.");
+
+                            string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE EMAIL = :email OR USERNAME = :username";
+                            string userId = null;
+                            try
+                            {
+                                using (OracleCommand checkCmd = new OracleCommand(userCheckQuery, conn))
+                                {
+                                    checkCmd.Parameters.Add(new OracleParameter("email", username));
+                                    checkCmd.Parameters.Add(new OracleParameter("username", username));
+
+                                    using (OracleDataReader reader = checkCmd.ExecuteReader())
+                                    {
+                                        if (reader.Read())
+                                        {
+                                            userId = reader.GetString(0); // Fetch the USER_ID if it exists
+                                        }
+                                    }
+                                }
+                                if (userId != null)
+                                {
+
+                                    int newAuditID = 0;
+                                    string getMaxLogIDQuery = "SELECT MAX(audit_log_Id) FROM auditlog";
+                                    try
+                                    {
+                                        using (OracleCommand ocmd = new OracleCommand(getMaxLogIDQuery, conn))
+                                        {
+                                            object resultLOGID = ocmd.ExecuteScalar();
+                                            int maxAuditLogId = (resultLOGID != DBNull.Value) ? Convert.ToInt32(resultLOGID) : 0;
+                                            newAuditID = maxAuditLogId + 1;
+
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.Message);
+                                    }
+
+
+                                    string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                    "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+
+                                    try
+                                    {
+                                        using (OracleCommand insertFailedCmd = new OracleCommand(failedLoginInsertQuery, conn))
+                                        {
+                                            insertFailedCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
+                                            insertFailedCmd.Parameters.Add(new OracleParameter("userId", userId)); // Use USER_ID if available, otherwise NULL
+                                            insertFailedCmd.Parameters.Add(new OracleParameter("actionPerformed", "Failed login attempt"));
+                                            insertFailedCmd.ExecuteNonQuery();
+
+                                            MessageBox.Show("Invalid Login Attempt","Warning");
+                                        }
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.Message);
+                                    }
+
+
+
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+
+
+                            //Write a query here if username or email is in data auditlog table should be updated with invalid password unsuccessfull
+                            if (userId == null)
+                            {
+                                {
+                                    MessageBox.Show("Invalid email or password. Please try again.");
+                                }
+
+                            }
                         }
                     }
                 }

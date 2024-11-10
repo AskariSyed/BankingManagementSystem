@@ -10,12 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security;
+using Oracle.ManagedDataAccess;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BankingManagementSystem
 {
     public partial class ForgotPassword : Form
     {
-        String EmailrandomCode;
+        String EmailrandomCode=null;
         public ForgotPassword()
         {
             InitializeComponent();
@@ -79,6 +81,8 @@ namespace BankingManagementSystem
                 if (Email_OTP_textBox_ForgotPAssword_Form.Text.ToString() == EmailrandomCode)
                 {
                     Email_OTP_textBox_ForgotPAssword_Form.ForeColor = Color.Green;
+                    Password_txtBox_ForgetUpForm.Enabled = true;    
+                    ConfirmPassword_txtbox_FrgotpasswordPage.Enabled = true;
                 }
                 else
                 {
@@ -98,7 +102,7 @@ namespace BankingManagementSystem
             if (Email_OTP_textBox_ForgotPAssword_Form.Text == "Enter OTP")
             {
                 Email_OTP_textBox_ForgotPAssword_Form.Text = "";
-                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Black; // Change text color to black when editing
+                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Black; 
             }
 
         }
@@ -107,8 +111,8 @@ namespace BankingManagementSystem
         {
             if (string.IsNullOrWhiteSpace(Email_OTP_textBox_ForgotPAssword_Form.Text))
             {
-                Email_OTP_textBox_ForgotPAssword_Form.Text = "Enter OTP"; // Reset the default text if left empty
-                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Gray; // Set the text color back to gray
+                Email_OTP_textBox_ForgotPAssword_Form.Text = "Enter OTP";
+                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Gray; 
             }
 
         }
@@ -120,8 +124,139 @@ namespace BankingManagementSystem
 
         private void Save_Password_BTN__ForgotPasswrod_Form_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Password Changed Successfully");
+
+
+            string email = Email_txtBOx_ForgotPasswrod_Form.Text;
+            string username = Username_txtBox_ForgotPasswordForm.Text;
+            string phoneNumber = s.Text;
+            string newPassword = Password_txtBox_ForgetUpForm.Text;
+            string confirmPassword = ConfirmPassword_txtbox_FrgotpasswordPage.Text;
+
+            if (newPassword != confirmPassword)
+            {
+                MessageBox.Show("Passwords do not match. Please try again.");
+                return;
+            }
+            if (EmailrandomCode == Email_OTP_textBox_ForgotPAssword_Form.Text)
+            {
+                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = @"SELECT u.CUSTOMER_ID
+                             FROM USERS u
+                             JOIN CUSTOMERS c ON u.CUSTOMER_ID = c.CUSTOMER_ID
+                             WHERE u.EMAIL = :email AND u.USERNAME = :username AND c.Contact_number = :phoneNumber";
+
+                        using (OracleCommand cmd = new OracleCommand(query, conn))
+                        {
+                            cmd.Parameters.Add(new OracleParameter("email", email));
+                            cmd.Parameters.Add(new OracleParameter("username", username));
+                            cmd.Parameters.Add(new OracleParameter("phoneNumber", phoneNumber));
+
+                            object result = cmd.ExecuteScalar();
+
+                            if (result != null)
+                            {
+                                int customerId = Convert.ToInt32(result);
+                                string passwordHash = newPassword;
+
+                                string updateQuery = "UPDATE USERS SET PASSWORDHASH = :passwordHash WHERE CUSTOMER_ID = :customerId";
+                                using (OracleCommand updateCmd = new OracleCommand(updateQuery, conn))
+                                {
+                                    updateCmd.Parameters.Add(new OracleParameter("passwordHash", passwordHash));
+                                    updateCmd.Parameters.Add(new OracleParameter("customerId", customerId));
+                                    int rowsUpdated = updateCmd.ExecuteNonQuery();
+                                    if (rowsUpdated > 0)
+                                    {
+                                        MessageBox.Show("Password reset successful! Please log in with your new password.");
+                                        this.Hide();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("An error occurred while updating the password. Please try again.");
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No account found with the provided details. Please check your information and try again.");
+                                return;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}");
+                    }
+                }
+            }else if (EmailrandomCode== null)
+            {
+                MessageBox.Show("Please Verify the Email :");
+                return;
+            }
+            else if (EmailrandomCode != Email_OTP_textBox_ForgotPAssword_Form.Text)
+            {
+                MessageBox.Show("Invalid OTP");
+                return;
+            }
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Username_Label_ForgOPasswordForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Username_txtBox_ForgotPasswordForm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PhoneNmber_Label_ForgOPasswordForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Email_txtBOx_ForgotPasswrod_Form_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Email_Label_ForgOPasswordForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfirmPassword_txtbox_FrgotpasswordPage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Password_txtBox_ForgetUpForm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void password_label_signUpForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void s_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

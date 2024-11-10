@@ -202,22 +202,22 @@ namespace BankingManagementSystem
                         }
                     }
 
-                    string getMaxCustomerIdQuery = "SELECT MAX(customer_ID) FROM CUSTOMERS";
-                    try
-                    {
-                        using (OracleCommand cmd = new OracleCommand(getMaxCustomerIdQuery, conn))
-                        {
-                            object result = cmd.ExecuteScalar();
-                            int maxCustomerId = (result != DBNull.Value) ? Convert.ToInt32(result) : 0;
-                            newCustomerID = maxCustomerId + 1;
+                            string getMaxCustomerIdQuery = "SELECT MAX(customer_ID) FROM CUSTOMERS";
+                            try
+                            {
+                                using (OracleCommand cmd = new OracleCommand(getMaxCustomerIdQuery, conn))
+                                {
+                                    object result = cmd.ExecuteScalar();
+                                    int maxCustomerId = (result != DBNull.Value) ? Convert.ToInt32(result) : 0;
+                                    newCustomerID = maxCustomerId + 1;
 
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    MessageBox.Show("New customer Id is : " + newCustomerID, "New Customer ID");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                            MessageBox.Show("New customer Id is : " + newCustomerID, "New Customer ID");
                     //Here i want to call UpdateTabels method
 
                     UpdateTable(username, name, cnic, address, dobFormatted, accountTypeID, contactNumber, password, email, selectedBranchID, AccountNumberAssigned, newCustomerID);

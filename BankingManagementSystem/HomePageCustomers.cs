@@ -114,7 +114,7 @@ namespace BankingManagementSystem
                 try
                 {
                     conn.Open();
-                    MessageBox.Show("Connection successful!");
+                   
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("accountId", accountId));
