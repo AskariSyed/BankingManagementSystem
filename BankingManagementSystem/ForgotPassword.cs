@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Security;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
+using System.Linq.Expressions;
 
 namespace BankingManagementSystem
 {
@@ -168,15 +169,81 @@ namespace BankingManagementSystem
                                     updateCmd.Parameters.Add(new OracleParameter("passwordHash", passwordHash));
                                     updateCmd.Parameters.Add(new OracleParameter("customerId", customerId));
                                     int rowsUpdated = updateCmd.ExecuteNonQuery();
+
+
+                                    string userId = "CUS" + customerId;
                                     if (rowsUpdated > 0)
                                     {
                                         MessageBox.Show("Password reset successful! Please log in with your new password.");
                                         this.Hide();
+                                        signInpage signInpage = new signInpage();
+                                        signInpage.Show();
+
+                                        int failedLoginAttempt = 0;
+                                        string fetchFailedLoginAttemptQuery = "SELECT failedLoginAttempt FROM users WHERE USER_ID = :userId";
+
+                                        try
+                                        {
+                                            using (OracleCommand fetchFailedCmd = new OracleCommand(fetchFailedLoginAttemptQuery, conn))
+                                            {
+                                                fetchFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+
+                                                using (OracleDataReader reader = fetchFailedCmd.ExecuteReader())
+                                                {
+                                                    if (reader.Read())
+                                                    {
+                                                        failedLoginAttempt = reader.GetInt32(0);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
+
+
+                                        //if (failedLoginAttempt > 0 )
+                                        //{
+                                        //    string updateStatusQuery = "UPDATE users SET Status = 'Active' WHERE USER_ID = :userId";
+
+                                        //    try
+                                        //    {
+                                        //        using (OracleCommand updateStatusCmd = new OracleCommand(updateStatusQuery, conn))
+                                        //        {
+                                        //            updateStatusCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                        //            updateStatusCmd.ExecuteNonQuery();
+                                        //        }
+                                        //    }
+                                        //    catch (Exception ex)
+                                        //    {
+                                        //        MessageBox.Show($"An error occurred: {ex.Message}");
+                                        //    }
+
+                                        //}
+
+                                        string incrementSuccessfulLoginQuery = "UPDATE users SET failedLoginAttempt = 0,Status='Active' WHERE USER_ID = :userId";
+
+                                        try
+                                        {
+                                            using (OracleCommand incrementFailedCmd = new OracleCommand(incrementSuccessfulLoginQuery, conn))
+                                            {
+                                                incrementFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                incrementFailedCmd.ExecuteNonQuery();
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
+
+
                                     }
                                     else
                                     {
                                         MessageBox.Show("An error occurred while updating the password. Please try again.");
                                     }
+
                                 }
                             }
                             else

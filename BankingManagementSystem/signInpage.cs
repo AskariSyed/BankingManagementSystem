@@ -53,7 +53,7 @@ namespace BankingManagementSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password";
+                    string query = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Active'";
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("username", username));
@@ -105,71 +105,14 @@ namespace BankingManagementSystem
                             {
                                 MessageBox.Show(ex.Message);
                             }
-                        }
-                        else
-                        {
+                            string incrementSuccessfulLoginQuery = "UPDATE users SET failedLoginAttempt = 0 WHERE USER_ID = :userId";
 
-                            string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE EMAIL = :email OR USERNAME = :username";
-                            string userId = null;
                             try
                             {
-                                using (OracleCommand checkCmd = new OracleCommand(userCheckQuery, conn))
+                                using (OracleCommand incrementFailedCmd = new OracleCommand(incrementSuccessfulLoginQuery, conn))
                                 {
-                                    checkCmd.Parameters.Add(new OracleParameter("email", username));
-                                    checkCmd.Parameters.Add(new OracleParameter("username", username));
-
-                                    using (OracleDataReader reader = checkCmd.ExecuteReader())
-                                    {
-                                        if (reader.Read())
-                                        {
-                                            userId = reader.GetString(0); // Fetch the USER_ID if it exists
-                                        }
-                                    }
-                                }
-                                if (userId != null)
-                                {
-
-                                    int newAuditID = 0;
-                                    string getMaxLogIDQuery = "SELECT MAX(audit_log_Id) FROM auditlog";
-                                    try
-                                    {
-                                        using (OracleCommand ocmd = new OracleCommand(getMaxLogIDQuery, conn))
-                                        {
-                                            object resultLOGID = ocmd.ExecuteScalar();
-                                            int maxAuditLogId = (resultLOGID != DBNull.Value) ? Convert.ToInt32(resultLOGID) : 0;
-                                            newAuditID = maxAuditLogId + 1;
-
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        MessageBox.Show(ex.Message);
-                                    }
-
-
-                                    string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
-                                                    "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
-
-                                    try
-                                    {
-                                        using (OracleCommand insertFailedCmd = new OracleCommand(failedLoginInsertQuery, conn))
-                                        {
-                                            insertFailedCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                            insertFailedCmd.Parameters.Add(new OracleParameter("userId", userId)); // Use USER_ID if available, otherwise NULL
-                                            insertFailedCmd.Parameters.Add(new OracleParameter("actionPerformed", "Failed login attempt"));
-                                            insertFailedCmd.ExecuteNonQuery();
-
-                                            MessageBox.Show("Invalid Login Attempt","Warning");
-                                        }
-
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        MessageBox.Show(ex.Message);
-                                    }
-
-
-
+                                    incrementFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                    incrementFailedCmd.ExecuteNonQuery();
                                 }
                             }
                             catch (Exception ex)
@@ -178,13 +121,210 @@ namespace BankingManagementSystem
                             }
 
 
-                            //Write a query here if username or email is in data auditlog table should be updated with invalid password unsuccessfull
-                            if (userId == null)
+                        }
+
+
+                        else
+                        {
+                            object result2 = null;
+
+                            string CheckingIfBlocked = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Blocked'";
+                            try
                             {
+                                using (OracleCommand cmdd = new OracleCommand(CheckingIfBlocked, conn))
+                                {
+                                    cmdd.Parameters.Add(new OracleParameter("username", username));
+                                    cmdd.Parameters.Add(new OracleParameter("email", username));
+                                    cmdd.Parameters.Add(new OracleParameter("password", password));
+                                    result2= cmdd.ExecuteScalar();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);    
+
+                            }
+
+                                if (result2 != null)
+                                {
+                                    DialogResult res = MessageBox.Show("Your account is Blocked. Please Verify Yourself to access your account.",
+                                              "Account Blocked",
+                                              MessageBoxButtons.OKCancel,
+                                              MessageBoxIcon.Error);
+
+                                    if (res == DialogResult.OK)
+                                    {
+                                        this.Hide();
+                                        ForgotPassword forgotPassword = new ForgotPassword();
+                                        MessageBox.Show("You clicked OK. Proceeding with verification.", "Proceeding");
+                                        forgotPassword.Show();
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("You clicked Cancel. No action will be taken.", "No Action");
+                                        return;
+                                    }
+                                }
+                                else { 
+                                string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE EMAIL = :email OR USERNAME = :username";
+                                string userId = null;
+                                try
+                                {
+                                    using (OracleCommand checkCmd = new OracleCommand(userCheckQuery, conn))
+                                    {
+                                        checkCmd.Parameters.Add(new OracleParameter("email", username));
+                                        checkCmd.Parameters.Add(new OracleParameter("username", username));
+
+                                        using (OracleDataReader reader = checkCmd.ExecuteReader())
+                                        {
+                                            if (reader.Read())
+                                            {
+                                                userId = reader.GetString(0);
+                                            }
+                                        }
+                                    }
+                                    if (userId != null)
+                                    {
+
+                                        int newAuditID = 0;
+                                        string getMaxLogIDQuery = "SELECT MAX(audit_log_Id) FROM auditlog";
+                                        try
+                                        {
+                                            using (OracleCommand ocmd = new OracleCommand(getMaxLogIDQuery, conn))
+                                            {
+                                                object resultLOGID = ocmd.ExecuteScalar();
+                                                int maxAuditLogId = (resultLOGID != DBNull.Value) ? Convert.ToInt32(resultLOGID) : 0;
+                                                newAuditID = maxAuditLogId + 1;
+
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
+
+                                        string incrementFailedLoginQuery = "UPDATE users SET failedLoginAttempt = failedLoginAttempt + 1 WHERE USER_ID = :userId";
+
+                                        try
+                                        {
+                                            using (OracleCommand incrementFailedCmd = new OracleCommand(incrementFailedLoginQuery, conn))
+                                            {
+                                                incrementFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                incrementFailedCmd.ExecuteNonQuery();
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
+
+
+
+
+
+
+                                        int failedLoginAttempt = 0;
+                                        string fetchFailedLoginAttemptQuery = "SELECT failedLoginAttempt FROM users WHERE USER_ID = :userId";
+
+                                        try
+                                        {
+                                            using (OracleCommand fetchFailedCmd = new OracleCommand(fetchFailedLoginAttemptQuery, conn))
+                                            {
+                                                fetchFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+
+                                                using (OracleDataReader reader = fetchFailedCmd.ExecuteReader())
+                                                {
+                                                    if (reader.Read())
+                                                    {
+                                                        failedLoginAttempt = reader.GetInt32(0);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
+
+                                        if (failedLoginAttempt == 3)
+                                        {
+                                            string updateStatusQuery = "UPDATE users SET Status = 'Blocked' WHERE USER_ID = :userId";
+
+                                            try
+                                            {
+                                                using (OracleCommand updateStatusCmd = new OracleCommand(updateStatusQuery, conn))
+                                                {
+                                                    updateStatusCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                    updateStatusCmd.ExecuteNonQuery();
+
+                                                    DialogResult res = MessageBox.Show("Your account Has Been Blocked. Please Verify Yourself.",
+                                                   "Account Blocked",
+                                                   MessageBoxButtons.OKCancel,
+                                                   MessageBoxIcon.Error);
+
+                                                    // Perform specific action if user clicks OK
+                                                    if (res == DialogResult.OK)
+                                                    {
+                                                        this.Hide();
+                                                        ForgotPassword forgotPassword = new ForgotPassword();
+                                                        forgotPassword.Show();
+                                                        
+                                                    }
+                                                    else
+                                                    {
+
+                                                        MessageBox.Show("You clicked Cancel. No action will be taken.", "No Action");
+                                                        return;
+                                                    }
+                                                }
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                MessageBox.Show(ex.Message);
+                                            }
+                                        }
+
+
+                                        string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+
+                                        try
+                                        {
+                                            using (OracleCommand insertFailedCmd = new OracleCommand(failedLoginInsertQuery, conn))
+                                            {
+                                                insertFailedCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
+                                                insertFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                insertFailedCmd.Parameters.Add(new OracleParameter("actionPerformed", "Failed login attempt"));
+                                                insertFailedCmd.ExecuteNonQuery();
+
+                                                if (failedLoginAttempt >= 3)
+                                                {
+                                                    MessageBox.Show("Invalid Login Attempt\nYou have zero attempts left.", "Warning");
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Invalid Login Attempt\nYou have only " + (3 - failedLoginAttempt) + " attempts left.", "Warning");
+                                                }
+                                            }
+
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+
+                                if (userId == null)
                                 {
                                     MessageBox.Show("Invalid email or password. Please try again.");
                                 }
-
+                            
                             }
                         }
                     }
