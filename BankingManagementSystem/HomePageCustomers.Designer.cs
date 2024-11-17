@@ -35,6 +35,7 @@ namespace BankingManagementSystem
             this.Account_Statment_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Privacy_And_Security_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TransactionHistory_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Logout_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
@@ -61,15 +62,14 @@ namespace BankingManagementSystem
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -132,6 +132,18 @@ namespace BankingManagementSystem
             this.TransactionHistory_btn_HomeFormUser.TabIndex = 7;
             this.TransactionHistory_btn_HomeFormUser.Text = "Transaction History";
             this.TransactionHistory_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.TransactionHistory_btn_HomeFormUser.Click += new System.EventHandler(this.TransactionHistory_btn_HomeFormUser_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Logout_btn_HomeFormUser
             // 
@@ -391,7 +403,7 @@ namespace BankingManagementSystem
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 123;
+            this.dataGridViewTextBoxColumn1.Width = 113;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -436,17 +448,6 @@ namespace BankingManagementSystem
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 87;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox6
             // 
@@ -532,8 +533,8 @@ namespace BankingManagementSystem
             this.Text = "HomePageCustomers";
             this.Load += new System.EventHandler(this.HomePageCustomers_Load);
             this.SideLeft_panel_HomePageForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

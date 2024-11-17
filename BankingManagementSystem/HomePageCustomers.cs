@@ -66,8 +66,10 @@ namespace BankingManagementSystem
 
         private void Account_Statment_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-
+            BankStatementGenerator asg = new BankStatementGenerator();
+            asg.GenerateStatementPDF();
         }
+        
 
         private void Update_AccountInfo_HomePageUserForm_Click(object sender, EventArgs e)
         {
@@ -161,6 +163,12 @@ namespace BankingManagementSystem
         {
             SendMoney sendMoney = new SendMoney();
             sendMoney.Show();
+        }
+
+        private void TransactionHistory_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            AllTransactionsTable allTransactionsTable = new AllTransactionsTable(); 
+            allTransactionsTable.Show();
         }
     }
 }
