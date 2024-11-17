@@ -35,7 +35,6 @@ namespace BankingManagementSystem
             this.Account_Statment_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Privacy_And_Security_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TransactionHistory_btn_HomeFormUser = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Logout_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
@@ -47,13 +46,8 @@ namespace BankingManagementSystem
             this.AC_NO_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
             this.Available_Balance_Label_HomePageUSer = new System.Windows.Forms.Label();
             this.Available_Balance_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SendMoney_btn_HomepgeCustomerForm = new System.Windows.Forms.Button();
             this.Account_type_Detail_label_HomePageUserInfoForm = new System.Windows.Forms.Label();
             this.Account_type_label_HomeUSerSiginForm = new System.Windows.Forms.Label();
             this.Transacion_Options_label_HOmePageUSerForm = new System.Windows.Forms.Label();
@@ -67,14 +61,20 @@ namespace BankingManagementSystem
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).BeginInit();
             this.SuspendLayout();
             // 
             // SideLeft_panel_HomePageForm
@@ -132,17 +132,6 @@ namespace BankingManagementSystem
             this.TransactionHistory_btn_HomeFormUser.TabIndex = 7;
             this.TransactionHistory_btn_HomeFormUser.Text = "Transaction History";
             this.TransactionHistory_btn_HomeFormUser.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Logout_btn_HomeFormUser
             // 
@@ -274,56 +263,6 @@ namespace BankingManagementSystem
             this.Available_Balance_Detail_HomepageUSerForm.TabIndex = 32;
             this.Available_Balance_Detail_HomepageUSerForm.Text = "50,000\r\n";
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox6.Location = new System.Drawing.Point(975, 528);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(216, 86);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 27;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox5.Location = new System.Drawing.Point(975, 159);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(216, 86);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 26;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox4.Location = new System.Drawing.Point(821, 252);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(216, 86);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 25;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox3.Location = new System.Drawing.Point(975, 344);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(216, 86);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 24;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox2.Location = new System.Drawing.Point(821, 436);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(216, 86);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 23;
-            this.pictureBox2.TabStop = false;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.RoyalBlue;
@@ -339,20 +278,21 @@ namespace BankingManagementSystem
             this.button1.Text = "Recieve Money";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // SendMoney_btn_HomepgeCustomerForm
             // 
-            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(350, 418);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(255, 44);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Send Money";
-            this.button2.UseVisualStyleBackColor = false;
+            this.SendMoney_btn_HomepgeCustomerForm.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SendMoney_btn_HomepgeCustomerForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SendMoney_btn_HomepgeCustomerForm.FlatAppearance.BorderSize = 0;
+            this.SendMoney_btn_HomepgeCustomerForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SendMoney_btn_HomepgeCustomerForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SendMoney_btn_HomepgeCustomerForm.ForeColor = System.Drawing.Color.White;
+            this.SendMoney_btn_HomepgeCustomerForm.Location = new System.Drawing.Point(350, 418);
+            this.SendMoney_btn_HomepgeCustomerForm.Name = "SendMoney_btn_HomepgeCustomerForm";
+            this.SendMoney_btn_HomepgeCustomerForm.Size = new System.Drawing.Size(255, 44);
+            this.SendMoney_btn_HomepgeCustomerForm.TabIndex = 33;
+            this.SendMoney_btn_HomepgeCustomerForm.Text = "Send Money";
+            this.SendMoney_btn_HomepgeCustomerForm.UseVisualStyleBackColor = false;
+            this.SendMoney_btn_HomepgeCustomerForm.Click += new System.EventHandler(this.SendMoney_btn_HomepgeCustomerForm_Click);
             // 
             // Account_type_Detail_label_HomePageUserInfoForm
             // 
@@ -451,7 +391,7 @@ namespace BankingManagementSystem
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 113;
+            this.dataGridViewTextBoxColumn1.Width = 123;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -497,6 +437,67 @@ namespace BankingManagementSystem
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 87;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox6.Location = new System.Drawing.Point(975, 528);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(216, 86);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 27;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox5.Location = new System.Drawing.Point(975, 159);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(216, 86);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 26;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox4.Location = new System.Drawing.Point(821, 252);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(216, 86);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox3.Location = new System.Drawing.Point(975, 344);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(216, 86);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 24;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox2.Location = new System.Drawing.Point(821, 436);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(216, 86);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 23;
+            this.pictureBox2.TabStop = false;
+            // 
             // HomePageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -509,7 +510,7 @@ namespace BankingManagementSystem
             this.Controls.Add(this.Transacion_Options_label_HOmePageUSerForm);
             this.Controls.Add(this.Account_type_Detail_label_HomePageUserInfoForm);
             this.Controls.Add(this.Account_type_label_HomeUSerSiginForm);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.SendMoney_btn_HomepgeCustomerForm);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Available_Balance_Detail_HomepageUSerForm);
             this.Controls.Add(this.Available_Balance_Label_HomePageUSer);
@@ -531,13 +532,13 @@ namespace BankingManagementSystem
             this.Text = "HomePageCustomers";
             this.Load += new System.EventHandler(this.HomePageCustomers_Load);
             this.SideLeft_panel_HomePageForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransactionsTable_HomePageUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,7 +568,7 @@ namespace BankingManagementSystem
         private Label Available_Balance_Label_HomePageUSer;
         private Label Available_Balance_Detail_HomepageUSerForm;
         private Button button1;
-        private Button button2;
+        private Button SendMoney_btn_HomepgeCustomerForm;
         private Label Account_type_Detail_label_HomePageUserInfoForm;
         private Label Account_type_label_HomeUSerSiginForm;
         private Label Transacion_Options_label_HOmePageUSerForm;

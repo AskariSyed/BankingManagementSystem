@@ -156,5 +156,11 @@ namespace BankingManagementSystem
         {
 
         }
+
+        private void SendMoney_btn_HomepgeCustomerForm_Click(object sender, EventArgs e)
+        {
+            SendMoney sendMoney = new SendMoney();
+            sendMoney.Show();
+        }
     }
 }

@@ -69,25 +69,13 @@ namespace BankingManagementSystem
                             HomePageCustomers homePageCustomers = new HomePageCustomers(customer);
                             this.Hide();
                             homePageCustomers.Show();
-                            int newAuditID = 0;
+                            
 
                             string userId = "CUS" + customerId;
 
-                            string getMaxLogIDQuery = "SELECT MAX(audit_log_Id) FROM auditlog";
-                            try
-                            {
-                                using (OracleCommand ocmd = new OracleCommand(getMaxLogIDQuery, conn))
-                                {
-                                    object resultLOGID = ocmd.ExecuteScalar();
-                                    int maxAuditLogId = (resultLOGID != DBNull.Value) ? Convert.ToInt32(resultLOGID) : 0;
-                                    newAuditID = maxAuditLogId + 1;
+                          
 
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message);
-                            }
+                            int newAuditID = GenerateNewLogID();
 
                             string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
                                                             "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
@@ -127,7 +115,8 @@ namespace BankingManagementSystem
                         else
                         {
                             object result2 = null;
-
+                            int customerId = 0;
+                            string userId = null; 
                             string CheckingIfBlocked = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Blocked'";
                             try
                             {
@@ -138,6 +127,9 @@ namespace BankingManagementSystem
                                     cmdd.Parameters.Add(new OracleParameter("password", password));
                                     result2= cmdd.ExecuteScalar();
                                 }
+                                customerId = Convert.ToInt32(result2);
+                                userId = "CUS" + customerId;
+                                MessageBox.Show("userid = " + userId);
                             }
                             catch (Exception ex)
                             {
@@ -152,7 +144,26 @@ namespace BankingManagementSystem
                                               MessageBoxButtons.OKCancel,
                                               MessageBoxIcon.Error);
 
-                                    if (res == DialogResult.OK)
+                                int newAuditID = GenerateNewLogID();
+
+                                string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                           "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+                                try
+                                {
+                                    using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                                    {
+                                        insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
+                                        insertCmd.Parameters.Add(new OracleParameter("userId", userId)); // USER_ID as "CUS" + customer_id
+                                        insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Login Restricted Due to Blocked Status"));
+                                        insertCmd.ExecuteNonQuery();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+
+                                if (res == DialogResult.OK)
                                     {
                                         this.Hide();
                                         ForgotPassword forgotPassword = new ForgotPassword();
@@ -168,7 +179,7 @@ namespace BankingManagementSystem
                                 }
                                 else { 
                                 string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE EMAIL = :email OR USERNAME = :username";
-                                string userId = null;
+                                userId = null;
                                 try
                                 {
                                     using (OracleCommand checkCmd = new OracleCommand(userCheckQuery, conn))
@@ -187,22 +198,7 @@ namespace BankingManagementSystem
                                     if (userId != null)
                                     {
 
-                                        int newAuditID = 0;
-                                        string getMaxLogIDQuery = "SELECT MAX(audit_log_Id) FROM auditlog";
-                                        try
-                                        {
-                                            using (OracleCommand ocmd = new OracleCommand(getMaxLogIDQuery, conn))
-                                            {
-                                                object resultLOGID = ocmd.ExecuteScalar();
-                                                int maxAuditLogId = (resultLOGID != DBNull.Value) ? Convert.ToInt32(resultLOGID) : 0;
-                                                newAuditID = maxAuditLogId + 1;
-
-                                            }
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            MessageBox.Show(ex.Message);
-                                        }
+                                    
 
                                         string incrementFailedLoginQuery = "UPDATE users SET failedLoginAttempt = failedLoginAttempt + 1 WHERE USER_ID = :userId";
 
@@ -218,15 +214,8 @@ namespace BankingManagementSystem
                                         {
                                             MessageBox.Show(ex.Message);
                                         }
-
-
-
-
-
-
                                         int failedLoginAttempt = 0;
                                         string fetchFailedLoginAttemptQuery = "SELECT failedLoginAttempt FROM users WHERE USER_ID = :userId";
-
                                         try
                                         {
                                             using (OracleCommand fetchFailedCmd = new OracleCommand(fetchFailedLoginAttemptQuery, conn))
@@ -262,18 +251,14 @@ namespace BankingManagementSystem
                                                    "Account Blocked",
                                                    MessageBoxButtons.OKCancel,
                                                    MessageBoxIcon.Error);
-
-                                                    // Perform specific action if user clicks OK
                                                     if (res == DialogResult.OK)
                                                     {
                                                         this.Hide();
                                                         ForgotPassword forgotPassword = new ForgotPassword();
-                                                        forgotPassword.Show();
-                                                        
+                                                        forgotPassword.Show();   
                                                     }
                                                     else
                                                     {
-
                                                         MessageBox.Show("You clicked Cancel. No action will be taken.", "No Action");
                                                         return;
                                                     }
@@ -286,6 +271,7 @@ namespace BankingManagementSystem
                                         }
 
 
+                                        int newAuditID = GenerateNewLogID();
                                         string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
                                                 "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
 
@@ -358,6 +344,33 @@ namespace BankingManagementSystem
                 Passworde_txtBox_signinForm.UseSystemPasswordChar = true;
             }
         }
+
+        public static int GenerateNewLogID()
+        {
+            int newAuditID;
+            string getMaxLogIDQuery = "SELECT MAX(audit_log_Id) FROM auditlog";
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                {
+                    conn.Open();
+                    using (OracleCommand ocmd = new OracleCommand(getMaxLogIDQuery, conn))
+                    {
+                        object resultLOGID = ocmd.ExecuteScalar();
+                        int maxAuditLogId = (resultLOGID != DBNull.Value) ? Convert.ToInt32(resultLOGID) : 0;
+                        newAuditID = maxAuditLogId + 1;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            return newAuditID;
+        }
+
 
         private void Passworde_txtBox_signinForm_TextChanged(object sender, EventArgs e)
         {

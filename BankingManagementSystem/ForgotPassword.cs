@@ -174,9 +174,36 @@ namespace BankingManagementSystem
                                     string userId = "CUS" + customerId;
                                     if (rowsUpdated > 0)
                                     {
-                                        MessageBox.Show("Password reset successful! Please log in with your new password.");
-                                        this.Hide();
                                         signInpage signInpage = new signInpage();
+
+                                        int newAuditID=signInpage.GenerateNewLogID();
+                                        string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                               "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+
+                                        try
+                                        {
+                                            using (OracleCommand insertFailedCmd = new OracleCommand(failedLoginInsertQuery, conn))
+                                            {
+                                                insertFailedCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
+                                                insertFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                insertFailedCmd.Parameters.Add(new OracleParameter("actionPerformed", "Password Changed"));
+                                                insertFailedCmd.ExecuteNonQuery();
+                                            }
+
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                        }
+
+
+                                        MessageBox.Show("Password reset successful! Please log in with your new password.");
+
+
+
+
+
+                                        this.Hide();
                                         signInpage.Show();
 
                                         int failedLoginAttempt = 0;
