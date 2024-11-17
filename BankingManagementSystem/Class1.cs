@@ -11,19 +11,17 @@ public class BankStatementGenerator
 {
     public void GenerateStatementPDF()
     {
-        string directoryPath = @"C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements"; // Changed path
-        string fileName = Path.Combine(directoryPath, "AccountStatement"+GlobalData.CurrentCustomer.customerId+".pdf");
+        string directoryPath = @"C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements";
+        string fileName = Path.Combine(directoryPath, "AccountStatement" + GlobalData.CurrentCustomer.customerId + "_" + DateTime.Now.ToString("yyyyMMdd") + ".pdf");
 
         try
         {
-            // Ensure that the file path is valid and accessible
             if (string.IsNullOrEmpty(fileName))
             {
                 MessageBox.Show("File name is invalid.");
                 return;
             }
 
-            // Check if the directory exists, and create it if it doesn't
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
@@ -33,7 +31,6 @@ public class BankStatementGenerator
             {
                 connection.Open();
 
-                // Step 1: Retrieve Customer and Account Information
                 string customerQuery = @"SELECT c.NAME, c.ADDRESS, c.CONTACT_NUMBER, a.ACCOUNT_ID, 
                                          a.ACCOUNT_BALANCE, a.DATE_OPENED
                                          FROM CUSTOMERS c
@@ -52,7 +49,6 @@ public class BankStatementGenerator
                             return;
                         }
 
-                        // Extract customer and account information
                         string customerName = reader["NAME"].ToString();
                         string address = reader["ADDRESS"].ToString();
                         string contactNumber = reader["CONTACT_NUMBER"].ToString();
@@ -60,18 +56,42 @@ public class BankStatementGenerator
                         decimal openingBalance = Convert.ToDecimal(reader["ACCOUNT_BALANCE"]);
                         DateTime dateOpened = Convert.ToDateTime(reader["DATE_OPENED"]);
 
-                        // Initialize PDF document
                         PdfDocument pdfDoc = new PdfDocument();
                         PdfPage page = pdfDoc.AddPage();
                         XGraphics gfx = XGraphics.FromPdfPage(page);
                         XFont font = new XFont("Arial", 12);
-
-                        // Set starting position for text
+                        XFont Boldfont = new XFont("Arial", 12, XFontStyleEx.Bold);
                         double x = 40;
                         double y = 40;
 
-                        // Add customer and account details to PDF
-                        gfx.DrawString("Account Statement", font, XBrushes.Black, x, y);
+                        string imagePath = @"C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\Resources\askari-bank-seeklogo.png"; // Set your image path
+                        XImage backgroundImage = XImage.FromFile(imagePath);
+
+                        double imageWidth = backgroundImage.PixelWidth;
+                        double imageHeight = backgroundImage.PixelHeight;
+
+                        double aspectRatio = imageWidth / imageHeight;
+
+                        double scaledWidth = page.Width;
+                        double scaledHeight = scaledWidth / aspectRatio;
+
+                        if (scaledHeight > page.Height)
+                        {
+                            scaledHeight = page.Height;
+                            scaledWidth = scaledHeight * aspectRatio;
+                        }
+
+                        double xOffset = (page.Width - scaledWidth) / 2;  
+                        double yOffset = (page.Height - scaledHeight) / 2;  
+                        gfx.DrawImage(backgroundImage, xOffset, yOffset, scaledWidth, scaledHeight);
+
+                        XBrush semiTransparentBrush = new XSolidBrush(XColor.FromArgb(100, 255, 255, 255)); 
+                        gfx.DrawRectangle(semiTransparentBrush, 0, 0, page.Width, page.Height);
+
+                        XBrush semiTransparentBrush2 = new XSolidBrush(XColor.FromArgb(100, 255, 255, 255)); 
+                        gfx.DrawRectangle(semiTransparentBrush2, 0, 0, page.Width, page.Height);
+                        // Header Info
+                        gfx.DrawString("Account Statement", Boldfont, XBrushes.Black, x, y);
                         y += 20;
                         gfx.DrawString($"Customer Name: {customerName}", font, XBrushes.Black, x, y);
                         y += 20;
@@ -84,21 +104,18 @@ public class BankStatementGenerator
                         gfx.DrawString($"Date Opened: {dateOpened:yyyy-MM-dd}", font, XBrushes.Black, x, y);
                         y += 40;
 
-                        // Add table for transaction history
+                        // Table Header
+                        gfx.DrawString("Transaction History", Boldfont, XBrushes.Black, x, y);
+                        y += 20;
                         gfx.DrawString("Date", font, XBrushes.Black, x, y);
                         gfx.DrawString("Description", font, XBrushes.Black, x + 100, y);
-                        gfx.DrawString("Amount", font, XBrushes.Black, x + 350, y); // Adjusted position
-                        gfx.DrawString("Balance", font, XBrushes.Black, x + 450, y); // Adjusted position
+                        gfx.DrawString("Amount", font, XBrushes.Black, x + 343, y); 
+                        gfx.DrawString("Balance", font, XBrushes.Black, x + 443, y);
                         y += 20;
+
+                        gfx.DrawLine(XPens.Black, x - 7, y - 14, x + 512, y - 14);
 
                         decimal runningBalance = openingBalance;
-                        gfx.DrawString("Opening Balance", font, XBrushes.Black, x, y);
-                        gfx.DrawString("", font, XBrushes.Black, x + 100, y);
-                        gfx.DrawString("", font, XBrushes.Black, x + 350, y);
-                        gfx.DrawString(runningBalance.ToString("C"), font, XBrushes.Black, x + 450, y); // Adjusted position
-                        y += 20;
-
-                        // Step 2: Retrieve and Process Transaction History
                         string transactionQuery = @"SELECT TRANSACTION_DATE, DESCRIPTION, AMOUNT, TRANSACTION_TYPE
                                                     FROM TRANSACTION
                                                     WHERE ACCOUNT_ID = :AccountID
@@ -130,17 +147,28 @@ public class BankStatementGenerator
                                         totalDebits += amount;
                                     }
 
+                                    XBrush amountBrush = transactionType == "credit" ? XBrushes.Green : XBrushes.Red;
+
                                     gfx.DrawString(transactionDate.ToString("yyyy-MM-dd"), font, XBrushes.Black, x, y);
                                     gfx.DrawString(description, font, XBrushes.Black, x + 100, y);
-                                    gfx.DrawString((transactionType == "debit" ? "-" : "") + amount.ToString("C"), font, XBrushes.Black, x + 350, y); // Adjusted position
-                                    gfx.DrawString(runningBalance.ToString("C"), font, XBrushes.Black, x + 450, y); // Adjusted position
+                                    gfx.DrawString((transactionType == "debit" ? "-" : "") + amount.ToString("C"), font, amountBrush, x + 343, y);
+                                    gfx.DrawString(runningBalance.ToString("C"), font, XBrushes.Black, x + 443, y); 
+
+                                    gfx.DrawLine(XPens.Gray, x - 7, y - 15, x - 7, y + 5); 
+                                    gfx.DrawLine(XPens.Gray, x + 93, y - 15, x + 93, y + 5); 
+                                    gfx.DrawLine(XPens.Gray, x + 340, y - 15, x + 340, y + 5); 
+                                    gfx.DrawLine(XPens.Gray, x + 441, y - 15, x + 441, y + 5); 
+                                    gfx.DrawLine(XPens.Gray, x + 512, y - 15, x + 512, y + 5); 
+                                     gfx.DrawLine(XPens.Black, x - 7, y + 5, x + 512, y +5);
+
+
+
                                     y += 20;
                                 }
                             }
 
-                            // Step 3: Summary Section
                             y += 20;
-                            gfx.DrawString("Summary", font, XBrushes.Black, x, y);
+                            gfx.DrawString("Summary", Boldfont, XBrushes.Black, x, y);
                             y += 20;
                             gfx.DrawString($"Total Credits: {totalCredits:C}", font, XBrushes.Black, x, y);
                             y += 20;
@@ -149,7 +177,6 @@ public class BankStatementGenerator
                             gfx.DrawString($"Closing Balance: {runningBalance:C}", font, XBrushes.Black, x, y);
                         }
 
-                        // Save the PDF document
                         pdfDoc.Save(fileName);
                         MessageBox.Show("PDF generated successfully!");
                     }
