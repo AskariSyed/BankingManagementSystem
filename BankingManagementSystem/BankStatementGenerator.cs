@@ -6,6 +6,8 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.Windows.Forms;
 using BankingManagementSystem;
+using System.Net.Mail;
+using System.Net;
 
 public class BankStatementGenerator
 {
@@ -179,6 +181,7 @@ public class BankStatementGenerator
 
                         pdfDoc.Save(fileName);
                         MessageBox.Show("PDF generated successfully!");
+                        sendPdfToEmail(GlobalData.CurrentCustomer.email, fileName);
                     }
                 }
             }
@@ -188,4 +191,56 @@ public class BankStatementGenerator
             MessageBox.Show($"Error in database connection: {ex.Message}");
         }
     }
+
+
+
+    public void sendPdfToEmail(string recipientEmail,string filePath)
+    {
+      
+        // Email message body
+        string messageBody = "Please find the Account statement for you account.";
+
+        // Set up the email
+        MailMessage message = new MailMessage
+        {
+            From = new MailAddress("AskariDigitalOTP@gmail.com", "Askari Digital Bank Ltd."),
+            Subject = "Account Statement",
+            Body = messageBody
+        };
+
+        try
+        {   message.To.Add(recipientEmail);
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                Attachment attachment = new Attachment(filePath);
+                message.Attachments.Add(attachment);
+            }
+
+            // Configure SMTP client
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                EnableSsl = true,
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential("AskariDigitalOTP@gmail.com", "mitxehwlyexurspx")
+            };
+
+            // Send email
+            smtpClient.Send(message);
+
+            // Restore the cursor and show success message
+       
+            MessageBox.Show("Email with attachment sent successfully!");
+        }
+        catch (Exception ex)
+        {
+            // Restore the cursor and show error message
+
+            MessageBox.Show($"Failed to send email: {ex.Message}");
+        }
+
+
+    }
 }
+
+

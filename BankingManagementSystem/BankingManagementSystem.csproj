@@ -140,7 +140,7 @@
     <Compile Include="AllTransactionsTable.Designer.cs">
       <DependentUpon>AllTransactionsTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BankStatementGenerator.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
