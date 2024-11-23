@@ -38,8 +38,6 @@
             this.Logout_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.HomePage_Update_personalInfo_btn_Form = new System.Windows.Forms.Button();
-            this.OTP_textBox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.Update_Btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form = new System.Windows.Forms.MaskedTextBox();
             this.ContactNumber_label_UpdatePersonalINfor_Form = new System.Windows.Forms.Label();
@@ -61,7 +59,6 @@
             this.EnterOTP_txtBox_UpdateUserInfoForm = new System.Windows.Forms.TextBox();
             this.EmailGenerateOTP_btn_UpdateUserInfoForm = new System.Windows.Forms.Button();
             this.Exit_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
-            this.uplaod_photo_updateUSerInfoForm = new System.Windows.Forms.Button();
             this.Email_txtBox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.Address_txtbox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.Name_txtbox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
@@ -120,6 +117,7 @@
             this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.TabIndex = 8;
             this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.Text = "Privacy And Security";
             this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
+            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Privacy_And_Security_btn_UpdatePersonalINfor_Form_Click);
             // 
             // TransactionHistory_btn_UpdatePersonalINfor_Form
             // 
@@ -133,6 +131,7 @@
             this.TransactionHistory_btn_UpdatePersonalINfor_Form.TabIndex = 7;
             this.TransactionHistory_btn_UpdatePersonalINfor_Form.Text = "Transaction History";
             this.TransactionHistory_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
+            this.TransactionHistory_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.TransactionHistory_btn_UpdatePersonalINfor_Form_Click);
             // 
             // ProfilePic_UpdatePersonalINfor_Form
             // 
@@ -172,6 +171,7 @@
             this.TermsAndConditions_btn_UpdatePersonalINfor_Form.TabIndex = 5;
             this.TermsAndConditions_btn_UpdatePersonalINfor_Form.Text = "Terms and Conditions";
             this.TermsAndConditions_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
+            this.TermsAndConditions_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.TermsAndConditions_btn_UpdatePersonalINfor_Form_Click);
             // 
             // HomePage_Update_personalInfo_btn_Form
             // 
@@ -187,27 +187,6 @@
             this.HomePage_Update_personalInfo_btn_Form.UseVisualStyleBackColor = false;
             this.HomePage_Update_personalInfo_btn_Form.Click += new System.EventHandler(this.HomePage_Update_personalInfo_btn_Form_Click);
             // 
-            // OTP_textBox_UpdatePersonalINfor_Form
-            // 
-            this.OTP_textBox_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(313, 668);
-            this.OTP_textBox_UpdatePersonalINfor_Form.Name = "OTP_textBox_UpdatePersonalINfor_Form";
-            this.OTP_textBox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(106, 22);
-            this.OTP_textBox_UpdatePersonalINfor_Form.TabIndex = 63;
-            this.OTP_textBox_UpdatePersonalINfor_Form.Text = "Enter OTP";
-            // 
-            // Generate_OTP_Btn_UpdatePersonalINfor_Form
-            // 
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.BackColor = System.Drawing.Color.Transparent;
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.FlatAppearance.BorderSize = 0;
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(425, 664);
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.Name = "Generate_OTP_Btn_UpdatePersonalINfor_Form";
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(104, 31);
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.TabIndex = 62;
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.Text = "Generate OTP";
-            this.Generate_OTP_Btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
-            // 
             // Update_Btn_UpdatePersonalINfor_Form
             // 
             this.Update_Btn_UpdatePersonalINfor_Form.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -222,6 +201,7 @@
             this.Update_Btn_UpdatePersonalINfor_Form.TabIndex = 61;
             this.Update_Btn_UpdatePersonalINfor_Form.Text = "Update";
             this.Update_Btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
+            this.Update_Btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Update_Btn_UpdatePersonalINfor_Form_Click);
             // 
             // ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form
             // 
@@ -268,7 +248,7 @@
             this.DOBPicker_UpdatePersonalINfor_Form.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.DOBPicker_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(875, 376);
             this.DOBPicker_UpdatePersonalINfor_Form.Name = "DOBPicker_UpdatePersonalINfor_Form";
-            this.DOBPicker_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(226, 22);
+            this.DOBPicker_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(267, 22);
             this.DOBPicker_UpdatePersonalINfor_Form.TabIndex = 52;
             this.DOBPicker_UpdatePersonalINfor_Form.Value = new System.DateTime(2024, 10, 14, 0, 0, 0, 0);
             // 
@@ -433,23 +413,13 @@
             this.Exit_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
             this.Exit_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Exit_btn_UpdatePersonalINfor_Form_Click);
             // 
-            // uplaod_photo_updateUSerInfoForm
-            // 
-            this.uplaod_photo_updateUSerInfoForm.Location = new System.Drawing.Point(589, 639);
-            this.uplaod_photo_updateUSerInfoForm.Name = "uplaod_photo_updateUSerInfoForm";
-            this.uplaod_photo_updateUSerInfoForm.Size = new System.Drawing.Size(126, 23);
-            this.uplaod_photo_updateUSerInfoForm.TabIndex = 70;
-            this.uplaod_photo_updateUSerInfoForm.Text = "Upload Photo";
-            this.uplaod_photo_updateUSerInfoForm.UseVisualStyleBackColor = true;
-            this.uplaod_photo_updateUSerInfoForm.Click += new System.EventHandler(this.uplaod_photo_updateUSerInfoForm_Click);
-            // 
             // Email_txtBox_UpdatePersonalINfor_Form
             // 
             this.Email_txtBox_UpdatePersonalINfor_Form.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Email_txtBox_UpdatePersonalINfor_Form.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Email_txtBox_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(312, 377);
             this.Email_txtBox_UpdatePersonalINfor_Form.Name = "Email_txtBox_UpdatePersonalINfor_Form";
-            this.Email_txtBox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(215, 15);
+            this.Email_txtBox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(225, 15);
             this.Email_txtBox_UpdatePersonalINfor_Form.TabIndex = 71;
             // 
             // Address_txtbox_UpdatePersonalINfor_Form
@@ -477,8 +447,9 @@
             this.Usernaem_txtbox_UpdatePersonalINfor_Form.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Usernaem_txtbox_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(312, 294);
             this.Usernaem_txtbox_UpdatePersonalINfor_Form.Name = "Usernaem_txtbox_UpdatePersonalINfor_Form";
-            this.Usernaem_txtbox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(215, 15);
+            this.Usernaem_txtbox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(225, 15);
             this.Usernaem_txtbox_UpdatePersonalINfor_Form.TabIndex = 74;
+            this.Usernaem_txtbox_UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.Usernaem_txtbox_UpdatePersonalINfor_Form_TextChanged);
             // 
             // UpdatePersonalDetailsForm
             // 
@@ -489,7 +460,6 @@
             this.Controls.Add(this.Name_txtbox_UpdatePersonalINfor_Form);
             this.Controls.Add(this.Address_txtbox_UpdatePersonalINfor_Form);
             this.Controls.Add(this.Email_txtBox_UpdatePersonalINfor_Form);
-            this.Controls.Add(this.uplaod_photo_updateUSerInfoForm);
             this.Controls.Add(this.Exit_btn_UpdatePersonalINfor_Form);
             this.Controls.Add(this.EnterOTP_txtBox_UpdateUserInfoForm);
             this.Controls.Add(this.EmailGenerateOTP_btn_UpdateUserInfoForm);
@@ -497,8 +467,6 @@
             this.Controls.Add(this.CurrentPassword_txtbox_UpdatePersonalINfor_Form);
             this.Controls.Add(this.CurrentPassword_Label_UpdatePersonalINfor_Form);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.OTP_textBox_UpdatePersonalINfor_Form);
-            this.Controls.Add(this.Generate_OTP_Btn_UpdatePersonalINfor_Form);
             this.Controls.Add(this.ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form);
             this.Controls.Add(this.ContactNumber_label_UpdatePersonalINfor_Form);
             this.Controls.Add(this.Address_labe_UpdatePersonalINfor_Form);
@@ -539,8 +507,6 @@
         private System.Windows.Forms.Button Logout_btn_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Button TermsAndConditions_btn_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Button HomePage_Update_personalInfo_btn_Form;
-        private System.Windows.Forms.TextBox OTP_textBox_UpdatePersonalINfor_Form;
-        private System.Windows.Forms.Button Generate_OTP_Btn_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Button Update_Btn_UpdatePersonalINfor_Form;
         private System.Windows.Forms.MaskedTextBox ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Label ContactNumber_label_UpdatePersonalINfor_Form;
@@ -562,7 +528,6 @@
         private System.Windows.Forms.TextBox EnterOTP_txtBox_UpdateUserInfoForm;
         private System.Windows.Forms.Button EmailGenerateOTP_btn_UpdateUserInfoForm;
         private System.Windows.Forms.Button Exit_btn_UpdatePersonalINfor_Form;
-        private System.Windows.Forms.Button uplaod_photo_updateUSerInfoForm;
         private System.Windows.Forms.TextBox Email_txtBox_UpdatePersonalINfor_Form;
         private System.Windows.Forms.TextBox Address_txtbox_UpdatePersonalINfor_Form;
         private System.Windows.Forms.TextBox Name_txtbox_UpdatePersonalINfor_Form;

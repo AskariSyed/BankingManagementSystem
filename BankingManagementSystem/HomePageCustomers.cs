@@ -170,5 +170,10 @@ namespace BankingManagementSystem
             AllTransactionsTable allTransactionsTable = new AllTransactionsTable(); 
             allTransactionsTable.Show();
         }
+
+        private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

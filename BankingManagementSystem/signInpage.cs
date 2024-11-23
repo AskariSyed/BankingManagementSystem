@@ -64,7 +64,7 @@ namespace BankingManagementSystem
                         if (result != null)
                         {
                             int customerId = Convert.ToInt32(result);
-                            Customer customer = new Customer(customerId);
+                            Customer customer = new Customer(customerId,username);
                             GlobalData.CurrentCustomer = customer;
                             HomePageCustomers homePageCustomers = new HomePageCustomers(customer);
                             this.Hide();

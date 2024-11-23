@@ -221,9 +221,7 @@ namespace BankingManagementSystem
                     //Here i want to call UpdateTabels method
 
                     UpdateTable(username, name, cnic, address, dobFormatted, accountTypeID, contactNumber, password, email, selectedBranchID, AccountNumberAssigned, newCustomerID);
-
-
-
+                    SendWelcomeEmail(email,name,Convert.ToString(AccountNumberAssigned),accountType);
                 }
 
 
@@ -308,7 +306,7 @@ namespace BankingManagementSystem
             if (EnterOTP_txtBox_SignupUserForm.Text == "Enter OTP")
             {
                 EnterOTP_txtBox_SignupUserForm.Text = ""; 
-                EnterOTP_txtBox_SignupUserForm.ForeColor = System.Drawing.Color.Black; // Change text color to black when editing
+                EnterOTP_txtBox_SignupUserForm.ForeColor = System.Drawing.Color.Black; 
             }
           
         }
@@ -317,8 +315,8 @@ namespace BankingManagementSystem
         {
             if (string.IsNullOrWhiteSpace(EnterOTP_txtBox_SignupUserForm.Text))
             {
-                EnterOTP_txtBox_SignupUserForm.Text = "Enter OTP"; // Reset the default text if left empty
-                EnterOTP_txtBox_SignupUserForm.ForeColor = System.Drawing.Color.Gray; // Set the text color back to gray
+                EnterOTP_txtBox_SignupUserForm.Text = "Enter OTP"; 
+                EnterOTP_txtBox_SignupUserForm.ForeColor = System.Drawing.Color.Gray; 
             }
         }
 
@@ -336,7 +334,7 @@ namespace BankingManagementSystem
         private void UpdateTable(string username, string name, string cnic, string address, string dobFormatted, int accountTypeiD,
                               string contactNumber, string password, string email, int selectedBranchID, long accountNumberAssigned,int newcustomerID)
         {
-            // Assuming UpdateTables will handle the logic of inserting data into your relevant tables
+           
             string userID = "CUS" + newcustomerID.ToString();
 
             string userInsertQuery = @"
@@ -418,7 +416,63 @@ namespace BankingManagementSystem
                 MessageBox.Show("Error inserting data: " + ex.Message);
             }
         }
+
+
+public void SendWelcomeEmail(string customerEmail, string customerName, string accountNumber, string accountType)
+    {
+        this.Cursor = Cursors.WaitCursor;
+
+        
+        string from = "AskariDigitalOTP@gmail.com";
+        string pass = "mitxehwlyexurspx"; 
+        string emailUsername = "Askari Digital Bank Ltd."; 
+        string subject = "Welcome to Askari Digital Banking! Your Account is Now Active";
+
+   
+        string messageBody = $"Dear {customerName},\n\n" +
+                             "Congratulations! Your new account with Askari Digital Bank has been successfully created through our Digital Onboarding process. We’re excited to have you as part of our banking family.\n\n" +
+                             $"Here’s what you can expect next:\n" +
+                             $"- Your Account Details:\n" +
+                             $"  - Account Type: {accountType}\n" +
+                             $"  - Account Number: {accountNumber}\n\n" +
+                             "- Access Your Account:\n" +
+                             "You can now log in to our online banking portal or mobile app using the credentials you created during the onboarding process. Should you need help, our customer support team is always ready to assist you.\n\n" +
+                             "- Start Managing Your Finances:\n" +
+                             "You can now enjoy a range of services such as fund transfers, bill payments, balance checks, and more—all at your fingertips.\n\n" +
+                             "If you have any questions or need assistance, please feel free to contact our customer service team at 111-111-111 or AskariDigitalOTP@gmail.com.\n\n" +
+                             "Thank you for choosing Askari Digital Bank. We look forward to helping you achieve your financial goals.\n\n" +
+                             "Warm regards,\n" +
+                             "The Askari Digital Bank Team";
+
+        MailMessage message = new MailMessage();
+        message.To.Add(customerEmail); // Customer's email
+        message.From = new MailAddress(from, emailUsername); // Sender email
+        message.Body = messageBody; // The body of the email
+        message.Subject = subject; // Subject of the email
+
+        // Setup SMTP client for Gmail
+        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+        {
+            EnableSsl = true,
+            Port = 587,
+            DeliveryMethod = SmtpDeliveryMethod.Network,
+            Credentials = new NetworkCredential(from, pass)
+        };
+
+        try
+        {
+            smtpClient.Send(message);
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("Welcome email sent successfully.");
+        }
+        catch (Exception ex)
+        {
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("Error sending email: " + ex.Message);
+        }
     }
+
+}
 
 
 }

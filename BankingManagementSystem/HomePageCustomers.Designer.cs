@@ -109,6 +109,7 @@ namespace BankingManagementSystem
             this.Privacy_And_Security_btn_HomeFormUser.TabIndex = 8;
             this.Privacy_And_Security_btn_HomeFormUser.Text = "Privacy And Security";
             this.Privacy_And_Security_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.Privacy_And_Security_btn_HomeFormUser.Click += new System.EventHandler(this.Privacy_And_Security_btn_HomeFormUser_Click);
             // 
             // TransactionHistory_btn_HomeFormUser
             // 

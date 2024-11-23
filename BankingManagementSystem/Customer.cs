@@ -22,6 +22,7 @@ namespace BankingManagementSystem
         public string nationalID { get; set; }
         public string dateJoined { get; set; }
         public string userID { get; set; }
+        public string username { get; set; }
 
         public string email { get; set; }   
         public string address { get; set; }
@@ -82,10 +83,11 @@ namespace BankingManagementSystem
             LoadCustomerByUserID();
         }
 
-       public Customer(int customerID)
+       public Customer(int customerID, string username)
         {
-            this.customerId=customerID; 
+            this.customerId = customerID;
             LoadCustomerByCustomerID();
+            this.username = username;
         }
 
 

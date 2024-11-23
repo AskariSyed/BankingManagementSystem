@@ -45,12 +45,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.RejectButton_Sigupform = new System.Windows.Forms.Button();
-            this.Accept_Terms_and_Condition_btn_Page_Form = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.Accept_Terms_and_Condition_btn_Page_Form = new System.Windows.Forms.Button();
+            this.RejectButton_Sigupform = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -279,28 +279,6 @@
             this.label7.Text = "Contact Information";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // RejectButton_Sigupform
-            // 
-            this.RejectButton_Sigupform.BackColor = System.Drawing.Color.Red;
-            this.RejectButton_Sigupform.Location = new System.Drawing.Point(134, 1008);
-            this.RejectButton_Sigupform.Name = "RejectButton_Sigupform";
-            this.RejectButton_Sigupform.Size = new System.Drawing.Size(334, 33);
-            this.RejectButton_Sigupform.TabIndex = 54;
-            this.RejectButton_Sigupform.Text = "Reject";
-            this.RejectButton_Sigupform.UseVisualStyleBackColor = false;
-            this.RejectButton_Sigupform.Click += new System.EventHandler(this.RejectButton_Sigupform_Click);
-            // 
-            // Accept_Terms_and_Condition_btn_Page_Form
-            // 
-            this.Accept_Terms_and_Condition_btn_Page_Form.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.Accept_Terms_and_Condition_btn_Page_Form.Location = new System.Drawing.Point(518, 1008);
-            this.Accept_Terms_and_Condition_btn_Page_Form.Name = "Accept_Terms_and_Condition_btn_Page_Form";
-            this.Accept_Terms_and_Condition_btn_Page_Form.Size = new System.Drawing.Size(334, 33);
-            this.Accept_Terms_and_Condition_btn_Page_Form.TabIndex = 53;
-            this.Accept_Terms_and_Condition_btn_Page_Form.Text = "Accept ";
-            this.Accept_Terms_and_Condition_btn_Page_Form.UseVisualStyleBackColor = false;
-            this.Accept_Terms_and_Condition_btn_Page_Form.Click += new System.EventHandler(this.Accept_Terms_and_Condition_btn_Page_Form_Click);
-            // 
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.SystemColors.Control;
@@ -351,6 +329,28 @@
             this.label5.Text = "Governing Law";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // Accept_Terms_and_Condition_btn_Page_Form
+            // 
+            this.Accept_Terms_and_Condition_btn_Page_Form.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.Accept_Terms_and_Condition_btn_Page_Form.Location = new System.Drawing.Point(518, 1008);
+            this.Accept_Terms_and_Condition_btn_Page_Form.Name = "Accept_Terms_and_Condition_btn_Page_Form";
+            this.Accept_Terms_and_Condition_btn_Page_Form.Size = new System.Drawing.Size(334, 33);
+            this.Accept_Terms_and_Condition_btn_Page_Form.TabIndex = 53;
+            this.Accept_Terms_and_Condition_btn_Page_Form.Text = "Accept ";
+            this.Accept_Terms_and_Condition_btn_Page_Form.UseVisualStyleBackColor = false;
+            this.Accept_Terms_and_Condition_btn_Page_Form.Click += new System.EventHandler(this.Accept_Terms_and_Condition_btn_Page_Form_Click);
+            // 
+            // RejectButton_Sigupform
+            // 
+            this.RejectButton_Sigupform.BackColor = System.Drawing.Color.Red;
+            this.RejectButton_Sigupform.Location = new System.Drawing.Point(134, 1008);
+            this.RejectButton_Sigupform.Name = "RejectButton_Sigupform";
+            this.RejectButton_Sigupform.Size = new System.Drawing.Size(334, 33);
+            this.RejectButton_Sigupform.TabIndex = 54;
+            this.RejectButton_Sigupform.Text = "Reject";
+            this.RejectButton_Sigupform.UseVisualStyleBackColor = false;
+            this.RejectButton_Sigupform.Click += new System.EventHandler(this.RejectButton_Sigupform_Click);
+            // 
             // Terms_and_Conditions_SigupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -386,11 +386,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button Accept_Terms_and_Condition_btn_Page_Form;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button RejectButton_Sigupform;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button RejectButton_Sigupform;
+        private System.Windows.Forms.Button Accept_Terms_and_Condition_btn_Page_Form;
     }
 }

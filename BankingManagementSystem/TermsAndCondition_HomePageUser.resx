@@ -133,4 +133,20 @@
     Notify us immediately of any unauthorized use of your account or any other breach of security.
 </value>
   </data>
+  <data name="textBox10.Text" xml:space="preserve">
+    <value>We reserve the right to suspend or terminate your account and access to the services at our sole discretion, without prior notice, for any conduct that we believe violates these terms or is harmful to other users, us, or third parties.</value>
+  </data>
+  <data name="textBox11.Text" xml:space="preserve">
+    <value>These Terms and Conditions shall be governed by and construed in accordance with the laws of Pakistan. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of Pakistan.
+</value>
+  </data>
+  <data name="textBox14.Text" xml:space="preserve">
+    <value>When you create an account, you agree to:
+
+    Provide accurate, current, and complete information.
+    Maintain and promptly update your account information to keep it accurate, current, and complete.
+    Keep your password confidential and secure.
+    Notify us immediately of any unauthorized use of your account or any other breach of security.
+</value>
+  </data>
 </root>

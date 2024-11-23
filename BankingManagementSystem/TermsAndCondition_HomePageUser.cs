@@ -29,5 +29,14 @@ namespace BankingManagementSystem
 
         }
 
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
