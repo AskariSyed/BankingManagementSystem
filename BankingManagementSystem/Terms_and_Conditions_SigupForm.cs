@@ -46,11 +46,9 @@ namespace BankingManagementSystem
 
         private void Accept_Terms_and_Condition_btn_Page_Form_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You have successfully SIgned up");
-            this.Close();   
-          signInpage signInpage = new signInpage(); 
-            signInpage.Show();
-            
+            this.DialogResult = DialogResult.Yes;
+            this.Close();  
+                MessageBox.Show("You have Accepted the terms and conditions");   
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -149,8 +147,8 @@ namespace BankingManagementSystem
 
         private void RejectButton_Sigupform_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.No;
             this.Close();
-            signInpage signInpage = new signInpage();
         }
     }
 }

@@ -179,53 +179,61 @@ namespace BankingManagementSystem
 
                 Terms_and_Conditions_SigupForm terms_And_Conditions = new Terms_and_Conditions_SigupForm();
                 this.Hide();
-                terms_And_Conditions.Show();
 
-                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
-                {
-                    conn.Open();
-
-                    while (!isUnique)
+                DialogResult resultt = terms_And_Conditions.ShowDialog(); //in this page there are two buttons accept and reject how to do move ahead if user accepts and stops if reject
+                
+                if(resultt==DialogResult.Yes){
+                    using (OracleConnection conn = new OracleConnection(GlobalData.connString))
                     {
-                        AccountNumberAssigned = (long)(random.Next(100000, 1000000)) * 10000 + random.Next(10000, 100000);
-                        string query = "SELECT COUNT(*) FROM Account WHERE account_id = :accountId";
+                        conn.Open();
 
-                        using (OracleCommand cmd = new OracleCommand(query, conn))
+                        while (!isUnique)
                         {
-                            cmd.Parameters.Add(new OracleParameter("accountId", AccountNumberAssigned));
-                            int count = Convert.ToInt32(cmd.ExecuteScalar());
-                            if (count == 0)
-                            {
-                                isUnique = true;
-                                MessageBox.Show($"Unique Account Number Assigned: {AccountNumberAssigned}");
-                            }
-                        }
-                    }
+                            AccountNumberAssigned = (long)(random.Next(100000, 1000000)) * 10000 + random.Next(10000, 100000);
+                            string query = "SELECT COUNT(*) FROM Account WHERE account_id = :accountId";
 
-                            string getMaxCustomerIdQuery = "SELECT MAX(customer_ID) FROM CUSTOMERS";
-                            try
+                            using (OracleCommand cmd = new OracleCommand(query, conn))
                             {
-                                using (OracleCommand cmd = new OracleCommand(getMaxCustomerIdQuery, conn))
+                                cmd.Parameters.Add(new OracleParameter("accountId", AccountNumberAssigned));
+                                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                                if (count == 0)
                                 {
-                                    object result = cmd.ExecuteScalar();
-                                    int maxCustomerId = (result != DBNull.Value) ? Convert.ToInt32(result) : 0;
-                                    newCustomerID = maxCustomerId + 1;
-
+                                    isUnique = true;
                                 }
                             }
-                            catch (Exception ex)
+                        }
+
+                        string getMaxCustomerIdQuery = "SELECT MAX(customer_ID) FROM CUSTOMERS";
+                        try
+                        {
+                            using (OracleCommand cmd = new OracleCommand(getMaxCustomerIdQuery, conn))
                             {
-                                MessageBox.Show(ex.Message);
+                                object result = cmd.ExecuteScalar();
+                                int maxCustomerId = (result != DBNull.Value) ? Convert.ToInt32(result) : 0;
+                                newCustomerID = maxCustomerId + 1;
+
                             }
-                            MessageBox.Show("New customer Id is : " + newCustomerID, "New Customer ID");
-                    //Here i want to call UpdateTabels method
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
 
-                    UpdateTable(username, name, cnic, address, dobFormatted, accountTypeID, contactNumber, password, email, selectedBranchID, AccountNumberAssigned, newCustomerID);
-                    SendWelcomeEmail(email,name,Convert.ToString(AccountNumberAssigned),accountType);
+                        UpdateTable(username, name, cnic, address, dobFormatted, accountTypeID, contactNumber, password, email, selectedBranchID, AccountNumberAssigned, newCustomerID);
+                        SendWelcomeEmail(email, name, Convert.ToString(AccountNumberAssigned), accountType);
+                        signInpage signInpage= new signInpage();
+                        this.Hide();
+                        signInpage.Show();
+
+                    }
+
+
                 }
-
-
-
+                else
+                {
+                    MessageBox.Show("You have rejected the terms and conditions please accept it to continue");
+                    return;
+                }
           
             }
         }
@@ -463,7 +471,7 @@ public void SendWelcomeEmail(string customerEmail, string customerName, string a
         {
             smtpClient.Send(message);
             this.Cursor = Cursors.Default;
-            MessageBox.Show("Welcome email sent successfully.");
+                MessageBox.Show("Welcome Mail send successful");
         }
         catch (Exception ex)
         {
