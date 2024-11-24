@@ -18,14 +18,31 @@ namespace BankingManagementSystem
     {
         public signInpage()
         {
+            CheckCustomerDetail checkCustomerDetail = new CheckCustomerDetail();
+            checkCustomerDetail.Show();
             InitializeComponent();
+            this.Paint += new PaintEventHandler(SiginPage_Paint);
+
         }
 
         private void Exit_btn_signinForm_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        private void SiginPage_Paint(object sender, PaintEventArgs e)
+        {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
 
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
+        }
         private void Signup_btn_signinForm_Click(object sender, EventArgs e)
         {
             SignupPage signupPage = new SignupPage();
@@ -255,7 +272,7 @@ namespace BankingManagementSystem
                                                     {
                                                         this.Hide();
                                                         ForgotPassword forgotPassword = new ForgotPassword();
-                                                        forgotPassword.Show();   
+                                                        forgotPassword.Show();
                                                     }
                                                     else
                                                     {

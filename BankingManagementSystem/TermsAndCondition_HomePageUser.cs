@@ -14,9 +14,9 @@ namespace BankingManagementSystem
     {
         public TermsAndCondition_HomePageUser()
         {
-            
             InitializeComponent();
         }
+        
 
         private void Exit_btn_TermsandCondition_HomePageFormUser_Click(object sender, EventArgs e)
         {
@@ -25,18 +25,19 @@ namespace BankingManagementSystem
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
-
         }
 
         private void label16_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
         }
     }
 }

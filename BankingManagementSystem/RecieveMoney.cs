@@ -1,0 +1,153 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing; // For drawing custom borders
+
+
+namespace BankingManagementSystem
+{
+    public partial class RecieveMoney : Form
+    {
+        public RecieveMoney()
+        {
+            InitializeComponent();
+            AccountNumbertxtbox.Text = Convert.ToString(GlobalData.CustomerAccount.accountId);
+            AccountTitletxtbox.Text = GlobalData.CurrentCustomer.customerName;
+            BranchNumberTxt.Text= Convert.ToString(GlobalData.CustomerAccount.branchID);
+            BranchNametxt.Text = GlobalData.CustomerAccount.branchName;
+            this.Paint += new PaintEventHandler(RecieveMoney_Paint);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RecieveMoney_Load(object sender, EventArgs e)
+        {
+            
+         
+     
+        }
+        private void RecieveMoney_Paint(object sender, PaintEventArgs e)
+        {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
+
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BranchNumberTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BranchNametxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountNumbertxtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountTitletxtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BankNametxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CopyDetailsBtn_Click(object sender, EventArgs e)
+        {
+            string details = "Bank Name: " + BankNametxtBox.Text +
+                      "\nAccount Title: " + AccountTitletxtbox.Text +
+                      "\nAccount Number: " + AccountNumbertxtbox.Text +
+                      "\nBranch Name: " + BranchNametxt.Text +
+                      "\nBranch Number: " + BranchNumberTxt.Text;
+
+            Clipboard.SetText(details); // Copy to clipboard
+
+            // Create and show a popup form
+            Form popup = new Form
+            {
+                Size = new Size(250, 60),
+                StartPosition = FormStartPosition.CenterScreen,
+                Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - 260, Screen.PrimaryScreen.WorkingArea.Height - 70),
+                FormBorderStyle = FormBorderStyle.None,
+                BackColor = Color.Black,
+                Opacity = 0.8,
+                ShowInTaskbar = false,
+                TopMost = true
+            };
+
+            Label messageLabel = new Label
+            {
+                Text = "Copied to Clipboard!",
+                Dock = DockStyle.Fill,
+                ForeColor = Color.White,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 12, FontStyle.Bold)
+            };
+
+            popup.Controls.Add(messageLabel);
+            popup.Show();
+
+            // Close popup after 2 seconds
+            Timer timer = new Timer { Interval = 2000 };
+            timer.Tick += (s, args) => { popup.Close(); timer.Dispose(); };
+            timer.Start();
+
+            // Close the main form
+            this.Close();
+        }
+
+        private void textCopied_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

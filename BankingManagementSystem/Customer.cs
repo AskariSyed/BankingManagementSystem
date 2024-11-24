@@ -22,6 +22,7 @@ namespace BankingManagementSystem
         public string nationalID { get; set; }
         public string dateJoined { get; set; }
         public string userID { get; set; }
+        public string userStatus { get; set; }
         public string username { get; set; }
 
         public string email { get; set; }   
@@ -81,14 +82,60 @@ namespace BankingManagementSystem
         {
             this.userID= UserId;
             LoadCustomerByUserID();
+            loadUserStatus();
         }
 
        public Customer(int customerID, string username)
         {
             this.customerId = customerID;
             LoadCustomerByCustomerID();
+            loadUserStatus();
+
             this.username = username;
         }
+        public Customer (int customerID)
+        {
+            this.customerId = customerID;
+            LoadCustomerByCustomerID();
+            loadUserStatus();
+
+        }
+
+        private void loadUserStatus()
+        {
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT status FROM users WHERE user_id = :userid";
+
+                    using (OracleCommand cmd = new OracleCommand(query, conn))
+                    {
+                        // Add parameter with explicit type to avoid potential type mismatches
+                        cmd.Parameters.Add(new OracleParameter("userid",  this.userID));
+
+                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read()) // Ensure data is returned
+                            {
+                                this.userStatus = reader["status"].ToString();  // Access the "status" column
+                                MessageBox.Show(this.userStatus);
+                            }
+                            else
+                            {
+                                MessageBox.Show("User not found.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
 
 
         private void LoadCustomerByUserID()
@@ -153,6 +200,7 @@ namespace BankingManagementSystem
         }
         private void MapData(OracleDataReader reader)
         {
+            nationalID = reader["NATIONAL_ID"].ToString();
             customerId = Convert.ToInt32(reader["CUSTOMER_ID"]);
             customerName = reader["NAME"].ToString();
             dateOfBirth = reader["DATE_OF_BIRTH"].ToString();

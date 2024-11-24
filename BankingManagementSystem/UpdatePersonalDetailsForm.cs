@@ -265,8 +265,6 @@ namespace BankingManagementSystem
                             customerParams.Add(new OracleParameter("contactNumber", ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form.Text));
                             actionPerformed += "Contact Number";
                         }
-
-                        // Execute 'users' update if needed
                         if (userUpdateFields.Count > 0)
                         {
                             string updateUserQuery = $"UPDATE users SET {string.Join(", ", userUpdateFields)} WHERE user_id = :userID";
@@ -277,8 +275,6 @@ namespace BankingManagementSystem
                                 userCmd.ExecuteNonQuery();
                             }
                         }
-
-                        // Execute 'customers' update if needed
                         if (customerUpdateFields.Count > 0)
                         {
                             string updateCustomerQuery = $"UPDATE customers SET {string.Join(", ", customerUpdateFields)} WHERE user_id = :userID";
@@ -289,9 +285,7 @@ namespace BankingManagementSystem
                                 customerCmd.ExecuteNonQuery();
                             }
                         }
-
                         transaction.Commit();
-
                         string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
                                                            "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
                         try
@@ -302,7 +296,6 @@ namespace BankingManagementSystem
                                 signInpage signInpage=new signInpage();
                                 
                                 int newAuditID = signInpage.GenerateNewLogID();
-
                                 insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
                                 insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentCustomer.userID)); // USER_ID as "CUS" + customer_id
                                 insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Updated Personal Information: "+actionPerformed));

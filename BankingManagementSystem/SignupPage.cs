@@ -20,9 +20,23 @@ namespace BankingManagementSystem
         String randomCode=null;
         public SignupPage()
         {
+            this.Paint += new PaintEventHandler(SignUpPage_Paint);
             InitializeComponent();
         }
+        private void SignUpPage_Paint(object sender, PaintEventArgs e)
+        {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
 
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
+        }
         private void SignupPage_Load(object sender, EventArgs e)
         {
 
@@ -55,7 +69,7 @@ namespace BankingManagementSystem
 
             int accountTypeID = 0;
 
-            if (username == ""|| name == "" || cnic == "" || address == ""|| accountType == "" || contactNumber == "" || password == "")
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(name)  || string.IsNullOrWhiteSpace(cnic) || string.IsNullOrWhiteSpace(address) || string.IsNullOrWhiteSpace(accountType) || string.IsNullOrWhiteSpace(contactNumber) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("All Fields are Mandatory \n please fill the form completely");
                 return;
@@ -453,12 +467,12 @@ public void SendWelcomeEmail(string customerEmail, string customerName, string a
                              "The Askari Digital Bank Team";
 
         MailMessage message = new MailMessage();
-        message.To.Add(customerEmail); // Customer's email
-        message.From = new MailAddress(from, emailUsername); // Sender email
-        message.Body = messageBody; // The body of the email
-        message.Subject = subject; // Subject of the email
+        message.To.Add(customerEmail);
+        message.From = new MailAddress(from, emailUsername); 
+        message.Body = messageBody; 
+        message.Subject = subject; 
 
-        // Setup SMTP client for Gmail
+
         SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
         {
             EnableSsl = true,
@@ -479,8 +493,5 @@ public void SendWelcomeEmail(string customerEmail, string customerName, string a
             MessageBox.Show("Error sending email: " + ex.Message);
         }
     }
-
 }
-
-
 }

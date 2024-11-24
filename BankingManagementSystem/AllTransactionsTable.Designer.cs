@@ -36,21 +36,29 @@
             // 
             this.TransactionDatagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.TransactionDatagridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.TransactionDatagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TransactionDatagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TransactionDatagridview.Location = new System.Drawing.Point(-2, 0);
+            this.TransactionDatagridview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TransactionDatagridview.Location = new System.Drawing.Point(0, 0);
             this.TransactionDatagridview.Name = "TransactionDatagridview";
             this.TransactionDatagridview.RowHeadersWidth = 51;
             this.TransactionDatagridview.RowTemplate.Height = 24;
-            this.TransactionDatagridview.Size = new System.Drawing.Size(1094, 449);
+            this.TransactionDatagridview.Size = new System.Drawing.Size(1457, 172);
             this.TransactionDatagridview.TabIndex = 0;
+            this.TransactionDatagridview.DataSourceChanged += new System.EventHandler(this.TransactionDatagridview_DataSourceChanged_1);
+            this.TransactionDatagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransactionDatagridview_CellContentClick);
             // 
             // AllTransactionsTable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 450);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1457, 172);
             this.Controls.Add(this.TransactionDatagridview);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AllTransactionsTable";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AllTransactionsTable";
             this.Load += new System.EventHandler(this.AllTransactionsTable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TransactionDatagridview)).EndInit();

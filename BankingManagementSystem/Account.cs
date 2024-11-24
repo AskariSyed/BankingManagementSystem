@@ -22,10 +22,12 @@ namespace BankingManagementSystem
 
      public int branchID { get; set; }
 
+    public string branchName {  get; set; }
+
      public accountType type { get; set; }
         public enum statusType
         {
-            Active, InActive ,Closed
+            Active, InActive ,Closed,Blocked
         }
 
         public enum accountType
@@ -78,6 +80,21 @@ namespace BankingManagementSystem
                             {
                                 MessageBox.Show("No accounts found for this customer.");
                             
+                            }
+                        }
+                    }
+                    string queryBranchName = "Select BRANCH_NAME from Branch where branch_id = :branchid";
+                    using (OracleCommand cmd = new OracleCommand(queryBranchName, conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("branchID", branchID));
+                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                {
+                                    this.branchName = Convert.ToString(reader["BRANCH_NAME"]);
+                                   
+                                };
                             }
                         }
                     }

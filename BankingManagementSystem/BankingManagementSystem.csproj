@@ -141,7 +141,19 @@
       <DependentUpon>AllTransactionsTable.cs</DependentUpon>
     </Compile>
     <Compile Include="BankStatementGenerator.cs" />
+    <Compile Include="CheckCustomerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckCustomerDetail.Designer.cs">
+      <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
+    <Compile Include="tellerHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tellerHomePage.Designer.cs">
+      <DependentUpon>tellerHomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RecieveMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecieveMoney.Designer.cs">
+      <DependentUpon>RecieveMoney.cs</DependentUpon>
     </Compile>
     <Compile Include="SendMoney.cs">
       <SubType>Form</SubType>
@@ -201,11 +219,20 @@
     <EmbeddedResource Include="AllTransactionsTable.resx">
       <DependentUpon>AllTransactionsTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckCustomerDetail.resx">
+      <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tellerHomePage.resx">
+      <DependentUpon>tellerHomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePageCustomers.resx">
       <DependentUpon>HomePageCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecieveMoney.resx">
+      <DependentUpon>RecieveMoney.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SendMoney.resx">
       <DependentUpon>SendMoney.cs</DependentUpon>

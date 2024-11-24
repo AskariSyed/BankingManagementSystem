@@ -175,5 +175,12 @@ namespace BankingManagementSystem
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RecieveMoney recieveMoney = new RecieveMoney();
+            recieveMoney.Show();
+
+        }
     }
 }

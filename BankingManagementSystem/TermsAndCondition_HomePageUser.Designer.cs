@@ -48,8 +48,8 @@
             this.AccountNumber_Label_HomePageUSer = new System.Windows.Forms.Label();
             this.AccountSummary_label_HOmePageUSerForm = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Exit_btn_TermsandCondition_HomePageFormUser = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Exit_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -69,12 +69,12 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Exit_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
+            this.Exit_btn_TermsandCondition_HomePageFormUser = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -317,34 +317,50 @@
             this.panel1.TabIndex = 50;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // Exit_btn_TermsandCondition_HomePageFormUser
+            // panel2
             // 
-            this.Exit_btn_TermsandCondition_HomePageFormUser.AccessibleName = "Exit_btn_btn_HomeFormUser";
-            this.Exit_btn_TermsandCondition_HomePageFormUser.BackColor = System.Drawing.Color.Transparent;
-            this.Exit_btn_TermsandCondition_HomePageFormUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Exit_btn_TermsandCondition_HomePageFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Exit_btn_TermsandCondition_HomePageFormUser.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn_TermsandCondition_HomePageFormUser.Location = new System.Drawing.Point(862, 12);
-            this.Exit_btn_TermsandCondition_HomePageFormUser.Name = "Exit_btn_TermsandCondition_HomePageFormUser";
-            this.Exit_btn_TermsandCondition_HomePageFormUser.Size = new System.Drawing.Size(31, 33);
-            this.Exit_btn_TermsandCondition_HomePageFormUser.TabIndex = 59;
-            this.Exit_btn_TermsandCondition_HomePageFormUser.Text = "X";
-            this.Exit_btn_TermsandCondition_HomePageFormUser.UseVisualStyleBackColor = false;
-            this.Exit_btn_TermsandCondition_HomePageFormUser.Click += new System.EventHandler(this.Exit_btn_TermsandCondition_HomePageFormUser_Click);
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.Exit_btn_UpdatePersonalINfor_Form);
+            this.panel2.Controls.Add(this.linkLabel2);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.textBox9);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.textBox10);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.textBox11);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.textBox12);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.textBox13);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.textBox14);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.textBox15);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.textBox16);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(924, 1000);
+            this.panel2.TabIndex = 60;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // textBox1
+            // Exit_btn_UpdatePersonalINfor_Form
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Agency FB", 12F);
-            this.textBox1.Location = new System.Drawing.Point(134, 205);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(689, 66);
-            this.textBox1.TabIndex = 40;
-            this.textBox1.Text = "By using this Banking Management System, you agree to these Terms and Conditions." +
-    " If you do not agree with any part of these terms, you must not use the system.";
+            this.Exit_btn_UpdatePersonalINfor_Form.AccessibleName = "Exit_btn_btn_HomeFormUser";
+            this.Exit_btn_UpdatePersonalINfor_Form.BackColor = System.Drawing.Color.Transparent;
+            this.Exit_btn_UpdatePersonalINfor_Form.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Exit_btn_UpdatePersonalINfor_Form.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Exit_btn_UpdatePersonalINfor_Form.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit_btn_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(877, 12);
+            this.Exit_btn_UpdatePersonalINfor_Form.Name = "Exit_btn_UpdatePersonalINfor_Form";
+            this.Exit_btn_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(31, 33);
+            this.Exit_btn_UpdatePersonalINfor_Form.TabIndex = 70;
+            this.Exit_btn_UpdatePersonalINfor_Form.Text = "X";
+            this.Exit_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
+            this.Exit_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Exit_btn_UpdatePersonalINfor_Form_Click);
             // 
             // linkLabel2
             // 
@@ -571,49 +587,34 @@
             this.label16.Text = "Terms And Conditions";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
-            // panel2
+            // Exit_btn_TermsandCondition_HomePageFormUser
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.Exit_btn_UpdatePersonalINfor_Form);
-            this.panel2.Controls.Add(this.linkLabel2);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.textBox9);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.textBox10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.textBox11);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.textBox12);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.textBox13);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.textBox14);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.textBox15);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.textBox16);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(924, 1000);
-            this.panel2.TabIndex = 60;
+            this.Exit_btn_TermsandCondition_HomePageFormUser.AccessibleName = "Exit_btn_btn_HomeFormUser";
+            this.Exit_btn_TermsandCondition_HomePageFormUser.BackColor = System.Drawing.Color.Transparent;
+            this.Exit_btn_TermsandCondition_HomePageFormUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Exit_btn_TermsandCondition_HomePageFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Exit_btn_TermsandCondition_HomePageFormUser.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit_btn_TermsandCondition_HomePageFormUser.Location = new System.Drawing.Point(862, 12);
+            this.Exit_btn_TermsandCondition_HomePageFormUser.Name = "Exit_btn_TermsandCondition_HomePageFormUser";
+            this.Exit_btn_TermsandCondition_HomePageFormUser.Size = new System.Drawing.Size(31, 33);
+            this.Exit_btn_TermsandCondition_HomePageFormUser.TabIndex = 59;
+            this.Exit_btn_TermsandCondition_HomePageFormUser.Text = "X";
+            this.Exit_btn_TermsandCondition_HomePageFormUser.UseVisualStyleBackColor = false;
+            this.Exit_btn_TermsandCondition_HomePageFormUser.Click += new System.EventHandler(this.Exit_btn_TermsandCondition_HomePageFormUser_Click);
             // 
-            // Exit_btn_UpdatePersonalINfor_Form
+            // textBox1
             // 
-            this.Exit_btn_UpdatePersonalINfor_Form.AccessibleName = "Exit_btn_btn_HomeFormUser";
-            this.Exit_btn_UpdatePersonalINfor_Form.BackColor = System.Drawing.Color.Transparent;
-            this.Exit_btn_UpdatePersonalINfor_Form.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Exit_btn_UpdatePersonalINfor_Form.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Exit_btn_UpdatePersonalINfor_Form.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(877, 12);
-            this.Exit_btn_UpdatePersonalINfor_Form.Name = "Exit_btn_UpdatePersonalINfor_Form";
-            this.Exit_btn_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(31, 33);
-            this.Exit_btn_UpdatePersonalINfor_Form.TabIndex = 70;
-            this.Exit_btn_UpdatePersonalINfor_Form.Text = "X";
-            this.Exit_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
-            this.Exit_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Exit_btn_UpdatePersonalINfor_Form_Click);
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Agency FB", 12F);
+            this.textBox1.Location = new System.Drawing.Point(134, 205);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(689, 66);
+            this.textBox1.TabIndex = 40;
+            this.textBox1.Text = "By using this Banking Management System, you agree to these Terms and Conditions." +
+    " If you do not agree with any part of these terms, you must not use the system.";
             // 
             // TermsAndCondition_HomePageUser
             // 
@@ -627,9 +628,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
