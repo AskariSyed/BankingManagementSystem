@@ -145,6 +145,67 @@ namespace BankingManagementSystem
                 return;
             }
 
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM USERS WHERE USERNAME = :username";
+
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("username", username));
+
+                    int usernameCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (usernameCount > 0)
+                    {
+                        MessageBox.Show("Username already exists. Please choose a different username.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username is available.", "Username Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM customers WHERE National_id = :cnic";
+
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("cnic", cnic));
+
+                    int usernameCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (usernameCount > 0)
+                    {
+                        MessageBox.Show("Account with The same CNIC Already Exist", "Duplicate CNIC", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("CNIC is available.", "CNIC Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(cnic)  || string.IsNullOrWhiteSpace(contactNumber) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("All Fields are Mandatory \n please fill the form completely");
+                return;
+            }
+
+            if (username.Contains(" "))
+            {
+                MessageBox.Show("Username Could Not contain blank Spaces");
+                return;
+            }
+
             if (randomCode == null)
             {
                 MessageBox.Show("Please Verify The Email First", "Verify Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);

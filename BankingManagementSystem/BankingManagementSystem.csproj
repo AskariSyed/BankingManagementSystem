@@ -216,6 +216,12 @@
     <Compile Include="Terms_and_Conditions_SigupForm.Designer.cs">
       <DependentUpon>Terms_and_Conditions_SigupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransferFundsTeller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferFundsTeller.Designer.cs">
+      <DependentUpon>TransferFundsTeller.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdatePersonalDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OpenNewAccountTeller.resx">
       <DependentUpon>OpenNewAccountTeller.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="tellerHomePage.resx">
       <DependentUpon>tellerHomePage.cs</DependentUpon>
@@ -262,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Terms_and_Conditions_SigupForm.resx">
       <DependentUpon>Terms_and_Conditions_SigupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferFundsTeller.resx">
+      <DependentUpon>TransferFundsTeller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatePersonalDetailsForm.resx">
       <DependentUpon>UpdatePersonalDetailsForm.cs</DependentUpon>

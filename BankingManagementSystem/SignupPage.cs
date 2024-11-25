@@ -155,6 +155,32 @@ namespace BankingManagementSystem
                 return;
             }
 
+
+
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM customers WHERE National_id = :cnic";
+
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("cnic", cnic));
+
+                    int usernameCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (usernameCount > 0)
+                    {
+                        MessageBox.Show("Account with The same CNIC Already Exist", "Duplicate CNIC", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("CNIC is available.", "CNIC Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+
             DateTime today = DateTime.Today;
             DateTime eighteenYearsAgo = today.AddYears(-18);
 

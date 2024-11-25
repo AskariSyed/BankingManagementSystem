@@ -159,11 +159,11 @@
             this.Signup_Btn_CreateAccountTellerScreen.BackColor = System.Drawing.Color.Transparent;
             this.Signup_Btn_CreateAccountTellerScreen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Signup_Btn_CreateAccountTellerScreen.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Signup_Btn_CreateAccountTellerScreen.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Signup_Btn_CreateAccountTellerScreen.ForeColor = System.Drawing.Color.Black;
+            this.Signup_Btn_CreateAccountTellerScreen.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
+            this.Signup_Btn_CreateAccountTellerScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.Signup_Btn_CreateAccountTellerScreen.Location = new System.Drawing.Point(288, 742);
             this.Signup_Btn_CreateAccountTellerScreen.Name = "Signup_Btn_CreateAccountTellerScreen";
-            this.Signup_Btn_CreateAccountTellerScreen.Size = new System.Drawing.Size(628, 36);
+            this.Signup_Btn_CreateAccountTellerScreen.Size = new System.Drawing.Size(628, 47);
             this.Signup_Btn_CreateAccountTellerScreen.TabIndex = 71;
             this.Signup_Btn_CreateAccountTellerScreen.Text = "Create Account";
             this.Signup_Btn_CreateAccountTellerScreen.UseVisualStyleBackColor = false;
@@ -307,10 +307,11 @@
             // signUp_label_signUpForm
             // 
             this.signUp_label_signUpForm.AutoSize = true;
-            this.signUp_label_signUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUp_label_signUpForm.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
+            this.signUp_label_signUpForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.signUp_label_signUpForm.Location = new System.Drawing.Point(474, 207);
             this.signUp_label_signUpForm.Name = "signUp_label_signUpForm";
-            this.signUp_label_signUpForm.Size = new System.Drawing.Size(319, 34);
+            this.signUp_label_signUpForm.Size = new System.Drawing.Size(298, 50);
             this.signUp_label_signUpForm.TabIndex = 51;
             this.signUp_label_signUpForm.Text = "Physical Onboarding";
             // 
@@ -330,6 +331,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1244, 850);
             this.Controls.Add(this.Branch_Label_SignUpForm);
             this.Controls.Add(this.Branch_ComboBox_CreateAccountTellerPAge);

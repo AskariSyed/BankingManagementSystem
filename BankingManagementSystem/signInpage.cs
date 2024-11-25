@@ -22,6 +22,8 @@ namespace BankingManagementSystem
             checkCustomerDetail.Show();
             OpenNewAccountTeller ac = new OpenNewAccountTeller();
             ac.Show();
+            TransferFundsTeller tf = new TransferFundsTeller();
+            tf.Show();
             InitializeComponent();
             this.Paint += new PaintEventHandler(SiginPage_Paint);
 

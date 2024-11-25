@@ -6,53 +6,60 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
-using System.Windows.Forms;
-
 namespace BankingManagementSystem
 {
-    public partial class SendMoney : Form
+    public partial class TransferFundsTeller : Form
     {
-        
-        public SendMoney()
+        public TransferFundsTeller()
         {
             InitializeComponent();
         }
 
-        
-
-        private void SendMoney_Load(object sender, EventArgs e)
+        private void TransferButton_TransferFundTelleForm_Click(object sender, EventArgs e)
         {
 
-        }
 
-        private void Exit_btn__SendMoney_Form_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+            using (var connection = new OracleConnection(GlobalData.connString))
+            {
+                connection.Open();
+                string query1 = "SELECT COUNT(*) FROM ACCOUNT WHERE ACCOUNT_ID = :accountId";
 
-        private void TransferButton_SendMoneyForm_Click(object sender, EventArgs e)
-        {
-
-           
-                using (var connection = new OracleConnection(GlobalData.connString))
+                using (var command = new OracleCommand(query1, connection))
                 {
-                    connection.Open();
-                    string query = "SELECT COUNT(*) FROM ACCOUNT WHERE ACCOUNT_ID = :accountId";
+                    command.Parameters.Add(new OracleParameter("accountId", SenderAccountNoTXTbox.Text.ToString()));
 
-                    using (var command = new OracleCommand(query, connection))
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    if (count ==0) {
+                        MessageBox.Show("Invalid Sender Account ");
+                        return;
+                    }
+                    else
                     {
-                        command.Parameters.Add(new OracleParameter("accountId", RecieverAccountNotxtBox.Text.ToString()));
+                        MessageBox.Show("Valid Sender Account ");
+                    }
+                }
 
-                        int count = Convert.ToInt32(command.ExecuteScalar());
-                    if (count > 0) {
+
+
+
+                        string query = "SELECT COUNT(*) FROM ACCOUNT WHERE ACCOUNT_ID = :accountId";
+
+                using (var command = new OracleCommand(query, connection))
+                {
+                    command.Parameters.Add(new OracleParameter("accountId", RecieverAccountNotxtBox.Text.ToString()));
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    if (count > 0)
+                    {
                         //furtherqueries here 
                         string balanceQuery = "SELECT ACCOUNT_BALANCE FROM ACCOUNT WHERE ACCOUNT_ID = :senderAccountId";
 
                         using (var balanceCommand = new OracleCommand(balanceQuery, connection))
                         {
-                            balanceCommand.Parameters.Add(new OracleParameter("senderAccountId", GlobalData.CustomerAccount.accountId));
+                            balanceCommand.Parameters.Add(new OracleParameter("senderAccountId", SenderAccountNoTXTbox.Text));
 
                             decimal senderBalance = Convert.ToDecimal(balanceCommand.ExecuteScalar());
 
@@ -73,24 +80,47 @@ namespace BankingManagementSystem
                                     receiverCustomerId = Convert.ToInt32(customerCommand.ExecuteScalar());
                                 }
 
-                                // Fetch the customer name from the CUSTOMERS table
+                              
                                 string nameQuery = "SELECT NAME FROM CUSTOMERS WHERE CUSTOMER_ID = :customerId";
                                 string receiverName = "";
+
 
                                 using (var nameCommand = new OracleCommand(nameQuery, connection))
                                 {
                                     nameCommand.Parameters.Add(new OracleParameter("customerId", receiverCustomerId));
                                     receiverName = Convert.ToString(nameCommand.ExecuteScalar());
                                 }
+                               
+                                
+                                string SenderQuery = "SELECT CUSTOMER_ID FROM ACCOUNT WHERE ACCOUNT_ID = :senderAccountId";
+                                int senderCustomerId = 0;
 
-                                // Prompt user with receiver's name (account title)
-                                DialogResult dialogResult = MessageBox.Show("Account Title: " + receiverName + "\nAre you sure you want to transfer funds?",
+
+                                using (var customerCommand = new OracleCommand(SenderQuery, connection))
+                                {
+                                    customerCommand.Parameters.Add(new OracleParameter("senderAccountId", SenderAccountNoTXTbox.Text.ToString()));
+                                    senderCustomerId = Convert.ToInt32(customerCommand.ExecuteScalar());
+                                }
+
+
+                                string senderNameQuery = "SELECT NAME FROM CUSTOMERS WHERE CUSTOMER_ID = :customerId";
+                                string senderName = "";
+
+                                using (var nameCommand = new OracleCommand(senderNameQuery, connection))
+                                {
+                                    nameCommand.Parameters.Add(new OracleParameter("customerId", senderCustomerId));
+                                    senderName = Convert.ToString(nameCommand.ExecuteScalar());
+                                }
+
+
+
+                                DialogResult dialogResult = MessageBox.Show("Sender Account Title: " + senderName + "\nReciever Account Title: " + receiverName + "\nAre you sure you want to transfer funds?",
                                                                             "Confirm Transaction", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 
                                 if (dialogResult == DialogResult.Yes)
                                 {
-                                    long referenceId = generateReferenceId();
+                                    long referenceId = SendMoney.generateReferenceId();
 
                                     using (var transaction = connection.BeginTransaction())
                                     {
@@ -101,7 +131,7 @@ namespace BankingManagementSystem
                                             using (var debitCommand = new OracleCommand(debitQuery, connection))
                                             {
                                                 debitCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
-                                                debitCommand.Parameters.Add(new OracleParameter("senderAccountId", GlobalData.CustomerAccount.accountId));
+                                                debitCommand.Parameters.Add(new OracleParameter("senderAccountId",SenderAccountNoTXTbox.Text));
                                                 debitCommand.ExecuteNonQuery();
                                             }
 
@@ -136,11 +166,11 @@ namespace BankingManagementSystem
 
                                             using (var transactionCommand = new OracleCommand(transactionQuery, connection))
                                             {
-                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", generateTransactionId())); // Assuming GenerateTransactionId is a method to create a unique ID
-                                                transactionCommand.Parameters.Add(new OracleParameter("senderAccountId", GlobalData.CustomerAccount.accountId));
+                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", SendMoney.generateTransactionId())); // Assuming GenerateTransactionId is a method to create a unique ID
+                                                transactionCommand.Parameters.Add(new OracleParameter("senderAccountId", SenderAccountNoTXTbox.Text.ToString()));
                                                 transactionCommand.Parameters.Add(new OracleParameter("transactionType", "Debit"));
                                                 transactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
-                                                transactionCommand.Parameters.Add(new OracleParameter("description", "Funds transfer to account " + RecieverAccountNotxtBox.Text));
+                                                transactionCommand.Parameters.Add(new OracleParameter("description", "Transfer to account " + RecieverAccountNotxtBox.Text.ToString() + " Via Teller"));
                                                 transactionCommand.Parameters.Add(new OracleParameter("branchId", 1954));
                                                 transactionCommand.Parameters.Add(new OracleParameter("referenceid", referenceId));
 
@@ -171,13 +201,14 @@ namespace BankingManagementSystem
 
                                             using (var creditTransactionCommand = new OracleCommand(creditTransactionQuery, connection))
                                             {
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("transactionId", generateTransactionId())); 
+                                                
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("transactionId", SendMoney.generateTransactionId()));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("receiverAccountId", RecieverAccountNotxtBox.Text.ToString()));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("transactionType", "Credit"));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("description", "Funds received from account " + GlobalData.CustomerAccount.accountId));
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", 1954)); 
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("referenceId", referenceId)); 
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("description", "Transfer from account "+SenderAccountNoTXTbox.Text.ToString()+" Via Teller "));
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", 1954));
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("referenceId", referenceId));
                                                 creditTransactionCommand.ExecuteNonQuery();
                                             }
                                             transaction.Commit();
@@ -193,7 +224,7 @@ namespace BankingManagementSystem
                                 else
                                 {
                                     return;
-                                    
+
                                 }
 
                             }
@@ -205,94 +236,12 @@ namespace BankingManagementSystem
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Account Number : "+RecieverAccountNotxtBox.Text,"Error!",MessageBoxButtons.OK);
+                        MessageBox.Show("Invalid Account Number : " + RecieverAccountNotxtBox.Text, "Error!", MessageBoxButtons.OK);
                         return;
                     }
-                    }
-                }
-            
-
-
-
-        }
-
-
-        public static long generateTransactionId()
-        {
-            bool isUnique = false;
-            long transactionIDAssigned = 0;
-            Random random = new Random();
-            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
-            {
-                conn.Open();
-                while (!isUnique)
-                {
-                    transactionIDAssigned = random.Next(1000000, 10000000); 
-
-                    try
-                    {
-                        string query = "SELECT COUNT(*) FROM transaction WHERE transaction_ID = :transactionid";
-                        using (OracleCommand cmd = new OracleCommand(query, conn))
-                        {
-                            cmd.Parameters.Add(new OracleParameter("transactionid", transactionIDAssigned));
-
-                            int count = Convert.ToInt32(cmd.ExecuteScalar());
-                            if (count == 0)
-                            {
-                                isUnique = true;
-                                MessageBox.Show($"Unique Transaction ID Assigned: {transactionIDAssigned}");
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error while checking transaction ID: {ex.Message}");
-                        break; 
-                    }
                 }
             }
 
-            return transactionIDAssigned;
         }
-
-
-        public static long generateReferenceId()
-        {
-            bool isUnique = false;
-            long referenceIDAssigned = 0;
-            Random random = new Random();
-            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
-            {
-                conn.Open();
-                while (!isUnique)
-                {
-                    referenceIDAssigned = random.Next(1000000, 10000000);
-
-                    try
-                    {
-                        string query = "SELECT COUNT(*) FROM transaction WHERE REFERENCE_ID = :referenceid";
-                        using (OracleCommand cmd = new OracleCommand(query, conn))
-                        {
-                            cmd.Parameters.Add(new OracleParameter("referenceid", referenceIDAssigned));
-
-                            int count = Convert.ToInt32(cmd.ExecuteScalar());
-                            if (count == 0)
-                            {
-                                isUnique = true;
-                                MessageBox.Show($"Unique Reference ID Assigned: {referenceIDAssigned}");
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error while checking refernce ID: {ex.Message}");
-                        break;
-                    }
-                }
-            }
-
-            return referenceIDAssigned;
-        }
-
     }
 }
