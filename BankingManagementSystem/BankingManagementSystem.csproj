@@ -148,6 +148,12 @@
       <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
+    <Compile Include="OpenNewAccountTeller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenNewAccountTeller.Designer.cs">
+      <DependentUpon>OpenNewAccountTeller.cs</DependentUpon>
+    </Compile>
     <Compile Include="tellerHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckCustomerDetail.resx">
       <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenNewAccountTeller.resx">
+      <DependentUpon>OpenNewAccountTeller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tellerHomePage.resx">
       <DependentUpon>tellerHomePage.cs</DependentUpon>

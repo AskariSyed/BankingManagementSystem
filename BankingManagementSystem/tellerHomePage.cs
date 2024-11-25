@@ -17,11 +17,6 @@ namespace BankingManagementSystem
             InitializeComponent();
         }
 
-        private void EmployeeHomePage_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -50,6 +45,12 @@ namespace BankingManagementSystem
         private void Transacion_Options_label_HOmePageUSerForm_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void OpenNewAccount_TellerHomePage_Click(object sender, EventArgs e)
+        {
+            OpenNewAccountTeller ac = new OpenNewAccountTeller();
+            ac.Show();
         }
     }
 }

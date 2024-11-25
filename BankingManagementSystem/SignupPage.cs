@@ -353,7 +353,7 @@ namespace BankingManagementSystem
         }
 
 
-        private void UpdateTable(string username, string name, string cnic, string address, string dobFormatted, int accountTypeiD,
+        public  void UpdateTable(string username, string name, string cnic, string address, string dobFormatted, int accountTypeiD,
                               string contactNumber, string password, string email, int selectedBranchID, long accountNumberAssigned,int newcustomerID)
         {
            
@@ -442,7 +442,7 @@ namespace BankingManagementSystem
 
 public void SendWelcomeEmail(string customerEmail, string customerName, string accountNumber, string accountType)
     {
-        this.Cursor = Cursors.WaitCursor;
+        Cursor = Cursors.WaitCursor;
 
         
         string from = "AskariDigitalOTP@gmail.com";

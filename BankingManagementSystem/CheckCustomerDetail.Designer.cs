@@ -399,7 +399,7 @@
             // 
             this.OnlineUserStatusDetailCheckCustomer.AutoSize = true;
             this.OnlineUserStatusDetailCheckCustomer.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OnlineUserStatusDetailCheckCustomer.Location = new System.Drawing.Point(345, 635);
+            this.OnlineUserStatusDetailCheckCustomer.Location = new System.Drawing.Point(346, 635);
             this.OnlineUserStatusDetailCheckCustomer.Name = "OnlineUserStatusDetailCheckCustomer";
             this.OnlineUserStatusDetailCheckCustomer.Size = new System.Drawing.Size(55, 24);
             this.OnlineUserStatusDetailCheckCustomer.TabIndex = 119;

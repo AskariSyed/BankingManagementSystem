@@ -46,7 +46,23 @@ namespace BankingManagementSystem
             BlockageDescription_Detail_CheckCustomer.Visible=false;
             onlineUserStatusLabelCheckCustomer.Visible = false; 
             OnlineUserStatusDetailCheckCustomer.Visible = false;
-            BlockCustomerOnlineUserButton.Visible = false;  
+            BlockCustomerOnlineUserButton.Visible = false;
+            this.Paint += new PaintEventHandler(CheckCustomer_Paint);
+
+        }
+        private void CheckCustomer_Paint(object sender, PaintEventArgs e)
+        {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
+
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

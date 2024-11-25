@@ -56,7 +56,7 @@
             this.Available_Balance_Label_HomePageUSer = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.OpenNewAccount_TellerHomePage = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -400,20 +400,21 @@
             this.button6.Text = "Transaction History";
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // OpenNewAccount_TellerHomePage
             // 
-            this.button7.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(371, 711);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(276, 44);
-            this.button7.TabIndex = 62;
-            this.button7.Text = "Open New Account";
-            this.button7.UseVisualStyleBackColor = false;
+            this.OpenNewAccount_TellerHomePage.BackColor = System.Drawing.Color.RoyalBlue;
+            this.OpenNewAccount_TellerHomePage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenNewAccount_TellerHomePage.FlatAppearance.BorderSize = 0;
+            this.OpenNewAccount_TellerHomePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenNewAccount_TellerHomePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenNewAccount_TellerHomePage.ForeColor = System.Drawing.Color.White;
+            this.OpenNewAccount_TellerHomePage.Location = new System.Drawing.Point(371, 711);
+            this.OpenNewAccount_TellerHomePage.Name = "OpenNewAccount_TellerHomePage";
+            this.OpenNewAccount_TellerHomePage.Size = new System.Drawing.Size(276, 44);
+            this.OpenNewAccount_TellerHomePage.TabIndex = 62;
+            this.OpenNewAccount_TellerHomePage.Text = "Open New Account";
+            this.OpenNewAccount_TellerHomePage.UseVisualStyleBackColor = false;
+            this.OpenNewAccount_TellerHomePage.Click += new System.EventHandler(this.OpenNewAccount_TellerHomePage_Click);
             // 
             // button8
             // 
@@ -436,7 +437,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 803);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.OpenNewAccount_TellerHomePage);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -461,7 +462,6 @@
             this.Name = "tellerHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeHomePage";
-            this.Load += new System.EventHandler(this.EmployeeHomePage_Load);
             this.SideLeft_panel_HomePageForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -497,7 +497,7 @@
         private System.Windows.Forms.Label Available_Balance_Label_HomePageUSer;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button OpenNewAccount_TellerHomePage;
         private System.Windows.Forms.Button button8;
     }
 }

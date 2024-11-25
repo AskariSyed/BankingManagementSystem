@@ -20,6 +20,8 @@ namespace BankingManagementSystem
         {
             CheckCustomerDetail checkCustomerDetail = new CheckCustomerDetail();
             checkCustomerDetail.Show();
+            OpenNewAccountTeller ac = new OpenNewAccountTeller();
+            ac.Show();
             InitializeComponent();
             this.Paint += new PaintEventHandler(SiginPage_Paint);
 
