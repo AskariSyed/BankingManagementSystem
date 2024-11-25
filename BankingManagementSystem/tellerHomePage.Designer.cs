@@ -34,7 +34,7 @@
             this.Transacion_Options_label_HOmePageUSerForm = new System.Windows.Forms.Label();
             this.Account_type_Detail_label_HomePageUserInfoForm = new System.Windows.Forms.Label();
             this.Account_type_label_HomeUSerSiginForm = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.InitiateCreditTellerHomePAge = new System.Windows.Forms.Button();
             this.Available_Balance_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
             this.AC_NO_Detail_HomepageUSerForm = new System.Windows.Forms.Label();
             this.AccountNumber_Label_HomePageUSer = new System.Windows.Forms.Label();
@@ -49,15 +49,15 @@
             this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
             this.SideLeft_panel_HomePageForm = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.CheckCustomerDetailButton = new System.Windows.Forms.Button();
+            this.initiateDebitButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.Available_Balance_Label_HomePageUSer = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.TransferFundsButton = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.OpenNewAccount_TellerHomePage = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.GenerateAccountStatement = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -90,9 +90,9 @@
             this.Transacion_Options_label_HOmePageUSerForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.Transacion_Options_label_HOmePageUSerForm.Location = new System.Drawing.Point(329, 287);
             this.Transacion_Options_label_HOmePageUSerForm.Name = "Transacion_Options_label_HOmePageUSerForm";
-            this.Transacion_Options_label_HOmePageUSerForm.Size = new System.Drawing.Size(291, 50);
+            this.Transacion_Options_label_HOmePageUSerForm.Size = new System.Drawing.Size(170, 50);
             this.Transacion_Options_label_HOmePageUSerForm.TabIndex = 54;
-            this.Transacion_Options_label_HOmePageUSerForm.Text = "Transaction Options";
+            this.Transacion_Options_label_HOmePageUSerForm.Text = "Operations";
             this.Transacion_Options_label_HOmePageUSerForm.Click += new System.EventHandler(this.Transacion_Options_label_HOmePageUSerForm_Click);
             // 
             // Account_type_Detail_label_HomePageUserInfoForm
@@ -115,21 +115,21 @@
             this.Account_type_label_HomeUSerSiginForm.TabIndex = 52;
             this.Account_type_label_HomeUSerSiginForm.Text = "Email :";
             // 
-            // button1
+            // InitiateCreditTellerHomePAge
             // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(371, 512);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 44);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Initiate Credit\r\n";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.InitiateCreditTellerHomePAge.BackColor = System.Drawing.Color.RoyalBlue;
+            this.InitiateCreditTellerHomePAge.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InitiateCreditTellerHomePAge.FlatAppearance.BorderSize = 0;
+            this.InitiateCreditTellerHomePAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InitiateCreditTellerHomePAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitiateCreditTellerHomePAge.ForeColor = System.Drawing.Color.White;
+            this.InitiateCreditTellerHomePAge.Location = new System.Drawing.Point(371, 512);
+            this.InitiateCreditTellerHomePAge.Name = "InitiateCreditTellerHomePAge";
+            this.InitiateCreditTellerHomePAge.Size = new System.Drawing.Size(276, 44);
+            this.InitiateCreditTellerHomePAge.TabIndex = 42;
+            this.InitiateCreditTellerHomePAge.Text = "Initiate Credit\r\n";
+            this.InitiateCreditTellerHomePAge.UseVisualStyleBackColor = false;
+            this.InitiateCreditTellerHomePAge.Click += new System.EventHandler(this.InitiateCreditTellerHomePAge_Click);
             // 
             // Available_Balance_Detail_HomepageUSerForm
             // 
@@ -206,6 +206,7 @@
             this.Exit_btn_btn_HomeFormUser.TabIndex = 43;
             this.Exit_btn_btn_HomeFormUser.Text = "X";
             this.Exit_btn_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.Exit_btn_btn_HomeFormUser.Click += new System.EventHandler(this.Exit_btn_btn_HomeFormUser_Click);
             // 
             // Account_Statment_btn_HomeFormUser
             // 
@@ -304,45 +305,37 @@
             this.SideLeft_panel_HomePageForm.TabIndex = 41;
             this.SideLeft_panel_HomePageForm.Paint += new System.Windows.Forms.PaintEventHandler(this.SideLeft_panel_HomePageForm_Paint);
             // 
-            // pictureBox1
+            // CheckCustomerDetailButton
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.CheckCustomerDetailButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.CheckCustomerDetailButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CheckCustomerDetailButton.FlatAppearance.BorderSize = 0;
+            this.CheckCustomerDetailButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckCustomerDetailButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckCustomerDetailButton.ForeColor = System.Drawing.Color.White;
+            this.CheckCustomerDetailButton.Location = new System.Drawing.Point(371, 417);
+            this.CheckCustomerDetailButton.Name = "CheckCustomerDetailButton";
+            this.CheckCustomerDetailButton.Size = new System.Drawing.Size(276, 44);
+            this.CheckCustomerDetailButton.TabIndex = 57;
+            this.CheckCustomerDetailButton.Text = "Check Customer Details";
+            this.CheckCustomerDetailButton.UseVisualStyleBackColor = false;
+            this.CheckCustomerDetailButton.Click += new System.EventHandler(this.CheckCustomerDetailButton_Click);
             // 
-            // button2
+            // initiateDebitButton
             // 
-            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(371, 417);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(276, 44);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Check Customer Details";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(788, 512);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(276, 44);
-            this.button3.TabIndex = 58;
-            this.button3.Text = "Initiate Debit";
-            this.button3.UseVisualStyleBackColor = false;
+            this.initiateDebitButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.initiateDebitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.initiateDebitButton.FlatAppearance.BorderSize = 0;
+            this.initiateDebitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.initiateDebitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.initiateDebitButton.ForeColor = System.Drawing.Color.White;
+            this.initiateDebitButton.Location = new System.Drawing.Point(788, 512);
+            this.initiateDebitButton.Name = "initiateDebitButton";
+            this.initiateDebitButton.Size = new System.Drawing.Size(276, 44);
+            this.initiateDebitButton.TabIndex = 58;
+            this.initiateDebitButton.Text = "Initiate Debit";
+            this.initiateDebitButton.UseVisualStyleBackColor = false;
+            this.initiateDebitButton.Click += new System.EventHandler(this.initiateDebitButton_Click);
             // 
             // button4
             // 
@@ -370,20 +363,21 @@
             this.Available_Balance_Label_HomePageUSer.Text = "Branch :";
             this.Available_Balance_Label_HomePageUSer.Click += new System.EventHandler(this.Available_Balance_Label_HomePageUSer_Click);
             // 
-            // button5
+            // TransferFundsButton
             // 
-            this.button5.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(371, 609);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(276, 44);
-            this.button5.TabIndex = 60;
-            this.button5.Text = "Transfer Funds";
-            this.button5.UseVisualStyleBackColor = false;
+            this.TransferFundsButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.TransferFundsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TransferFundsButton.FlatAppearance.BorderSize = 0;
+            this.TransferFundsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TransferFundsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransferFundsButton.ForeColor = System.Drawing.Color.White;
+            this.TransferFundsButton.Location = new System.Drawing.Point(371, 609);
+            this.TransferFundsButton.Name = "TransferFundsButton";
+            this.TransferFundsButton.Size = new System.Drawing.Size(276, 44);
+            this.TransferFundsButton.TabIndex = 60;
+            this.TransferFundsButton.Text = "Transfer Funds";
+            this.TransferFundsButton.UseVisualStyleBackColor = false;
+            this.TransferFundsButton.Click += new System.EventHandler(this.TransferFundsButton_Click);
             // 
             // button6
             // 
@@ -416,39 +410,49 @@
             this.OpenNewAccount_TellerHomePage.UseVisualStyleBackColor = false;
             this.OpenNewAccount_TellerHomePage.Click += new System.EventHandler(this.OpenNewAccount_TellerHomePage_Click);
             // 
-            // button8
+            // GenerateAccountStatement
             // 
-            this.button8.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(788, 711);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(276, 44);
-            this.button8.TabIndex = 63;
-            this.button8.Text = "Close Account";
-            this.button8.UseVisualStyleBackColor = false;
+            this.GenerateAccountStatement.BackColor = System.Drawing.Color.RoyalBlue;
+            this.GenerateAccountStatement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GenerateAccountStatement.FlatAppearance.BorderSize = 0;
+            this.GenerateAccountStatement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GenerateAccountStatement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateAccountStatement.ForeColor = System.Drawing.Color.White;
+            this.GenerateAccountStatement.Location = new System.Drawing.Point(788, 711);
+            this.GenerateAccountStatement.Name = "GenerateAccountStatement";
+            this.GenerateAccountStatement.Size = new System.Drawing.Size(276, 44);
+            this.GenerateAccountStatement.TabIndex = 63;
+            this.GenerateAccountStatement.Text = "Generate Account Statement";
+            this.GenerateAccountStatement.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // tellerHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 803);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.GenerateAccountStatement);
             this.Controls.Add(this.OpenNewAccount_TellerHomePage);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.TransferFundsButton);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.initiateDebitButton);
+            this.Controls.Add(this.CheckCustomerDetailButton);
             this.Controls.Add(this.AC_Title_Detail_HomepageUSerForm);
             this.Controls.Add(this.AccountTitle_Label_HomePageUSer);
             this.Controls.Add(this.Transacion_Options_label_HOmePageUSerForm);
             this.Controls.Add(this.Account_type_Detail_label_HomePageUserInfoForm);
             this.Controls.Add(this.Account_type_label_HomeUSerSiginForm);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.InitiateCreditTellerHomePAge);
             this.Controls.Add(this.Available_Balance_Detail_HomepageUSerForm);
             this.Controls.Add(this.AC_NO_Detail_HomepageUSerForm);
             this.Controls.Add(this.AccountNumber_Label_HomePageUSer);
@@ -475,7 +479,7 @@
         private System.Windows.Forms.Label Transacion_Options_label_HOmePageUSerForm;
         private System.Windows.Forms.Label Account_type_Detail_label_HomePageUserInfoForm;
         private System.Windows.Forms.Label Account_type_label_HomeUSerSiginForm;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button InitiateCreditTellerHomePAge;
         private System.Windows.Forms.Label Available_Balance_Detail_HomepageUSerForm;
         private System.Windows.Forms.Label AC_NO_Detail_HomepageUSerForm;
         private System.Windows.Forms.Label AccountNumber_Label_HomePageUSer;
@@ -491,13 +495,13 @@
         private System.Windows.Forms.Button TermsAndConditions_btn_HomeFormUser;
         private System.Windows.Forms.Button Update_AccountInfo_HomePageUserForm;
         private System.Windows.Forms.Panel SideLeft_panel_HomePageForm;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button CheckCustomerDetailButton;
+        private System.Windows.Forms.Button initiateDebitButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label Available_Balance_Label_HomePageUSer;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button TransferFundsButton;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button OpenNewAccount_TellerHomePage;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button GenerateAccountStatement;
     }
 }

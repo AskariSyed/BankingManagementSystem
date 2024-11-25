@@ -148,6 +148,18 @@
       <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
+    <Compile Include="InitiateCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitiateCredit.Designer.cs">
+      <DependentUpon>InitiateCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inititaeDebit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inititaeDebit.Designer.cs">
+      <DependentUpon>inititaeDebit.cs</DependentUpon>
+    </Compile>
     <Compile Include="OpenNewAccountTeller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +245,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckCustomerDetail.resx">
       <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitiateCredit.resx">
+      <DependentUpon>InitiateCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inititaeDebit.resx">
+      <DependentUpon>inititaeDebit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OpenNewAccountTeller.resx">
       <DependentUpon>OpenNewAccountTeller.cs</DependentUpon>

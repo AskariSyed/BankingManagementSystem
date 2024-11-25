@@ -34,9 +34,9 @@
             this.Exit_btn__SendMoney_Form = new System.Windows.Forms.Button();
             this.TransferButton_TransferFundTelleForm = new System.Windows.Forms.Button();
             this.Email_Label_ForgOPasswordForm = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SenderAccountNoTXTbox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,7 @@
             this.Exit_btn__SendMoney_Form.TabIndex = 97;
             this.Exit_btn__SendMoney_Form.Text = "X";
             this.Exit_btn__SendMoney_Form.UseVisualStyleBackColor = true;
+            this.Exit_btn__SendMoney_Form.Click += new System.EventHandler(this.Exit_btn__SendMoney_Form_Click);
             // 
             // TransferButton_TransferFundTelleForm
             // 
@@ -112,16 +113,6 @@
             this.Email_Label_ForgOPasswordForm.TabIndex = 95;
             this.Email_Label_ForgOPasswordForm.Text = "Recievers Account No";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 30);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(432, 216);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 94;
-            this.pictureBox1.TabStop = false;
-            // 
             // SenderAccountNoTXTbox
             // 
             this.SenderAccountNoTXTbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
@@ -142,6 +133,16 @@
             this.label2.Size = new System.Drawing.Size(202, 23);
             this.label2.TabIndex = 101;
             this.label2.Text = "Send From Account";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(432, 216);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 94;
+            this.pictureBox1.TabStop = false;
             // 
             // TransferFundsTeller
             // 

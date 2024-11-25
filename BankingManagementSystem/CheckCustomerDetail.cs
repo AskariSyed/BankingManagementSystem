@@ -369,5 +369,10 @@ namespace BankingManagementSystem
         {
 
         }
+
+        private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

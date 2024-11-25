@@ -18,15 +18,10 @@ namespace BankingManagementSystem
     {
         public signInpage()
         {
-            CheckCustomerDetail checkCustomerDetail = new CheckCustomerDetail();
-            checkCustomerDetail.Show();
-            OpenNewAccountTeller ac = new OpenNewAccountTeller();
-            ac.Show();
-            TransferFundsTeller tf = new TransferFundsTeller();
-            tf.Show();
             InitializeComponent();
             this.Paint += new PaintEventHandler(SiginPage_Paint);
-
+            tellerHomePage tellerHomePage = new tellerHomePage();
+            tellerHomePage.Show();
         }
 
         private void Exit_btn_signinForm_Click(object sender, EventArgs e)
@@ -68,6 +63,7 @@ namespace BankingManagementSystem
         {
             string username = Username_txtBox_signinForm.Text;
             string password = Passworde_txtBox_signinForm.Text;
+
 
             using (OracleConnection conn = new OracleConnection(GlobalData.connString))
             {

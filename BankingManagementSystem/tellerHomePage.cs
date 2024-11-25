@@ -15,13 +15,24 @@ namespace BankingManagementSystem
         public tellerHomePage()
         {
             InitializeComponent();
+            this.Paint += new PaintEventHandler(TellerHomePage_Paint);
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void TellerHomePage_Paint(object sender, PaintEventArgs e)
         {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
 
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
         }
-
         private void SideLeft_panel_HomePageForm_Paint(object sender, PaintEventArgs e)
         {
 
@@ -51,6 +62,35 @@ namespace BankingManagementSystem
         {
             OpenNewAccountTeller ac = new OpenNewAccountTeller();
             ac.Show();
+        }
+
+        private void InitiateCreditTellerHomePAge_Click(object sender, EventArgs e)
+        {
+            InitiateCredit initiateCredit = new InitiateCredit();   
+            initiateCredit.Show();
+        }
+
+        private void initiateDebitButton_Click(object sender, EventArgs e)
+        {
+            inititaeDebit inititaeDebit = new inititaeDebit();  
+            inititaeDebit.Show();
+        }
+
+        private void TransferFundsButton_Click(object sender, EventArgs e)
+        {
+            TransferFundsTeller transferFundsTeller = new TransferFundsTeller();    
+            transferFundsTeller.Show();
+        }
+
+        private void CheckCustomerDetailButton_Click(object sender, EventArgs e)
+        {
+            CheckCustomerDetail checkCustomerDetail = new CheckCustomerDetail();
+            checkCustomerDetail.Show();
+        }
+
+        private void Exit_btn_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

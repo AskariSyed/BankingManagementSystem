@@ -382,6 +382,7 @@
             this.Exit_btn_UpdatePersonalINfor_Form.TabIndex = 116;
             this.Exit_btn_UpdatePersonalINfor_Form.Text = "X";
             this.Exit_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
+            this.Exit_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Exit_btn_UpdatePersonalINfor_Form_Click);
             // 
             // BlockCustomerOnlineUserButton
             // 

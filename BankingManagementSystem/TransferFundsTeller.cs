@@ -16,6 +16,23 @@ namespace BankingManagementSystem
         public TransferFundsTeller()
         {
             InitializeComponent();
+            this.Paint += new PaintEventHandler(FundsTransfer_Paint);
+
+        }
+
+        private void FundsTransfer_Paint(object sender, PaintEventArgs e)
+        {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
+
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
         }
 
         private void TransferButton_TransferFundTelleForm_Click(object sender, EventArgs e)
@@ -242,6 +259,11 @@ namespace BankingManagementSystem
                 }
             }
 
+        }
+
+        private void Exit_btn__SendMoney_Form_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

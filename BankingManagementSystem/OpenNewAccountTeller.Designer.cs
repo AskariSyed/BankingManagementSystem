@@ -293,6 +293,7 @@
             this.Exit_btn_signinForm.TabIndex = 56;
             this.Exit_btn_signinForm.Text = "X";
             this.Exit_btn_signinForm.UseVisualStyleBackColor = false;
+            this.Exit_btn_signinForm.Click += new System.EventHandler(this.Exit_btn_signinForm_Click);
             // 
             // Username_label_signUpForm
             // 
