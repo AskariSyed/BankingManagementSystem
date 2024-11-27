@@ -187,8 +187,8 @@ namespace BankingManagementSystem
                                                 transactionCommand.Parameters.Add(new OracleParameter("senderAccountId", SenderAccountNoTXTbox.Text.ToString()));
                                                 transactionCommand.Parameters.Add(new OracleParameter("transactionType", "Debit"));
                                                 transactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
-                                                transactionCommand.Parameters.Add(new OracleParameter("description", "Transfer to account " + RecieverAccountNotxtBox.Text.ToString() + " Via Teller"));
-                                                transactionCommand.Parameters.Add(new OracleParameter("branchId", 1954));
+                                                transactionCommand.Parameters.Add(new OracleParameter("description", "Funds Transfer to account " + RecieverAccountNotxtBox.Text.ToString() + " Via Teller"));
+                                                transactionCommand.Parameters.Add(new OracleParameter("branchId", GlobalData.CurrentEmployee.branchId.ToString()));
                                                 transactionCommand.Parameters.Add(new OracleParameter("referenceid", referenceId));
 
                                                 transactionCommand.ExecuteNonQuery();
@@ -223,8 +223,8 @@ namespace BankingManagementSystem
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("receiverAccountId", RecieverAccountNotxtBox.Text.ToString()));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("transactionType", "Credit"));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("description", "Transfer from account "+SenderAccountNoTXTbox.Text.ToString()+" Via Teller "));
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", 1954));
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("description", "Funds Transfer from account "+SenderAccountNoTXTbox.Text.ToString()+" Via Teller "));
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", GlobalData.CurrentEmployee.branchId.ToString()));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("referenceId", referenceId));
                                                 creditTransactionCommand.ExecuteNonQuery();
                                             }

@@ -15,7 +15,12 @@ namespace BankingManagementSystem
         public tellerHomePage()
         {
             InitializeComponent();
+            
             this.Paint += new PaintEventHandler(TellerHomePage_Paint);
+            Employee_NO_Detail_HomepageUSerForm.Text = GlobalData.CurrentEmployee.employeeId.ToString();
+            Position_Detail_HomepageUSerForm.Text=GlobalData.CurrentEmployee.position.ToString();
+            BranchID_Detail_HomepageUSerForm.Text=GlobalData.CurrentEmployee.branchId.ToString();
+            Email_Detail_label_HomePageUserInfoForm.Text=GlobalData.CurrentEmployee.email.ToString();
 
         }
 
@@ -90,6 +95,15 @@ namespace BankingManagementSystem
 
         private void Exit_btn_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void Logout_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            GlobalData.CurrentCustomer = null;
+            GlobalData.customizedPopup("LogOut Successfull");
+            signInpage sign= new signInpage();
+            sign.Show();
             this.Close();
         }
     }

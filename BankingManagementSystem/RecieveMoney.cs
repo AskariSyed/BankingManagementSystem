@@ -106,35 +106,7 @@ namespace BankingManagementSystem
 
             Clipboard.SetText(details); // Copy to clipboard
 
-            // Create and show a popup form
-            Form popup = new Form
-            {
-                Size = new Size(250, 60),
-                StartPosition = FormStartPosition.CenterScreen,
-                Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - 260, Screen.PrimaryScreen.WorkingArea.Height - 70),
-                FormBorderStyle = FormBorderStyle.None,
-                BackColor = Color.Black,
-                Opacity = 0.8,
-                ShowInTaskbar = false,
-                TopMost = true
-            };
-
-            Label messageLabel = new Label
-            {
-                Text = "Copied to Clipboard!",
-                Dock = DockStyle.Fill,
-                ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 12, FontStyle.Bold)
-            };
-
-            popup.Controls.Add(messageLabel);
-            popup.Show();
-
-            // Close popup after 2 seconds
-            Timer timer = new Timer { Interval = 2000 };
-            timer.Tick += (s, args) => { popup.Close(); timer.Dispose(); };
-            timer.Start();
+            GlobalData.customizedPopup("Copied to Clipboard!");
 
             // Close the main form
             this.Close();

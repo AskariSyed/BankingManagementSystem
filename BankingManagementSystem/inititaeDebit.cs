@@ -134,7 +134,7 @@ namespace BankingManagementSystem
                                         creditTransactionCommand.Parameters.Add(new OracleParameter("transactionType", "Debit"));
                                         creditTransactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(AmountTxtBox.Text.ToString())));
                                         creditTransactionCommand.Parameters.Add(new OracleParameter("description", "Funds Debited Via Teller "));
-                                        creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", 1954));
+                                        creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", GlobalData.CurrentEmployee.branchId.ToString()));
                                         creditTransactionCommand.Parameters.Add(new OracleParameter("referenceId", referenceId));
                                         creditTransactionCommand.ExecuteNonQuery();
                                     }
@@ -167,6 +167,11 @@ namespace BankingManagementSystem
         private void Exit_btn__SendMoney_Form_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AmountTxtBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

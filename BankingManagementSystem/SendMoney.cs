@@ -58,7 +58,7 @@ namespace BankingManagementSystem
 
                             if (senderBalance < Int32.Parse(SendingAmountTxtBox.Text.ToString()))//Sender balance is less give error 
                             {
-                                MessageBox.Show("Insufficient balance in the sender's account.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                GlobalData.customizedPopup("Insufficient balance in the sender's account.");
                                 return;
                             }
                             else//if AccountNo is valid and Sender balnce is enough
@@ -181,7 +181,7 @@ namespace BankingManagementSystem
                                                 creditTransactionCommand.ExecuteNonQuery();
                                             }
                                             transaction.Commit();
-                                            MessageBox.Show("Funds transferred successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            GlobalData.customizedPopup("Funds transferred successfully.");
                                         }
                                         catch (Exception ex)
                                         {
@@ -205,7 +205,7 @@ namespace BankingManagementSystem
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Account Number : "+RecieverAccountNotxtBox.Text,"Error!",MessageBoxButtons.OK);
+                        GlobalData.customizedPopup("Invalid Account Number : " + RecieverAccountNotxtBox.Text);
                         return;
                     }
                     }
@@ -240,7 +240,7 @@ namespace BankingManagementSystem
                             if (count == 0)
                             {
                                 isUnique = true;
-                                MessageBox.Show($"Unique Transaction ID Assigned: {transactionIDAssigned}");
+                                GlobalData.customizedPopup($"Unique Transaction ID Assigned: {transactionIDAssigned}");
                             }
                         }
                     }
@@ -279,7 +279,7 @@ namespace BankingManagementSystem
                             if (count == 0)
                             {
                                 isUnique = true;
-                                MessageBox.Show($"Unique Reference ID Assigned: {referenceIDAssigned}");
+                                GlobalData.customizedPopup($"Unique Reference ID Assigned: {referenceIDAssigned}");
                             }
                         }
                     }

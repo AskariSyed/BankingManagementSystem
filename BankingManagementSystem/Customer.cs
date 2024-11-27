@@ -120,7 +120,6 @@ namespace BankingManagementSystem
                             if (reader.Read()) // Ensure data is returned
                             {
                                 this.userStatus = reader["status"].ToString();  // Access the "status" column
-                                MessageBox.Show(this.userStatus);
                             }
                             else
                             {

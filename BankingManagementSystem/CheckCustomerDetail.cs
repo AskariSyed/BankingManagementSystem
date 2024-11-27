@@ -189,9 +189,9 @@ namespace BankingManagementSystem
 
         private void SearchByCNIC_btn_Click(object sender, EventArgs e)
         {
-            string value = AttributeTxtBox.Text; // Assume "6110121909787"
+            string value = AttributeTxtBox.Text; 
             string formattedValue = null;
-            if (value.Length == 13)  // Ensure the input length is correct
+            if (value.Length == 13) 
             {
                 formattedValue = $"{value.Substring(0, 5)}-{value.Substring(5, 7)}-{value.Substring(12, 1)}";
             }
@@ -269,7 +269,7 @@ namespace BankingManagementSystem
                                 using (OracleCommand updatequerycmd = new OracleCommand(UpdateUserOnlineAccountQuery, conn))
                                 {
                                     updatequerycmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                    updatequerycmd.Parameters.Add(new OracleParameter("userId", "EMP10016"));
+                                    updatequerycmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId.ToString()));
                                     updatequerycmd.Parameters.Add(new OracleParameter("actionPerformed",GlobalData.CustomerAccount.accountId+ " User Online account Status Changed to : "+GlobalData.CurrentCustomer.userStatus.ToString()));
                                     updatequerycmd.ExecuteNonQuery();
                                     MessageBox.Show("audit log updated");
@@ -325,7 +325,7 @@ namespace BankingManagementSystem
                                 using (OracleCommand updatequerycmd = new OracleCommand(UpdateUserOnlineAccountQuery, conn))
                                 {
                                     updatequerycmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                    updatequerycmd.Parameters.Add(new OracleParameter("userId", "EMP10016"));
+                                    updatequerycmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId.ToString()));
                                     updatequerycmd.Parameters.Add(new OracleParameter("actionPerformed", +GlobalData.CustomerAccount.accountId + " account Status Changed to : "+GlobalData.CustomerAccount.status.ToString()));
                                     updatequerycmd.ExecuteNonQuery();
                                     MessageBox.Show("audit log updated");

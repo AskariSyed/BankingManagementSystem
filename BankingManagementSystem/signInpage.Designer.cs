@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signInpage));
             this.Exit_btn_signinForm = new System.Windows.Forms.Button();
-            this.AKBL_logoimage_picturebox_signin_page = new System.Windows.Forms.PictureBox();
             this.Signup_btn_signinForm = new System.Windows.Forms.Button();
             this.signin_label_signinForm = new System.Windows.Forms.Label();
             this.Username_label_signinForm = new System.Windows.Forms.Label();
@@ -41,6 +40,8 @@
             this.ForgetPassword_BTN_SigninpageForm = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SignIn_btn_SigninForm = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.AKBL_logoimage_picturebox_signin_page = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.AKBL_logoimage_picturebox_signin_page)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,17 +59,6 @@
             this.Exit_btn_signinForm.Text = "X";
             this.Exit_btn_signinForm.UseVisualStyleBackColor = false;
             this.Exit_btn_signinForm.Click += new System.EventHandler(this.Exit_btn_signinForm_Click);
-            // 
-            // AKBL_logoimage_picturebox_signin_page
-            // 
-            this.AKBL_logoimage_picturebox_signin_page.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.AKBL_logoimage_picturebox_signin_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signin_page.InitialImage")));
-            this.AKBL_logoimage_picturebox_signin_page.Location = new System.Drawing.Point(81, 145);
-            this.AKBL_logoimage_picturebox_signin_page.Name = "AKBL_logoimage_picturebox_signin_page";
-            this.AKBL_logoimage_picturebox_signin_page.Size = new System.Drawing.Size(440, 193);
-            this.AKBL_logoimage_picturebox_signin_page.TabIndex = 11;
-            this.AKBL_logoimage_picturebox_signin_page.TabStop = false;
-            this.AKBL_logoimage_picturebox_signin_page.Click += new System.EventHandler(this.AKBL_logoimage_picturebox_signin_page_Click);
             // 
             // Signup_btn_signinForm
             // 
@@ -187,6 +177,32 @@
             this.SignIn_btn_SigninForm.UseVisualStyleBackColor = false;
             this.SignIn_btn_SigninForm.Click += new System.EventHandler(this.SignIn_btn_SigninForm_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 33);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Employee Login";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // AKBL_logoimage_picturebox_signin_page
+            // 
+            this.AKBL_logoimage_picturebox_signin_page.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.AKBL_logoimage_picturebox_signin_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signin_page.InitialImage")));
+            this.AKBL_logoimage_picturebox_signin_page.Location = new System.Drawing.Point(81, 145);
+            this.AKBL_logoimage_picturebox_signin_page.Name = "AKBL_logoimage_picturebox_signin_page";
+            this.AKBL_logoimage_picturebox_signin_page.Size = new System.Drawing.Size(440, 193);
+            this.AKBL_logoimage_picturebox_signin_page.TabIndex = 11;
+            this.AKBL_logoimage_picturebox_signin_page.TabStop = false;
+            this.AKBL_logoimage_picturebox_signin_page.Click += new System.EventHandler(this.AKBL_logoimage_picturebox_signin_page_Click);
+            // 
             // signInpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -195,6 +211,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1064, 667);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.SignIn_btn_SigninForm);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.ForgetPassword_BTN_SigninpageForm);
@@ -236,6 +253,7 @@
         private System.Windows.Forms.Button ForgetPassword_BTN_SigninpageForm;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button SignIn_btn_SigninForm;
+        private System.Windows.Forms.Button button1;
     }
 }
 

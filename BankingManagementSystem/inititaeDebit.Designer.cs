@@ -55,6 +55,7 @@
             this.AmountTxtBox.Name = "AmountTxtBox";
             this.AmountTxtBox.Size = new System.Drawing.Size(108, 22);
             this.AmountTxtBox.TabIndex = 106;
+            this.AmountTxtBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.AmountTxtBox_MaskInputRejected);
             // 
             // label1
             // 

@@ -158,12 +158,11 @@
             this.Signup_Btn_CreateAccountTellerScreen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Signup_Btn_CreateAccountTellerScreen.BackColor = System.Drawing.Color.Transparent;
             this.Signup_Btn_CreateAccountTellerScreen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Signup_Btn_CreateAccountTellerScreen.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.Signup_Btn_CreateAccountTellerScreen.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
             this.Signup_Btn_CreateAccountTellerScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.Signup_Btn_CreateAccountTellerScreen.Location = new System.Drawing.Point(288, 742);
+            this.Signup_Btn_CreateAccountTellerScreen.Location = new System.Drawing.Point(326, 760);
             this.Signup_Btn_CreateAccountTellerScreen.Name = "Signup_Btn_CreateAccountTellerScreen";
-            this.Signup_Btn_CreateAccountTellerScreen.Size = new System.Drawing.Size(628, 47);
+            this.Signup_Btn_CreateAccountTellerScreen.Size = new System.Drawing.Size(628, 59);
             this.Signup_Btn_CreateAccountTellerScreen.TabIndex = 71;
             this.Signup_Btn_CreateAccountTellerScreen.Text = "Create Account";
             this.Signup_Btn_CreateAccountTellerScreen.UseVisualStyleBackColor = false;

@@ -119,7 +119,7 @@ namespace BankingManagementSystem
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("transactionType", "Credit"));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("description", "Funds Credited Via Teller "));
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", 1954));
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("branchId", GlobalData.CurrentEmployee.branchId));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("referenceId", referenceId));
                                                 creditTransactionCommand.ExecuteNonQuery();
                                             }

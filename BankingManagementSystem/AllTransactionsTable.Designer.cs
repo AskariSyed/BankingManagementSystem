@@ -43,7 +43,7 @@
             this.TransactionDatagridview.Name = "TransactionDatagridview";
             this.TransactionDatagridview.RowHeadersWidth = 51;
             this.TransactionDatagridview.RowTemplate.Height = 24;
-            this.TransactionDatagridview.Size = new System.Drawing.Size(1457, 172);
+            this.TransactionDatagridview.Size = new System.Drawing.Size(1457, 356);
             this.TransactionDatagridview.TabIndex = 0;
             this.TransactionDatagridview.DataSourceChanged += new System.EventHandler(this.TransactionDatagridview_DataSourceChanged_1);
             this.TransactionDatagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransactionDatagridview_CellContentClick);
@@ -54,7 +54,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1457, 172);
+            this.ClientSize = new System.Drawing.Size(1457, 356);
             this.Controls.Add(this.TransactionDatagridview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AllTransactionsTable";
