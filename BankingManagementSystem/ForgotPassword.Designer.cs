@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForgotPassword));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Username_Label_ForgOPasswordForm = new System.Windows.Forms.Label();
             this.Username_txtBox_ForgotPasswordForm = new System.Windows.Forms.TextBox();
             this.PhoneNmber_Label_ForgOPasswordForm = new System.Windows.Forms.Label();
@@ -44,19 +43,9 @@
             this.Save_Password_BTN__ForgotPasswrod_Form = new System.Windows.Forms.Button();
             this.Exit_btn__ForgotPasswrod_Form = new System.Windows.Forms.Button();
             this.s = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(432, 216);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Username_Label_ForgOPasswordForm
             // 
@@ -231,6 +220,17 @@
             this.s.Size = new System.Drawing.Size(239, 22);
             this.s.TabIndex = 76;
             this.s.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.s_MaskInputRejected);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(634, 216);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ForgotPassword
             // 

@@ -26,6 +26,8 @@ namespace BankingManagementSystem
         public int branchId { get; set; }
         public string userId   { get; set; }
         public Employee employee { get; set; }
+        public string branchName {  get; set; }
+
         
         public Employee(int employeeId, string firstName, string lastName, string email, string phoneNumber, DateTime hireDate,Position position ,int salary,int branchId,string userId)
         {
@@ -39,6 +41,18 @@ namespace BankingManagementSystem
             this.salary = salary;
             this.branchId = branchId;
             this.userId = userId;
+            string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
+
+            // Handle the case when no matching value is found
+            if (branchName != null)
+            {
+                this.branchName = branchName;
+            }
+            else
+            {
+                // Handle case when branchId is not found in the dictionary
+                this.branchName = "Branch not found";
+            }
 
         }
 
@@ -50,11 +64,14 @@ namespace BankingManagementSystem
 
             LoadEmployeeByUserID();
 
+            
+
         }
         public Employee(String userId)
         {
             this.userId = userId;
             LoadEmployeeByUserID ();
+          
         }
 
 
@@ -100,6 +117,19 @@ namespace BankingManagementSystem
             this.salary = Convert.ToInt32(reader["SALARY"]);
             this.branchId = Convert.ToInt32(reader["BRANCH_ID"]);
             this.phoneNumber = reader["PHONE_NUMBER"].ToString();
+
+            string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
+
+            // Handle the case when no matching value is found
+            if (branchName != null)
+            {
+                this.branchName = branchName;
+            }
+            else
+            {
+                // Handle case when branchId is not found in the dictionary
+                this.branchName = "Branch not found";
+            }
 
 
             if (positionString=="Teller")

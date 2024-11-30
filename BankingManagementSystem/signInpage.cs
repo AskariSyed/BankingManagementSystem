@@ -68,7 +68,7 @@ namespace BankingManagementSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Active'";
+                    string query = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Active' AND ROLE='Customer'";
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("username", username));
@@ -108,7 +108,7 @@ namespace BankingManagementSystem
                             {
                                 MessageBox.Show(ex.Message);
                             }
-                            string incrementSuccessfulLoginQuery = "UPDATE users SET failedLoginAttempt = 0 WHERE USER_ID = :userId";
+                            string incrementSuccessfulLoginQuery = "UPDATE users SET failedLoginAttempt = 0 WHERE USER_ID = :userId AND ROLE='Customer'";
 
                             try
                             {
@@ -132,7 +132,7 @@ namespace BankingManagementSystem
                             object result2 = null;
                             int customerId = 0;
                             string userId = null; 
-                            string CheckingIfBlocked = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Blocked'";
+                            string CheckingIfBlocked = "SELECT CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Blocked' AND ROLE='Customer'";
                             try
                             {
                                 using (OracleCommand cmdd = new OracleCommand(CheckingIfBlocked, conn))
@@ -193,7 +193,7 @@ namespace BankingManagementSystem
                                     }
                                 }
                                 else { 
-                                string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE EMAIL = :email OR USERNAME = :username";
+                                string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE EMAIL = :email OR USERNAME = :username AND ROLE='Customer'";
                                 userId = null;
                                 try
                                 {
@@ -398,6 +398,32 @@ namespace BankingManagementSystem
             EmployeeLoginPage employeeLoginPage = new EmployeeLoginPage();  
             employeeLoginPage.Show();
             this.Hide();
+        }
+
+        private void Username_txtBox_signinForm_KeyPress(object sender, KeyPressEventArgs e)
+        { 
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                
+                Passworde_txtBox_signinForm.Focus();
+                e.Handled = true;
+            }
+        
+
+
+    }
+
+        private void Passworde_txtBox_signinForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+               
+                SignIn_btn_SigninForm.PerformClick();
+
+                // Prevent the 'ding' sound for Enter key press
+                e.Handled = true;
+            }
         }
     }
 }

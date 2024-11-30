@@ -62,9 +62,9 @@
             // 
             // Signup_btn_signinForm
             // 
-            this.Signup_btn_signinForm.BackColor = System.Drawing.Color.Transparent;
+            this.Signup_btn_signinForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.Signup_btn_signinForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Signup_btn_signinForm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Signup_btn_signinForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Signup_btn_signinForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Signup_btn_signinForm.ForeColor = System.Drawing.Color.Black;
             this.Signup_btn_signinForm.Location = new System.Drawing.Point(193, 588);
@@ -113,6 +113,7 @@
             this.Username_txtBox_signinForm.Size = new System.Drawing.Size(312, 24);
             this.Username_txtBox_signinForm.TabIndex = 7;
             this.Username_txtBox_signinForm.TextChanged += new System.EventHandler(this.Username_txtBox_signinForm_TextChanged);
+            this.Username_txtBox_signinForm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Username_txtBox_signinForm_KeyPress);
             // 
             // Passworde_txtBox_signinForm
             // 
@@ -124,6 +125,7 @@
             this.Passworde_txtBox_signinForm.TabIndex = 8;
             this.Passworde_txtBox_signinForm.UseSystemPasswordChar = true;
             this.Passworde_txtBox_signinForm.TextChanged += new System.EventHandler(this.Passworde_txtBox_signinForm_TextChanged);
+            this.Passworde_txtBox_signinForm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Passworde_txtBox_signinForm_KeyPress);
             // 
             // Signup_instr_label_signinForm
             // 
@@ -137,8 +139,9 @@
             // 
             // ForgetPassword_BTN_SigninpageForm
             // 
-            this.ForgetPassword_BTN_SigninpageForm.BackColor = System.Drawing.Color.Transparent;
+            this.ForgetPassword_BTN_SigninpageForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.ForgetPassword_BTN_SigninpageForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ForgetPassword_BTN_SigninpageForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ForgetPassword_BTN_SigninpageForm.Font = new System.Drawing.Font("Arial", 9F);
             this.ForgetPassword_BTN_SigninpageForm.Location = new System.Drawing.Point(837, 507);
             this.ForgetPassword_BTN_SigninpageForm.Name = "ForgetPassword_BTN_SigninpageForm";
@@ -153,20 +156,25 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.checkBox1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.checkBox1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.checkBox1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(846, 476);
+            this.checkBox1.Location = new System.Drawing.Point(842, 472);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(147, 23);
+            this.checkBox1.Size = new System.Drawing.Size(144, 23);
             this.checkBox1.TabIndex = 13;
             this.checkBox1.Text = "Show Password";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // SignIn_btn_SigninForm
             // 
-            this.SignIn_btn_SigninForm.BackColor = System.Drawing.Color.Transparent;
+            this.SignIn_btn_SigninForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.SignIn_btn_SigninForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SignIn_btn_SigninForm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.SignIn_btn_SigninForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SignIn_btn_SigninForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignIn_btn_SigninForm.ForeColor = System.Drawing.Color.Black;
             this.SignIn_btn_SigninForm.Location = new System.Drawing.Point(751, 588);
@@ -179,14 +187,14 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 33);
+            this.button1.Size = new System.Drawing.Size(154, 33);
             this.button1.TabIndex = 15;
             this.button1.Text = "Employee Login";
             this.button1.UseVisualStyleBackColor = false;
@@ -194,7 +202,7 @@
             // 
             // AKBL_logoimage_picturebox_signin_page
             // 
-            this.AKBL_logoimage_picturebox_signin_page.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.AKBL_logoimage_picturebox_signin_page.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
             this.AKBL_logoimage_picturebox_signin_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signin_page.InitialImage")));
             this.AKBL_logoimage_picturebox_signin_page.Location = new System.Drawing.Point(81, 145);
             this.AKBL_logoimage_picturebox_signin_page.Name = "AKBL_logoimage_picturebox_signin_page";

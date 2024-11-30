@@ -15,9 +15,25 @@ namespace BankingManagementSystem
     {
         public HomePageCustomers()
         {
-            InitializeComponent();
+            InitializeComponent(); this.Paint += new PaintEventHandler(HomePageCustomer_Paint);
 
         }
+
+        private void HomePageCustomer_Paint(object sender, PaintEventArgs e)
+        {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
+
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
+        }
+
 
         public HomePageCustomers(Customer customer)
         {
@@ -68,8 +84,8 @@ namespace BankingManagementSystem
 
         private void Account_Statment_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            BankStatementGenerator asg = new BankStatementGenerator();
-            asg.GenerateStatementPDF();
+          
+            BankStatementGenerator.GenerateStatementPDFFull();
         }
         
 

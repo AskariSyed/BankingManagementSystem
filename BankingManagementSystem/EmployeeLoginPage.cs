@@ -46,7 +46,7 @@ namespace BankingManagementSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT user_id FROM users WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Active'";
+                    string query = "SELECT user_id FROM users WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Active' AND ROLE='Employee'";
                   using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("username", username));
@@ -121,7 +121,7 @@ namespace BankingManagementSystem
                             object result2 = null;
                             int employeeId = 0;
                             string userId = null;
-                            string CheckingIfBlocked = "SELECT employee_id FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Blocked'";
+                            string CheckingIfBlocked = "SELECT employee_id FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND PASSWORDHASH = :password AND Status ='Blocked' AND ROLE='Employee'";
                             try
                             {
                                 using (OracleCommand cmdd = new OracleCommand(CheckingIfBlocked, conn))
@@ -183,7 +183,7 @@ namespace BankingManagementSystem
                             }
                             else
                             {
-                                string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE EMAIL = :email OR USERNAME = :username";
+                                string userCheckQuery = "SELECT USER_ID, CUSTOMER_ID FROM USERS WHERE (EMAIL = :email OR USERNAME = :username) AND ROLE='Employee'";
                                 userId = null;
                                 try
                                 {
@@ -205,7 +205,7 @@ namespace BankingManagementSystem
 
 
 
-                                        string incrementFailedLoginQuery = "UPDATE users SET failedLoginAttempt = failedLoginAttempt + 1 WHERE USER_ID = :userId";
+                                        string incrementFailedLoginQuery = "UPDATE users SET failedLoginAttempt = failedLoginAttempt + 1 WHERE USER_ID = :userId AND ROLE='Employee'";
 
                                         try
                                         {
@@ -220,7 +220,7 @@ namespace BankingManagementSystem
                                             MessageBox.Show(ex.Message);
                                         }
                                         int failedLoginAttempt = 0;
-                                        string fetchFailedLoginAttemptQuery = "SELECT failedLoginAttempt FROM users WHERE USER_ID = :userId";
+                                        string fetchFailedLoginAttemptQuery = "SELECT failedLoginAttempt FROM users WHERE USER_ID = :userId AND ROLE='Employee'";
                                         try
                                         {
                                             using (OracleCommand fetchFailedCmd = new OracleCommand(fetchFailedLoginAttemptQuery, conn))
@@ -356,6 +356,31 @@ namespace BankingManagementSystem
         private void Exit_btn_signinForm_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Passworde_txtBox_EmployeesigninForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                SignIn_btn_EmployeeSigninForm.PerformClick();
+
+                // Prevent the 'ding' sound for Enter key press
+                e.Handled = true;
+            }
+        }
+
+        private void Username_txtBox_EmployeesigninForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+                Passworde_txtBox_EmployeesigninForm.Focus();
+                e.Handled = true;
+            }
+
         }
     }
 }

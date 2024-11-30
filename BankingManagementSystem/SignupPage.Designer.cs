@@ -293,7 +293,7 @@
             // AKBL_logoimage_picturebox_signUp_page
             // 
             this.AKBL_logoimage_picturebox_signUp_page.BackColor = System.Drawing.Color.Transparent;
-            this.AKBL_logoimage_picturebox_signUp_page.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.AKBL_logoimage_picturebox_signUp_page.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
             this.AKBL_logoimage_picturebox_signUp_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signUp_page.InitialImage")));
             this.AKBL_logoimage_picturebox_signUp_page.Location = new System.Drawing.Point(12, 12);
             this.AKBL_logoimage_picturebox_signUp_page.Name = "AKBL_logoimage_picturebox_signUp_page";

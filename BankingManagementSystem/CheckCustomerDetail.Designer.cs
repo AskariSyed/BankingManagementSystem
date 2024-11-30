@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckCustomerDetail));
             this.SearchByName_BTN = new System.Windows.Forms.Button();
             this.SearchByCNIC_btn = new System.Windows.Forms.Button();
             this.SearchByAccountNumber_btn = new System.Windows.Forms.Button();
@@ -57,12 +58,12 @@
             this.SeeAllTransactions_button = new System.Windows.Forms.Button();
             this.UpdateCustomerInformation_Button = new System.Windows.Forms.Button();
             this.BlockCustomerAccount_button = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolTipForFullName = new System.Windows.Forms.ToolTip(this.components);
             this.Exit_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.BlockCustomerOnlineUserButton = new System.Windows.Forms.Button();
             this.OnlineUserStatusDetailCheckCustomer = new System.Windows.Forms.Label();
             this.onlineUserStatusLabelCheckCustomer = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -359,16 +360,6 @@
             this.BlockCustomerAccount_button.UseVisualStyleBackColor = false;
             this.BlockCustomerAccount_button.Click += new System.EventHandler(this.BlockCustomerAccount_button_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 333);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1025, 315);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 115;
-            this.pictureBox2.TabStop = false;
-            // 
             // Exit_btn_UpdatePersonalINfor_Form
             // 
             this.Exit_btn_UpdatePersonalINfor_Form.AccessibleName = "Exit_btn_btn_HomeFormUser";
@@ -416,6 +407,16 @@
             this.onlineUserStatusLabelCheckCustomer.TabIndex = 118;
             this.onlineUserStatusLabelCheckCustomer.Text = "Online User Status:";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 333);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1025, 315);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 115;
+            this.pictureBox2.TabStop = false;
+            // 
             // CheckCustomerDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -455,6 +456,7 @@
             this.Controls.Add(this.SearchByName_BTN);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CheckCustomerDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckCustomerDetail";

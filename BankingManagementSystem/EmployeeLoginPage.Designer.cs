@@ -32,7 +32,6 @@
             this.SignIn_btn_EmployeeSigninForm = new System.Windows.Forms.Button();
             this.EmployeeShowPasswrodButton = new System.Windows.Forms.CheckBox();
             this.ForgetPassword_BTN_EmployeeSigninpageForm = new System.Windows.Forms.Button();
-            this.AKBL_logoimage_picturebox_signin_page = new System.Windows.Forms.PictureBox();
             this.Exit_btn_signinForm = new System.Windows.Forms.Button();
             this.Passworde_txtBox_EmployeesigninForm = new System.Windows.Forms.TextBox();
             this.Username_txtBox_EmployeesigninForm = new System.Windows.Forms.TextBox();
@@ -40,14 +39,15 @@
             this.Username_label_signinForm = new System.Windows.Forms.Label();
             this.signin_label_signinForm = new System.Windows.Forms.Label();
             this.CustomerLoginButton_Employeloginpage = new System.Windows.Forms.Button();
+            this.AKBL_logoimage_picturebox_signin_page = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.AKBL_logoimage_picturebox_signin_page)).BeginInit();
             this.SuspendLayout();
             // 
             // SignIn_btn_EmployeeSigninForm
             // 
-            this.SignIn_btn_EmployeeSigninForm.BackColor = System.Drawing.Color.Transparent;
+            this.SignIn_btn_EmployeeSigninForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.SignIn_btn_EmployeeSigninForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SignIn_btn_EmployeeSigninForm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.SignIn_btn_EmployeeSigninForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SignIn_btn_EmployeeSigninForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignIn_btn_EmployeeSigninForm.ForeColor = System.Drawing.Color.Black;
             this.SignIn_btn_EmployeeSigninForm.Location = new System.Drawing.Point(149, 618);
@@ -74,8 +74,9 @@
             // 
             // ForgetPassword_BTN_EmployeeSigninpageForm
             // 
-            this.ForgetPassword_BTN_EmployeeSigninpageForm.BackColor = System.Drawing.Color.Transparent;
+            this.ForgetPassword_BTN_EmployeeSigninpageForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.ForgetPassword_BTN_EmployeeSigninpageForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ForgetPassword_BTN_EmployeeSigninpageForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ForgetPassword_BTN_EmployeeSigninpageForm.Font = new System.Drawing.Font("Arial", 9F);
             this.ForgetPassword_BTN_EmployeeSigninpageForm.Location = new System.Drawing.Point(321, 565);
             this.ForgetPassword_BTN_EmployeeSigninpageForm.Name = "ForgetPassword_BTN_EmployeeSigninpageForm";
@@ -83,16 +84,6 @@
             this.ForgetPassword_BTN_EmployeeSigninpageForm.TabIndex = 25;
             this.ForgetPassword_BTN_EmployeeSigninpageForm.Text = "Forgot Password?";
             this.ForgetPassword_BTN_EmployeeSigninpageForm.UseVisualStyleBackColor = false;
-            // 
-            // AKBL_logoimage_picturebox_signin_page
-            // 
-            this.AKBL_logoimage_picturebox_signin_page.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
-            this.AKBL_logoimage_picturebox_signin_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signin_page.InitialImage")));
-            this.AKBL_logoimage_picturebox_signin_page.Location = new System.Drawing.Point(103, 12);
-            this.AKBL_logoimage_picturebox_signin_page.Name = "AKBL_logoimage_picturebox_signin_page";
-            this.AKBL_logoimage_picturebox_signin_page.Size = new System.Drawing.Size(417, 193);
-            this.AKBL_logoimage_picturebox_signin_page.TabIndex = 24;
-            this.AKBL_logoimage_picturebox_signin_page.TabStop = false;
             // 
             // Exit_btn_signinForm
             // 
@@ -119,6 +110,7 @@
             this.Passworde_txtBox_EmployeesigninForm.Size = new System.Drawing.Size(312, 24);
             this.Passworde_txtBox_EmployeesigninForm.TabIndex = 21;
             this.Passworde_txtBox_EmployeesigninForm.UseSystemPasswordChar = true;
+            this.Passworde_txtBox_EmployeesigninForm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Passworde_txtBox_EmployeesigninForm_KeyPress);
             // 
             // Username_txtBox_EmployeesigninForm
             // 
@@ -130,6 +122,7 @@
             this.Username_txtBox_EmployeesigninForm.Name = "Username_txtBox_EmployeesigninForm";
             this.Username_txtBox_EmployeesigninForm.Size = new System.Drawing.Size(312, 24);
             this.Username_txtBox_EmployeesigninForm.TabIndex = 20;
+            this.Username_txtBox_EmployeesigninForm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Username_txtBox_EmployeesigninForm_KeyPress);
             // 
             // password_label_signinForm
             // 
@@ -164,9 +157,9 @@
             // 
             // CustomerLoginButton_Employeloginpage
             // 
-            this.CustomerLoginButton_Employeloginpage.BackColor = System.Drawing.Color.Transparent;
+            this.CustomerLoginButton_Employeloginpage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.CustomerLoginButton_Employeloginpage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CustomerLoginButton_Employeloginpage.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.CustomerLoginButton_Employeloginpage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CustomerLoginButton_Employeloginpage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerLoginButton_Employeloginpage.ForeColor = System.Drawing.Color.Black;
             this.CustomerLoginButton_Employeloginpage.Location = new System.Drawing.Point(436, 681);
@@ -176,6 +169,17 @@
             this.CustomerLoginButton_Employeloginpage.Text = "Customer Login";
             this.CustomerLoginButton_Employeloginpage.UseVisualStyleBackColor = false;
             this.CustomerLoginButton_Employeloginpage.Click += new System.EventHandler(this.CustomerLoginButton_Employeloginpage_Click);
+            // 
+            // AKBL_logoimage_picturebox_signin_page
+            // 
+            this.AKBL_logoimage_picturebox_signin_page.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
+            this.AKBL_logoimage_picturebox_signin_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signin_page.InitialImage")));
+            this.AKBL_logoimage_picturebox_signin_page.Location = new System.Drawing.Point(12, 12);
+            this.AKBL_logoimage_picturebox_signin_page.Name = "AKBL_logoimage_picturebox_signin_page";
+            this.AKBL_logoimage_picturebox_signin_page.Size = new System.Drawing.Size(587, 193);
+            this.AKBL_logoimage_picturebox_signin_page.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AKBL_logoimage_picturebox_signin_page.TabIndex = 24;
+            this.AKBL_logoimage_picturebox_signin_page.TabStop = false;
             // 
             // EmployeeLoginPage
             // 

@@ -140,6 +140,7 @@
             this.BranchID_Detail_HomepageUSerForm.Size = new System.Drawing.Size(37, 24);
             this.BranchID_Detail_HomepageUSerForm.TabIndex = 50;
             this.BranchID_Detail_HomepageUSerForm.Text = "8140";
+            this.BranchID_Detail_HomepageUSerForm.Click += new System.EventHandler(this.BranchID_Detail_HomepageUSerForm_Click);
             // 
             // Employee_NO_Detail_HomepageUSerForm
             // 
@@ -435,6 +436,7 @@
             this.GenerateAccountStatement.TabIndex = 63;
             this.GenerateAccountStatement.Text = "Generate Account Statement";
             this.GenerateAccountStatement.UseVisualStyleBackColor = false;
+            this.GenerateAccountStatement.Click += new System.EventHandler(this.GenerateAccountStatement_Click);
             // 
             // tellerHomePage
             // 

@@ -156,10 +156,11 @@
             // Signup_Btn_CreateAccountTellerScreen
             // 
             this.Signup_Btn_CreateAccountTellerScreen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Signup_Btn_CreateAccountTellerScreen.BackColor = System.Drawing.Color.Transparent;
+            this.Signup_Btn_CreateAccountTellerScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.Signup_Btn_CreateAccountTellerScreen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Signup_Btn_CreateAccountTellerScreen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Signup_Btn_CreateAccountTellerScreen.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
-            this.Signup_Btn_CreateAccountTellerScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.Signup_Btn_CreateAccountTellerScreen.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.Signup_Btn_CreateAccountTellerScreen.Location = new System.Drawing.Point(326, 760);
             this.Signup_Btn_CreateAccountTellerScreen.Name = "Signup_Btn_CreateAccountTellerScreen";
             this.Signup_Btn_CreateAccountTellerScreen.Size = new System.Drawing.Size(628, 59);
@@ -318,7 +319,7 @@
             // AKBL_logoimage_picturebox_signUp_page
             // 
             this.AKBL_logoimage_picturebox_signUp_page.BackColor = System.Drawing.Color.Transparent;
-            this.AKBL_logoimage_picturebox_signUp_page.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.AKBL_logoimage_picturebox_signUp_page.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
             this.AKBL_logoimage_picturebox_signUp_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signUp_page.InitialImage")));
             this.AKBL_logoimage_picturebox_signUp_page.Location = new System.Drawing.Point(12, 11);
             this.AKBL_logoimage_picturebox_signUp_page.Name = "AKBL_logoimage_picturebox_signUp_page";

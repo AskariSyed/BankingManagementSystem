@@ -136,7 +136,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox1.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
             this.pictureBox1.Location = new System.Drawing.Point(8, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(432, 216);
@@ -161,6 +161,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransferFundsTeller";
             this.Text = "TransferFundsTeller";
+            this.Load += new System.EventHandler(this.TransferFundsTeller_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

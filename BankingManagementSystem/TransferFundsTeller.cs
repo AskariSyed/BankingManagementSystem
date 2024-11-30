@@ -265,5 +265,10 @@ namespace BankingManagementSystem
         {
             this.Close();
         }
+
+        private void TransferFundsTeller_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

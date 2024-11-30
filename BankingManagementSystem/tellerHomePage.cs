@@ -19,7 +19,7 @@ namespace BankingManagementSystem
             this.Paint += new PaintEventHandler(TellerHomePage_Paint);
             Employee_NO_Detail_HomepageUSerForm.Text = GlobalData.CurrentEmployee.employeeId.ToString();
             Position_Detail_HomepageUSerForm.Text=GlobalData.CurrentEmployee.position.ToString();
-            BranchID_Detail_HomepageUSerForm.Text=GlobalData.CurrentEmployee.branchId.ToString();
+            BranchID_Detail_HomepageUSerForm.Text=GlobalData.CurrentEmployee.branchName.ToString();
             Email_Detail_label_HomePageUserInfoForm.Text=GlobalData.CurrentEmployee.email.ToString();
 
         }
@@ -105,6 +105,17 @@ namespace BankingManagementSystem
             signInpage sign= new signInpage();
             sign.Show();
             this.Close();
+        }
+
+        private void GenerateAccountStatement_Click(object sender, EventArgs e)
+        {
+            TellerAccountStatement ac=new TellerAccountStatement();
+            ac.Show();
+        }
+
+        private void BranchID_Detail_HomepageUSerForm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

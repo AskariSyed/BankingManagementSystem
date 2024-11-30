@@ -164,8 +164,7 @@ namespace BankingManagementSystem
 
         private void Account_Statment_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
-            BankStatementGenerator asg = new BankStatementGenerator();
-            asg.GenerateStatementPDF();
+            BankStatementGenerator.GenerateStatementPDFFull();
         }
 
         private void Usernaem_txtbox_UpdatePersonalINfor_Form_TextChanged(object sender, EventArgs e)
