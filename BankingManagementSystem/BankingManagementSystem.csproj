@@ -343,9 +343,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\askari-bank-seeklogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\New-Default-pic.png" />
   </ItemGroup>
   <ItemGroup>
