@@ -63,16 +63,6 @@ namespace BankingManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap askari_bank_seeklogo {
-            get {
-                object obj = ResourceManager.GetObject("askari-bank-seeklogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap New_Default_pic {
             get {
                 object obj = ResourceManager.GetObject("New-Default-pic", resourceCulture);

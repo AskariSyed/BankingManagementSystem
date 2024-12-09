@@ -59,6 +59,7 @@ namespace BankingManagementSystem
 
         private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
+            GlobalData.customerLogout();
             Application.Exit();
         }
 
@@ -342,6 +343,121 @@ namespace BankingManagementSystem
         }
 
         private void Privacy_And_Security_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SideLeft_panel_HomePageForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void ContactNumber_label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Address_labe_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Email_label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DOBPicker_UpdatePersonalINfor_Form_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateOfBirth_label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cnic_maskedtextbox_UpdatePersonalINfor_Form_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void Cnic_Label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Name_Label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfirmPasswod_txtBox__UpdatePersonalINfor_Form_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfirmPassword_label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewPassword_txtBox_UpdatePersonalINfor_Form_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewPassword_label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Username_label_UpdatePersonalInfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CurrentPassword_txtbox_UpdatePersonalINfor_Form_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CurrentPassword_Label_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void Email_txtBox_UpdatePersonalINfor_Form_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Address_txtbox_UpdatePersonalINfor_Form_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Name_txtbox_UpdatePersonalINfor_Form_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProfilePic_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
 
         }

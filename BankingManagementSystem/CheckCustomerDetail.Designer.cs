@@ -409,7 +409,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.askari_bank_seeklogo;
+            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
             this.pictureBox2.Location = new System.Drawing.Point(12, 333);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1025, 315);

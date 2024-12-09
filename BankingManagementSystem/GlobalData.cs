@@ -5,18 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BankingManagementSystem
 {
     internal class GlobalData
     {
-       public static Customer CurrentCustomer { get; set; }
-       public static Account CustomerAccount { get; set; }
-       public static Employee CurrentEmployee { get; set; }
+        public static Customer CurrentCustomer { get; set; }
+        public static Account CustomerAccount { get; set; }
+        public static Employee CurrentEmployee { get; set; }
 
-       public static string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
+        public static string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
 
-       public static Dictionary<string, int> cityBranchIDs = new Dictionary<string, int>
+        public static Dictionary<string, int> cityBranchIDs = new Dictionary<string, int>
         {
             { "Islamabad", 1954 },
             { "Karachi", 8658 },
@@ -41,7 +42,7 @@ namespace BankingManagementSystem
             { "Rahim Yar Khan", 6247 }
         };
 
-        public static void  customizedPopup(String message)
+        public static void customizedPopup(String message)
         {
             Form popup = new Form
             {
@@ -73,10 +74,36 @@ namespace BankingManagementSystem
 
 
         }
+        public static void customerLogout()
+        {
+            string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                         "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+
+                try
+                {
+                    conn.Open();
+                    int newAuditID = signInpage.GenerateNewLogID();
+                    using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                    {
+                        insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
+                        insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentCustomer.userID));
+                        insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Logged Out successfully"));
+                        insertCmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                GlobalData.CurrentCustomer = null;
+            }
+
+
+        }
+
 
 
     }
-
-
-
 }

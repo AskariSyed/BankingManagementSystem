@@ -34,7 +34,6 @@
             this.Account_Statment_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.Privacy_And_Security_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.TransactionHistory_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
-            this.ProfilePic_UpdatePersonalINfor_Form = new System.Windows.Forms.PictureBox();
             this.Logout_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.HomePage_Update_personalInfo_btn_Form = new System.Windows.Forms.Button();
@@ -53,7 +52,6 @@
             this.NewPassword_txtBox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.NewPassword_label_UpdatePersonalINfor_Form = new System.Windows.Forms.Label();
             this.Username_label_UpdatePersonalInfor_Form = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.CurrentPassword_txtbox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.CurrentPassword_Label_UpdatePersonalINfor_Form = new System.Windows.Forms.Label();
             this.EnterOTP_txtBox_UpdateUserInfoForm = new System.Windows.Forms.TextBox();
@@ -63,9 +61,11 @@
             this.Address_txtbox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.Name_txtbox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.Usernaem_txtbox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ProfilePic_UpdatePersonalINfor_Form = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).BeginInit();
             this.SuspendLayout();
             // 
             // splitter1
@@ -75,6 +75,7 @@
             this.splitter1.Size = new System.Drawing.Size(3, 803);
             this.splitter1.TabIndex = 24;
             this.splitter1.TabStop = false;
+            this.splitter1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter1_SplitterMoved);
             // 
             // SideLeft_panel_HomePageForm
             // 
@@ -90,6 +91,7 @@
             this.SideLeft_panel_HomePageForm.Name = "SideLeft_panel_HomePageForm";
             this.SideLeft_panel_HomePageForm.Size = new System.Drawing.Size(302, 806);
             this.SideLeft_panel_HomePageForm.TabIndex = 23;
+            this.SideLeft_panel_HomePageForm.Paint += new System.Windows.Forms.PaintEventHandler(this.SideLeft_panel_HomePageForm_Paint);
             // 
             // Account_Statment_btn_UpdatePersonalINfor_Form
             // 
@@ -132,16 +134,6 @@
             this.TransactionHistory_btn_UpdatePersonalINfor_Form.Text = "Transaction History";
             this.TransactionHistory_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
             this.TransactionHistory_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.TransactionHistory_btn_UpdatePersonalINfor_Form_Click);
-            // 
-            // ProfilePic_UpdatePersonalINfor_Form
-            // 
-            this.ProfilePic_UpdatePersonalINfor_Form.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePic_UpdatePersonalINfor_Form.Image")));
-            this.ProfilePic_UpdatePersonalINfor_Form.InitialImage = null;
-            this.ProfilePic_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(17, 13);
-            this.ProfilePic_UpdatePersonalINfor_Form.Name = "ProfilePic_UpdatePersonalINfor_Form";
-            this.ProfilePic_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(217, 197);
-            this.ProfilePic_UpdatePersonalINfor_Form.TabIndex = 1;
-            this.ProfilePic_UpdatePersonalINfor_Form.TabStop = false;
             // 
             // Logout_btn_UpdatePersonalINfor_Form
             // 
@@ -211,6 +203,7 @@
             this.ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form.Name = "ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form";
             this.ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(216, 22);
             this.ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form.TabIndex = 58;
+            this.ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.ContactNumber_MaskedTextBox_UpdatePersonalINfor_Form_MaskInputRejected);
             // 
             // ContactNumber_label_UpdatePersonalINfor_Form
             // 
@@ -221,6 +214,7 @@
             this.ContactNumber_label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(171, 23);
             this.ContactNumber_label_UpdatePersonalINfor_Form.TabIndex = 57;
             this.ContactNumber_label_UpdatePersonalINfor_Form.Text = "Contact Number";
+            this.ContactNumber_label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.ContactNumber_label_UpdatePersonalINfor_Form_Click);
             // 
             // Address_labe_UpdatePersonalINfor_Form
             // 
@@ -231,6 +225,7 @@
             this.Address_labe_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(93, 23);
             this.Address_labe_UpdatePersonalINfor_Form.TabIndex = 55;
             this.Address_labe_UpdatePersonalINfor_Form.Text = "Address";
+            this.Address_labe_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Address_labe_UpdatePersonalINfor_Form_Click);
             // 
             // Email_label_UpdatePersonalINfor_Form
             // 
@@ -241,6 +236,7 @@
             this.Email_label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(63, 23);
             this.Email_label_UpdatePersonalINfor_Form.TabIndex = 53;
             this.Email_label_UpdatePersonalINfor_Form.Text = "Email";
+            this.Email_label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Email_label_UpdatePersonalINfor_Form_Click);
             // 
             // DOBPicker_UpdatePersonalINfor_Form
             // 
@@ -251,6 +247,7 @@
             this.DOBPicker_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(267, 22);
             this.DOBPicker_UpdatePersonalINfor_Form.TabIndex = 52;
             this.DOBPicker_UpdatePersonalINfor_Form.Value = new System.DateTime(2024, 10, 14, 0, 0, 0, 0);
+            this.DOBPicker_UpdatePersonalINfor_Form.ValueChanged += new System.EventHandler(this.DOBPicker_UpdatePersonalINfor_Form_ValueChanged);
             // 
             // DateOfBirth_label_UpdatePersonalINfor_Form
             // 
@@ -261,6 +258,7 @@
             this.DateOfBirth_label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(136, 23);
             this.DateOfBirth_label_UpdatePersonalINfor_Form.TabIndex = 51;
             this.DateOfBirth_label_UpdatePersonalINfor_Form.Text = "Date Of Birth";
+            this.DateOfBirth_label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.DateOfBirth_label_UpdatePersonalINfor_Form_Click);
             // 
             // Cnic_maskedtextbox_UpdatePersonalINfor_Form
             // 
@@ -271,6 +269,7 @@
             this.Cnic_maskedtextbox_UpdatePersonalINfor_Form.ReadOnly = true;
             this.Cnic_maskedtextbox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(226, 22);
             this.Cnic_maskedtextbox_UpdatePersonalINfor_Form.TabIndex = 50;
+            this.Cnic_maskedtextbox_UpdatePersonalINfor_Form.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.Cnic_maskedtextbox_UpdatePersonalINfor_Form_MaskInputRejected);
             // 
             // Cnic_Label_UpdatePersonalINfor_Form
             // 
@@ -281,6 +280,7 @@
             this.Cnic_Label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(61, 23);
             this.Cnic_Label_UpdatePersonalINfor_Form.TabIndex = 49;
             this.Cnic_Label_UpdatePersonalINfor_Form.Text = "CNIC";
+            this.Cnic_Label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Cnic_Label_UpdatePersonalINfor_Form_Click);
             // 
             // Name_Label_UpdatePersonalINfor_Form
             // 
@@ -291,6 +291,7 @@
             this.Name_Label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(67, 23);
             this.Name_Label_UpdatePersonalINfor_Form.TabIndex = 47;
             this.Name_Label_UpdatePersonalINfor_Form.Text = "Name";
+            this.Name_Label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Name_Label_UpdatePersonalINfor_Form_Click);
             // 
             // ConfirmPasswod_txtBox__UpdatePersonalINfor_Form
             // 
@@ -301,6 +302,7 @@
             this.ConfirmPasswod_txtBox__UpdatePersonalINfor_Form.PasswordChar = '*';
             this.ConfirmPasswod_txtBox__UpdatePersonalINfor_Form.Size = new System.Drawing.Size(216, 15);
             this.ConfirmPasswod_txtBox__UpdatePersonalINfor_Form.TabIndex = 46;
+            this.ConfirmPasswod_txtBox__UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.ConfirmPasswod_txtBox__UpdatePersonalINfor_Form_TextChanged);
             // 
             // ConfirmPassword_label_UpdatePersonalINfor_Form
             // 
@@ -311,6 +313,7 @@
             this.ConfirmPassword_label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(190, 23);
             this.ConfirmPassword_label_UpdatePersonalINfor_Form.TabIndex = 45;
             this.ConfirmPassword_label_UpdatePersonalINfor_Form.Text = "Confirm Password";
+            this.ConfirmPassword_label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.ConfirmPassword_label_UpdatePersonalINfor_Form_Click);
             // 
             // NewPassword_txtBox_UpdatePersonalINfor_Form
             // 
@@ -321,6 +324,7 @@
             this.NewPassword_txtBox_UpdatePersonalINfor_Form.PasswordChar = '*';
             this.NewPassword_txtBox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(216, 15);
             this.NewPassword_txtBox_UpdatePersonalINfor_Form.TabIndex = 44;
+            this.NewPassword_txtBox_UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.NewPassword_txtBox_UpdatePersonalINfor_Form_TextChanged);
             // 
             // NewPassword_label_UpdatePersonalINfor_Form
             // 
@@ -331,6 +335,7 @@
             this.NewPassword_label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(155, 23);
             this.NewPassword_label_UpdatePersonalINfor_Form.TabIndex = 42;
             this.NewPassword_label_UpdatePersonalINfor_Form.Text = "New Password";
+            this.NewPassword_label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.NewPassword_label_UpdatePersonalINfor_Form_Click);
             // 
             // Username_label_UpdatePersonalInfor_Form
             // 
@@ -341,16 +346,7 @@
             this.Username_label_UpdatePersonalInfor_Form.Size = new System.Drawing.Size(111, 23);
             this.Username_label_UpdatePersonalInfor_Form.TabIndex = 41;
             this.Username_label_UpdatePersonalInfor_Form.Text = "Username";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
-            this.pictureBox2.Location = new System.Drawing.Point(534, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(432, 216);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 64;
-            this.pictureBox2.TabStop = false;
+            this.Username_label_UpdatePersonalInfor_Form.Click += new System.EventHandler(this.Username_label_UpdatePersonalInfor_Form_Click);
             // 
             // CurrentPassword_txtbox_UpdatePersonalINfor_Form
             // 
@@ -361,6 +357,7 @@
             this.CurrentPassword_txtbox_UpdatePersonalINfor_Form.PasswordChar = '*';
             this.CurrentPassword_txtbox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(216, 15);
             this.CurrentPassword_txtbox_UpdatePersonalINfor_Form.TabIndex = 66;
+            this.CurrentPassword_txtbox_UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.CurrentPassword_txtbox_UpdatePersonalINfor_Form_TextChanged);
             // 
             // CurrentPassword_Label_UpdatePersonalINfor_Form
             // 
@@ -371,6 +368,7 @@
             this.CurrentPassword_Label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(188, 23);
             this.CurrentPassword_Label_UpdatePersonalINfor_Form.TabIndex = 65;
             this.CurrentPassword_Label_UpdatePersonalINfor_Form.Text = "Current Password";
+            this.CurrentPassword_Label_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.CurrentPassword_Label_UpdatePersonalINfor_Form_Click);
             // 
             // EnterOTP_txtBox_UpdateUserInfoForm
             // 
@@ -421,6 +419,7 @@
             this.Email_txtBox_UpdatePersonalINfor_Form.Name = "Email_txtBox_UpdatePersonalINfor_Form";
             this.Email_txtBox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(225, 15);
             this.Email_txtBox_UpdatePersonalINfor_Form.TabIndex = 71;
+            this.Email_txtBox_UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.Email_txtBox_UpdatePersonalINfor_Form_TextChanged_1);
             // 
             // Address_txtbox_UpdatePersonalINfor_Form
             // 
@@ -431,6 +430,7 @@
             this.Address_txtbox_UpdatePersonalINfor_Form.Name = "Address_txtbox_UpdatePersonalINfor_Form";
             this.Address_txtbox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(215, 96);
             this.Address_txtbox_UpdatePersonalINfor_Form.TabIndex = 72;
+            this.Address_txtbox_UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.Address_txtbox_UpdatePersonalINfor_Form_TextChanged);
             // 
             // Name_txtbox_UpdatePersonalINfor_Form
             // 
@@ -440,6 +440,7 @@
             this.Name_txtbox_UpdatePersonalINfor_Form.Name = "Name_txtbox_UpdatePersonalINfor_Form";
             this.Name_txtbox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(215, 15);
             this.Name_txtbox_UpdatePersonalINfor_Form.TabIndex = 73;
+            this.Name_txtbox_UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.Name_txtbox_UpdatePersonalINfor_Form_TextChanged);
             // 
             // Usernaem_txtbox_UpdatePersonalINfor_Form
             // 
@@ -450,6 +451,28 @@
             this.Usernaem_txtbox_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(225, 15);
             this.Usernaem_txtbox_UpdatePersonalINfor_Form.TabIndex = 74;
             this.Usernaem_txtbox_UpdatePersonalINfor_Form.TextChanged += new System.EventHandler(this.Usernaem_txtbox_UpdatePersonalINfor_Form_TextChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
+            this.pictureBox2.Location = new System.Drawing.Point(534, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(432, 216);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 64;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // ProfilePic_UpdatePersonalINfor_Form
+            // 
+            this.ProfilePic_UpdatePersonalINfor_Form.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePic_UpdatePersonalINfor_Form.Image")));
+            this.ProfilePic_UpdatePersonalINfor_Form.InitialImage = null;
+            this.ProfilePic_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(17, 13);
+            this.ProfilePic_UpdatePersonalINfor_Form.Name = "ProfilePic_UpdatePersonalINfor_Form";
+            this.ProfilePic_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(217, 197);
+            this.ProfilePic_UpdatePersonalINfor_Form.TabIndex = 1;
+            this.ProfilePic_UpdatePersonalINfor_Form.TabStop = false;
+            this.ProfilePic_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.ProfilePic_UpdatePersonalINfor_Form_Click);
             // 
             // UpdatePersonalDetailsForm
             // 
@@ -489,8 +512,8 @@
             this.Text = "UpdatePersonalDetailsForm";
             this.Load += new System.EventHandler(this.UpdatePersonalDetailsForm_Load);
             this.SideLeft_panel_HomePageForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

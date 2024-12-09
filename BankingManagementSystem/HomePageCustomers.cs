@@ -79,6 +79,7 @@ namespace BankingManagementSystem
 
         private void Exit_btn_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
+            GlobalData.customerLogout();
             Application.Exit();
         }
 
@@ -191,7 +192,8 @@ namespace BankingManagementSystem
 
         private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-
+            PrivacyAndSecurity privacy = new PrivacyAndSecurity();
+            privacy.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
