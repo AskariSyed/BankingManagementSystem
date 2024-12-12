@@ -111,6 +111,7 @@
             this.AttributeTxtBox.Name = "AttributeTxtBox";
             this.AttributeTxtBox.Size = new System.Drawing.Size(499, 22);
             this.AttributeTxtBox.TabIndex = 18;
+            this.AttributeTxtBox.TextChanged += new System.EventHandler(this.AttributeTxtBox_TextChanged);
             // 
             // AccountSummary_label_HOmePageUSerForm
             // 
@@ -123,6 +124,7 @@
             this.AccountSummary_label_HOmePageUSerForm.Size = new System.Drawing.Size(347, 50);
             this.AccountSummary_label_HOmePageUSerForm.TabIndex = 91;
             this.AccountSummary_label_HOmePageUSerForm.Text = "Check Customer Details";
+            this.AccountSummary_label_HOmePageUSerForm.Click += new System.EventHandler(this.AccountSummary_label_HOmePageUSerForm_Click);
             // 
             // AC_Title_Detail_CheckCustomerForm
             // 
@@ -133,6 +135,7 @@
             this.AC_Title_Detail_CheckCustomerForm.Size = new System.Drawing.Size(163, 24);
             this.AC_Title_Detail_CheckCustomerForm.TabIndex = 99;
             this.AC_Title_Detail_CheckCustomerForm.Text = "Muhammad Hassan Askari";
+            this.AC_Title_Detail_CheckCustomerForm.Click += new System.EventHandler(this.AC_Title_Detail_CheckCustomerForm_Click);
             // 
             // AccountTitle_Label_CheckCustomer
             // 
@@ -143,6 +146,7 @@
             this.AccountTitle_Label_CheckCustomer.Size = new System.Drawing.Size(93, 24);
             this.AccountTitle_Label_CheckCustomer.TabIndex = 98;
             this.AccountTitle_Label_CheckCustomer.Text = "Account Title : ";
+            this.AccountTitle_Label_CheckCustomer.Click += new System.EventHandler(this.AccountTitle_Label_CheckCustomer_Click);
             // 
             // Account_type_Detail_labelCheckCustomerForm
             // 
@@ -153,6 +157,7 @@
             this.Account_type_Detail_labelCheckCustomerForm.Size = new System.Drawing.Size(54, 24);
             this.Account_type_Detail_labelCheckCustomerForm.TabIndex = 97;
             this.Account_type_Detail_labelCheckCustomerForm.Text = "Savings";
+            this.Account_type_Detail_labelCheckCustomerForm.Click += new System.EventHandler(this.Account_type_Detail_labelCheckCustomerForm_Click);
             // 
             // Account_type_label_CheckCustomerForm
             // 
@@ -163,6 +168,7 @@
             this.Account_type_label_CheckCustomerForm.Size = new System.Drawing.Size(95, 24);
             this.Account_type_label_CheckCustomerForm.TabIndex = 96;
             this.Account_type_label_CheckCustomerForm.Text = "Account Type : ";
+            this.Account_type_label_CheckCustomerForm.Click += new System.EventHandler(this.Account_type_label_CheckCustomerForm_Click);
             // 
             // Available_Balance_Detail_CheckCustomerForm
             // 
@@ -173,6 +179,7 @@
             this.Available_Balance_Detail_CheckCustomerForm.Size = new System.Drawing.Size(53, 24);
             this.Available_Balance_Detail_CheckCustomerForm.TabIndex = 95;
             this.Available_Balance_Detail_CheckCustomerForm.Text = "50,000\r\n";
+            this.Available_Balance_Detail_CheckCustomerForm.Click += new System.EventHandler(this.Available_Balance_Detail_CheckCustomerForm_Click);
             // 
             // Available_Balance_Label_CheckCustomer
             // 
@@ -183,6 +190,7 @@
             this.Available_Balance_Label_CheckCustomer.Size = new System.Drawing.Size(120, 24);
             this.Available_Balance_Label_CheckCustomer.TabIndex = 94;
             this.Available_Balance_Label_CheckCustomer.Text = "Available Balance : ";
+            this.Available_Balance_Label_CheckCustomer.Click += new System.EventHandler(this.Available_Balance_Label_CheckCustomer_Click);
             // 
             // AC_NO_Detail_CheckCustomerForm
             // 
@@ -193,6 +201,7 @@
             this.AC_NO_Detail_CheckCustomerForm.Size = new System.Drawing.Size(86, 24);
             this.AC_NO_Detail_CheckCustomerForm.TabIndex = 93;
             this.AC_NO_Detail_CheckCustomerForm.Text = "8907648729\r\n";
+            this.AC_NO_Detail_CheckCustomerForm.Click += new System.EventHandler(this.AC_NO_Detail_CheckCustomerForm_Click);
             // 
             // AccountNumber_Label_checkCustomer
             // 
@@ -203,6 +212,7 @@
             this.AccountNumber_Label_checkCustomer.Size = new System.Drawing.Size(117, 24);
             this.AccountNumber_Label_checkCustomer.TabIndex = 92;
             this.AccountNumber_Label_checkCustomer.Text = "Account Number : ";
+            this.AccountNumber_Label_checkCustomer.Click += new System.EventHandler(this.AccountNumber_Label_checkCustomer_Click);
             // 
             // cnic_detail_label_CheckCustomer
             // 
@@ -213,6 +223,7 @@
             this.cnic_detail_label_CheckCustomer.Size = new System.Drawing.Size(102, 24);
             this.cnic_detail_label_CheckCustomer.TabIndex = 101;
             this.cnic_detail_label_CheckCustomer.Text = "61101-2190978-7";
+            this.cnic_detail_label_CheckCustomer.Click += new System.EventHandler(this.cnic_detail_label_CheckCustomer_Click);
             // 
             // CNIC_Label_CheckCustomer
             // 
@@ -223,6 +234,7 @@
             this.CNIC_Label_CheckCustomer.Size = new System.Drawing.Size(44, 24);
             this.CNIC_Label_CheckCustomer.TabIndex = 100;
             this.CNIC_Label_CheckCustomer.Text = "CNIC :";
+            this.CNIC_Label_CheckCustomer.Click += new System.EventHandler(this.CNIC_Label_CheckCustomer_Click);
             // 
             // DateOfBirth_Detail_CheckCustomer
             // 
@@ -233,6 +245,7 @@
             this.DateOfBirth_Detail_CheckCustomer.Size = new System.Drawing.Size(86, 24);
             this.DateOfBirth_Detail_CheckCustomer.TabIndex = 103;
             this.DateOfBirth_Detail_CheckCustomer.Text = "30-05-2004";
+            this.DateOfBirth_Detail_CheckCustomer.Click += new System.EventHandler(this.DateOfBirth_Detail_CheckCustomer_Click);
             // 
             // DateOfBirth_Label_CheckCustomer
             // 
@@ -243,6 +256,7 @@
             this.DateOfBirth_Label_CheckCustomer.Size = new System.Drawing.Size(85, 24);
             this.DateOfBirth_Label_CheckCustomer.TabIndex = 102;
             this.DateOfBirth_Label_CheckCustomer.Text = "Date of Birth:";
+            this.DateOfBirth_Label_CheckCustomer.Click += new System.EventHandler(this.DateOfBirth_Label_CheckCustomer_Click);
             // 
             // Branchaname_Detail_CheckCustomer
             // 
@@ -253,6 +267,7 @@
             this.Branchaname_Detail_CheckCustomer.Size = new System.Drawing.Size(69, 24);
             this.Branchaname_Detail_CheckCustomer.TabIndex = 107;
             this.Branchaname_Detail_CheckCustomer.Text = "Islamabad";
+            this.Branchaname_Detail_CheckCustomer.Click += new System.EventHandler(this.Branchaname_Detail_CheckCustomer_Click);
             // 
             // Branchaname_label_CheckCustomer
             // 
@@ -263,6 +278,7 @@
             this.Branchaname_label_CheckCustomer.Size = new System.Drawing.Size(96, 24);
             this.Branchaname_label_CheckCustomer.TabIndex = 106;
             this.Branchaname_label_CheckCustomer.Text = "Branch Name :";
+            this.Branchaname_label_CheckCustomer.Click += new System.EventHandler(this.Branchaname_label_CheckCustomer_Click);
             // 
             // AccountStatus_Detail_CheckCustomer
             // 
@@ -273,6 +289,7 @@
             this.AccountStatus_Detail_CheckCustomer.Size = new System.Drawing.Size(43, 24);
             this.AccountStatus_Detail_CheckCustomer.TabIndex = 105;
             this.AccountStatus_Detail_CheckCustomer.Text = "Active";
+            this.AccountStatus_Detail_CheckCustomer.Click += new System.EventHandler(this.AccountStatus_Detail_CheckCustomer_Click);
             // 
             // AccountStatus_label_CheckCustomer
             // 
@@ -283,6 +300,7 @@
             this.AccountStatus_label_CheckCustomer.Size = new System.Drawing.Size(104, 24);
             this.AccountStatus_label_CheckCustomer.TabIndex = 104;
             this.AccountStatus_label_CheckCustomer.Text = "Account Status :";
+            this.AccountStatus_label_CheckCustomer.Click += new System.EventHandler(this.AccountStatus_label_CheckCustomer_Click);
             // 
             // DateOpened_Detail_CheckCustomer
             // 
@@ -293,6 +311,7 @@
             this.DateOpened_Detail_CheckCustomer.Size = new System.Drawing.Size(71, 24);
             this.DateOpened_Detail_CheckCustomer.TabIndex = 109;
             this.DateOpened_Detail_CheckCustomer.Text = "21-11-2024";
+            this.DateOpened_Detail_CheckCustomer.Click += new System.EventHandler(this.DateOpened_Detail_CheckCustomer_Click);
             // 
             // DateOpened_Label_CheckCustomer
             // 
@@ -303,6 +322,7 @@
             this.DateOpened_Label_CheckCustomer.Size = new System.Drawing.Size(90, 24);
             this.DateOpened_Label_CheckCustomer.TabIndex = 108;
             this.DateOpened_Label_CheckCustomer.Text = "Date Opened :";
+            this.DateOpened_Label_CheckCustomer.Click += new System.EventHandler(this.DateOpened_Label_CheckCustomer_Click);
             // 
             // BlockageDescription_Detail_CheckCustomer
             // 
@@ -313,6 +333,7 @@
             this.BlockageDescription_Detail_CheckCustomer.Size = new System.Drawing.Size(148, 24);
             this.BlockageDescription_Detail_CheckCustomer.TabIndex = 111;
             this.BlockageDescription_Detail_CheckCustomer.Text = "Blocked Due to InActivity";
+            this.BlockageDescription_Detail_CheckCustomer.Click += new System.EventHandler(this.BlockageDescription_Detail_CheckCustomer_Click);
             // 
             // BlockageDescription_Label_CheckCustomer
             // 
@@ -323,6 +344,7 @@
             this.BlockageDescription_Label_CheckCustomer.Size = new System.Drawing.Size(76, 24);
             this.BlockageDescription_Label_CheckCustomer.TabIndex = 110;
             this.BlockageDescription_Label_CheckCustomer.Text = "Description";
+            this.BlockageDescription_Label_CheckCustomer.Click += new System.EventHandler(this.BlockageDescription_Label_CheckCustomer_Click);
             // 
             // SeeAllTransactions_button
             // 
@@ -360,6 +382,10 @@
             this.BlockCustomerAccount_button.UseVisualStyleBackColor = false;
             this.BlockCustomerAccount_button.Click += new System.EventHandler(this.BlockCustomerAccount_button_Click);
             // 
+            // toolTipForFullName
+            // 
+            this.toolTipForFullName.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTipForFullName_Popup);
+            // 
             // Exit_btn_UpdatePersonalINfor_Form
             // 
             this.Exit_btn_UpdatePersonalINfor_Form.AccessibleName = "Exit_btn_btn_HomeFormUser";
@@ -396,6 +422,7 @@
             this.OnlineUserStatusDetailCheckCustomer.Size = new System.Drawing.Size(55, 24);
             this.OnlineUserStatusDetailCheckCustomer.TabIndex = 119;
             this.OnlineUserStatusDetailCheckCustomer.Text = "Blocked";
+            this.OnlineUserStatusDetailCheckCustomer.Click += new System.EventHandler(this.OnlineUserStatusDetailCheckCustomer_Click);
             // 
             // onlineUserStatusLabelCheckCustomer
             // 
@@ -406,6 +433,7 @@
             this.onlineUserStatusLabelCheckCustomer.Size = new System.Drawing.Size(121, 24);
             this.onlineUserStatusLabelCheckCustomer.TabIndex = 118;
             this.onlineUserStatusLabelCheckCustomer.Text = "Online User Status:";
+            this.onlineUserStatusLabelCheckCustomer.Click += new System.EventHandler(this.onlineUserStatusLabelCheckCustomer_Click);
             // 
             // pictureBox2
             // 
@@ -416,6 +444,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 115;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // CheckCustomerDetail
             // 

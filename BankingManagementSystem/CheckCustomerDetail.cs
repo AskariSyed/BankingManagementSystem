@@ -374,5 +374,135 @@ namespace BankingManagementSystem
         {
             this.Close();
         }
+
+        private void AttributeTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountSummary_label_HOmePageUSerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AC_Title_Detail_CheckCustomerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountTitle_Label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Account_type_Detail_labelCheckCustomerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Account_type_label_CheckCustomerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Available_Balance_Detail_CheckCustomerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Available_Balance_Label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AC_NO_Detail_CheckCustomerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountNumber_Label_checkCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cnic_detail_label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CNIC_Label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateOfBirth_Detail_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateOfBirth_Label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Branchaname_Detail_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Branchaname_label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountStatus_Detail_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountStatus_label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateOpened_Detail_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateOpened_Label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BlockageDescription_Detail_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BlockageDescription_Label_CheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTipForFullName_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void OnlineUserStatusDetailCheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void onlineUserStatusLabelCheckCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

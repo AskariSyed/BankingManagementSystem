@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignupPage));
-            this.Exit_btn_signinForm = new System.Windows.Forms.Button();
-            this.SignIn_btn_signUpForm = new System.Windows.Forms.Button();
-            this.Password_txtBox_signUpForm = new System.Windows.Forms.TextBox();
-            this.password_label_signUpForm = new System.Windows.Forms.Label();
-            this.Username_label_signUpForm = new System.Windows.Forms.Label();
-            this.signUp_label_signUpForm = new System.Windows.Forms.Label();
+            this.AKBL_logoimage_picturebox_signUp_page = new System.Windows.Forms.PictureBox();
             this.SignIn_instr_label_signupForm = new System.Windows.Forms.Label();
-            this.ConfirmPassword_txtBox_SgnupuserPAge = new System.Windows.Forms.TextBox();
+            this.signUp_label_signUpForm = new System.Windows.Forms.Label();
+            this.Username_label_signUpForm = new System.Windows.Forms.Label();
+            this.password_label_signUpForm = new System.Windows.Forms.Label();
+            this.Password_txtBox_signUpForm = new System.Windows.Forms.TextBox();
+            this.SignIn_btn_signUpForm = new System.Windows.Forms.Button();
+            this.Exit_btn_signinForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.ConfirmPassword_txtBox_SgnupuserPAge = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Cnic_maskedtextbox_signupform = new System.Windows.Forms.MaskedTextBox();
@@ -50,7 +51,6 @@
             this.ChooseAccountType_Label_signupForm = new System.Windows.Forms.Label();
             this.AccountTypeComboBox = new System.Windows.Forms.ComboBox();
             this.Signup_Btn_SignupScreen = new System.Windows.Forms.Button();
-            this.AKBL_logoimage_picturebox_signUp_page = new System.Windows.Forms.PictureBox();
             this.EnterOTP_txtBox_SignupUserForm = new System.Windows.Forms.TextBox();
             this.EmailGenerateOTP_btn_SignupUSerForm = new System.Windows.Forms.Button();
             this.Email_txtBox_Sigupfrom = new System.Windows.Forms.TextBox();
@@ -62,20 +62,68 @@
             ((System.ComponentModel.ISupportInitialize)(this.AKBL_logoimage_picturebox_signUp_page)).BeginInit();
             this.SuspendLayout();
             // 
-            // Exit_btn_signinForm
+            // AKBL_logoimage_picturebox_signUp_page
             // 
-            this.Exit_btn_signinForm.AccessibleName = "Exit_btn_signinForm";
-            this.Exit_btn_signinForm.BackColor = System.Drawing.Color.Transparent;
-            this.Exit_btn_signinForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Exit_btn_signinForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Exit_btn_signinForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn_signinForm.Location = new System.Drawing.Point(1201, 12);
-            this.Exit_btn_signinForm.Name = "Exit_btn_signinForm";
-            this.Exit_btn_signinForm.Size = new System.Drawing.Size(31, 33);
-            this.Exit_btn_signinForm.TabIndex = 19;
-            this.Exit_btn_signinForm.Text = "X";
-            this.Exit_btn_signinForm.UseVisualStyleBackColor = false;
-            this.Exit_btn_signinForm.Click += new System.EventHandler(this.Exit_btn_signinForm_Click);
+            this.AKBL_logoimage_picturebox_signUp_page.BackColor = System.Drawing.Color.Transparent;
+            this.AKBL_logoimage_picturebox_signUp_page.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
+            this.AKBL_logoimage_picturebox_signUp_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signUp_page.InitialImage")));
+            this.AKBL_logoimage_picturebox_signUp_page.Location = new System.Drawing.Point(12, 12);
+            this.AKBL_logoimage_picturebox_signUp_page.Name = "AKBL_logoimage_picturebox_signUp_page";
+            this.AKBL_logoimage_picturebox_signUp_page.Size = new System.Drawing.Size(1220, 193);
+            this.AKBL_logoimage_picturebox_signUp_page.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.AKBL_logoimage_picturebox_signUp_page.TabIndex = 20;
+            this.AKBL_logoimage_picturebox_signUp_page.TabStop = false;
+            // 
+            // SignIn_instr_label_signupForm
+            // 
+            this.SignIn_instr_label_signupForm.AutoSize = true;
+            this.SignIn_instr_label_signupForm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.SignIn_instr_label_signupForm.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignIn_instr_label_signupForm.Location = new System.Drawing.Point(996, 778);
+            this.SignIn_instr_label_signupForm.Name = "SignIn_instr_label_signupForm";
+            this.SignIn_instr_label_signupForm.Size = new System.Drawing.Size(236, 23);
+            this.SignIn_instr_label_signupForm.TabIndex = 12;
+            this.SignIn_instr_label_signupForm.Text = "Already have an account?";
+            // 
+            // signUp_label_signUpForm
+            // 
+            this.signUp_label_signUpForm.AutoSize = true;
+            this.signUp_label_signUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUp_label_signUpForm.Location = new System.Drawing.Point(474, 208);
+            this.signUp_label_signUpForm.Name = "signUp_label_signUpForm";
+            this.signUp_label_signUpForm.Size = new System.Drawing.Size(291, 34);
+            this.signUp_label_signUpForm.TabIndex = 13;
+            this.signUp_label_signUpForm.Text = "Digital Onboarding";
+            // 
+            // Username_label_signUpForm
+            // 
+            this.Username_label_signUpForm.AutoSize = true;
+            this.Username_label_signUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.Username_label_signUpForm.Location = new System.Drawing.Point(108, 287);
+            this.Username_label_signUpForm.Name = "Username_label_signUpForm";
+            this.Username_label_signUpForm.Size = new System.Drawing.Size(111, 23);
+            this.Username_label_signUpForm.TabIndex = 14;
+            this.Username_label_signUpForm.Text = "Username";
+            // 
+            // password_label_signUpForm
+            // 
+            this.password_label_signUpForm.AutoSize = true;
+            this.password_label_signUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.password_label_signUpForm.Location = new System.Drawing.Point(472, 549);
+            this.password_label_signUpForm.Name = "password_label_signUpForm";
+            this.password_label_signUpForm.Size = new System.Drawing.Size(107, 23);
+            this.password_label_signUpForm.TabIndex = 15;
+            this.password_label_signUpForm.Text = "Password";
+            // 
+            // Password_txtBox_signUpForm
+            // 
+            this.Password_txtBox_signUpForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Password_txtBox_signUpForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Password_txtBox_signUpForm.Location = new System.Drawing.Point(476, 585);
+            this.Password_txtBox_signUpForm.Name = "Password_txtBox_signUpForm";
+            this.Password_txtBox_signUpForm.PasswordChar = '*';
+            this.Password_txtBox_signUpForm.Size = new System.Drawing.Size(312, 15);
+            this.Password_txtBox_signUpForm.TabIndex = 17;
             // 
             // SignIn_btn_signUpForm
             // 
@@ -92,66 +140,20 @@
             this.SignIn_btn_signUpForm.UseVisualStyleBackColor = false;
             this.SignIn_btn_signUpForm.Click += new System.EventHandler(this.SignIn_btn_signUpForm_Click);
             // 
-            // Password_txtBox_signUpForm
+            // Exit_btn_signinForm
             // 
-            this.Password_txtBox_signUpForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Password_txtBox_signUpForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Password_txtBox_signUpForm.Location = new System.Drawing.Point(476, 585);
-            this.Password_txtBox_signUpForm.Name = "Password_txtBox_signUpForm";
-            this.Password_txtBox_signUpForm.PasswordChar = '*';
-            this.Password_txtBox_signUpForm.Size = new System.Drawing.Size(312, 15);
-            this.Password_txtBox_signUpForm.TabIndex = 17;
-            // 
-            // password_label_signUpForm
-            // 
-            this.password_label_signUpForm.AutoSize = true;
-            this.password_label_signUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.password_label_signUpForm.Location = new System.Drawing.Point(472, 549);
-            this.password_label_signUpForm.Name = "password_label_signUpForm";
-            this.password_label_signUpForm.Size = new System.Drawing.Size(107, 23);
-            this.password_label_signUpForm.TabIndex = 15;
-            this.password_label_signUpForm.Text = "Password";
-            // 
-            // Username_label_signUpForm
-            // 
-            this.Username_label_signUpForm.AutoSize = true;
-            this.Username_label_signUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.Username_label_signUpForm.Location = new System.Drawing.Point(108, 287);
-            this.Username_label_signUpForm.Name = "Username_label_signUpForm";
-            this.Username_label_signUpForm.Size = new System.Drawing.Size(111, 23);
-            this.Username_label_signUpForm.TabIndex = 14;
-            this.Username_label_signUpForm.Text = "Username";
-            // 
-            // signUp_label_signUpForm
-            // 
-            this.signUp_label_signUpForm.AutoSize = true;
-            this.signUp_label_signUpForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUp_label_signUpForm.Location = new System.Drawing.Point(474, 208);
-            this.signUp_label_signUpForm.Name = "signUp_label_signUpForm";
-            this.signUp_label_signUpForm.Size = new System.Drawing.Size(291, 34);
-            this.signUp_label_signUpForm.TabIndex = 13;
-            this.signUp_label_signUpForm.Text = "Digital Onboarding";
-            // 
-            // SignIn_instr_label_signupForm
-            // 
-            this.SignIn_instr_label_signupForm.AutoSize = true;
-            this.SignIn_instr_label_signupForm.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.SignIn_instr_label_signupForm.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignIn_instr_label_signupForm.Location = new System.Drawing.Point(996, 778);
-            this.SignIn_instr_label_signupForm.Name = "SignIn_instr_label_signupForm";
-            this.SignIn_instr_label_signupForm.Size = new System.Drawing.Size(236, 23);
-            this.SignIn_instr_label_signupForm.TabIndex = 12;
-            this.SignIn_instr_label_signupForm.Text = "Already have an account?";
-            // 
-            // ConfirmPassword_txtBox_SgnupuserPAge
-            // 
-            this.ConfirmPassword_txtBox_SgnupuserPAge.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ConfirmPassword_txtBox_SgnupuserPAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ConfirmPassword_txtBox_SgnupuserPAge.Location = new System.Drawing.Point(835, 585);
-            this.ConfirmPassword_txtBox_SgnupuserPAge.Name = "ConfirmPassword_txtBox_SgnupuserPAge";
-            this.ConfirmPassword_txtBox_SgnupuserPAge.PasswordChar = '*';
-            this.ConfirmPassword_txtBox_SgnupuserPAge.Size = new System.Drawing.Size(312, 15);
-            this.ConfirmPassword_txtBox_SgnupuserPAge.TabIndex = 22;
+            this.Exit_btn_signinForm.AccessibleName = "Exit_btn_signinForm";
+            this.Exit_btn_signinForm.BackColor = System.Drawing.Color.Transparent;
+            this.Exit_btn_signinForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Exit_btn_signinForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Exit_btn_signinForm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit_btn_signinForm.Location = new System.Drawing.Point(1201, 12);
+            this.Exit_btn_signinForm.Name = "Exit_btn_signinForm";
+            this.Exit_btn_signinForm.Size = new System.Drawing.Size(31, 33);
+            this.Exit_btn_signinForm.TabIndex = 19;
+            this.Exit_btn_signinForm.Text = "X";
+            this.Exit_btn_signinForm.UseVisualStyleBackColor = false;
+            this.Exit_btn_signinForm.Click += new System.EventHandler(this.Exit_btn_signinForm_Click);
             // 
             // label1
             // 
@@ -162,6 +164,16 @@
             this.label1.Size = new System.Drawing.Size(190, 23);
             this.label1.TabIndex = 21;
             this.label1.Text = "Confirm Password";
+            // 
+            // ConfirmPassword_txtBox_SgnupuserPAge
+            // 
+            this.ConfirmPassword_txtBox_SgnupuserPAge.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ConfirmPassword_txtBox_SgnupuserPAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ConfirmPassword_txtBox_SgnupuserPAge.Location = new System.Drawing.Point(835, 585);
+            this.ConfirmPassword_txtBox_SgnupuserPAge.Name = "ConfirmPassword_txtBox_SgnupuserPAge";
+            this.ConfirmPassword_txtBox_SgnupuserPAge.PasswordChar = '*';
+            this.ConfirmPassword_txtBox_SgnupuserPAge.Size = new System.Drawing.Size(312, 15);
+            this.ConfirmPassword_txtBox_SgnupuserPAge.TabIndex = 22;
             // 
             // label2
             // 
@@ -289,18 +301,6 @@
             this.Signup_Btn_SignupScreen.Text = "SignUp";
             this.Signup_Btn_SignupScreen.UseVisualStyleBackColor = false;
             this.Signup_Btn_SignupScreen.Click += new System.EventHandler(this.Signup_Btn_SignupScreen_Click);
-            // 
-            // AKBL_logoimage_picturebox_signUp_page
-            // 
-            this.AKBL_logoimage_picturebox_signUp_page.BackColor = System.Drawing.Color.Transparent;
-            this.AKBL_logoimage_picturebox_signUp_page.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
-            this.AKBL_logoimage_picturebox_signUp_page.InitialImage = ((System.Drawing.Image)(resources.GetObject("AKBL_logoimage_picturebox_signUp_page.InitialImage")));
-            this.AKBL_logoimage_picturebox_signUp_page.Location = new System.Drawing.Point(12, 12);
-            this.AKBL_logoimage_picturebox_signUp_page.Name = "AKBL_logoimage_picturebox_signUp_page";
-            this.AKBL_logoimage_picturebox_signUp_page.Size = new System.Drawing.Size(1220, 193);
-            this.AKBL_logoimage_picturebox_signUp_page.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.AKBL_logoimage_picturebox_signUp_page.TabIndex = 20;
-            this.AKBL_logoimage_picturebox_signUp_page.TabStop = false;
             // 
             // EnterOTP_txtBox_SignupUserForm
             // 
@@ -457,15 +457,15 @@
         #endregion
 
         private System.Windows.Forms.PictureBox AKBL_logoimage_picturebox_signUp_page;
-        private System.Windows.Forms.Button Exit_btn_signinForm;
-        private System.Windows.Forms.Button SignIn_btn_signUpForm;
-        private System.Windows.Forms.TextBox Password_txtBox_signUpForm;
-        private System.Windows.Forms.Label password_label_signUpForm;
-        private System.Windows.Forms.Label Username_label_signUpForm;
-        private System.Windows.Forms.Label signUp_label_signUpForm;
         private System.Windows.Forms.Label SignIn_instr_label_signupForm;
-        private System.Windows.Forms.TextBox ConfirmPassword_txtBox_SgnupuserPAge;
+        private System.Windows.Forms.Label signUp_label_signUpForm;
+        private System.Windows.Forms.Label Username_label_signUpForm;
+        private System.Windows.Forms.Label password_label_signUpForm;
+        private System.Windows.Forms.TextBox Password_txtBox_signUpForm;
+        private System.Windows.Forms.Button SignIn_btn_signUpForm;
+        private System.Windows.Forms.Button Exit_btn_signinForm;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ConfirmPassword_txtBox_SgnupuserPAge;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox Cnic_maskedtextbox_signupform;

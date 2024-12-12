@@ -53,7 +53,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
             this.ClientSize = new System.Drawing.Size(1457, 356);
             this.Controls.Add(this.TransactionDatagridview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

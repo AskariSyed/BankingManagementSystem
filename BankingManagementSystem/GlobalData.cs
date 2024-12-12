@@ -102,6 +102,35 @@ namespace BankingManagementSystem
 
 
         }
+        public static void EmployeeLogout()
+        {
+            string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                         "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+
+                try
+                {
+                    conn.Open();
+                    int newAuditID = signInpage.GenerateNewLogID();
+                    using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                    {
+                        insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
+                        insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId));
+                        insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Logged Out successfully"));
+                        insertCmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                GlobalData.CurrentCustomer = null;
+                GlobalData.CurrentEmployee = null;
+            }
+
+
+        }
 
 
 

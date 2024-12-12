@@ -156,6 +156,24 @@
     <Compile Include="CheckCustomerDetail.Designer.cs">
       <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckCustomerLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckCustomerLogs.Designer.cs">
+      <DependentUpon>CheckCustomerLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckEmployeeLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckEmployeeLogs.Designer.cs">
+      <DependentUpon>CheckEmployeeLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckTransactions.Designer.cs">
+      <DependentUpon>CheckTransactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeLoginPage.cs">
@@ -175,6 +193,12 @@
     </Compile>
     <Compile Include="inititaeDebit.Designer.cs">
       <DependentUpon>inititaeDebit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerHomePage.Designer.cs">
+      <DependentUpon>ManagerHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="OpenNewAccountTeller.cs">
       <SubType>Form</SubType>
@@ -256,6 +280,18 @@
     <Compile Include="Terms_and_Conditions_SigupForm.Designer.cs">
       <DependentUpon>Terms_and_Conditions_SigupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransactionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionHistory.Designer.cs">
+      <DependentUpon>TransactionHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionReversal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionReversal.Designer.cs">
+      <DependentUpon>TransactionReversal.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransferFundsTeller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,18 +306,35 @@
     </Compile>
     <EmbeddedResource Include="AllTransactionsTable.resx">
       <DependentUpon>AllTransactionsTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckCustomerDetail.resx">
       <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckCustomerLogs.resx">
+      <DependentUpon>CheckCustomerLogs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckEmployeeLogs.resx">
+      <DependentUpon>CheckEmployeeLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckTransactions.resx">
+      <DependentUpon>CheckTransactions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeLoginPage.resx">
       <DependentUpon>EmployeeLoginPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InitiateCredit.resx">
       <DependentUpon>InitiateCredit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="inititaeDebit.resx">
       <DependentUpon>inititaeDebit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerHomePage.resx">
+      <DependentUpon>ManagerHomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OpenNewAccountTeller.resx">
       <DependentUpon>OpenNewAccountTeller.cs</DependentUpon>
@@ -298,9 +351,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePageCustomers.resx">
       <DependentUpon>HomePageCustomers.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="RecieveMoney.resx">
       <DependentUpon>RecieveMoney.cs</DependentUpon>
@@ -324,6 +379,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Terms_and_Conditions_SigupForm.resx">
       <DependentUpon>Terms_and_Conditions_SigupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionHistory.resx">
+      <DependentUpon>TransactionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionReversal.resx">
+      <DependentUpon>TransactionReversal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransferFundsTeller.resx">
       <DependentUpon>TransferFundsTeller.cs</DependentUpon>

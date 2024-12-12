@@ -22,6 +22,21 @@ namespace BankingManagementSystem
         public ForgotPassword()
         {
             InitializeComponent();
+            this.Paint += new PaintEventHandler(paint);
+        }
+        private void paint(object sender, PaintEventArgs e)
+        {
+            // Define border color and width
+            int borderWidth = 5;
+            Color borderColor = Color.FromArgb(255, 191, 0);
+
+
+            // Draw the border
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
         }
 
         private void Exit_btn__ForgotPasswrod_Form_Click(object sender, EventArgs e)

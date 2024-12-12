@@ -21,6 +21,7 @@ namespace BankingManagementSystem
             Position_Detail_HomepageUSerForm.Text=GlobalData.CurrentEmployee.position.ToString();
             BranchID_Detail_HomepageUSerForm.Text=GlobalData.CurrentEmployee.branchName.ToString();
             Email_Detail_label_HomePageUserInfoForm.Text=GlobalData.CurrentEmployee.email.ToString();
+            Greeting_Label_btn_HomeFormUser.Text="Hello "+ GlobalData.CurrentEmployee.lastName.ToString();
 
         }
 
@@ -95,12 +96,13 @@ namespace BankingManagementSystem
 
         private void Exit_btn_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            this.Close();
+            GlobalData.EmployeeLogout();
+            Application.Exit();
         }
 
         private void Logout_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            GlobalData.CurrentCustomer = null;
+            GlobalData.EmployeeLogout();
             GlobalData.customizedPopup("LogOut Successfull");
             signInpage sign= new signInpage();
             sign.Show();
@@ -114,6 +116,82 @@ namespace BankingManagementSystem
         }
 
         private void BranchID_Detail_HomepageUSerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Greeting_Label_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountTitle_Label_HomePageUSer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Email_Detail_label_HomePageUserInfoForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Account_type_label_HomeUSerSiginForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Employee_NO_Detail_HomepageUSerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void Account_Statment_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TransactionHistory_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TermsAndConditions_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Update_AccountInfo_HomePageUserForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            TransactionHistory transactionHistory = new TransactionHistory();
+            transactionHistory.Show();
+        }
+
+        private void Position_Detail_HomepageUSerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

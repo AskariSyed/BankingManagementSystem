@@ -20,6 +20,9 @@ namespace BankingManagementSystem
         {
             InitializeComponent();
             this.Paint += new PaintEventHandler(SiginPage_Paint);
+ CheckEmployeeLogs checkEmployee   =new CheckEmployeeLogs();
+            checkEmployee.Show();
+
         }
 
         private void Exit_btn_signinForm_Click(object sender, EventArgs e)

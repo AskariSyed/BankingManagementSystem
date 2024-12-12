@@ -17,6 +17,8 @@ namespace BankingManagementSystem
         public string email {  get; set; }
         public string phoneNumber { get; set; }
        public DateTime hireDate { get; set; }
+
+        public string cnic { get; set; }
        public enum Position
         {
             Teller,Manager,Other
@@ -29,7 +31,7 @@ namespace BankingManagementSystem
         public string branchName {  get; set; }
 
         
-        public Employee(int employeeId, string firstName, string lastName, string email, string phoneNumber, DateTime hireDate,Position position ,int salary,int branchId,string userId)
+        public Employee(int employeeId, string firstName, string lastName, string email, string phoneNumber, DateTime hireDate,Position position ,int salary,int branchId,string userId,string cnic)
         {
             this.employeeId = employeeId;
             this.firstName = firstName;
@@ -41,6 +43,7 @@ namespace BankingManagementSystem
             this.salary = salary;
             this.branchId = branchId;
             this.userId = userId;
+            this.cnic = cnic;
             string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
 
             // Handle the case when no matching value is found
@@ -91,7 +94,7 @@ namespace BankingManagementSystem
                             if (reader.Read())
                             {
                                 MapData(reader);
-                                MessageBox.Show(this.email + this.firstName + this.lastName + this.hireDate + this.position.ToString() + this.salary.ToString() + this.branchId.ToString());
+                                GlobalData.customizedPopup("Employee Login successful");
                             }
                             else
                             {
@@ -117,6 +120,7 @@ namespace BankingManagementSystem
             this.salary = Convert.ToInt32(reader["SALARY"]);
             this.branchId = Convert.ToInt32(reader["BRANCH_ID"]);
             this.phoneNumber = reader["PHONE_NUMBER"].ToString();
+            this.cnic = reader["CNIC"].ToString();
 
             string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
 
