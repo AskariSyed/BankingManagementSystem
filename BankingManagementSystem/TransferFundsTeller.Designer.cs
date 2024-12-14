@@ -160,6 +160,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransferFundsTeller";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransferFundsTeller";
             this.Load += new System.EventHandler(this.TransferFundsTeller_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

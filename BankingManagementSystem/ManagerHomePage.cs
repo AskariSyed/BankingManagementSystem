@@ -128,7 +128,8 @@ namespace BankingManagementSystem
 
         private void AddEmployee_Click(object sender, EventArgs e)
         {
-
+            AddEmployee addEmployee = new AddEmployee();    
+            addEmployee.Show();
         }
 
         private void CheckEmployeeLogs_Click(object sender, EventArgs e)

@@ -38,7 +38,6 @@
             this.SearchByFirstName_BTN = new System.Windows.Forms.Button();
             this.toolTipForFullName = new System.Windows.Forms.ToolTip(this.components);
             this.EmployeeLogsDataGridTable = new System.Windows.Forms.DataGridView();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SearchbyBranchIDBtn = new System.Windows.Forms.Button();
             this.SearchByPositionButton = new System.Windows.Forms.Button();
             this.SearchBySalaryBTn = new System.Windows.Forms.Button();
@@ -55,6 +54,8 @@
             this.BRANCH_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DATEOFBIRTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteEmployeeBtn = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeLogsDataGridTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +86,7 @@
             this.AccountSummary_label_HOmePageUSerForm.Size = new System.Drawing.Size(255, 50);
             this.AccountSummary_label_HOmePageUSerForm.TabIndex = 168;
             this.AccountSummary_label_HOmePageUSerForm.Text = "Search Employee";
+            this.AccountSummary_label_HOmePageUSerForm.Click += new System.EventHandler(this.AccountSummary_label_HOmePageUSerForm_Click);
             // 
             // AttributeTxtBox
             // 
@@ -92,6 +94,7 @@
             this.AttributeTxtBox.Name = "AttributeTxtBox";
             this.AttributeTxtBox.Size = new System.Drawing.Size(504, 22);
             this.AttributeTxtBox.TabIndex = 167;
+            this.AttributeTxtBox.TextChanged += new System.EventHandler(this.AttributeTxtBox_TextChanged);
             // 
             // SearchByEmployeeNumber_btn
             // 
@@ -129,6 +132,10 @@
             this.SearchByFirstName_BTN.UseVisualStyleBackColor = false;
             this.SearchByFirstName_BTN.Click += new System.EventHandler(this.SearchByFirstName_BTN_Click);
             // 
+            // toolTipForFullName
+            // 
+            this.toolTipForFullName.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTipForFullName_Popup);
+            // 
             // EmployeeLogsDataGridTable
             // 
             this.EmployeeLogsDataGridTable.AllowUserToDeleteRows = false;
@@ -157,17 +164,6 @@
             this.EmployeeLogsDataGridTable.Size = new System.Drawing.Size(1271, 384);
             this.EmployeeLogsDataGridTable.TabIndex = 171;
             this.EmployeeLogsDataGridTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmployeeLogsDataGridTable_CellContentClick);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
-            this.pictureBox2.Location = new System.Drawing.Point(343, -52);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(608, 315);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 169;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // SearchbyBranchIDBtn
             // 
@@ -229,7 +225,7 @@
             // 
             this.AddNewEmployeeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.AddNewEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddNewEmployeeButton.Location = new System.Drawing.Point(536, 702);
+            this.AddNewEmployeeButton.Location = new System.Drawing.Point(240, 691);
             this.AddNewEmployeeButton.Name = "AddNewEmployeeButton";
             this.AddNewEmployeeButton.Size = new System.Drawing.Size(222, 28);
             this.AddNewEmployeeButton.TabIndex = 178;
@@ -317,11 +313,35 @@
             this.DATEOFBIRTH.MinimumWidth = 6;
             this.DATEOFBIRTH.Name = "DATEOFBIRTH";
             // 
+            // DeleteEmployeeBtn
+            // 
+            this.DeleteEmployeeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.DeleteEmployeeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DeleteEmployeeBtn.Location = new System.Drawing.Point(508, 691);
+            this.DeleteEmployeeBtn.Name = "DeleteEmployeeBtn";
+            this.DeleteEmployeeBtn.Size = new System.Drawing.Size(222, 28);
+            this.DeleteEmployeeBtn.TabIndex = 179;
+            this.DeleteEmployeeBtn.Text = "Delete Employee";
+            this.DeleteEmployeeBtn.UseVisualStyleBackColor = false;
+            this.DeleteEmployeeBtn.Click += new System.EventHandler(this.DeleteEmployeeBtn_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
+            this.pictureBox2.Location = new System.Drawing.Point(343, -52);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(608, 315);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 169;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // SearchEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1295, 803);
+            this.Controls.Add(this.DeleteEmployeeBtn);
             this.Controls.Add(this.AddNewEmployeeButton);
             this.Controls.Add(this.positionComboBox);
             this.Controls.Add(this.SearchBySalaryBTn);
@@ -374,5 +394,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BRANCH_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNIC;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATEOFBIRTH;
+        private System.Windows.Forms.Button DeleteEmployeeBtn;
     }
 }

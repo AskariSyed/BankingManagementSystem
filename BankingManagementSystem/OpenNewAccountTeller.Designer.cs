@@ -360,6 +360,7 @@
             this.Controls.Add(this.AKBL_logoimage_picturebox_signUp_page);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OpenNewAccountTeller";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OpenNewAccountTeller";
             this.Load += new System.EventHandler(this.OpenNewAccountTeller_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AKBL_logoimage_picturebox_signUp_page)).EndInit();

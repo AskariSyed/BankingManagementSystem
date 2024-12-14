@@ -164,8 +164,21 @@ namespace BankingManagementSystem
                 (array[i], array[j]) = (array[j], array[i]);
             }
         }
+        public static void LogError(string message, Exception ex)
+        {
+            string logFilePath = "C:\\Users\\Dell\\source\\repos\\BankingManagementSystem\\BankingManagementSystem\\Error Logs\\Error Logs.txt";
+            string separator = new string('-', 80); // Line of 80 hyphens for separation
+            string errorDetails = $"{separator}\n{DateTime.Now}: {message}\nException: {ex.Message}\nStack Trace: {ex.StackTrace}\n";
 
-
+            try
+            {
+                System.IO.File.AppendAllText(logFilePath, errorDetails); // Append error details to the log file
+            }
+            catch
+            {
+                MessageBox.Show("Error accessing log file.");
+            }
+        }
 
     }
 }

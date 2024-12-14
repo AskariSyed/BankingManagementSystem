@@ -1,0 +1,21 @@
+﻿12/14/2024 8:45:17 PM: Error Sending Email to the Admin 
+Exception: Failure sending mail.
+Stack Trace:    at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at BankingManagementSystem.SearchEmployee.SendAdminNotificationEmail(String employeeName, String employeePosition, String employeeEmail, String employeePhoneNumber, String employeepassword) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SearchEmployee.cs:line 366
+--------------------------------------------------------------------------------
+12/14/2024 9:02:40 PM: Failed to send Email
+Exception: Failure sending mail.
+Stack Trace:    at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at BankStatementGenerator.sendPdfToEmail(String recipientEmail, String filePath) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\BankStatementGenerator.cs:line 534
+--------------------------------------------------------------------------------
+12/14/2024 9:19:55 PM: Error adding employee
+Exception: ORA-02290: check constraint (SYSTEM.CHK_PHONE_NUMBER_LENGTH) violated
+https://docs.oracle.com/error-help/db/ora-02290/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.AddEmployee.AddEmployeeButton_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\AddEmployee.cs:line 103
+--------------------------------------------------------------------------------
+12/14/2024 9:24:05 PM: Error sending admin notification email
+Exception: Failure sending mail.
+Stack Trace:    at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at BankingManagementSystem.AddEmployee.SendAdminNotificationEmail(String employeeName, String employeePosition, String employeeEmail, String employeePhoneNumber, String employeepassword) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\AddEmployee.cs:line 168

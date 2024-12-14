@@ -40,11 +40,11 @@
             this.TransactionGridTable = new System.Windows.Forms.DataGridView();
             this.BranchID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTipForFullName = new System.Windows.Forms.ToolTip(this.components);
+            this.SearchByAccountNo_BTN = new System.Windows.Forms.Button();
             this.AccountSummary_label_HOmePageUSerForm = new System.Windows.Forms.Label();
             this.AttributeTxtBox = new System.Windows.Forms.TextBox();
-            this.SearchByAccountNo_BTN = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.AccountNumber_Label_checkCustomer = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TransactionGridTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -154,6 +154,22 @@
             this.BranchID.Name = "BranchID";
             this.BranchID.ReadOnly = true;
             // 
+            // SearchByAccountNo_BTN
+            // 
+            this.SearchByAccountNo_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.SearchByAccountNo_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SearchByAccountNo_BTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchByAccountNo_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SearchByAccountNo_BTN.Location = new System.Drawing.Point(781, 166);
+            this.SearchByAccountNo_BTN.Name = "SearchByAccountNo_BTN";
+            this.SearchByAccountNo_BTN.Size = new System.Drawing.Size(187, 28);
+            this.SearchByAccountNo_BTN.TabIndex = 165;
+            this.SearchByAccountNo_BTN.Text = "Search By Account No";
+            this.toolTipForFullName.SetToolTip(this.SearchByAccountNo_BTN, "Enter 10 Digit Acount Number");
+            this.SearchByAccountNo_BTN.UseMnemonic = false;
+            this.SearchByAccountNo_BTN.UseVisualStyleBackColor = false;
+            this.SearchByAccountNo_BTN.Click += new System.EventHandler(this.SearchByAccountNo_BTN_Click);
+            // 
             // AccountSummary_label_HOmePageUSerForm
             // 
             this.AccountSummary_label_HOmePageUSerForm.AutoSize = true;
@@ -176,21 +192,15 @@
             this.AttributeTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AttributeTxtBox_KeyDown);
             this.AttributeTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AttributeTxtBox_KeyPress);
             // 
-            // SearchByAccountNo_BTN
+            // AccountNumber_Label_checkCustomer
             // 
-            this.SearchByAccountNo_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.SearchByAccountNo_BTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SearchByAccountNo_BTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchByAccountNo_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SearchByAccountNo_BTN.Location = new System.Drawing.Point(781, 166);
-            this.SearchByAccountNo_BTN.Name = "SearchByAccountNo_BTN";
-            this.SearchByAccountNo_BTN.Size = new System.Drawing.Size(187, 28);
-            this.SearchByAccountNo_BTN.TabIndex = 165;
-            this.SearchByAccountNo_BTN.Text = "Search By Account No";
-            this.toolTipForFullName.SetToolTip(this.SearchByAccountNo_BTN, "Enter 10 Digit Acount Number");
-            this.SearchByAccountNo_BTN.UseMnemonic = false;
-            this.SearchByAccountNo_BTN.UseVisualStyleBackColor = false;
-            this.SearchByAccountNo_BTN.Click += new System.EventHandler(this.SearchByAccountNo_BTN_Click);
+            this.AccountNumber_Label_checkCustomer.AutoSize = true;
+            this.AccountNumber_Label_checkCustomer.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccountNumber_Label_checkCustomer.Location = new System.Drawing.Point(57, 166);
+            this.AccountNumber_Label_checkCustomer.Name = "AccountNumber_Label_checkCustomer";
+            this.AccountNumber_Label_checkCustomer.Size = new System.Drawing.Size(117, 24);
+            this.AccountNumber_Label_checkCustomer.TabIndex = 174;
+            this.AccountNumber_Label_checkCustomer.Text = "Account Number : ";
             // 
             // pictureBox2
             // 
@@ -201,16 +211,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 170;
             this.pictureBox2.TabStop = false;
-            // 
-            // AccountNumber_Label_checkCustomer
-            // 
-            this.AccountNumber_Label_checkCustomer.AutoSize = true;
-            this.AccountNumber_Label_checkCustomer.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountNumber_Label_checkCustomer.Location = new System.Drawing.Point(57, 166);
-            this.AccountNumber_Label_checkCustomer.Name = "AccountNumber_Label_checkCustomer";
-            this.AccountNumber_Label_checkCustomer.Size = new System.Drawing.Size(117, 24);
-            this.AccountNumber_Label_checkCustomer.TabIndex = 174;
-            this.AccountNumber_Label_checkCustomer.Text = "Account Number : ";
             // 
             // TransactionHistory
             // 
@@ -226,6 +226,7 @@
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransactionHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionHistory";
             ((System.ComponentModel.ISupportInitialize)(this.TransactionGridTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

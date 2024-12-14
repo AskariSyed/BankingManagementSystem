@@ -192,6 +192,7 @@
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CheckEmployeeLogs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckEmployeeLogs";
             this.Load += new System.EventHandler(this.CheckEmployeeLogs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeLogsDataGridTable)).EndInit();

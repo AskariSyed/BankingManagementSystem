@@ -37,7 +37,6 @@
             this.SearchByAccountNo_BTN = new System.Windows.Forms.Button();
             this.toolTipForFullName = new System.Windows.Forms.ToolTip(this.components);
             this.TransactionDataGridTable = new System.Windows.Forms.DataGridView();
-            this.ReverseSelectedTransaction = new System.Windows.Forms.Button();
             this.AuditLogID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionPerformed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransactionType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +45,7 @@
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BranchID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReferenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReverseSelectedTransaction = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TransactionDataGridTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -150,18 +150,6 @@
             this.TransactionDataGridTable.TabIndex = 163;
             this.TransactionDataGridTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AuditLogDataGridTable_CellContentClick);
             // 
-            // ReverseSelectedTransaction
-            // 
-            this.ReverseSelectedTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.ReverseSelectedTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ReverseSelectedTransaction.Location = new System.Drawing.Point(11, 692);
-            this.ReverseSelectedTransaction.Name = "ReverseSelectedTransaction";
-            this.ReverseSelectedTransaction.Size = new System.Drawing.Size(1026, 28);
-            this.ReverseSelectedTransaction.TabIndex = 164;
-            this.ReverseSelectedTransaction.Text = "Reverse Selected Transaction";
-            this.ReverseSelectedTransaction.UseVisualStyleBackColor = false;
-            this.ReverseSelectedTransaction.Click += new System.EventHandler(this.ReverseSelectedTransaction_Click);
-            // 
             // AuditLogID
             // 
             this.AuditLogID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -229,6 +217,18 @@
             this.ReferenceID.Name = "ReferenceID";
             this.ReferenceID.ReadOnly = true;
             // 
+            // ReverseSelectedTransaction
+            // 
+            this.ReverseSelectedTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.ReverseSelectedTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ReverseSelectedTransaction.Location = new System.Drawing.Point(11, 692);
+            this.ReverseSelectedTransaction.Name = "ReverseSelectedTransaction";
+            this.ReverseSelectedTransaction.Size = new System.Drawing.Size(1026, 28);
+            this.ReverseSelectedTransaction.TabIndex = 164;
+            this.ReverseSelectedTransaction.Text = "Reverse Selected Transaction";
+            this.ReverseSelectedTransaction.UseVisualStyleBackColor = false;
+            this.ReverseSelectedTransaction.Click += new System.EventHandler(this.ReverseSelectedTransaction_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
@@ -257,6 +257,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
             this.Name = "TransactionReversal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionReversal";
             ((System.ComponentModel.ISupportInitialize)(this.TransactionDataGridTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

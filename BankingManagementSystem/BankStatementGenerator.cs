@@ -24,7 +24,7 @@ public class BankStatementGenerator
         string fileName = Path.Combine(directoryPath, "AccountStatement" + GlobalData.CurrentCustomer.customerId + "_" + DateTime.Now.ToString("yyyyMMdd") + ".pdf");
         decimal totalDebit = 0;
         decimal totalCredit = 0;
-        decimal runningBalance = 0; // Keep track of running balance
+        decimal runningBalance = 0; 
 
         try
         {
@@ -35,7 +35,7 @@ public class BankStatementGenerator
             {
                 connection.Open();
 
-                // Fetch customer details
+               
                 string customerQuery = @"SELECT c.NAME, c.ADDRESS, c.CONTACT_NUMBER, a.ACCOUNT_ID, a.ACCOUNT_BALANCE, a.DATE_OPENED
                                       FROM CUSTOMERS c
                                       JOIN ACCOUNT a ON c.CUSTOMER_ID = a.CUSTOMER_ID
@@ -67,15 +67,15 @@ public class BankStatementGenerator
                         Document document = new Document();
                         Section section = document.AddSection();
 
-                        // Add primary header
+                       
                         HeaderFooter header = section.Headers.Primary;
                         Paragraph para = header.AddParagraph();
                         para.Format.Alignment = ParagraphAlignment.Center;
                         Image image = para.AddImage(@"C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
-                        image.Width = Unit.FromCentimeter(8); // Adjust size if necessary
+                        image.Width = Unit.FromCentimeter(8); 
                         
 
-                        // Repeat for even pages
+                        
                         HeaderFooter evenHeader = section.Headers.EvenPage;
                         Paragraph evenPara = evenHeader.AddParagraph();
                         evenPara.Format.Alignment = ParagraphAlignment.Center;
@@ -83,27 +83,26 @@ public class BankStatementGenerator
                         evenImage.Width = Unit.FromCentimeter(8);
                         header.Format.SpaceAfter=Unit.FromInch(1);
                         evenHeader.Format.SpaceAfter = Unit.FromInch(1);
-                        section.PageSetup.HeaderDistance = Unit.FromCentimeter(50); // Adjust as needed
-
+                        section.PageSetup.HeaderDistance = Unit.FromCentimeter(50); 
 
 
                         HeaderFooter footer = section.Footers.Primary;
 
-                        // Create a paragraph and add text
+                       
                         Paragraph paraFooter = footer.AddParagraph();
                         paraFooter.AddText("This is a computer-generated account statement for the purpose of the semester project. It may contain errors or omissions. For inquiries or feedback, please contact: AskariDigitalOTP@gmail.com.");
 
-                        // Apply formatting
+                        
                         paraFooter.Format.Alignment = ParagraphAlignment.Center;
                         paraFooter.Format.Font.Size = 8;
-                        paraFooter.Format.SpaceBefore = Unit.FromPoint(20); // Use Unit.FromPoint() for spacing
+                        paraFooter.Format.SpaceBefore = Unit.FromPoint(20);
 
 
 
                         section.PageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Portrait;
                         section.PageSetup.PageFormat = PageFormat.A4;
 
-                        // Add background image to the header to appear on all pages
+                       
                         section.PageSetup.HeaderDistance = -3;
 
 
@@ -113,14 +112,12 @@ public class BankStatementGenerator
 
 
 
-                        // Add issuing date
+                       
                         var issuingDate = section.AddParagraph();
                         issuingDate.AddFormattedText("Issuing Date: ", TextFormat.Bold);
                         issuingDate.AddText("\t\t"+DateTime.Now.ToString("yyyy-MM-dd"));
                         issuingDate.Format.Font.Size = 10;
-                        // Use Unit.FromPoint instead of string for spacing
-
-                        // Add customer details
+                        
                         var customerInfo = section.AddParagraph();
                         customerInfo.AddFormattedText("Customer Name: ", TextFormat.Bold);
                         customerInfo.AddText("\t"+customerName + "\n");
@@ -139,27 +136,27 @@ public class BankStatementGenerator
 
                         customerInfo.Format.SpaceAfter = Unit.FromPoint(20);
 
-                        // Create table for transactions
+                        
                         Table table = section.AddTable();
                         table.Borders.Width = 0.75;
-                        table.AddColumn(Unit.FromCentimeter(3));  // Date
-                        table.AddColumn(Unit.FromCentimeter(7));  // Description
-                        table.AddColumn(Unit.FromCentimeter(3));  // Amount
-                        table.AddColumn(Unit.FromCentimeter(3));  // Balance
+                        table.AddColumn(Unit.FromCentimeter(3));  
+                        table.AddColumn(Unit.FromCentimeter(7));  
+                        table.AddColumn(Unit.FromCentimeter(3));  
+                        table.AddColumn(Unit.FromCentimeter(3));  
 
-                        // Add headers with centered text
+                        
                         Row row = table.AddRow();
                         row.Cells[0].AddParagraph("Date").Format.Alignment = ParagraphAlignment.Center;
                         row.Cells[1].AddParagraph("Description").Format.Alignment = ParagraphAlignment.Center;
                         row.Cells[2].AddParagraph("Amount").Format.Alignment = ParagraphAlignment.Center;
                         row.Cells[3].AddParagraph("Balance").Format.Alignment = ParagraphAlignment.Center;
 
-                        row.Cells[0].Shading.Color = new MigraDoc.DocumentObjectModel.Color(255, 191, 0); // Blue background
-                        row.Cells[1].Shading.Color = new MigraDoc.DocumentObjectModel.Color(255, 191, 0); // Blue background
-                        row.Cells[2].Shading.Color = new MigraDoc.DocumentObjectModel.Color(255, 191, 0); // Blue background
+                        row.Cells[0].Shading.Color = new MigraDoc.DocumentObjectModel.Color(255, 191, 0);
+                        row.Cells[1].Shading.Color = new MigraDoc.DocumentObjectModel.Color(255, 191, 0);
+                        row.Cells[2].Shading.Color = new MigraDoc.DocumentObjectModel.Color(255, 191, 0);
                         row.Cells[3].Shading.Color = new MigraDoc.DocumentObjectModel.Color(255, 191, 0);
 
-                        // Add transaction details
+                       
                         string transactionQuery = @"SELECT TRANSACTION_DATE, DESCRIPTION, AMOUNT, TRANSACTION_TYPE
                                                FROM TRANSACTION
                                                WHERE ACCOUNT_ID = :AccountID
@@ -178,7 +175,7 @@ public class BankStatementGenerator
                                     decimal amount = Convert.ToDecimal(transactionReader["AMOUNT"]);
                                     string transactionType = transactionReader["TRANSACTION_TYPE"].ToString().ToLower().Trim();
 
-                                    // Update running balance
+                                    
                                     if (transactionType == "credit")
                                     {
                                         runningBalance += amount;
@@ -190,7 +187,7 @@ public class BankStatementGenerator
                                         totalDebit += amount;
                                     }
 
-                                    // Add transaction details to the table
+                                   
                                     row = table.AddRow();
                                     row.Cells[0].AddParagraph(transactionDate.ToString("yyyy-MM-dd")).Format.Alignment = ParagraphAlignment.Center;
                                     row.Cells[1].AddParagraph(description).Format.Alignment = ParagraphAlignment.Left;
@@ -205,36 +202,36 @@ public class BankStatementGenerator
                             }
                         }
 
-                        // Add summary
+                      
                         openingBalance = ((closingBalance - totalCredit) + totalDebit);
                         var summary = section.AddParagraph();
                         summary.Format.SpaceBefore = "20pt";
 
-                        // Set tab stop position (e.g., 300 points from the left)
+                      
                         summary.Format.TabStops.AddTabStop(110, MigraDoc.DocumentObjectModel.TabAlignment.Left);
 
-                        // Opening Balance (no color)
+                      
                         summary.AddFormattedText("Opening Balance: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         summary.AddFormattedText($"{openingBalance:C}", TextFormat.NotBold);
 
-                        // Total Credits (green color)
+                      
                         summary.AddFormattedText("\nTotal Credits: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         var creditFormatted = summary.AddFormattedText($"{totalCredit:C}", TextFormat.NotBold);
                         creditFormatted.Font.Color = Colors.Green;
 
-                        // Total Debits (red color)
+                      
                         summary.AddFormattedText("\nTotal Debits: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         var debitFormatted = summary.AddFormattedText($"{totalDebit:C}", TextFormat.NotBold);
                         debitFormatted.Font.Color = Colors.Red;
 
-                        // Closing Balance (no color)
+                      
                         summary.AddFormattedText("\nClosing Balance: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         summary.AddFormattedText($"{runningBalance:C}", TextFormat.NotBold);
-                        // Save the document
+                      
                         PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
                         renderer.Document = document;
                         renderer.RenderDocument();
@@ -249,12 +246,13 @@ public class BankStatementGenerator
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Error in generating PDF: {ex.Message}");
+            MessageBox.Show($"Error in generating PDF please see logs file for more info");
+            GlobalData.LogError("Error in generating PDF", ex);
         }
     }
 
 
-    // Assuming your DateTimePicker controls are named fromDatePicker and toDatePicker
+    
 public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker, DateTimePicker toDatePicker)
 {
     string directoryPath = @"C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements";
@@ -272,9 +270,9 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
     decimal runningBalance = 0;
         decimal openingBalance = 0;
 
-    // Get date range from the DateTimePicker controls
+    
     DateTime fromDate = fromDatePicker.Value.Date;
-    DateTime toDate = toDatePicker.Value.Date.AddDays(1).AddTicks(-1); // Include the whole day
+    DateTime toDate = toDatePicker.Value.Date.AddDays(1).AddTicks(-1); 
 
     try
     {
@@ -285,7 +283,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
         {
             connection.Open();
 
-            // Fetch customer details
+            
             string customerQuery = @"SELECT c.NAME, c.ADDRESS, c.CONTACT_NUMBER, a.ACCOUNT_ID, a.ACCOUNT_BALANCE, a.DATE_OPENED
                                      FROM CUSTOMERS c
                                      JOIN ACCOUNT a ON c.CUSTOMER_ID = a.CUSTOMER_ID
@@ -312,7 +310,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
 
 
 
-                        // Calculate the opening balance based on the transactions before the selected date range
+                       
                         string balanceQuery = @"SELECT NVL(SUM(CASE WHEN TRANSACTION_TYPE = 'Credit' THEN AMOUNT 
                                                               WHEN TRANSACTION_TYPE = 'Debit' THEN -AMOUNT 
                                                               ELSE 0 END), 0) AS BALANCE
@@ -330,7 +328,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
 
                         Document document = new Document();
                     Section section = document.AddSection();
-                        // Add primary header
+                        
                         HeaderFooter header = section.Headers.Primary;
                         Paragraph para = header.AddParagraph();
                         para.Format.Alignment = ParagraphAlignment.Center;
@@ -338,7 +336,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                         image.Width = Unit.FromCentimeter(8); // Adjust size if necessary
                         header.Format.SpaceAfter=Unit.FromCentimeter(8);
 
-                        // Repeat for even pages
+                        
                         HeaderFooter evenHeader = section.Headers.EvenPage;
                         
                         Paragraph evenPara = evenHeader.AddParagraph();
@@ -348,27 +346,21 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
 
 
                         HeaderFooter footer = section.Footers.Primary;
-
-                        // Create a paragraph and add text
                         Paragraph paraFooter = footer.AddParagraph();
                         paraFooter.AddText("This is a computer-generated account statement for the purpose of the semester project. It may contain errors or omissions. For inquiries or feedback, please contact: AskariDigitalOTP@gmail.com.");
-
-                        // Apply formatting
                         paraFooter.Format.Alignment = ParagraphAlignment.Center;
                         paraFooter.Format.Font.Size = 8;
-                        paraFooter.Format.SpaceBefore = Unit.FromPoint(20); // Use Unit.FromPoint() for spacing
+                        paraFooter.Format.SpaceBefore = Unit.FromPoint(20);
 
                         section.PageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Portrait;
                         section.PageSetup.PageFormat = PageFormat.A4;
-
-                        // Add background image to the header to appear on all pages
                         section.PageSetup.HeaderDistance = -3;
 
 
 
 
 
-                        // Add issuing date
+                        
                         var issuingDate = section.AddParagraph();
                         issuingDate.Format.SpaceBefore += Unit.FromPoint(20);
                         issuingDate.AddFormattedText("Issuing Date: ", TextFormat.Bold);
@@ -376,7 +368,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                         issuingDate.Format.Font.Size = 10;
 
 
-                        // Add customer details
+                        
                         var customerInfo = section.AddParagraph();
                         customerInfo.AddFormattedText("Customer Name: ", TextFormat.Bold);
                         customerInfo.AddText("\t" + customerName + "\n");
@@ -411,7 +403,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                     row.Cells[2].AddParagraph("Amount").Format.Alignment = ParagraphAlignment.Center;
                     row.Cells[3].AddParagraph("Balance").Format.Alignment = ParagraphAlignment.Center;
 
-                    // Transaction query with date range filter
+                    
                     string transactionQuery = @"SELECT TRANSACTION_DATE, DESCRIPTION, AMOUNT, TRANSACTION_TYPE
                                                 FROM TRANSACTION
                                                 WHERE ACCOUNT_ID = :AccountID 
@@ -457,32 +449,32 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                         }
                     }
 
-                        // Add summary
+                        
                         openingBalance = ((closingBalance - totalCredit) + totalDebit);
                         var summary = section.AddParagraph();
                         summary.Format.SpaceBefore = "20pt";
 
-                        // Set tab stop position (e.g., 300 points from the left)
+                        
                         summary.Format.TabStops.AddTabStop(110, MigraDoc.DocumentObjectModel.TabAlignment.Left);
 
-                        // Opening Balance (no color)
+                        
                         summary.AddFormattedText("Opening Balance: ", TextFormat.Bold);
                         summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
                         summary.AddFormattedText($"{openingBalance:C}", TextFormat.NotBold);
 
-                        // Total Credits (green color)
+                        
                         summary.AddFormattedText("\nTotal Credits: ", TextFormat.Bold);
                         summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
                         var creditFormatted = summary.AddFormattedText($"{totalCredit:C}", TextFormat.NotBold);
                         creditFormatted.Font.Color = Colors.Green;
 
-                        // Total Debits (red color)
+                        
                         summary.AddFormattedText("\nTotal Debits: ", TextFormat.Bold);
                         summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
                         var debitFormatted = summary.AddFormattedText($"{totalDebit:C}", TextFormat.NotBold);
                         debitFormatted.Font.Color = Colors.Red;
 
-                        // Closing Balance (no color)
+                        
                         summary.AddFormattedText("\nClosing Balance: ", TextFormat.Bold);
                         summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
                         summary.AddFormattedText($"{runningBalance:C}", TextFormat.NotBold);
@@ -501,8 +493,9 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
     }
     catch (Exception ex)
     {
-        MessageBox.Show($"Error in generating PDF: {ex.Message}");
-    }
+            MessageBox.Show($"Error in generating PDF please see logs file for more info");
+            GlobalData.LogError("Error in generating PDF", ex);
+        }
 }
 
 
@@ -534,7 +527,9 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Failed to send email: {ex.Message}");
+            MessageBox.Show($"Failed to send email please see logs file for more info");
+            GlobalData.LogError("Failed to send Email", ex);
+            
         }
 
 

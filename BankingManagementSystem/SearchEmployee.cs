@@ -16,14 +16,28 @@ using System.Net.Mail;
 using System.Net;
 using Org.BouncyCastle.Crypto.Macs;
 
+
 namespace BankingManagementSystem
 {
     public partial class SearchEmployee : Form
     {
         public SearchEmployee()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            this.Paint += new PaintEventHandler(paint);
+
         }
+        private void paint(object sender, PaintEventArgs e)
+        {
+            int borderWidth = 7;
+            System.Drawing.Color borderColor = System.Drawing.Color.FromArgb(255, 191, 0);
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
+        }
+
         private Employee searchedEmployee;
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -297,7 +311,8 @@ namespace BankingManagementSystem
                         catch (Exception ex)
                         {
                             transaction.Rollback();
-                            MessageBox.Show("Error adding employee: " + ex.Message);
+                            GlobalData.LogError("Error adding employee", ex);
+                            MessageBox.Show("Failed to add employee to the DataBase Please Check Log file for more info " + ex.Message);
                         }
                     }
                 }
@@ -355,10 +370,137 @@ namespace BankingManagementSystem
             catch (Exception ex)
             {
                 this.Cursor = Cursors.Default;
+                GlobalData.LogError("Error Sending Email to the Admin ", ex);
+                MessageBox.Show("Error sending email please check log file for further info" );
+            }
+        }
+
+        private void DeleteEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            if (EmployeeLogsDataGridTable.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an employee to delete.");
+                return;
+            }
+            else if (EmployeeLogsDataGridTable.SelectedRows.Count>1){
+                MessageBox.Show("Please Select a single row");
+
+            }
+            int selectedEmployeeId = Convert.ToInt32(EmployeeLogsDataGridTable.SelectedRows[0].Cells["EMPLOYEE_ID"].Value);
+
+            
+            var result = MessageBox.Show("Are you sure you want to delete this employee?", "Confirm Deletion", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+           
+            string deleteEmployeeQuery = "DELETE FROM bankemployee WHERE EMPLOYEE_ID = :employeeId";
+            string deleteUserQuery = "DELETE FROM users WHERE EMPLOYEE_ID = :employeeId";
+
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                {
+                    conn.Open();
+
+                    using (OracleTransaction transaction = conn.BeginTransaction())
+                    {
+                        using (OracleCommand deleteUserCmd = new OracleCommand(deleteUserQuery, conn))
+                        {
+                            deleteUserCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
+                            deleteUserCmd.ExecuteNonQuery();
+                        }
+                        using (OracleCommand deleteEmployeeCmd = new OracleCommand(deleteEmployeeQuery, conn))
+                        {
+                            deleteEmployeeCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
+                            deleteEmployeeCmd.ExecuteNonQuery();
+                        }
+                       
+                        transaction.Commit();
+                        SendAdminDeletionNotificationEmail(
+    EmployeeLogsDataGridTable.SelectedRows[0].Cells["LAST_NAME"].Value.ToString() + " " + EmployeeLogsDataGridTable.SelectedRows[0].Cells["FIRST_NAME"].Value.ToString(),
+    EmployeeLogsDataGridTable.SelectedRows[0].Cells["POSITION"].Value.ToString(),
+    EmployeeLogsDataGridTable.SelectedRows[0].Cells["EMAIL"].Value.ToString(),
+    EmployeeLogsDataGridTable.SelectedRows[0].Cells["PHONE_NUMBER"].Value.ToString()
+);
+
+                    }
+                }
+
+                MessageBox.Show("Employee and corresponding user deleted successfully.");
+               
+            }
+            catch (Exception ex)
+            {
+                GlobalData.LogError("Error deleting employee", ex);
+                MessageBox.Show("Error deleting employee please check log file for further info");
+            }
+        }
+
+        public void SendAdminDeletionNotificationEmail(string employeeName, string employeePosition, string employeeEmail, string employeePhoneNumber)
+        {
+            Cursor = Cursors.WaitCursor;
+
+            string from = "AskariDigitalOTP@gmail.com";
+            string pass = "mitxehwlyexurspx";  
+            string emailUsername = "Askari Digital Bank Ltd.";
+            string subject = "Employee Removed from Askari Digital Bank";
+
+            string messageBody = $"Respected CEO Askari Digital Bank Ltd,\n\n" +
+                                 "We regret to inform you that an employee has been removed from the Askari Digital Bank team.\n\n" +
+                                 "Here’s the removed employee's information:\n\n" +
+                                 $"  - Employee Name: {employeeName}\n" +
+                                 $"  - Position: {employeePosition}\n" +
+                                 $"  - Email: {employeeEmail}\n" +
+                                 $"  - Phone Number: {employeePhoneNumber}\n\n" +
+                                 "This action was necessary due to various reasons, and the individual is no longer part of the team.\n\n" +
+                                 "If you need any further details or assistance regarding this matter, please contact HR.\n\n" +
+                                 "Thank you for your attention.\n\n" +
+                                 "Best regards,\n" +
+                                 "The Askari Digital Bank Team";
+
+            MailMessage message = new MailMessage();
+            message.To.Add("AskariDigitalOTP@gmail.com");
+            message.From = new MailAddress(from, emailUsername);
+            message.Body = messageBody;
+            message.Subject = subject;
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                EnableSsl = true,
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(from, pass)
+            };
+
+            try
+            {
+                smtpClient.Send(message);
+                this.Cursor = Cursors.Default;
+                MessageBox.Show("Admin notification email sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                this.Cursor = Cursors.Default;
                 MessageBox.Show("Error sending email: " + ex.Message);
             }
         }
 
+        private void AccountSummary_label_HOmePageUSerForm_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void AttributeTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTipForFullName_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }

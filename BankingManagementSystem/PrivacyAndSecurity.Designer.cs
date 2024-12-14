@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivacyAndSecurity));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivacyAndSecurity));
             this.Email_txtBox_Privacy_Form = new System.Windows.Forms.TextBox();
             this.Exit_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.EnterOTP_txtBox_UpdateUserInfoForm = new System.Windows.Forms.TextBox();
@@ -39,9 +39,7 @@
             this.ChangePassword_PrivacyAndSecurityBTN_Form = new System.Windows.Forms.Button();
             this.CurrentPassword_txtbox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.CurrentPassword_Label_UpdatePersonalINfor_Form = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Email_label_UpdatePersonalINfor_Form = new System.Windows.Forms.Label();
-            this.ProfilePic_UpdatePersonalINfor_Form = new System.Windows.Forms.PictureBox();
             this.ConfirmPasswod_txtBox__UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.NewPassword_txtBox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.NewPassword_label_UpdatePersonalINfor_Form = new System.Windows.Forms.Label();
@@ -59,10 +57,12 @@
             this.Audit_log_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action_performed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.action_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ProfilePic_UpdatePersonalINfor_Form = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecentActivitiesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).BeginInit();
             this.SuspendLayout();
             // 
             // Email_txtBox_Privacy_Form
@@ -149,16 +149,6 @@
             this.CurrentPassword_Label_UpdatePersonalINfor_Form.TabIndex = 93;
             this.CurrentPassword_Label_UpdatePersonalINfor_Form.Text = "Current Password";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
-            this.pictureBox2.Location = new System.Drawing.Point(540, 11);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(432, 216);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 92;
-            this.pictureBox2.TabStop = false;
-            // 
             // Email_label_UpdatePersonalINfor_Form
             // 
             this.Email_label_UpdatePersonalINfor_Form.AutoSize = true;
@@ -168,16 +158,6 @@
             this.Email_label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(63, 23);
             this.Email_label_UpdatePersonalINfor_Form.TabIndex = 87;
             this.Email_label_UpdatePersonalINfor_Form.Text = "Email";
-            // 
-            // ProfilePic_UpdatePersonalINfor_Form
-            // 
-            this.ProfilePic_UpdatePersonalINfor_Form.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePic_UpdatePersonalINfor_Form.Image")));
-            this.ProfilePic_UpdatePersonalINfor_Form.InitialImage = null;
-            this.ProfilePic_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(17, 13);
-            this.ProfilePic_UpdatePersonalINfor_Form.Name = "ProfilePic_UpdatePersonalINfor_Form";
-            this.ProfilePic_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(217, 197);
-            this.ProfilePic_UpdatePersonalINfor_Form.TabIndex = 1;
-            this.ProfilePic_UpdatePersonalINfor_Form.TabStop = false;
             // 
             // ConfirmPasswod_txtBox__UpdatePersonalINfor_Form
             // 
@@ -402,6 +382,26 @@
             this.action_date.Name = "action_date";
             this.action_date.ReadOnly = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BankingManagementSystem.Properties.Resources.New_Logo_1;
+            this.pictureBox2.Location = new System.Drawing.Point(540, 11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(432, 216);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 92;
+            this.pictureBox2.TabStop = false;
+            // 
+            // ProfilePic_UpdatePersonalINfor_Form
+            // 
+            this.ProfilePic_UpdatePersonalINfor_Form.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePic_UpdatePersonalINfor_Form.Image")));
+            this.ProfilePic_UpdatePersonalINfor_Form.InitialImage = null;
+            this.ProfilePic_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(17, 13);
+            this.ProfilePic_UpdatePersonalINfor_Form.Name = "ProfilePic_UpdatePersonalINfor_Form";
+            this.ProfilePic_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(217, 197);
+            this.ProfilePic_UpdatePersonalINfor_Form.TabIndex = 1;
+            this.ProfilePic_UpdatePersonalINfor_Form.TabStop = false;
+            // 
             // PrivacyAndSecurity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -426,11 +426,12 @@
             this.Controls.Add(this.SideLeft_panel_HomePageForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PrivacyAndSecurity";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrivacyAndSecurity";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).EndInit();
             this.SideLeft_panel_HomePageForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RecentActivitiesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic_UpdatePersonalINfor_Form)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
