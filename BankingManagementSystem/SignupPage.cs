@@ -402,7 +402,7 @@ namespace BankingManagementSystem
                 using (OracleConnection conn = new OracleConnection(GlobalData.connString))
                 {
                     conn.Open();
-                    using (OracleTransaction transaction = conn.BeginTransaction())
+                    using (var transaction = conn.BeginTransaction())
                     {
                         try
                         {

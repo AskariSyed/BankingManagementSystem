@@ -67,7 +67,8 @@ namespace BankingManagementSystem
                             }
                             else if(employee.position == Employee.Position.Manager)
                             {
-                                //will do later on
+                                ManagerHomePage managerHomePage = new ManagerHomePage();
+                                managerHomePage.Show();
 
                             }
         
@@ -94,6 +95,20 @@ namespace BankingManagementSystem
                                 }
                            }
                             catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                            string lastloginQuery = "update users set last_login =:lastlogin where user_ID =:userid";
+                            try
+                            {
+
+                                using (OracleCommand lastLogincmd = new OracleCommand(lastloginQuery, conn))
+                                {
+                                    lastLogincmd.Parameters.Add(new OracleParameter("lastlogin", DateTime.Now));
+                                    lastLogincmd.Parameters.Add(new OracleParameter("userid", GlobalData.CurrentEmployee.userId));
+                                    lastLogincmd.ExecuteNonQuery();
+                                }
+                            }catch(Exception ex)
                             {
                                 MessageBox.Show(ex.Message);
                             }
@@ -366,8 +381,6 @@ namespace BankingManagementSystem
 
 
                 SignIn_btn_EmployeeSigninForm.PerformClick();
-
-                // Prevent the 'ding' sound for Enter key press
                 e.Handled = true;
             }
         }

@@ -111,6 +111,21 @@ namespace BankingManagementSystem
                             {
                                 MessageBox.Show(ex.Message);
                             }
+                            string lastloginQuery = "update users set last_login =:lastlogin where user_ID =:userid";
+                            try
+                            {
+
+                                using (OracleCommand lastLogincmd = new OracleCommand(lastloginQuery, conn))
+                                {
+                                    lastLogincmd.Parameters.Add(new OracleParameter("lastlogin", DateTime.Now));
+                                    lastLogincmd.Parameters.Add(new OracleParameter("userid",GlobalData.CurrentCustomer.userID));
+                                    lastLogincmd.ExecuteNonQuery();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
                             string incrementSuccessfulLoginQuery = "UPDATE users SET failedLoginAttempt = 0 WHERE USER_ID = :userId AND ROLE='Customer'";
 
                             try

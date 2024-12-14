@@ -41,7 +41,7 @@ namespace BankingManagementSystem
 
         private void Exit_btn__ForgotPasswrod_Form_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
         }
 

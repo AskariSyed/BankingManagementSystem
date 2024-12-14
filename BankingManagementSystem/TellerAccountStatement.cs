@@ -53,7 +53,7 @@ namespace BankingManagementSystem
 
         private void Exit_btn__SendMoney_Form_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void TransferButton_SendMoneyForm_Click(object sender, EventArgs e)

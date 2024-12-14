@@ -63,7 +63,7 @@ namespace BankingManagementSystem
 
         private void TransactionHistoryBTn_Click(object sender, EventArgs e)
         {
-            TransactionHistory transactionHistory = new TransactionHistory();       
+            TransactionHistory transactionHistory = new TransactionHistory();
             transactionHistory.Show();
         }
 
@@ -86,7 +86,7 @@ namespace BankingManagementSystem
 
         private void CheckCustomerLogsBtn_Click(object sender, EventArgs e)
         {
-            CheckCustomerLogs checkCustomerLogs = new CheckCustomerLogs();  
+            CheckCustomerLogs checkCustomerLogs = new CheckCustomerLogs();
             checkCustomerLogs.Show();
         }
 
@@ -104,7 +104,8 @@ namespace BankingManagementSystem
 
         private void SearchEmployee_Click(object sender, EventArgs e)
         {
-
+            SearchEmployee searchEmployee = new SearchEmployee();   
+            searchEmployee.Show();
         }
 
         private void Exit_btn_btn_HomeFormUser_Click(object sender, EventArgs e)
@@ -115,8 +116,8 @@ namespace BankingManagementSystem
 
         private void TransactionHistory_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            TransactionHistory transactionHistory = new TransactionHistory();   
-            transactionHistory.Show();  
+            TransactionHistory transactionHistory = new TransactionHistory();
+            transactionHistory.Show();
         }
 
         private void Account_Statment_btn_HomeFormUser_Click(object sender, EventArgs e)
@@ -128,6 +129,12 @@ namespace BankingManagementSystem
         private void AddEmployee_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CheckEmployeeLogs_Click(object sender, EventArgs e)
+        {
+            CheckEmployeeLogs checkEmployeeLogs = new CheckEmployeeLogs();
+            checkEmployeeLogs.Show();
         }
     }
 }

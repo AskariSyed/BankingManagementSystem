@@ -71,6 +71,7 @@
             this.AccountSummary_label_HOmePageUSerForm.Size = new System.Drawing.Size(309, 50);
             this.AccountSummary_label_HOmePageUSerForm.TabIndex = 156;
             this.AccountSummary_label_HOmePageUSerForm.Text = "Check Employee Logs";
+            this.AccountSummary_label_HOmePageUSerForm.Click += new System.EventHandler(this.AccountSummary_label_HOmePageUSerForm_Click);
             // 
             // AttributeTxtBox
             // 
@@ -78,6 +79,7 @@
             this.AttributeTxtBox.Name = "AttributeTxtBox";
             this.AttributeTxtBox.Size = new System.Drawing.Size(499, 22);
             this.AttributeTxtBox.TabIndex = 155;
+            this.AttributeTxtBox.TextChanged += new System.EventHandler(this.AttributeTxtBox_TextChanged);
             // 
             // SearchByEmployeeNumber_btn
             // 
@@ -114,6 +116,10 @@
             this.SearchByFirstName_BTN.Text = "Search By First Name";
             this.SearchByFirstName_BTN.UseVisualStyleBackColor = false;
             this.SearchByFirstName_BTN.Click += new System.EventHandler(this.SearchByFirstName_BTN_Click);
+            // 
+            // toolTipForFullName
+            // 
+            this.toolTipForFullName.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTipForFullName_Popup);
             // 
             // EmployeeLogsDataGridTable
             // 
@@ -169,6 +175,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 160;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // CheckEmployeeLogs
             // 

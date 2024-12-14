@@ -166,5 +166,25 @@ namespace BankingManagementSystem
         {
 
         }
+
+        private void AccountSummary_label_HOmePageUSerForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AttributeTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTipForFullName_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

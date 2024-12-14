@@ -131,6 +131,39 @@ namespace BankingManagementSystem
 
 
         }
+        public  static string GeneratePassword()
+        {
+            int length = 10;
+            const string capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string specialCharacters = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/";
+            const string numbers = "0123456789";
+            const string lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+            const string allChars = capitalLetters + lowerLetters + numbers + specialCharacters;
+
+            Random rnd = new Random();
+            StringBuilder password = new StringBuilder();
+
+            password.Append(capitalLetters[rnd.Next(capitalLetters.Length)]);
+            password.Append(specialCharacters[rnd.Next(specialCharacters.Length)]);
+            password.Append(numbers[rnd.Next(numbers.Length)]);
+
+            for (int i = 3; i < length; i++)
+            {
+                password.Append(allChars[rnd.Next(allChars.Length)]);
+            }
+            char[] passwordArray = password.ToString().ToCharArray();
+            Shuffle(passwordArray, rnd);
+
+            return new string(passwordArray);
+        }
+        static void Shuffle(char[] array, Random rnd)
+        {
+            for (int i = array.Length - 1; i > 0; i--)
+            {
+                int j = rnd.Next(i + 1);
+                (array[i], array[j]) = (array[j], array[i]);
+            }
+        }
 
 
 

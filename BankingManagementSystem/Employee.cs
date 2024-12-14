@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Oracle.ManagedDataAccess.Client;
 using static BankingManagementSystem.Customer;
+using System.Net.NetworkInformation;
 namespace BankingManagementSystem
 {
     internal class Employee
@@ -17,6 +18,7 @@ namespace BankingManagementSystem
         public string email {  get; set; }
         public string phoneNumber { get; set; }
        public DateTime hireDate { get; set; }
+        public DateTime dateOfBirth { get; set; }
 
         public string cnic { get; set; }
        public enum Position
@@ -31,7 +33,7 @@ namespace BankingManagementSystem
         public string branchName {  get; set; }
 
         
-        public Employee(int employeeId, string firstName, string lastName, string email, string phoneNumber, DateTime hireDate,Position position ,int salary,int branchId,string userId,string cnic)
+        public Employee(int employeeId, string firstName, string lastName, string email, string phoneNumber, DateTime hireDate,Position position ,int salary,int branchId,string userId,string cnic,DateTime dateOfBirth)
         {
             this.employeeId = employeeId;
             this.firstName = firstName;
@@ -45,6 +47,7 @@ namespace BankingManagementSystem
             this.userId = userId;
             this.cnic = cnic;
             string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
+            this.dateOfBirth = dateOfBirth;
 
             // Handle the case when no matching value is found
             if (branchName != null)
@@ -121,6 +124,7 @@ namespace BankingManagementSystem
             this.branchId = Convert.ToInt32(reader["BRANCH_ID"]);
             this.phoneNumber = reader["PHONE_NUMBER"].ToString();
             this.cnic = reader["CNIC"].ToString();
+            this.dateOfBirth = (Convert.ToDateTime(reader["DATEOFBIRTH"]));
 
             string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
 
@@ -149,7 +153,31 @@ namespace BankingManagementSystem
                 this.position = Position.Other;
             }
         }
-
-
+        public static int generateNewEmployeeId()
+        {
+            string getMaxEmployeeIdQuery = "SELECT MAX(employee_ID) FROM bankemployee";
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (OracleCommand cmd = new OracleCommand(getMaxEmployeeIdQuery, conn))
+                    {
+                        
+                        object result = cmd.ExecuteScalar();
+                        int maxEmployeeId = (result != DBNull.Value) ? Convert.ToInt32(result) : 0;
+                        int newEmployeeID = maxEmployeeId + 1;
+                        MessageBox.Show("Generated new Employee ID: " + newEmployeeID);
+                        return newEmployeeID;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Catch any exceptions and show the error message
+                    MessageBox.Show(ex.Message);
+                    return 0;
+                }
+            }
+        }
     }
 }

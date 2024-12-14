@@ -229,7 +229,7 @@ namespace BankingManagementSystem
                                                 creditTransactionCommand.ExecuteNonQuery();
                                             }
                                             transaction.Commit();
-                                            MessageBox.Show("Funds transferred successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            GlobalData.customizedPopup("Funds transferred successfully.");
                                         }
                                         catch (Exception ex)
                                         {

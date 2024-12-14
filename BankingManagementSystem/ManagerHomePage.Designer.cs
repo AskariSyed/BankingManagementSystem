@@ -41,6 +41,7 @@
             this.Account_Statment_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Privacy_And_Security_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TransactionHistory_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Logout_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.CheckEmployeeLogs = new System.Windows.Forms.Button();
             this.SearchEmployee = new System.Windows.Forms.Button();
             this.CheckTransaction = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -248,6 +248,16 @@
             this.TransactionHistory_btn_HomeFormUser.UseVisualStyleBackColor = false;
             this.TransactionHistory_btn_HomeFormUser.Click += new System.EventHandler(this.TransactionHistory_btn_HomeFormUser_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Logout_btn_HomeFormUser
             // 
             this.Logout_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
@@ -296,7 +306,7 @@
             this.Exit_btn_btn_HomeFormUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Exit_btn_btn_HomeFormUser.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn_btn_HomeFormUser.Location = new System.Drawing.Point(1217, 12);
+            this.Exit_btn_btn_HomeFormUser.Location = new System.Drawing.Point(1251, 12);
             this.Exit_btn_btn_HomeFormUser.Name = "Exit_btn_btn_HomeFormUser";
             this.Exit_btn_btn_HomeFormUser.Size = new System.Drawing.Size(31, 33);
             this.Exit_btn_btn_HomeFormUser.TabIndex = 66;
@@ -509,6 +519,7 @@
             this.CheckEmployeeLogs.TabIndex = 90;
             this.CheckEmployeeLogs.Text = "Check Employee Logs";
             this.CheckEmployeeLogs.UseVisualStyleBackColor = false;
+            this.CheckEmployeeLogs.Click += new System.EventHandler(this.CheckEmployeeLogs_Click);
             // 
             // SearchEmployee
             // 
@@ -541,16 +552,6 @@
             this.CheckTransaction.Text = "Search Transactions";
             this.CheckTransaction.UseVisualStyleBackColor = false;
             this.CheckTransaction.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // ManagerHomePage
             // 

@@ -69,8 +69,8 @@ namespace BankingManagementSystem
 
         private void Logout_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
+            GlobalData.customerLogout();
             GlobalData.customizedPopup("Logout Successful");
-            GlobalData.CurrentCustomer = null;
             signInpage signInpage = new signInpage();
             this.Show();
             signInpage.Show();

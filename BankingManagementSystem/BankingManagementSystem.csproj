@@ -212,6 +212,12 @@
     <Compile Include="PrivacyAndSecurity.Designer.cs">
       <DependentUpon>PrivacyAndSecurity.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchEmployee.Designer.cs">
+      <DependentUpon>SearchEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="TellerAccountStatement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrivacyAndSecurity.resx">
       <DependentUpon>PrivacyAndSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchEmployee.resx">
+      <DependentUpon>SearchEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TellerAccountStatement.resx">
       <DependentUpon>TellerAccountStatement.cs</DependentUpon>
