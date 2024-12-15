@@ -35,6 +35,7 @@ namespace BankingManagementSystem
 
         private void DeleteEmployeeBtn_Click(object sender, EventArgs e)
         {
+            this.Cursor= Cursors.WaitCursor;
             if (EmployeeLogsDataGridTable.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select an employee to delete.");
@@ -66,33 +67,53 @@ namespace BankingManagementSystem
 
                     using (OracleTransaction transaction = conn.BeginTransaction())
                     {
-                        using (OracleCommand deleteUserCmd = new OracleCommand(deleteUserQuery, conn))
+                        try
                         {
-                            deleteUserCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
-                            deleteUserCmd.ExecuteNonQuery();
-                        }
-                        using (OracleCommand deleteEmployeeCmd = new OracleCommand(deleteEmployeeQuery, conn))
-                        {
-                            deleteEmployeeCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
-                            deleteEmployeeCmd.ExecuteNonQuery();
-                        }
+                            using (OracleCommand deleteUserCmd = new OracleCommand(deleteUserQuery, conn))
+                            {
+                                deleteUserCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
+                                deleteUserCmd.ExecuteNonQuery();
+                            }
+                            using (OracleCommand deleteEmployeeCmd = new OracleCommand(deleteEmployeeQuery, conn))
+                            {
+                                deleteEmployeeCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
+                                deleteEmployeeCmd.ExecuteNonQuery();
+                            }
 
-                        transaction.Commit();
-                        SendAdminDeletionNotificationEmail(
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["LAST_NAME"].Value.ToString() + " " + EmployeeLogsDataGridTable.SelectedRows[0].Cells["FIRST_NAME"].Value.ToString(),
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["POSITION"].Value.ToString(),
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["EMAIL"].Value.ToString(),
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["PHONE_NUMBER"].Value.ToString()
-);
+                            string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                            "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+                            using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                            {
+                                insertCmd.Parameters.Add(new OracleParameter("auditLogId", signInpage.GenerateNewLogID()));
+                                insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId));
+                                insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Removed An Employee from Data : " + selectedEmployeeId));
+                                insertCmd.ExecuteNonQuery();
+                            }
+
+
+
+                            transaction.Commit();
+                            MessageBox.Show("Employee and corresponding user deleted successfully.");
+                            SendAdminDeletionNotificationEmail(
+        EmployeeLogsDataGridTable.SelectedRows[0].Cells["LAST_NAME"].Value.ToString() + " " + EmployeeLogsDataGridTable.SelectedRows[0].Cells["FIRST_NAME"].Value.ToString(),
+        EmployeeLogsDataGridTable.SelectedRows[0].Cells["POSITION"].Value.ToString(),EmployeeLogsDataGridTable.SelectedRows[0].Cells["EMAIL"].Value.ToString(),EmployeeLogsDataGridTable.SelectedRows[0].Cells["PHONE_NUMBER"].Value.ToString());
+                        }catch(Exception ex)
+                        {
+                            transaction.Rollback();
+                            GlobalData.LogError("Error Deleting Employee", ex);
+                            MessageBox.Show("Error deleting employee please check log file for further info");
+                        }
 
                     }
+                   
                 }
 
-                MessageBox.Show("Employee and corresponding user deleted successfully.");
+                
 
             }
             catch (Exception ex)
             {
+                
                 GlobalData.LogError("Error deleting employee", ex);
                 MessageBox.Show("Error deleting employee please check log file for further info");
             }

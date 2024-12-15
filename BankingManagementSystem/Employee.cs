@@ -49,14 +49,14 @@ namespace BankingManagementSystem
             string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
             this.dateOfBirth = dateOfBirth;
 
-            // Handle the case when no matching value is found
+          
             if (branchName != null)
             {
                 this.branchName = branchName;
             }
             else
             {
-                // Handle case when branchId is not found in the dictionary
+                
                 this.branchName = "Branch not found";
             }
 
@@ -97,7 +97,6 @@ namespace BankingManagementSystem
                             if (reader.Read())
                             {
                                 MapData(reader);
-                                GlobalData.customizedPopup("Employee Login successful");
                             }
                             else
                             {
@@ -128,14 +127,13 @@ namespace BankingManagementSystem
 
             string branchName = GlobalData.cityBranchIDs.FirstOrDefault(x => x.Value == branchId).Key;
 
-            // Handle the case when no matching value is found
+           
             if (branchName != null)
             {
                 this.branchName = branchName;
             }
             else
             {
-                // Handle case when branchId is not found in the dictionary
                 this.branchName = "Branch not found";
             }
 
@@ -173,7 +171,6 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    // Catch any exceptions and show the error message
                     MessageBox.Show(ex.Message);
                     return 0;
                 }

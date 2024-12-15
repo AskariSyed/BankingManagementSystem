@@ -15,6 +15,7 @@ using MigraDoc.DocumentObjectModel;
 using System.Net.Mail;
 using System.Net;
 using Org.BouncyCastle.Crypto.Macs;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace BankingManagementSystem
@@ -113,8 +114,6 @@ namespace BankingManagementSystem
                     {
                         logCmd.Parameters.Add(new OracleParameter("employeeId", searchedEmployee.employeeId));
                         OracleDataReader logReader = logCmd.ExecuteReader();
-                        
-
                         if (!logReader.HasRows)
                         {
                             EmployeeLogsDataGridTable.Visible = false;
@@ -142,7 +141,8 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error fetching audit logs: " + ex.Message);
+                    GlobalData.LogError("Error Fetching Employee Data", ex);
+                    MessageBox.Show("Error fetching Employees data please check log file for further information" );
                 }
             }
         }
@@ -250,12 +250,14 @@ namespace BankingManagementSystem
                 DateTime dob = Convert.ToDateTime(newRow.Cells["DATEOFBIRTH"].Value);
                 string passwordHash;
 
+
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(position)
                     || salary <= 0 || string.IsNullOrEmpty(branchId) || string.IsNullOrEmpty(cnic) || dob == DateTime.MinValue)
                 {
                     MessageBox.Show("Please fill in all required fields.");
                     return;
                 }
+                string username = lastName + firstName;
 
                 string employeeQuery = @"INSERT INTO bankemployee (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, POSITION, SALARY, BRANCH_ID, CNIC, DATEOFBIRTH, USER_ID) 
                              VALUES (:employeeId, :firstName, :lastName, :email, :phoneNumber, :hireDate, :position, :salary, :branchId, :cnic, :dob, :userid)";
@@ -266,6 +268,27 @@ namespace BankingManagementSystem
                 using (OracleConnection conn = new OracleConnection(GlobalData.connString))
                 {
                     conn.Open();
+                    string query = "SELECT COUNT(*) FROM USERS WHERE USERNAME = :username";
+                    try
+                    {
+                        using (OracleCommand cmd = new OracleCommand(query, conn))
+                        {
+                            cmd.Parameters.Add(new OracleParameter("username", username));
+
+                            int usernameCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                            if (usernameCount > 0)
+                            {
+                                MessageBox.Show("Username already exists. Please choose a different username. By Manual adding emooyee from add employee feature from home page", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        GlobalData.LogError("Error Checking Available username", ex);
+                        MessageBox.Show("Error Checking Available username Please Check Log file for more info " + ex.Message);
+                    }
                     using (OracleTransaction transaction = conn.BeginTransaction())
                     {
                         try
@@ -275,7 +298,7 @@ namespace BankingManagementSystem
                             {
                                 int newEmployeeID = Employee.generateNewEmployeeId();
                                 string newUserID = "EMP" + newEmployeeID;
-                                string username = lastName + firstName;
+                              
                                 passwordHash = GlobalData.GeneratePassword();
                                 string role = "Employee";
                                 int failedLoginAttempt = 0;
@@ -285,7 +308,7 @@ namespace BankingManagementSystem
                                 employeeCmd.Parameters.Add(new OracleParameter("lastName", lastName));
                                 employeeCmd.Parameters.Add(new OracleParameter("email", email));
                                 employeeCmd.Parameters.Add(new OracleParameter("phoneNumber", phoneNumber));
-                                employeeCmd.Parameters.Add(new OracleParameter("hireDate", DateTime.Now.Date)); // Only date part
+                                employeeCmd.Parameters.Add(new OracleParameter("hireDate", DateTime.Now.Date));
                                 employeeCmd.Parameters.Add(new OracleParameter("position", position));
                                 employeeCmd.Parameters.Add(new OracleParameter("salary", salary));
                                 employeeCmd.Parameters.Add(new OracleParameter("branchId", branchId));
@@ -302,6 +325,16 @@ namespace BankingManagementSystem
                                 userCmd.Parameters.Add(new OracleParameter("status", status));
                                 employeeCmd.ExecuteNonQuery();
                                 userCmd.ExecuteNonQuery();
+
+                                string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                                "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+                                using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                                {
+                                    insertCmd.Parameters.Add(new OracleParameter("auditLogId", signInpage.GenerateNewLogID()));
+                                    insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId));
+                                    insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Added An Employee  : " + newEmployeeID));
+                                    insertCmd.ExecuteNonQuery();
+                                }
                                 transaction.Commit();
 
                                 MessageBox.Show("Employee added and user created successfully!");
@@ -317,7 +350,7 @@ namespace BankingManagementSystem
                     }
                 }
 
-                FetchEmployeesData();
+            
             }
             catch (Exception ex)
             {
@@ -398,7 +431,6 @@ namespace BankingManagementSystem
            
             string deleteEmployeeQuery = "DELETE FROM bankemployee WHERE EMPLOYEE_ID = :employeeId";
             string deleteUserQuery = "DELETE FROM users WHERE EMPLOYEE_ID = :employeeId";
-
             try
             {
                 using (OracleConnection conn = new OracleConnection(GlobalData.connString))
@@ -407,33 +439,45 @@ namespace BankingManagementSystem
 
                     using (OracleTransaction transaction = conn.BeginTransaction())
                     {
-                        using (OracleCommand deleteUserCmd = new OracleCommand(deleteUserQuery, conn))
+                        try
                         {
-                            deleteUserCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
-                            deleteUserCmd.ExecuteNonQuery();
-                        }
-                        using (OracleCommand deleteEmployeeCmd = new OracleCommand(deleteEmployeeQuery, conn))
-                        {
-                            deleteEmployeeCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
-                            deleteEmployeeCmd.ExecuteNonQuery();
-                        }
-                       
-                        transaction.Commit();
-                        SendAdminDeletionNotificationEmail(
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["LAST_NAME"].Value.ToString() + " " + EmployeeLogsDataGridTable.SelectedRows[0].Cells["FIRST_NAME"].Value.ToString(),
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["POSITION"].Value.ToString(),
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["EMAIL"].Value.ToString(),
-    EmployeeLogsDataGridTable.SelectedRows[0].Cells["PHONE_NUMBER"].Value.ToString()
-);
+                            using (OracleCommand deleteUserCmd = new OracleCommand(deleteUserQuery, conn))
+                            {
+                                deleteUserCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
+                                deleteUserCmd.ExecuteNonQuery();
+                            }
+                            using (OracleCommand deleteEmployeeCmd = new OracleCommand(deleteEmployeeQuery, conn))
+                            {
+                                deleteEmployeeCmd.Parameters.Add(new OracleParameter("employeeId", selectedEmployeeId));
+                                deleteEmployeeCmd.ExecuteNonQuery();
+                            }
 
+                            string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                            "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+                            using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                            {
+                                insertCmd.Parameters.Add(new OracleParameter("auditLogId", signInpage.GenerateNewLogID()));
+                                insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId));
+                                insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Removed An Employee from Data : " + selectedEmployeeId));
+                                insertCmd.ExecuteNonQuery();
+                            }
+                            transaction.Commit();
+                            MessageBox.Show("Employee and corresponding user deleted successfully.");
+                            SendAdminDeletionNotificationEmail(EmployeeLogsDataGridTable.SelectedRows[0].Cells["LAST_NAME"].Value.ToString() + " " + EmployeeLogsDataGridTable.SelectedRows[0].Cells["FIRST_NAME"].Value.ToString(),
+        EmployeeLogsDataGridTable.SelectedRows[0].Cells["POSITION"].Value.ToString(), EmployeeLogsDataGridTable.SelectedRows[0].Cells["EMAIL"].Value.ToString(), EmployeeLogsDataGridTable.SelectedRows[0].Cells["PHONE_NUMBER"].Value.ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            GlobalData.LogError("Error Deleting Employee", ex);
+                            MessageBox.Show("Error deleting employee please check log file for further info");
+                        }
                     }
                 }
-
-                MessageBox.Show("Employee and corresponding user deleted successfully.");
-               
             }
             catch (Exception ex)
             {
+
                 GlobalData.LogError("Error deleting employee", ex);
                 MessageBox.Show("Error deleting employee please check log file for further info");
             }

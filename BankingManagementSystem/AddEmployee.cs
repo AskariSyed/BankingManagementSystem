@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BankingManagementSystem
 {
@@ -58,6 +59,8 @@ namespace BankingManagementSystem
                     MessageBox.Show("Please fill in all required fields.");
                     return;
                 }
+                string username = lastName + firstName;
+
                 string employeeQuery = @"INSERT INTO bankemployee (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, POSITION, SALARY, BRANCH_ID, CNIC, DATEOFBIRTH, USER_ID) 
                              VALUES (:employeeId, :firstName, :lastName, :email, :phoneNumber, :hireDate, :position, :salary, :branchId, :cnic, :dob, :userid)";
 
@@ -67,7 +70,33 @@ namespace BankingManagementSystem
                 using (OracleConnection conn = new OracleConnection(GlobalData.connString))
                 {
                     conn.Open();
-                    using (OracleTransaction transaction = conn.BeginTransaction())
+                  
+                        string query = "SELECT COUNT(*) FROM USERS WHERE USERNAME = :username";
+                        try
+                        {
+                            using (OracleCommand cmd = new OracleCommand(query, conn))
+                            {
+                                cmd.Parameters.Add(new OracleParameter("username", username));
+
+                                int usernameCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                                if (usernameCount > 0)
+                                {
+                                    MessageBox.Show("Username already exists. Please choose a different username. By Manual adding emooyee from add employee feature from home page", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            GlobalData.LogError("Error Checking Available username", ex);
+                            MessageBox.Show("Error Checking Available username Please Check Log file for more info " + ex.Message);
+                        }
+
+
+
+
+                        using (OracleTransaction transaction = conn.BeginTransaction())
                     {
                         try
                         {
@@ -76,7 +105,6 @@ namespace BankingManagementSystem
                             {
                                 int newEmployeeID = Employee.generateNewEmployeeId();
                                 string newUserID = "EMP" + newEmployeeID;
-                                string username = lastName + firstName;
                                 string role = "Employee";
                                 int failedLoginAttempt = 0;
                                 string status = "Active";
@@ -102,6 +130,15 @@ namespace BankingManagementSystem
                                 userCmd.Parameters.Add(new OracleParameter("status", status));
                                 employeeCmd.ExecuteNonQuery();
                                 userCmd.ExecuteNonQuery();
+                                string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                               "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+                                using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
+                                {
+                                    insertCmd.Parameters.Add(new OracleParameter("auditLogId", signInpage.GenerateNewLogID()));
+                                    insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId));
+                                    insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Added An Employee  : " + newEmployeeID));
+                                    insertCmd.ExecuteNonQuery();
+                                }
                                 transaction.Commit();
 
                                 GlobalData.customizedPopup("Employee added and user created successfully!");

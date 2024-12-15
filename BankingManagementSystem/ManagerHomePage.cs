@@ -137,5 +137,11 @@ namespace BankingManagementSystem
             CheckEmployeeLogs checkEmployeeLogs = new CheckEmployeeLogs();
             checkEmployeeLogs.Show();
         }
+
+        private void DeleteEmployee_Click(object sender, EventArgs e)
+        {
+            DeleteEmployee deleteEmployee = new DeleteEmployee();
+            deleteEmployee.Show();
+        }
     }
 }
