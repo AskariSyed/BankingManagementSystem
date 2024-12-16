@@ -189,7 +189,7 @@ namespace BankingManagementSystem
 
         private void SearchByCNIC_btn_Click(object sender, EventArgs e)
         {
-            string value = AttributeTxtBox.Text; 
+            string value = AttributeTxtBox.Text.Trim(); 
             string formattedValue = null;
             if (value.Length == 13) 
             {
@@ -367,7 +367,7 @@ namespace BankingManagementSystem
 
         private void UpdateCustomerInformation_Button_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)

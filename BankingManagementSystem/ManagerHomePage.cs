@@ -81,7 +81,8 @@ namespace BankingManagementSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            SearchCustomerForUpdate searchCustomerForUpdate = new SearchCustomerForUpdate();    
+            searchCustomerForUpdate.Show();
         }
 
         private void CheckCustomerLogsBtn_Click(object sender, EventArgs e)

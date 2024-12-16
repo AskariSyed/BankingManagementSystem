@@ -108,18 +108,19 @@ namespace BankingManagementSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT status FROM users WHERE user_id = :userid";
+                    string query = "SELECT status,username FROM users WHERE user_id = :userid";
 
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
-                        // Add parameter with explicit type to avoid potential type mismatches
+                       
                         cmd.Parameters.Add(new OracleParameter("userid",  this.userID));
 
                         using (OracleDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read()) // Ensure data is returned
+                            if (reader.Read()) 
                             {
-                                this.userStatus = reader["status"].ToString();  // Access the "status" column
+                                this.username = reader["username"].ToString();
+                                this.userStatus = reader["status"].ToString(); 
                             }
                             else
                             {
@@ -127,6 +128,7 @@ namespace BankingManagementSystem
                             }
                         }
                     }
+                   
                 }
                 catch (Exception ex)
                 {

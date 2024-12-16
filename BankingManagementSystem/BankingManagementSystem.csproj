@@ -194,6 +194,12 @@
     <Compile Include="EmployeeLoginPage.Designer.cs">
       <DependentUpon>EmployeeLoginPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeUpdateCustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeUpdateCustomerInfo.Designer.cs">
+      <DependentUpon>EmployeeUpdateCustomerInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="InitiateCredit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,12 @@
     </Compile>
     <Compile Include="PrivacyAndSecurity.Designer.cs">
       <DependentUpon>PrivacyAndSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchCustomerForUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchCustomerForUpdate.Designer.cs">
+      <DependentUpon>SearchCustomerForUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchEmployee.cs">
       <SubType>Form</SubType>
@@ -350,6 +362,9 @@
       <DependentUpon>EmployeeLoginPage.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUpdateCustomerInfo.resx">
+      <DependentUpon>EmployeeUpdateCustomerInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InitiateCredit.resx">
       <DependentUpon>InitiateCredit.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -366,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrivacyAndSecurity.resx">
       <DependentUpon>PrivacyAndSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchCustomerForUpdate.resx">
+      <DependentUpon>SearchCustomerForUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchEmployee.resx">
       <DependentUpon>SearchEmployee.cs</DependentUpon>

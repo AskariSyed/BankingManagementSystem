@@ -16,6 +16,7 @@ using System.Net.Mail;
 using System.Net;
 using Org.BouncyCastle.Crypto.Macs;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Text.RegularExpressions;
 
 
 namespace BankingManagementSystem
@@ -249,6 +250,25 @@ namespace BankingManagementSystem
                 string cnic = newRow.Cells["CNIC"].Value?.ToString();
                 DateTime dob = Convert.ToDateTime(newRow.Cells["DATEOFBIRTH"].Value);
                 string passwordHash;
+                if (string.IsNullOrWhiteSpace(cnic))
+                {
+                    MessageBox.Show("CNIC cannot be empty.");
+                    return;
+                }
+                var cnicWithoutHyphensRegex = new Regex(@"^\d{13}$");
+                var cnicWithHyphensRegex = new Regex(@"^\d{5}-\d{7}-\d{1}$");
+                if (cnicWithoutHyphensRegex.IsMatch(cnic))
+                {
+                    
+                    cnic = $"{cnic.Substring(0, 5)}-{cnic.Substring(5, 7)}-{cnic.Substring(12)}";
+                }
+                else if (!cnicWithHyphensRegex.IsMatch(cnic))
+                {
+                    MessageBox.Show("Invalid CNIC format. Please enter a valid CNIC.");
+                    return;
+                }
+
+
 
 
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(position)
@@ -348,9 +368,7 @@ namespace BankingManagementSystem
                             MessageBox.Show("Failed to add employee to the DataBase Please Check Log file for more info " + ex.Message);
                         }
                     }
-                }
-
-            
+                }            
             }
             catch (Exception ex)
             {
@@ -361,12 +379,10 @@ namespace BankingManagementSystem
         public void SendAdminNotificationEmail( string employeeName, string employeePosition, string employeeEmail, string employeePhoneNumber, string employeepassword)
         {
             Cursor = Cursors.WaitCursor;
-
             string from = "AskariDigitalOTP@gmail.com";
             string pass = "mitxehwlyexurspx";
             string emailUsername = "Askari Digital Bank Ltd.";
             string subject = "New Employee Added to Askari Digital Bank";
-
             string messageBody = $"Respected CEO Askari Digital Bank Ltd ,\n\n" +
                                  "We are pleased to inform you that a new employee has been successfully added to the Askari Digital Bank team.\n\n" +
                                  "Here’s the new employee's information:\n\n" +

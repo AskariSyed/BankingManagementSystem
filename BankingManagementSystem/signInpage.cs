@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace BankingManagementSystem
 {
@@ -124,7 +125,8 @@ namespace BankingManagementSystem
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message);
+                                MessageBox.Show("Unable to update your last login timestamp. Your account functionality is unaffected. Please contact support if necessary.");
+                                GlobalData.LogError("Failed to update last login timestamp", ex);
                             }
                             string incrementSuccessfulLoginQuery = "UPDATE users SET failedLoginAttempt = 0 WHERE USER_ID = :userId AND ROLE='Customer'";
 
@@ -186,14 +188,15 @@ namespace BankingManagementSystem
                                     using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
                                     {
                                         insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                        insertCmd.Parameters.Add(new OracleParameter("userId", userId)); // USER_ID as "CUS" + customer_id
+                                        insertCmd.Parameters.Add(new OracleParameter("userId", userId)); 
                                         insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Login Restricted Due to Blocked Status"));
                                         insertCmd.ExecuteNonQuery();
                                     }
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show(ex.Message);
+                                    MessageBox.Show("Error occured while writing audit log for further iinfo check logs file");
+                                    GlobalData.LogError("Audit Log writing Error ", ex);
                                 }
 
                                 if (res == DialogResult.OK)
@@ -246,6 +249,7 @@ namespace BankingManagementSystem
                                         catch (Exception ex)
                                         {
                                             MessageBox.Show(ex.Message);
+                                            GlobalData.LogError("Updating user for failed login attempt ", ex);
                                         }
                                         int failedLoginAttempt = 0;
                                         string fetchFailedLoginAttemptQuery = "SELECT failedLoginAttempt FROM users WHERE USER_ID = :userId";
@@ -266,7 +270,8 @@ namespace BankingManagementSystem
                                         }
                                         catch (Exception ex)
                                         {
-                                            MessageBox.Show(ex.Message);
+                                            MessageBox.Show("Unable to fetch the login attempt count for your account. Please try again or check log file.");
+                                            GlobalData.LogError("Failed to fetch failed login attempt count for user", ex);
                                         }
 
                                         if (failedLoginAttempt == 3)
@@ -299,7 +304,9 @@ namespace BankingManagementSystem
                                             }
                                             catch (Exception ex)
                                             {
-                                                MessageBox.Show(ex.Message);
+
+                                                MessageBox.Show("Unable to block the account after too many failed login attempts. Please contact support for immediate assistance.");
+                                                GlobalData.LogError("Failed to update user status to 'Blocked'", ex);
                                             }
                                         }
 
@@ -330,13 +337,16 @@ namespace BankingManagementSystem
                                         }
                                         catch (Exception ex)
                                         {
-                                            MessageBox.Show(ex.Message);
+                                            MessageBox.Show("Failed to record the failed login attempt in system logs. Please contact support if this issue persists.");
+                                            GlobalData.LogError("Failed to write failed login attempt to Audit Log", ex);
                                         }
                                     }
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show(ex.Message);
+                                    MessageBox.Show("Unable to verify your account's status. Please try again or contact support.");
+                                    GlobalData.LogError("Failed to fetch user status for login process", ex);
+
                                 }
 
                                 if (userId == null)
@@ -350,7 +360,8 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+                    MessageBox.Show("An error occurred while verifying your account status. Please contact support.");
+                    GlobalData.LogError("Failed to process account blocking verification", ex);
                 }
             }
 
@@ -398,7 +409,9 @@ namespace BankingManagementSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                GlobalData.LogError("Error while generating new Audit Log ID", ex);
+                MessageBox.Show("An error occurred while generating a new log ID. Please check log file or try again later.",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
             return newAuditID;
@@ -407,12 +420,10 @@ namespace BankingManagementSystem
 
         private void Passworde_txtBox_signinForm_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
+        {            
             EmployeeLoginPage employeeLoginPage = new EmployeeLoginPage();  
             employeeLoginPage.Show();
             this.Hide();
@@ -426,20 +437,13 @@ namespace BankingManagementSystem
                 Passworde_txtBox_signinForm.Focus();
                 e.Handled = true;
             }
-        
-
-
-    }
+        }
 
         private void Passworde_txtBox_signinForm_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-
-               
                 SignIn_btn_SigninForm.PerformClick();
-
-                // Prevent the 'ding' sound for Enter key press
                 e.Handled = true;
             }
         }
