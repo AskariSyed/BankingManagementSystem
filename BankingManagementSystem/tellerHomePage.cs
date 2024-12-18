@@ -170,7 +170,8 @@ namespace BankingManagementSystem
 
         private void Update_AccountInfo_HomePageUserForm_Click(object sender, EventArgs e)
         {
-
+            TransferFundsTeller transferFundsTeller = new TransferFundsTeller();
+            transferFundsTeller.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

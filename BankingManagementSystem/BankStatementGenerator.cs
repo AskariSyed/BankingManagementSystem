@@ -333,7 +333,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                         Paragraph para = header.AddParagraph();
                         para.Format.Alignment = ParagraphAlignment.Center;
                         Image image = para.AddImage(@"C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
-                        image.Width = Unit.FromCentimeter(8); // Adjust size if necessary
+                        image.Width = Unit.FromCentimeter(8); 
                         header.Format.SpaceAfter=Unit.FromCentimeter(8);
 
                         
@@ -392,10 +392,10 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
 
                         Table table = section.AddTable();
                     table.Borders.Width = 0.75;
-                    table.AddColumn(Unit.FromCentimeter(3));  // Date
-                    table.AddColumn(Unit.FromCentimeter(7));  // Description
-                    table.AddColumn(Unit.FromCentimeter(3));  // Amount
-                    table.AddColumn(Unit.FromCentimeter(3));  // Balance
+                    table.AddColumn(Unit.FromCentimeter(3));  
+                    table.AddColumn(Unit.FromCentimeter(7));  
+                    table.AddColumn(Unit.FromCentimeter(3));  
+                    table.AddColumn(Unit.FromCentimeter(3));  
 
                     Row row = table.AddRow();
                     row.Cells[0].AddParagraph("Date").Format.Alignment = ParagraphAlignment.Center;

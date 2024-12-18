@@ -20,12 +20,8 @@ namespace BankingManagementSystem
         }
         private void paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -64,22 +60,16 @@ namespace BankingManagementSystem
 
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
-                        // Add the account number as a parameter to avoid SQL injection
                         cmd.Parameters.Add(new OracleParameter("accountNo", accountNo));
 
                         OracleDataReader reader = cmd.ExecuteReader();
-
-                        // Clear existing rows in the DataGridView
                         TransactionDataGridTable.Rows.Clear();
 
                         if (!reader.HasRows)
                         {
-                            // If no transactions are found for the given account number
                             MessageBox.Show("No transactions found for this account.");
                             return;
                         }
-
-                        // Populate the DataGridView with the fetched data
                         while (reader.Read())
                         {
                             DataGridViewRow row = new DataGridViewRow();
@@ -91,13 +81,9 @@ namespace BankingManagementSystem
                             row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["DESCRIPTION"] });
                             row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["BRANCH_ID"] });
                             row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["REFERENCE_ID"] });
-
-                            // Add the row to the DataGridView
                             TransactionDataGridTable.Rows.Add(row);
                         }
                     }
-
-                    // Optionally, you can make the DataGridView visible after populating it
                     TransactionDataGridTable.Visible = true;
                 }
                 catch (Exception ex)
@@ -171,10 +157,10 @@ namespace BankingManagementSystem
 
         private void SearchByReferenceId_btn_Click(object sender, EventArgs e)
         {
-            // Get the reference ID entered by the user in the input box (assuming it's a TextBox named ReferenceIdTxtBox)
+
             string referenceId = AttributeTxtBox.Text.Trim();
 
-            // Ensure the reference ID is not empty
+
             if (string.IsNullOrEmpty(referenceId))
             {
                 MessageBox.Show("Please enter a reference ID.");
@@ -186,7 +172,7 @@ namespace BankingManagementSystem
             }
 
 
-            // Validate if the entered reference ID is a valid number (assuming REFERENCE_ID is a number)
+
             if (!long.TryParse(referenceId, out long referenceIdParsed))
             {
                 MessageBox.Show("Invalid reference ID. Please enter a valid number.");

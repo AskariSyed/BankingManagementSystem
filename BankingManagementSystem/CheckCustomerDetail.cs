@@ -95,7 +95,7 @@ namespace BankingManagementSystem
                        
                         cmd.Parameters.Add(new OracleParameter("value", value));
                         OracleDataReader reader = cmd.ExecuteReader();
-                        if (reader.HasRows)  // Check if any customer exists
+                        if (reader.HasRows)
                         {
                             MessageBox.Show("customer found with the given "+attribute);
                             AccountStatus_Detail_CheckCustomer.Visible = true;

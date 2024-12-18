@@ -23,7 +23,7 @@ namespace BankingManagementSystem
 
         private void EmployeeLogin_Paint(object sender, PaintEventArgs e)
         {
-           
+
             int borderWidth = 7;
             Color borderColor = Color.FromArgb(255, 191, 0);
             using (Pen pen = new Pen(borderColor, borderWidth))

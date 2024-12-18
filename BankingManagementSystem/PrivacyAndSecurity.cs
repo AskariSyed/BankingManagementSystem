@@ -34,11 +34,9 @@ namespace BankingManagementSystem
         }
         private void paint(object sender, PaintEventArgs e)
         {
+         
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-         
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);

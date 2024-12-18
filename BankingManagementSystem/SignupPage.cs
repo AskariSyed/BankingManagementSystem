@@ -220,7 +220,7 @@ namespace BankingManagementSystem
                 Terms_and_Conditions_SigupForm terms_And_Conditions = new Terms_and_Conditions_SigupForm();
                 this.Hide();
 
-                DialogResult resultt = terms_And_Conditions.ShowDialog(); //in this page there are two buttons accept and reject how to do move ahead if user accepts and stops if reject
+                DialogResult resultt = terms_And_Conditions.ShowDialog(); 
                 
                 if(resultt==DialogResult.Yes){
                     using (OracleConnection conn = new OracleConnection(GlobalData.connString))

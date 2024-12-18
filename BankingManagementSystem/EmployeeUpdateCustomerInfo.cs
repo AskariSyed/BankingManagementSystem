@@ -12,6 +12,9 @@ using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 namespace BankingManagementSystem
 {
+
+    //hello this is test
+    //chh
     public partial class EmployeeUpdateCustomerInfo : Form
     {
         private string randomCode=null;
@@ -200,7 +203,7 @@ namespace BankingManagementSystem
 
                                 int newAuditID = signInpage.GenerateNewLogID();
                                 insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentCustomer.userID)); // USER_ID as "CUS" + customer_id
+                                insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentCustomer.userID));
                                 insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Updated Personal Information: " + actionPerformed));
                                 insertCmd.ExecuteNonQuery();
                             }
