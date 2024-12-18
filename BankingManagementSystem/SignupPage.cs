@@ -25,12 +25,12 @@ namespace BankingManagementSystem
         }
         private void SignUpPage_Paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
+            
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
 
 
-            // Draw the border
+           
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -409,7 +409,7 @@ namespace BankingManagementSystem
 
                          
 
-                            // Insert into Customers table
+                           
                             using (OracleCommand customerCmd = new OracleCommand(customerInsertQuery, conn))
                             {
                                 customerCmd.Parameters.Add(":CUSTOMER_ID", OracleDbType.Int32).Value = newcustomerID;
@@ -435,7 +435,7 @@ namespace BankingManagementSystem
                                 userCmd.ExecuteNonQuery();
                             }
 
-                            // Insert into Account table
+                          
                             using (OracleCommand accountCmd = new OracleCommand(accountInsertQuery, conn))
                             {
                                 accountCmd.Parameters.Add(":ACCOUNT_ID", OracleDbType.Int64).Value = accountNumberAssigned;
@@ -446,13 +446,13 @@ namespace BankingManagementSystem
                                 accountCmd.ExecuteNonQuery();
                             }
 
-                            // Commit transaction
+                           
                             transaction.Commit();
                             MessageBox.Show("Customer and Account data inserted successfully!");
                         }
                         catch (Exception ex)
                         {
-                            // Rollback transaction on error
+                          
                             transaction.Rollback();
                             MessageBox.Show("Error: " + ex.Message);
                         }

@@ -280,7 +280,8 @@ namespace BankingManagementSystem
 
         private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            tellerHomePage tellerHomePage = new tellerHomePage();   
+            tellerHomePage tellerHomePage = new tellerHomePage();
+            this.Close();
             tellerHomePage.Show();
         }
 

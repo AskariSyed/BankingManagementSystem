@@ -177,7 +177,7 @@ namespace BankingManagementSystem
 
                                             using (var transactionCommand = new OracleCommand(transactionQuery, connection))
                                             {
-                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", SendMoney.generateTransactionId())); // Assuming GenerateTransactionId is a method to create a unique ID
+                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", SendMoney.generateTransactionId())); 
                                                 transactionCommand.Parameters.Add(new OracleParameter("senderAccountId", SenderAccountNoTXTbox.Text.ToString()));
                                                 transactionCommand.Parameters.Add(new OracleParameter("transactionType", "Debit"));
                                                 transactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));

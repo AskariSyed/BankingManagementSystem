@@ -69,7 +69,7 @@ namespace BankingManagementSystem
 
         private void CustomizeDataGridView()
         {
-            // Custom colors
+           
             Color headerColor = Color.FromArgb(255, 191, 0);
             Color selectionBackColor = SystemColors.MenuHighlight; 
             Color rowBackColor = Color.RoyalBlue; 

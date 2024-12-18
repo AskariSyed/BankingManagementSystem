@@ -13,8 +13,7 @@ using Oracle.ManagedDataAccess.Client;
 namespace BankingManagementSystem
 {
 
-    //hello this is test
-    //chh
+   
     public partial class EmployeeUpdateCustomerInfo : Form
     {
         private string randomCode=null;

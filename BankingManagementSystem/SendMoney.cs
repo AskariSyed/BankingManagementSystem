@@ -23,12 +23,13 @@ namespace BankingManagementSystem
 
         private void SendMoney_Paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
+          
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
 
 
-            // Draw the border
+       
+
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -146,7 +147,7 @@ namespace BankingManagementSystem
 
                                             using (var transactionCommand = new OracleCommand(transactionQuery, connection))
                                             {
-                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", generateTransactionId())); // Assuming GenerateTransactionId is a method to create a unique ID
+                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", generateTransactionId()));
                                                 transactionCommand.Parameters.Add(new OracleParameter("senderAccountId", GlobalData.CustomerAccount.accountId));
                                                 transactionCommand.Parameters.Add(new OracleParameter("transactionType", "Debit"));
                                                 transactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));

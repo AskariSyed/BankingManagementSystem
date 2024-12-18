@@ -20,12 +20,9 @@ namespace BankingManagementSystem
         }
         private void paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
+           
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -59,22 +56,19 @@ namespace BankingManagementSystem
 
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
-                        // Add the account number as a parameter to avoid SQL injection
+                       
                         cmd.Parameters.Add(new OracleParameter("accountNo", accountNo));
 
                         OracleDataReader reader = cmd.ExecuteReader();
-
-                        // Clear existing rows in the DataGridView
                         TransactionDataGridTable.Rows.Clear();
 
                         if (!reader.HasRows)
                         {
-                            // If no transactions are found for the given account number
                             MessageBox.Show("No transactions found for this account.");
                             return;
                         }
 
-                        // Populate the DataGridView with the fetched data
+                       
                         while (reader.Read())
                         {
                             DataGridViewRow row = new DataGridViewRow();
@@ -87,12 +81,12 @@ namespace BankingManagementSystem
                             row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["BRANCH_ID"] });
                             row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["REFERENCE_ID"] });
 
-                            // Add the row to the DataGridView
+                         
                             TransactionDataGridTable.Rows.Add(row);
                         }
                     }
 
-                    // Optionally, you can make the DataGridView visible after populating it
+                   
                     TransactionDataGridTable.Visible = true;
                 }
                 catch (Exception ex)

@@ -197,7 +197,7 @@ public class BankStatementGenerator
                                     amountParagraph.AddFormattedText((transactionType == "credit" ? "" : "-") + amount.ToString("C"));
                                     amountParagraph.Format.Font.Color = (transactionType == "credit") ? Colors.Green : Colors.Red;
 
-                                    row.Cells[3].AddParagraph(runningBalance.ToString("C")).Format.Alignment = ParagraphAlignment.Center; // Center Balance cell text
+                                    row.Cells[3].AddParagraph(runningBalance.ToString("C")).Format.Alignment = ParagraphAlignment.Center;
                                 }
                             }
                         }
@@ -459,24 +459,24 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
 
                         
                         summary.AddFormattedText("Opening Balance: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         summary.AddFormattedText($"{openingBalance:C}", TextFormat.NotBold);
 
                         
                         summary.AddFormattedText("\nTotal Credits: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         var creditFormatted = summary.AddFormattedText($"{totalCredit:C}", TextFormat.NotBold);
                         creditFormatted.Font.Color = Colors.Green;
 
                         
                         summary.AddFormattedText("\nTotal Debits: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         var debitFormatted = summary.AddFormattedText($"{totalDebit:C}", TextFormat.NotBold);
                         debitFormatted.Font.Color = Colors.Red;
 
                         
                         summary.AddFormattedText("\nClosing Balance: ", TextFormat.Bold);
-                        summary.AddFormattedText("\t", TextFormat.NotBold);  // Insert tab
+                        summary.AddFormattedText("\t", TextFormat.NotBold);
                         summary.AddFormattedText($"{runningBalance:C}", TextFormat.NotBold);
 
                         PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);

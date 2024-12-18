@@ -354,6 +354,7 @@
     </Compile>
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AllTransactionsTable.resx">
       <DependentUpon>AllTransactionsTable.cs</DependentUpon>
@@ -361,6 +362,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckCustomerDetail.resx">
       <DependentUpon>CheckCustomerDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckCustomerLogs.resx">
       <DependentUpon>CheckCustomerLogs.cs</DependentUpon>

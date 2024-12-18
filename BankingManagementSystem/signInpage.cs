@@ -21,9 +21,6 @@ namespace BankingManagementSystem
         {
             InitializeComponent();
             this.Paint += new PaintEventHandler(SiginPage_Paint);
- CheckEmployeeLogs checkEmployee   =new CheckEmployeeLogs();
-            checkEmployee.Show();
-
         }
 
         private void Exit_btn_signinForm_Click(object sender, EventArgs e)
@@ -32,12 +29,12 @@ namespace BankingManagementSystem
         }
         private void SiginPage_Paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
+           
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
 
 
-            // Draw the border
+           
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -104,7 +101,7 @@ namespace BankingManagementSystem
                                 using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
                                 {
                                     insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                    insertCmd.Parameters.Add(new OracleParameter("userId", userId)); // USER_ID as "CUS" + customer_id
+                                    insertCmd.Parameters.Add(new OracleParameter("userId", userId)); 
                                     insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Logged In successfully"));
                                     insertCmd.ExecuteNonQuery();
                                 }
