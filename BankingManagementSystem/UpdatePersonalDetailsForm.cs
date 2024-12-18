@@ -150,7 +150,7 @@ namespace BankingManagementSystem
             if (EnterOTP_txtBox_UpdateUserInfoForm.Text == "Enter OTP")
             {
                 EnterOTP_txtBox_UpdateUserInfoForm.Text = "";
-                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Black; // Change text color to black when editing
+                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Black; 
             }
         }
 
@@ -158,8 +158,8 @@ namespace BankingManagementSystem
         {
             if (string.IsNullOrWhiteSpace(EnterOTP_txtBox_UpdateUserInfoForm.Text))
             {
-                EnterOTP_txtBox_UpdateUserInfoForm.Text = "Enter OTP"; // Reset the default text if left empty
-                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Gray; // Set the text color back to gray
+                EnterOTP_txtBox_UpdateUserInfoForm.Text = "Enter OTP"; 
+                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Gray;
             }
         }
 
@@ -185,15 +185,11 @@ namespace BankingManagementSystem
             string currentPassword = CurrentPassword_txtbox_UpdatePersonalINfor_Form.Text;
             string newPassword = NewPassword_txtBox_UpdatePersonalINfor_Form.Text;
             string confirmPassword = ConfirmPasswod_txtBox__UpdatePersonalINfor_Form.Text;
-
-            // Check if user provided the current password
             if (string.IsNullOrWhiteSpace(currentPassword))
             {
                 MessageBox.Show("Please enter your current password.", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // Fetch the current password hash from the database
             string storedPasswordHash = null;
             string selectQuery = "SELECT passwordhash FROM users WHERE user_id = :userID";
 
@@ -207,19 +203,14 @@ namespace BankingManagementSystem
                         cmd.Parameters.Add(new OracleParameter("userID", GlobalData.CurrentCustomer.userID));
                         storedPasswordHash = Convert.ToString(cmd.ExecuteScalar());
                     }
-
-                    // Validate current password
-                    if (storedPasswordHash != currentPassword) // Ideally compare hashes
+                    if (storedPasswordHash != currentPassword) 
                     {
                         MessageBox.Show("Current password is incorrect.", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-
-                    // Start transaction for both updates
                     OracleTransaction transaction = conn.BeginTransaction();
                     try
                     {
-                        // Prepare dynamic updates for 'users'
                         List<string> userUpdateFields = new List<string>();
                         List<OracleParameter> userParams = new List<OracleParameter>();
 
@@ -247,8 +238,6 @@ namespace BankingManagementSystem
                             userParams.Add(new OracleParameter("email", Email_txtBox_UpdatePersonalINfor_Form.Text));
                             actionPerformed += "Email ";
                         }
-
-                        // Prepare dynamic updates for 'customers'
                         List<string> customerUpdateFields = new List<string>();
                         List<OracleParameter> customerParams = new List<OracleParameter>();
 

@@ -38,12 +38,8 @@ namespace BankingManagementSystem
         }
         private void RecieveMoney_Paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -93,7 +89,6 @@ namespace BankingManagementSystem
 
         private void BankNametxtBox_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void CopyDetailsBtn_Click(object sender, EventArgs e)
@@ -104,11 +99,8 @@ namespace BankingManagementSystem
                       "\nBranch Name: " + BranchNametxt.Text +
                       "\nBranch Number: " + BranchNumberTxt.Text;
 
-            Clipboard.SetText(details); // Copy to clipboard
-
+            Clipboard.SetText(details);
             GlobalData.customizedPopup("Copied to Clipboard!");
-
-            // Close the main form
             this.Close();
         }
 

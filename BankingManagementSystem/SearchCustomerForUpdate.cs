@@ -49,6 +49,8 @@ namespace BankingManagementSystem
             EmailGenerateOTP_btn_UpdateUserInfoForm.Visible = false;
             EnterOTP_txtBox_UpdateUserInfoForm.Visible=false;
             EmailDetailLabel.Visible = false;
+            EmailLabel.Visible=false;
+            
            
             this.Paint += new PaintEventHandler(CheckCustomer_Paint);
 
@@ -142,6 +144,7 @@ namespace BankingManagementSystem
                             EmailGenerateOTP_btn_UpdateUserInfoForm.Visible = true;
                             EnterOTP_txtBox_UpdateUserInfoForm.Visible = true;
                             EmailDetailLabel.Visible = true;
+                            EmailLabel.Visible = true;
                            
                         }
                         else
@@ -224,11 +227,7 @@ namespace BankingManagementSystem
                     Body = body,
                     IsBodyHtml = false
                 };
-
-                
                 mailMessage.To.Add(toEmail);
-
-               
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
@@ -236,8 +235,6 @@ namespace BankingManagementSystem
                     Credentials = new NetworkCredential(fromEmail, appPassword),
                     DeliveryMethod = SmtpDeliveryMethod.Network
                 };
-
-                
                 smtpClient.Send(mailMessage);
 
                 MessageBox.Show("Email with OTP sent successfully to the customer.");
@@ -317,7 +314,7 @@ namespace BankingManagementSystem
             if (EnterOTP_txtBox_UpdateUserInfoForm.Text == "Enter OTP")
             {
                 EnterOTP_txtBox_UpdateUserInfoForm.Text = "";
-                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Black; // Change text color to black when editing
+                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Black; 
             }
         }
 
@@ -329,6 +326,11 @@ namespace BankingManagementSystem
         private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -167,12 +167,12 @@ namespace BankingManagementSystem
         public static void LogError(string message, Exception ex)
         {
             string logFilePath = "C:\\Users\\Dell\\source\\repos\\BankingManagementSystem\\BankingManagementSystem\\Error Logs\\Error Logs.txt";
-            string separator = new string('-', 80); // Line of 80 hyphens for separation
+            string separator = new string('-', 80);
             string errorDetails = $"{separator}\n{DateTime.Now}: {message}\nException: {ex.Message}\nStack Trace: {ex.StackTrace}\n";
 
             try
             {
-                System.IO.File.AppendAllText(logFilePath, errorDetails); // Append error details to the log file
+                System.IO.File.AppendAllText(logFilePath, errorDetails);
             }
             catch
             {

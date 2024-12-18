@@ -61,7 +61,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolTipForFullName = new System.Windows.Forms.ToolTip(this.components);
             this.EmailDetailLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
             this.EnterOTP_txtBox_UpdateUserInfoForm = new System.Windows.Forms.TextBox();
             this.EmailGenerateOTP_btn_UpdateUserInfoForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -390,15 +390,16 @@
             this.EmailDetailLabel.Text = "syedzaidi3054@gmail.com";
             this.EmailDetailLabel.Click += new System.EventHandler(this.EmailDetailLabel_Click);
             // 
-            // label2
+            // EmailLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(500, 381);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 24);
-            this.label2.TabIndex = 153;
-            this.label2.Text = "Email : ";
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailLabel.Location = new System.Drawing.Point(500, 381);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(52, 24);
+            this.EmailLabel.TabIndex = 153;
+            this.EmailLabel.Text = "Email : ";
+            this.EmailLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // EnterOTP_txtBox_UpdateUserInfoForm
             // 
@@ -435,7 +436,7 @@
             this.Controls.Add(this.EnterOTP_txtBox_UpdateUserInfoForm);
             this.Controls.Add(this.EmailGenerateOTP_btn_UpdateUserInfoForm);
             this.Controls.Add(this.EmailDetailLabel);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.OnlineUserStatusDetailCheckCustomer);
             this.Controls.Add(this.onlineUserStatusLabelCheckCustomer);
             this.Controls.Add(this.Exit_btn_UpdatePersonalINfor_Form);
@@ -510,7 +511,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip toolTipForFullName;
         private System.Windows.Forms.Label EmailDetailLabel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox EnterOTP_txtBox_UpdateUserInfoForm;
         private System.Windows.Forms.Button EmailGenerateOTP_btn_UpdateUserInfoForm;
     }

@@ -94,7 +94,7 @@ namespace BankingManagementSystem
                        
                         cmd.Parameters.Add(new OracleParameter("value", value));
                         OracleDataReader reader = cmd.ExecuteReader();
-                        if (reader.HasRows)  // Check if any customer exists
+                        if (reader.HasRows)
                         {
                             MessageBox.Show("customer found with the given "+attribute);
                             AccountStatus_Detail_CheckCustomer.Visible = true;
@@ -293,12 +293,12 @@ namespace BankingManagementSystem
 
         private void BlockCustomerAccount_button_Click(object sender, EventArgs e)
         {
-            // Determine the new status based on the current status
+          
             Account.statusType newStatus = (GlobalData.CustomerAccount.status == Account.statusType.Active)
                                             ? Account.statusType.Closed
                                             : Account.statusType.Active;
 
-            // Update the query based on the new status
+          
             string query = $"update account set status= :newStatus where customer_id= :customerid";
 
             using (OracleConnection conn = new OracleConnection(GlobalData.connString))
@@ -308,7 +308,7 @@ namespace BankingManagementSystem
                     conn.Open();
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
-                        // Add the customer ID and the new status as parameters
+          
                         cmd.Parameters.Add(new OracleParameter("newStatus", newStatus.ToString()));
                         cmd.Parameters.Add(new OracleParameter("customerid", GlobalData.CurrentCustomer.customerId));
 

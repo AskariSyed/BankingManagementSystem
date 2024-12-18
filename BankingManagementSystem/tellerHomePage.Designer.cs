@@ -39,12 +39,12 @@
             this.OpenNewAccount_TellerHomePage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm = new System.Windows.Forms.Panel();
-            this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
-            this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
-            this.Logout_btn_HomeFormUser = new System.Windows.Forms.Button();
-            this.TransactionHistory_btn_HomeFormUser = new System.Windows.Forms.Button();
-            this.Privacy_And_Security_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Account_Statment_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.Privacy_And_Security_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.TransactionHistory_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.Logout_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
             this.Exit_btn_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Greeting_Label_btn_HomeFormUser = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -208,33 +208,47 @@
             this.SideLeft_panel_HomePageForm.TabIndex = 41;
             this.SideLeft_panel_HomePageForm.Paint += new System.Windows.Forms.PaintEventHandler(this.SideLeft_panel_HomePageForm_Paint);
             // 
-            // Update_AccountInfo_HomePageUserForm
+            // Account_Statment_btn_HomeFormUser
             // 
-            this.Update_AccountInfo_HomePageUserForm.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Update_AccountInfo_HomePageUserForm.FlatAppearance.BorderSize = 0;
-            this.Update_AccountInfo_HomePageUserForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Update_AccountInfo_HomePageUserForm.ForeColor = System.Drawing.Color.White;
-            this.Update_AccountInfo_HomePageUserForm.Location = new System.Drawing.Point(50, 258);
-            this.Update_AccountInfo_HomePageUserForm.Name = "Update_AccountInfo_HomePageUserForm";
-            this.Update_AccountInfo_HomePageUserForm.Size = new System.Drawing.Size(184, 41);
-            this.Update_AccountInfo_HomePageUserForm.TabIndex = 1;
-            this.Update_AccountInfo_HomePageUserForm.Text = "Update Perosnal Info";
-            this.Update_AccountInfo_HomePageUserForm.UseVisualStyleBackColor = false;
-            this.Update_AccountInfo_HomePageUserForm.Click += new System.EventHandler(this.Update_AccountInfo_HomePageUserForm_Click);
+            this.Account_Statment_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Account_Statment_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
+            this.Account_Statment_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Account_Statment_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
+            this.Account_Statment_btn_HomeFormUser.Location = new System.Drawing.Point(50, 465);
+            this.Account_Statment_btn_HomeFormUser.Name = "Account_Statment_btn_HomeFormUser";
+            this.Account_Statment_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
+            this.Account_Statment_btn_HomeFormUser.TabIndex = 9;
+            this.Account_Statment_btn_HomeFormUser.Text = "Generate Account Statement";
+            this.Account_Statment_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.Account_Statment_btn_HomeFormUser.Click += new System.EventHandler(this.Account_Statment_btn_HomeFormUser_Click);
             // 
-            // TermsAndConditions_btn_HomeFormUser
+            // Privacy_And_Security_btn_HomeFormUser
             // 
-            this.TermsAndConditions_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
-            this.TermsAndConditions_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
-            this.TermsAndConditions_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TermsAndConditions_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
-            this.TermsAndConditions_btn_HomeFormUser.Location = new System.Drawing.Point(50, 534);
-            this.TermsAndConditions_btn_HomeFormUser.Name = "TermsAndConditions_btn_HomeFormUser";
-            this.TermsAndConditions_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
-            this.TermsAndConditions_btn_HomeFormUser.TabIndex = 5;
-            this.TermsAndConditions_btn_HomeFormUser.Text = "Terms and Conditions";
-            this.TermsAndConditions_btn_HomeFormUser.UseVisualStyleBackColor = false;
-            this.TermsAndConditions_btn_HomeFormUser.Click += new System.EventHandler(this.TermsAndConditions_btn_HomeFormUser_Click);
+            this.Privacy_And_Security_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Privacy_And_Security_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
+            this.Privacy_And_Security_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Privacy_And_Security_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
+            this.Privacy_And_Security_btn_HomeFormUser.Location = new System.Drawing.Point(50, 396);
+            this.Privacy_And_Security_btn_HomeFormUser.Name = "Privacy_And_Security_btn_HomeFormUser";
+            this.Privacy_And_Security_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
+            this.Privacy_And_Security_btn_HomeFormUser.TabIndex = 8;
+            this.Privacy_And_Security_btn_HomeFormUser.Text = "Privacy And Security";
+            this.Privacy_And_Security_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.Privacy_And_Security_btn_HomeFormUser.Click += new System.EventHandler(this.Privacy_And_Security_btn_HomeFormUser_Click);
+            // 
+            // TransactionHistory_btn_HomeFormUser
+            // 
+            this.TransactionHistory_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
+            this.TransactionHistory_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
+            this.TransactionHistory_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TransactionHistory_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
+            this.TransactionHistory_btn_HomeFormUser.Location = new System.Drawing.Point(50, 327);
+            this.TransactionHistory_btn_HomeFormUser.Name = "TransactionHistory_btn_HomeFormUser";
+            this.TransactionHistory_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
+            this.TransactionHistory_btn_HomeFormUser.TabIndex = 7;
+            this.TransactionHistory_btn_HomeFormUser.Text = "Transaction History";
+            this.TransactionHistory_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.TransactionHistory_btn_HomeFormUser.Click += new System.EventHandler(this.TransactionHistory_btn_HomeFormUser_Click);
             // 
             // Logout_btn_HomeFormUser
             // 
@@ -252,47 +266,33 @@
             this.Logout_btn_HomeFormUser.UseVisualStyleBackColor = false;
             this.Logout_btn_HomeFormUser.Click += new System.EventHandler(this.Logout_btn_HomeFormUser_Click);
             // 
-            // TransactionHistory_btn_HomeFormUser
+            // TermsAndConditions_btn_HomeFormUser
             // 
-            this.TransactionHistory_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
-            this.TransactionHistory_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
-            this.TransactionHistory_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TransactionHistory_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
-            this.TransactionHistory_btn_HomeFormUser.Location = new System.Drawing.Point(50, 327);
-            this.TransactionHistory_btn_HomeFormUser.Name = "TransactionHistory_btn_HomeFormUser";
-            this.TransactionHistory_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
-            this.TransactionHistory_btn_HomeFormUser.TabIndex = 7;
-            this.TransactionHistory_btn_HomeFormUser.Text = "Transaction History";
-            this.TransactionHistory_btn_HomeFormUser.UseVisualStyleBackColor = false;
-            this.TransactionHistory_btn_HomeFormUser.Click += new System.EventHandler(this.TransactionHistory_btn_HomeFormUser_Click);
+            this.TermsAndConditions_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
+            this.TermsAndConditions_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
+            this.TermsAndConditions_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TermsAndConditions_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
+            this.TermsAndConditions_btn_HomeFormUser.Location = new System.Drawing.Point(50, 534);
+            this.TermsAndConditions_btn_HomeFormUser.Name = "TermsAndConditions_btn_HomeFormUser";
+            this.TermsAndConditions_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
+            this.TermsAndConditions_btn_HomeFormUser.TabIndex = 5;
+            this.TermsAndConditions_btn_HomeFormUser.Text = "Terms and Conditions";
+            this.TermsAndConditions_btn_HomeFormUser.UseVisualStyleBackColor = false;
+            this.TermsAndConditions_btn_HomeFormUser.Click += new System.EventHandler(this.TermsAndConditions_btn_HomeFormUser_Click);
             // 
-            // Privacy_And_Security_btn_HomeFormUser
+            // Update_AccountInfo_HomePageUserForm
             // 
-            this.Privacy_And_Security_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Privacy_And_Security_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
-            this.Privacy_And_Security_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Privacy_And_Security_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
-            this.Privacy_And_Security_btn_HomeFormUser.Location = new System.Drawing.Point(50, 396);
-            this.Privacy_And_Security_btn_HomeFormUser.Name = "Privacy_And_Security_btn_HomeFormUser";
-            this.Privacy_And_Security_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
-            this.Privacy_And_Security_btn_HomeFormUser.TabIndex = 8;
-            this.Privacy_And_Security_btn_HomeFormUser.Text = "Privacy And Security";
-            this.Privacy_And_Security_btn_HomeFormUser.UseVisualStyleBackColor = false;
-            this.Privacy_And_Security_btn_HomeFormUser.Click += new System.EventHandler(this.Privacy_And_Security_btn_HomeFormUser_Click);
-            // 
-            // Account_Statment_btn_HomeFormUser
-            // 
-            this.Account_Statment_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Account_Statment_btn_HomeFormUser.FlatAppearance.BorderSize = 0;
-            this.Account_Statment_btn_HomeFormUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Account_Statment_btn_HomeFormUser.ForeColor = System.Drawing.Color.White;
-            this.Account_Statment_btn_HomeFormUser.Location = new System.Drawing.Point(50, 465);
-            this.Account_Statment_btn_HomeFormUser.Name = "Account_Statment_btn_HomeFormUser";
-            this.Account_Statment_btn_HomeFormUser.Size = new System.Drawing.Size(184, 41);
-            this.Account_Statment_btn_HomeFormUser.TabIndex = 9;
-            this.Account_Statment_btn_HomeFormUser.Text = "Generate Account Statement";
-            this.Account_Statment_btn_HomeFormUser.UseVisualStyleBackColor = false;
-            this.Account_Statment_btn_HomeFormUser.Click += new System.EventHandler(this.Account_Statment_btn_HomeFormUser_Click);
+            this.Update_AccountInfo_HomePageUserForm.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Update_AccountInfo_HomePageUserForm.FlatAppearance.BorderSize = 0;
+            this.Update_AccountInfo_HomePageUserForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Update_AccountInfo_HomePageUserForm.ForeColor = System.Drawing.Color.White;
+            this.Update_AccountInfo_HomePageUserForm.Location = new System.Drawing.Point(50, 258);
+            this.Update_AccountInfo_HomePageUserForm.Name = "Update_AccountInfo_HomePageUserForm";
+            this.Update_AccountInfo_HomePageUserForm.Size = new System.Drawing.Size(184, 41);
+            this.Update_AccountInfo_HomePageUserForm.TabIndex = 1;
+            this.Update_AccountInfo_HomePageUserForm.Text = "Transafer Funds";
+            this.Update_AccountInfo_HomePageUserForm.UseVisualStyleBackColor = false;
+            this.Update_AccountInfo_HomePageUserForm.Click += new System.EventHandler(this.Update_AccountInfo_HomePageUserForm_Click);
             // 
             // Exit_btn_btn_HomeFormUser
             // 

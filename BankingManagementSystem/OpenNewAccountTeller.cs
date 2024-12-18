@@ -22,17 +22,14 @@ namespace BankingManagementSystem
         {
             InitializeComponent();
             this.Paint += new PaintEventHandler(OpenNewAccount_Paint);
-
         }
 
         private void OpenNewAccount_Paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
+            
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
+            
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
