@@ -98,7 +98,6 @@ namespace BankingManagementSystem
                                     userUpdateFields.Add("email = :email");
                                     userParams.Add(new OracleParameter("email", Email_txtBox_UpdatePersonalINfor_Form.Text));
                                     actionPerformed += "Email ";
-
                                 }
                                 else
                                 {

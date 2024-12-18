@@ -188,17 +188,35 @@
       <DependentUpon>DeleteEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForgotPassword.Designer.cs">
+      <DependentUpon>EmployeeForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeLoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmployeeLoginPage.Designer.cs">
       <DependentUpon>EmployeeLoginPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeePrivacyAndSecurity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeePrivacyAndSecurity.Designer.cs">
+      <DependentUpon>EmployeePrivacyAndSecurity.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeUpdateCustomerInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmployeeUpdateCustomerInfo.Designer.cs">
       <DependentUpon>EmployeeUpdateCustomerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterOTPFromEmployeeForUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterOTPFromEmployeeForUpdate.Designer.cs">
+      <DependentUpon>EnterOTPFromEmployeeForUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="InitiateCredit.cs">
       <SubType>Form</SubType>
@@ -358,12 +376,21 @@
     <EmbeddedResource Include="DeleteEmployee.resx">
       <DependentUpon>DeleteEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForgotPassword.resx">
+      <DependentUpon>EmployeeForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeLoginPage.resx">
       <DependentUpon>EmployeeLoginPage.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeePrivacyAndSecurity.resx">
+      <DependentUpon>EmployeePrivacyAndSecurity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeUpdateCustomerInfo.resx">
       <DependentUpon>EmployeeUpdateCustomerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterOTPFromEmployeeForUpdate.resx">
+      <DependentUpon>EnterOTPFromEmployeeForUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InitiateCredit.resx">
       <DependentUpon>InitiateCredit.cs</DependentUpon>

@@ -165,6 +165,7 @@ namespace BankingManagementSystem
 
         private void Account_Statment_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
+            this.Cursor=Cursors.WaitCursor;
             BankStatementGenerator.GenerateStatementPDFFull();
         }
 
@@ -344,7 +345,9 @@ namespace BankingManagementSystem
 
         private void Privacy_And_Security_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
-
+            PrivacyAndSecurity privacyAndSecurity = new PrivacyAndSecurity();
+            privacyAndSecurity.Show();
+            this.Close();
         }
 
         private void SideLeft_panel_HomePageForm_Paint(object sender, PaintEventArgs e)

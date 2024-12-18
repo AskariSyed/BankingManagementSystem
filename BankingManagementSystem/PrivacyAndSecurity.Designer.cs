@@ -44,7 +44,7 @@
             this.NewPassword_txtBox_UpdatePersonalINfor_Form = new System.Windows.Forms.TextBox();
             this.NewPassword_label_UpdatePersonalINfor_Form = new System.Windows.Forms.Label();
             this.Account_Statment_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
+            this.sendMoneyBtn = new System.Windows.Forms.Button();
             this.TransactionHistory_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.Logout_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_UpdatePersonalINfor_Form = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@
             // 
             this.Email_txtBox_Privacy_Form.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Email_txtBox_Privacy_Form.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Email_txtBox_Privacy_Form.Location = new System.Drawing.Point(328, 561);
+            this.Email_txtBox_Privacy_Form.Location = new System.Drawing.Point(321, 464);
             this.Email_txtBox_Privacy_Form.Name = "Email_txtBox_Privacy_Form";
             this.Email_txtBox_Privacy_Form.Size = new System.Drawing.Size(225, 15);
             this.Email_txtBox_Privacy_Form.TabIndex = 98;
@@ -93,11 +93,15 @@
             // EnterOTP_txtBox_UpdateUserInfoForm
             // 
             this.EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Gray;
-            this.EnterOTP_txtBox_UpdateUserInfoForm.Location = new System.Drawing.Point(329, 582);
+            this.EnterOTP_txtBox_UpdateUserInfoForm.Location = new System.Drawing.Point(322, 485);
             this.EnterOTP_txtBox_UpdateUserInfoForm.Name = "EnterOTP_txtBox_UpdateUserInfoForm";
             this.EnterOTP_txtBox_UpdateUserInfoForm.Size = new System.Drawing.Size(106, 22);
             this.EnterOTP_txtBox_UpdateUserInfoForm.TabIndex = 96;
             this.EnterOTP_txtBox_UpdateUserInfoForm.Text = "Enter OTP";
+            this.EnterOTP_txtBox_UpdateUserInfoForm.Click += new System.EventHandler(this.EnterOTP_txtBox_UpdateUserInfoForm_Click);
+            this.EnterOTP_txtBox_UpdateUserInfoForm.TextChanged += new System.EventHandler(this.EnterOTP_txtBox_UpdateUserInfoForm_TextChanged);
+            this.EnterOTP_txtBox_UpdateUserInfoForm.MouseEnter += new System.EventHandler(this.EnterOTP_txtBox_UpdateUserInfoForm_MouseEnter);
+            this.EnterOTP_txtBox_UpdateUserInfoForm.MouseLeave += new System.EventHandler(this.EnterOTP_txtBox_UpdateUserInfoForm_MouseLeave);
             // 
             // EmailGenerateOTP_btn_PrivacyForm
             // 
@@ -105,7 +109,7 @@
             this.EmailGenerateOTP_btn_PrivacyForm.FlatAppearance.BorderSize = 0;
             this.EmailGenerateOTP_btn_PrivacyForm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.EmailGenerateOTP_btn_PrivacyForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EmailGenerateOTP_btn_PrivacyForm.Location = new System.Drawing.Point(441, 578);
+            this.EmailGenerateOTP_btn_PrivacyForm.Location = new System.Drawing.Point(434, 481);
             this.EmailGenerateOTP_btn_PrivacyForm.Name = "EmailGenerateOTP_btn_PrivacyForm";
             this.EmailGenerateOTP_btn_PrivacyForm.Size = new System.Drawing.Size(112, 31);
             this.EmailGenerateOTP_btn_PrivacyForm.TabIndex = 95;
@@ -153,7 +157,7 @@
             // 
             this.Email_label_UpdatePersonalINfor_Form.AutoSize = true;
             this.Email_label_UpdatePersonalINfor_Form.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.Email_label_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(324, 515);
+            this.Email_label_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(317, 418);
             this.Email_label_UpdatePersonalINfor_Form.Name = "Email_label_UpdatePersonalINfor_Form";
             this.Email_label_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(63, 23);
             this.Email_label_UpdatePersonalINfor_Form.TabIndex = 87;
@@ -203,19 +207,19 @@
             this.Account_Statment_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
             this.Account_Statment_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Account_Statment_btn_UpdatePersonalINfor_Form_Click);
             // 
-            // Privacy_And_Security_btn_UpdatePersonalINfor_Form
+            // sendMoneyBtn
             // 
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.FlatAppearance.BorderSize = 0;
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.ForeColor = System.Drawing.Color.White;
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.Location = new System.Drawing.Point(50, 376);
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.Name = "Privacy_And_Security_btn_UpdatePersonalINfor_Form";
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.Size = new System.Drawing.Size(184, 30);
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.TabIndex = 8;
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.Text = "Privacy And Security";
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.UseVisualStyleBackColor = false;
-            this.Privacy_And_Security_btn_UpdatePersonalINfor_Form.Click += new System.EventHandler(this.Privacy_And_Security_btn_UpdatePersonalINfor_Form_Click);
+            this.sendMoneyBtn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.sendMoneyBtn.FlatAppearance.BorderSize = 0;
+            this.sendMoneyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendMoneyBtn.ForeColor = System.Drawing.Color.White;
+            this.sendMoneyBtn.Location = new System.Drawing.Point(50, 376);
+            this.sendMoneyBtn.Name = "sendMoneyBtn";
+            this.sendMoneyBtn.Size = new System.Drawing.Size(184, 30);
+            this.sendMoneyBtn.TabIndex = 8;
+            this.sendMoneyBtn.Text = "Send Money";
+            this.sendMoneyBtn.UseVisualStyleBackColor = false;
+            this.sendMoneyBtn.Click += new System.EventHandler(this.sendMoneyBtn_Click);
             // 
             // TransactionHistory_btn_UpdatePersonalINfor_Form
             // 
@@ -273,6 +277,7 @@
             this.HomePage_Update_personalInfo_btn_Form.TabIndex = 1;
             this.HomePage_Update_personalInfo_btn_Form.Text = "Home";
             this.HomePage_Update_personalInfo_btn_Form.UseVisualStyleBackColor = false;
+            this.HomePage_Update_personalInfo_btn_Form.Click += new System.EventHandler(this.HomePage_Update_personalInfo_btn_Form_Click);
             // 
             // ConfirmPassword_label_UpdatePersonalINfor_Form
             // 
@@ -296,7 +301,7 @@
             // 
             this.SideLeft_panel_HomePageForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.SideLeft_panel_HomePageForm.Controls.Add(this.Account_Statment_btn_UpdatePersonalINfor_Form);
-            this.SideLeft_panel_HomePageForm.Controls.Add(this.Privacy_And_Security_btn_UpdatePersonalINfor_Form);
+            this.SideLeft_panel_HomePageForm.Controls.Add(this.sendMoneyBtn);
             this.SideLeft_panel_HomePageForm.Controls.Add(this.TransactionHistory_btn_UpdatePersonalINfor_Form);
             this.SideLeft_panel_HomePageForm.Controls.Add(this.ProfilePic_UpdatePersonalINfor_Form);
             this.SideLeft_panel_HomePageForm.Controls.Add(this.Logout_btn_UpdatePersonalINfor_Form);
@@ -428,6 +433,7 @@
             this.Name = "PrivacyAndSecurity";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrivacyAndSecurity";
+            this.Load += new System.EventHandler(this.PrivacyAndSecurity_Load);
             this.SideLeft_panel_HomePageForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RecentActivitiesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -453,7 +459,7 @@
         private System.Windows.Forms.TextBox NewPassword_txtBox_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Label NewPassword_label_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Button Account_Statment_btn_UpdatePersonalINfor_Form;
-        private System.Windows.Forms.Button Privacy_And_Security_btn_UpdatePersonalINfor_Form;
+        private System.Windows.Forms.Button sendMoneyBtn;
         private System.Windows.Forms.Button TransactionHistory_btn_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Button Logout_btn_UpdatePersonalINfor_Form;
         private System.Windows.Forms.Button TermsAndConditions_btn_UpdatePersonalINfor_Form;

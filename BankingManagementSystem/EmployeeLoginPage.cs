@@ -23,12 +23,9 @@ namespace BankingManagementSystem
 
         private void EmployeeLogin_Paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
+           
             int borderWidth = 7;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -172,7 +169,7 @@ namespace BankingManagementSystem
                                     using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
                                     {
                                         insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                        insertCmd.Parameters.Add(new OracleParameter("userId", userId)); // USER_ID as "CUS" + customer_id
+                                        insertCmd.Parameters.Add(new OracleParameter("userId", userId));
                                         insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Login Restricted Due to Blocked Status"));
                                         insertCmd.ExecuteNonQuery();
                                     }
@@ -187,7 +184,8 @@ namespace BankingManagementSystem
                                     this.Hide();
                                     ForgotPassword forgotPassword = new ForgotPassword();
                                     MessageBox.Show("You clicked OK. Proceeding with verification.", "Proceeding");
-                                    forgotPassword.Show();
+                                    EmployeeForgotPassword emp = new EmployeeForgotPassword();
+                                    emp.Show();
                                     return;
                                 }
                                 else
@@ -394,6 +392,12 @@ namespace BankingManagementSystem
                 e.Handled = true;
             }
 
+        }
+
+        private void ForgetPassword_BTN_EmployeeSigninpageForm_Click(object sender, EventArgs e)
+        {
+            EmployeeForgotPassword employeeForgotPassword = new EmployeeForgotPassword();
+            employeeForgotPassword.Show(); 
         }
     }
 }

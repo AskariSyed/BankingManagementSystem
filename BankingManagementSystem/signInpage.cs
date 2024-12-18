@@ -86,9 +86,10 @@ namespace BankingManagementSystem
                             Customer customer = new Customer(customerId,username);
                             GlobalData.CurrentCustomer = customer;
                             HomePageCustomers homePageCustomers = new HomePageCustomers(customer);
-                            this.Hide();
+                         
                             homePageCustomers.Show();
                             GlobalData.customizedPopup("Signin Successfull");
+                            this.Hide();
 
                             string userId = "CUS" + customerId;
 

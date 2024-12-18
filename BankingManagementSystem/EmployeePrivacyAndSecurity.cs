@@ -13,12 +13,12 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace BankingManagementSystem
 {
-    public partial class PrivacyAndSecurity : Form
+    public partial class EmployeePrivacyAndSecurity : Form
     {
-        public PrivacyAndSecurity()
+        public EmployeePrivacyAndSecurity()
         {
             InitializeComponent();
-            Email_txtBox_Privacy_Form.Text = GlobalData.CurrentCustomer.email;
+            Email_txtBox_Privacy_Form.Text = GlobalData.CurrentEmployee.email;
             Email_txtBox_Privacy_Form.Enabled = false;
 
             loadRecentActivity();
@@ -36,9 +36,6 @@ namespace BankingManagementSystem
         {
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-         
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -46,6 +43,7 @@ namespace BankingManagementSystem
             }
         }
         string randomCode = "-1";
+
 
         private void RecentActivitiesGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -84,7 +82,7 @@ namespace BankingManagementSystem
                     conn.Open();
                     using (OracleCommand cmd = new OracleCommand(selectQuery, conn))
                     {
-                        cmd.Parameters.Add(new OracleParameter("userID", GlobalData.CurrentCustomer.userID));
+                        cmd.Parameters.Add(new OracleParameter("userID", GlobalData.CurrentEmployee.userId));
                         storedPasswordHash = Convert.ToString(cmd.ExecuteScalar());
                     }
 
@@ -97,7 +95,7 @@ namespace BankingManagementSystem
 
                     OracleTransaction transaction = conn.BeginTransaction();
                     try
-                    { 
+                    {
                         if (!string.IsNullOrWhiteSpace(newPassword))
                         {
                             if (newPassword != confirmPassword)
@@ -118,7 +116,7 @@ namespace BankingManagementSystem
                             {
 
                                 userCmd.Parameters.Add(new OracleParameter("password", newPassword));
-                                userCmd.Parameters.Add(new OracleParameter("userID", GlobalData.CurrentCustomer.userID));
+                                userCmd.Parameters.Add(new OracleParameter("userID", GlobalData.CurrentEmployee.userId));
                                 userCmd.ExecuteNonQuery();
                             }
                         }
@@ -132,11 +130,11 @@ namespace BankingManagementSystem
 
                             using (OracleCommand insertCmd = new OracleCommand(insertAuditLogQuery, conn))
                             {
-                            
+
 
                                 int newAuditID = signInpage.GenerateNewLogID();
                                 insertCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditID));
-                                insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentCustomer.userID));
+                                insertCmd.Parameters.Add(new OracleParameter("userId", GlobalData.CurrentEmployee.userId));
                                 insertCmd.Parameters.Add(new OracleParameter("actionPerformed", "Password Changed Successfully "));
                                 insertCmd.ExecuteNonQuery();
                             }
@@ -147,7 +145,7 @@ namespace BankingManagementSystem
                         }
                         MessageBox.Show("Your Password have been successfully changed ", "Update Password Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GlobalData.customizedPopup("Please Login Again");
-                        GlobalData.customerLogout();
+                        GlobalData.EmployeeLogout();
                         this.Hide();
                         signInpage.Show();
                     }
@@ -174,6 +172,51 @@ namespace BankingManagementSystem
         }
 
         private void EmailGenerateOTP_btn_PrivacyForm_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void loadRecentActivity()
+        {
+            string query = @"SELECT * FROM auditlog
+                     WHERE user_id = :userID 
+                     ORDER BY Action_date DESC 
+                     FETCH FIRST 5 ROWS ONLY";
+            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (OracleCommand cmd = new OracleCommand(query, conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("user_id", GlobalData.CurrentEmployee.userId));
+                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        {
+                            RecentActivitiesGridView.Rows.Clear();
+
+                            if (!reader.HasRows)
+                            {
+                                RecentActivitiesGridView.Hide();
+                            }
+
+                            while (reader.Read())
+                            {
+                                DataGridViewRow row = new DataGridViewRow();
+                                row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["Audit_log_id"] });
+                                row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["Action_performed"] });
+                                row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["action_date"] });
+                                RecentActivitiesGridView.Rows.Add(row);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+        }
+
+        private void EmailGenerateOTP_btn_PrivacyForm_Click_1(object sender, EventArgs e)
         {
 
             this.Cursor = Cursors.WaitCursor;
@@ -215,163 +258,57 @@ namespace BankingManagementSystem
                 this.Cursor = Cursors.Default;
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void Email_txtBox_Privacy_Form_TextChanged(object sender, EventArgs e)
-        {
 
         }
-        private void loadRecentActivity()
-        {
-            string query = @"SELECT * FROM auditlog
-                     WHERE user_id = :userID 
-                     ORDER BY Action_date DESC 
-                     FETCH FIRST 3 ROWS ONLY";
-            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
-            {
-                try
-                {
-                    conn.Open();
-                    using (OracleCommand cmd = new OracleCommand(query, conn))
-                    {
-                        cmd.Parameters.Add(new OracleParameter("user_id", GlobalData.CurrentCustomer.userID));
-                        using (OracleDataReader reader = cmd.ExecuteReader())
-                        {
-                            RecentActivitiesGridView.Rows.Clear();
 
-                            if (!reader.HasRows)
-                            {
-                                RecentActivitiesGridView.Hide();
-                            }
-
-                            while (reader.Read())
-                            {
-                                DataGridViewRow row = new DataGridViewRow();
-                                row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["Audit_log_id"] });
-                                row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["Action_performed"] });
-                                row.Cells.Add(new DataGridViewTextBoxCell { Value = reader["action_date"] });
-                                RecentActivitiesGridView.Rows.Add(row);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
-                }
-            }
-        }
-
-        private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
-        {
-            GlobalData.customerLogout();
-                Application.Exit();
-
-            
-        }
-
-        private void TransactionHistory_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
-        {
-            AllTransactionsTable allTransactionsTable = new AllTransactionsTable();
-            this.Hide();
-            allTransactionsTable.Show();
-        }
-
-        private void Privacy_And_Security_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        private void EmployeePrivacyAndSecurity_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void Account_Statment_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        private void Update_AccountInfo_HomePageUserForm_Click(object sender, EventArgs e)
         {
-            BankStatementGenerator.GenerateStatementPDFFull();
+            SearchCustomerForUpdate searchCustomerForUpdate = new SearchCustomerForUpdate();
+            searchCustomerForUpdate.Show();
         }
 
-        private void TermsAndConditions_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        private void TransactionHistory_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            TransactionHistory transactionHistory = new TransactionHistory();
+            transactionHistory.Show();
+        }
+
+        private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            tellerHomePage tellerHomePage = new tellerHomePage();   
+            tellerHomePage.Show();
+        }
+
+        private void Account_Statment_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            TellerAccountStatement tellerAccountStatement = new TellerAccountStatement();   
+            tellerAccountStatement.Show();  
+        }
+
+        private void TermsAndConditions_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
             TermsAndCondition_HomePageUser termsAndCondition_HomePageUser = new TermsAndCondition_HomePageUser();
             termsAndCondition_HomePageUser.Show();
         }
 
-        private void Logout_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
+        private void Exit_btn_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            GlobalData.customerLogout();
-            signInpage signInpage=new signInpage();
+            GlobalData.EmployeeLogout();
+            Application.Exit();
+        }
+
+        private void Logout_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            GlobalData.EmployeeLogout();
+            signInpage signInpage = new signInpage();
+            GlobalData.customizedPopup("Logout Successfull");
             signInpage.Show();
             this.Close();
         }
-
-        private void EnterOTP_txtBox_UpdateUserInfoForm_MouseLeave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(EnterOTP_txtBox_UpdateUserInfoForm.Text))
-            {
-                EnterOTP_txtBox_UpdateUserInfoForm.Text = "Enter OTP";
-                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
-
-        private void EnterOTP_txtBox_UpdateUserInfoForm_MouseEnter(object sender, EventArgs e)
-        {
-            if (EnterOTP_txtBox_UpdateUserInfoForm.Text == "Enter OTP")
-            {
-                EnterOTP_txtBox_UpdateUserInfoForm.Text = "";
-                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = System.Drawing.Color.Black;
-            }
-        }
-
-        private void EnterOTP_txtBox_UpdateUserInfoForm_TextChanged(object sender, EventArgs e)
-        {
-            if (EnterOTP_txtBox_UpdateUserInfoForm.Text.Length == 6)
-            {
-                if (EnterOTP_txtBox_UpdateUserInfoForm.Text.ToString() == randomCode)
-                {
-                    EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = Color.Green;
-                }
-                else
-                {
-                    EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = Color.Red;
-                }
-            }
-            else
-            {
-                EnterOTP_txtBox_UpdateUserInfoForm.ForeColor = Color.Black;
-            }
-        }
-
-        private void HomePage_Update_personalInfo_btn_Form_Click(object sender, EventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.Name == "HomePageCustomers")
-                {
-                    form.BringToFront();
-                    form.Focus();
-                    this.Close();
-                    return;
-                }
-            }
-            HomePageCustomers homePageCustomers = new HomePageCustomers();
-            homePageCustomers.Show();
-            this.Close();
-        }
-
-        private void sendMoneyBtn_Click(object sender, EventArgs e)
-        {
-            SendMoney sendMoney = new SendMoney();  
-            sendMoney.Show();
-            this.Close();
-        }
-
-        private void PrivacyAndSecurity_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EnterOTP_txtBox_UpdateUserInfoForm_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
-

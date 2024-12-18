@@ -16,15 +16,12 @@ namespace BankingManagementSystem
         {
             InitializeComponent();
             this.Paint += new PaintEventHandler(paint);
+            Greeting_Label_btn_HomeFormUser.Text = "Hello " + GlobalData.CurrentEmployee.lastName;
         }
         private void paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -143,6 +140,37 @@ namespace BankingManagementSystem
         {
             DeleteEmployee deleteEmployee = new DeleteEmployee();
             deleteEmployee.Show();
+        }
+
+        private void Greeting_Label_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Update_AccountInfo_HomePageUserForm_Click(object sender, EventArgs e)
+        {
+            CheckCustomerDetail checkCustomerDetail = new CheckCustomerDetail();
+            checkCustomerDetail.Show();
+        }
+
+        private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            EmployeePrivacyAndSecurity employeePrivacyAndSecurity = new EmployeePrivacyAndSecurity();   
+            employeePrivacyAndSecurity.Show();
+        }
+
+        private void TermsAndConditions_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            TermsAndCondition_HomePageUser termsAndConditions = new TermsAndCondition_HomePageUser();
+            termsAndConditions.Show();
+        }
+
+        private void Logout_btn_HomeFormUser_Click(object sender, EventArgs e)
+        {
+            GlobalData.EmployeeLogout();
+            GlobalData.customizedPopup("Logout Successful");
+            signInpage signInpage = new signInpage();
+            signInpage.Show();
+            this.Close();
         }
     }
 }

@@ -9,24 +9,19 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security;
-using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
-using System.Linq.Expressions;
 
 namespace BankingManagementSystem
 {
-    public partial class ForgotPassword : Form
+    public partial class EmployeeForgotPassword : Form
     {
-        String EmailrandomCode=null;
-        public ForgotPassword()
+        public EmployeeForgotPassword()
         {
-            InitializeComponent();
-            this.Paint += new PaintEventHandler(paint);
+            InitializeComponent(); this.Paint += new PaintEventHandler(paint);
         }
         private void paint(object sender, PaintEventArgs e)
         {
-          
+
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
             using (Pen pen = new Pen(borderColor, borderWidth))
@@ -36,105 +31,7 @@ namespace BankingManagementSystem
             }
         }
 
-        private void Exit_btn__ForgotPasswrod_Form_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void Generate_OTP_Email_Btn_ForgotPasswrod_Form_Click(object sender, EventArgs e)
-        {
-
-            this.Cursor = Cursors.WaitCursor;
-            String from, pass, messageBody, to, Email_username;
-            Random random = new Random();
-            Email_username = "Askari Digital Bank Ltd.";
-            EmailrandomCode = (random.Next(100000, 999999)).ToString();
-            MailMessage message = new MailMessage();
-            to = (Email_txtBOx_ForgotPasswrod_Form.Text.ToString());
-            from = "AskariDigitalOTP@gmail.com";
-            pass = "mitxehwlyexurspx ";
-            messageBody = "Your OTP code for Askari Digital Banking is : " + EmailrandomCode + " ";
-            try
-            {
-                message.To.Add(to);
-            }
-            catch (Exception eee)
-            {
-
-            }
-            message.From = new MailAddress(from, Email_username);
-            message.Body = messageBody;
-            message.Subject = "Digital On Boarding Askari Digital OTP";
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-            smtpClient.EnableSsl = true;
-            smtpClient.Port = 587;
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.Credentials = new NetworkCredential(from, pass);
-
-            try
-            {
-                smtpClient.Send(message);
-                this.Cursor = Cursors.Default;
-                MessageBox.Show("Code Sent Successfully");
-            }
-            catch (Exception ex)
-            {
-
-                this.Cursor = Cursors.Default;
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Email_OTP_textBox_ForgotPAssword_Form_TextChanged(object sender, EventArgs e)
-        {
-
-            if (Email_OTP_textBox_ForgotPAssword_Form.Text.Length == 6)
-            {
-                if (Email_OTP_textBox_ForgotPAssword_Form.Text.ToString() == EmailrandomCode)
-                {
-                    Email_OTP_textBox_ForgotPAssword_Form.ForeColor = Color.Green;
-                    Password_txtBox_ForgetUpForm.Enabled = true;    
-                    ConfirmPassword_txtbox_FrgotpasswordPage.Enabled = true;
-                }
-                else
-                {
-                    Email_OTP_textBox_ForgotPAssword_Form.ForeColor = Color.Red;
-                }
-
-            }
-            else
-            {
-                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = Color.Black;
-            }
-
-        }
-
-        private void Email_OTP_textBox_ForgotPAssword_Form_Click(object sender, EventArgs e)
-        {
-            if (Email_OTP_textBox_ForgotPAssword_Form.Text == "Enter OTP")
-            {
-                Email_OTP_textBox_ForgotPAssword_Form.Text = "";
-                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Black; 
-            }
-
-        }
-
-        private void Email_OTP_textBox_ForgotPAssword_Form_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(Email_OTP_textBox_ForgotPAssword_Form.Text))
-            {
-                Email_OTP_textBox_ForgotPAssword_Form.Text = "Enter OTP";
-                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Gray; 
-            }
-
-        }
-
-        private void Generate_OTP_Phone_Btn_ForgotPasswrod_Form_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        String EmailrandomCode=null;
         private void Save_Password_BTN__ForgotPasswrod_Form_Click(object sender, EventArgs e)
         {
 
@@ -157,10 +54,10 @@ namespace BankingManagementSystem
                     try
                     {
                         conn.Open();
-                        string query = @"SELECT u.CUSTOMER_ID
+                        string query = @"SELECT u.employee_ID
                              FROM USERS u
-                             JOIN CUSTOMERS c ON u.CUSTOMER_ID = c.CUSTOMER_ID
-                             WHERE u.EMAIL = :email AND u.USERNAME = :username AND c.Contact_number = :phoneNumber";
+                             JOIN bankemployee e ON u.employee_ID = e.employee_ID
+                             WHERE u.EMAIL = :email AND u.USERNAME = :username AND e.PHONE_NUMBER = :phoneNumber";
 
                         using (OracleCommand cmd = new OracleCommand(query, conn))
                         {
@@ -172,20 +69,20 @@ namespace BankingManagementSystem
 
                             if (result != null)
                             {
-                                int customerId = Convert.ToInt32(result);
+                                int employeeid = Convert.ToInt32(result);
                                 string passwordHash = newPassword;
 
-                                string updateQuery = "UPDATE USERS SET PASSWORDHASH = :passwordHash WHERE CUSTOMER_ID = :customerId";
+                                string updateQuery = "UPDATE USERS SET PASSWORDHASH = :passwordHash WHERE employee_ID = :employeeid";
                                 using (OracleCommand updateCmd = new OracleCommand(updateQuery, conn))
                                 {
                                     updateCmd.Parameters.Add(new OracleParameter("passwordHash", passwordHash));
-                                    updateCmd.Parameters.Add(new OracleParameter("customerId", customerId));
+                                    updateCmd.Parameters.Add(new OracleParameter("employeeid", employeeid));
                                     int rowsUpdated = updateCmd.ExecuteNonQuery();
-                                    string userId = "CUS" + customerId;
+                                    string userId = "EMP" + employeeid;
                                     if (rowsUpdated > 0)
                                     {
                                         signInpage signInpage = new signInpage();
-                                        int newAuditID=signInpage.GenerateNewLogID();
+                                        int newAuditID = signInpage.GenerateNewLogID();
                                         string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
                                                "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
 
@@ -249,7 +146,6 @@ namespace BankingManagementSystem
                                             MessageBox.Show(ex.Message);
                                         }
 
-
                                     }
                                     else
                                     {
@@ -270,7 +166,8 @@ namespace BankingManagementSystem
                         MessageBox.Show($"An error occurred: {ex.Message}");
                     }
                 }
-            }else if (EmailrandomCode== null)
+            }
+            else if (EmailrandomCode == null)
             {
                 MessageBox.Show("Please Verify the Email :");
                 return;
@@ -283,59 +180,92 @@ namespace BankingManagementSystem
             this.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Email_OTP_textBox_ForgotPAssword_Form_TextChanged(object sender, EventArgs e)
         {
+            if (Email_OTP_textBox_ForgotPAssword_Form.Text.Length == 6)
+            {
+                if (Email_OTP_textBox_ForgotPAssword_Form.Text.ToString() == EmailrandomCode)
+                {
+                    Email_OTP_textBox_ForgotPAssword_Form.ForeColor = Color.Green;
+                    Password_txtBox_ForgetUpForm.Enabled = true;
+                    ConfirmPassword_txtbox_FrgotpasswordPage.Enabled = true;
+                }
+                else
+                {
+                    Email_OTP_textBox_ForgotPAssword_Form.ForeColor = Color.Red;
+                }
 
+            }
+            else
+            {
+                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = Color.Black;
+            }
         }
 
-        private void Username_Label_ForgOPasswordForm_Click(object sender, EventArgs e)
+        private void Email_OTP_textBox_ForgotPAssword_Form_MouseLeave(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrWhiteSpace(Email_OTP_textBox_ForgotPAssword_Form.Text))
+            {
+                Email_OTP_textBox_ForgotPAssword_Form.Text = "Enter OTP";
+                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Gray;
+            }
         }
 
-        private void Username_txtBox_ForgotPasswordForm_TextChanged(object sender, EventArgs e)
+        private void Email_OTP_textBox_ForgotPAssword_Form_Click(object sender, EventArgs e)
         {
-
+            if (Email_OTP_textBox_ForgotPAssword_Form.Text == "Enter OTP")
+            {
+                Email_OTP_textBox_ForgotPAssword_Form.Text = "";
+                Email_OTP_textBox_ForgotPAssword_Form.ForeColor = System.Drawing.Color.Black;
+            }
         }
 
-        private void PhoneNmber_Label_ForgOPasswordForm_Click(object sender, EventArgs e)
+        private void Generate_OTP_Email_Btn_ForgotPasswrod_Form_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
+            String from, pass, messageBody, to, Email_username;
+            Random random = new Random();
+            Email_username = "Askari Digital Bank Ltd.";
+            EmailrandomCode = (random.Next(100000, 999999)).ToString();
+            MailMessage message = new MailMessage();
+            to = (Email_txtBOx_ForgotPasswrod_Form.Text.ToString());
+            from = "AskariDigitalOTP@gmail.com";
+            pass = "mitxehwlyexurspx ";
+            messageBody = "Your OTP code for Askari Digital Banking is : " + EmailrandomCode + " ";
+            try
+            {
+                message.To.Add(to);
+            }
+            catch (Exception eee)
+            {
 
+            }
+            message.From = new MailAddress(from, Email_username);
+            message.Body = messageBody;
+            message.Subject = "Digital On Boarding Askari Digital OTP";
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+            smtpClient.EnableSsl = true;
+            smtpClient.Port = 587;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.Credentials = new NetworkCredential(from, pass);
+
+            try
+            {
+                smtpClient.Send(message);
+                this.Cursor = Cursors.Default;
+                MessageBox.Show("Code Sent Successfully");
+            }
+            catch (Exception ex)
+            {
+
+                this.Cursor = Cursors.Default;
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void Email_txtBOx_ForgotPasswrod_Form_TextChanged(object sender, EventArgs e)
+        private void Exit_btn__ForgotPasswrod_Form_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Email_Label_ForgOPasswordForm_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConfirmPassword_txtbox_FrgotpasswordPage_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Password_txtBox_ForgetUpForm_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void password_label_signUpForm_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void s_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

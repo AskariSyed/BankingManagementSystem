@@ -84,6 +84,7 @@
             this.ForgetPassword_BTN_EmployeeSigninpageForm.TabIndex = 25;
             this.ForgetPassword_BTN_EmployeeSigninpageForm.Text = "Forgot Password?";
             this.ForgetPassword_BTN_EmployeeSigninpageForm.UseVisualStyleBackColor = false;
+            this.ForgetPassword_BTN_EmployeeSigninpageForm.Click += new System.EventHandler(this.ForgetPassword_BTN_EmployeeSigninpageForm_Click);
             // 
             // Exit_btn_signinForm
             // 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
+
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BankingManagementSystem
@@ -293,12 +294,11 @@ namespace BankingManagementSystem
 
         private void BlockCustomerAccount_button_Click(object sender, EventArgs e)
         {
-            // Determine the new status based on the current status
             Account.statusType newStatus = (GlobalData.CustomerAccount.status == Account.statusType.Active)
                                             ? Account.statusType.Closed
                                             : Account.statusType.Active;
 
-            // Update the query based on the new status
+         
             string query = $"update account set status= :newStatus where customer_id= :customerid";
 
             using (OracleConnection conn = new OracleConnection(GlobalData.connString))
@@ -308,7 +308,7 @@ namespace BankingManagementSystem
                     conn.Open();
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
-                        // Add the customer ID and the new status as parameters
+         
                         cmd.Parameters.Add(new OracleParameter("newStatus", newStatus.ToString()));
                         cmd.Parameters.Add(new OracleParameter("customerid", GlobalData.CurrentCustomer.customerId));
 
@@ -367,7 +367,8 @@ namespace BankingManagementSystem
 
         private void UpdateCustomerInformation_Button_Click(object sender, EventArgs e)
         {
-           
+            EnterOTPFromEmployeeForUpdate enterOTPFromEmployeeForUpdate = new EnterOTPFromEmployeeForUpdate();
+            enterOTPFromEmployeeForUpdate.Show();
         }
 
         private void Exit_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)

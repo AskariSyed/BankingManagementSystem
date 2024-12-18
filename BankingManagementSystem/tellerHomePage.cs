@@ -27,12 +27,8 @@ namespace BankingManagementSystem
 
         private void TellerHomePage_Paint(object sender, PaintEventArgs e)
         {
-            // Define border color and width
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -103,7 +99,7 @@ namespace BankingManagementSystem
         private void Logout_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
             GlobalData.EmployeeLogout();
-            GlobalData.customizedPopup("LogOut Successfull");
+            GlobalData.customizedPopup("Logout Successfull");
             signInpage sign= new signInpage();
             sign.Show();
             this.Close();
@@ -157,12 +153,14 @@ namespace BankingManagementSystem
 
         private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-
+           EmployeePrivacyAndSecurity employeePrivacyAndSecurity = new EmployeePrivacyAndSecurity();
+            employeePrivacyAndSecurity.Show();
         }
 
         private void TransactionHistory_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-
+            TransactionHistory transactionHistory = new TransactionHistory();
+            transactionHistory.Show();
         }
 
         private void TermsAndConditions_btn_HomeFormUser_Click(object sender, EventArgs e)
@@ -177,7 +175,9 @@ namespace BankingManagementSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            SearchCustomerForUpdate searchCustomerForUpdate = new SearchCustomerForUpdate();
+            searchCustomerForUpdate.Show();
+            this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
