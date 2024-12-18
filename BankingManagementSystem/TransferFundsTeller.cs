@@ -21,13 +21,9 @@ namespace BankingManagementSystem
         }
 
         private void FundsTransfer_Paint(object sender, PaintEventArgs e)
-        {
-            // Define border color and width
+        {  
             int borderWidth = 5;
             Color borderColor = Color.FromArgb(255, 191, 0);
-
-
-            // Draw the border
             using (Pen pen = new Pen(borderColor, borderWidth))
             {
                 Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
@@ -71,7 +67,7 @@ namespace BankingManagementSystem
                     int count = Convert.ToInt32(command.ExecuteScalar());
                     if (count > 0)
                     {
-                        //furtherqueries here 
+                       
                         string balanceQuery = "SELECT ACCOUNT_BALANCE FROM ACCOUNT WHERE ACCOUNT_ID = :senderAccountId";
 
                         using (var balanceCommand = new OracleCommand(balanceQuery, connection))
@@ -80,12 +76,12 @@ namespace BankingManagementSystem
 
                             decimal senderBalance = Convert.ToDecimal(balanceCommand.ExecuteScalar());
 
-                            if (senderBalance < Int32.Parse(SendingAmountTxtBox.Text.ToString()))//Sender balance is less give error 
+                            if (senderBalance < Int32.Parse(SendingAmountTxtBox.Text.ToString()))
                             {
                                 MessageBox.Show("Insufficient balance in the sender's account.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
-                            else//if AccountNo is valid and Sender balnce is enough
+                            else
                             {
                                 string customerQuery = "SELECT CUSTOMER_ID FROM ACCOUNT WHERE ACCOUNT_ID = :receiverAccountId";
                                 int receiverCustomerId = 0;
@@ -142,8 +138,7 @@ namespace BankingManagementSystem
                                     using (var transaction = connection.BeginTransaction())
                                     {
                                         try
-                                        {
-                                            // Debit from sender account
+                                        { 
                                             string debitQuery = "UPDATE ACCOUNT SET ACCOUNT_BALANCE = ACCOUNT_BALANCE - :amount WHERE ACCOUNT_ID = :senderAccountId";
                                             using (var debitCommand = new OracleCommand(debitQuery, connection))
                                             {
@@ -152,7 +147,6 @@ namespace BankingManagementSystem
                                                 debitCommand.ExecuteNonQuery();
                                             }
 
-                                            // Credit to receiver account
                                             string creditQuery = "UPDATE ACCOUNT SET ACCOUNT_BALANCE = ACCOUNT_BALANCE + :amount WHERE ACCOUNT_ID = :receiverAccountId";
                                             using (var creditCommand = new OracleCommand(creditQuery, connection))
                                             {
@@ -230,6 +224,7 @@ namespace BankingManagementSystem
                                             }
                                             transaction.Commit();
                                             GlobalData.customizedPopup("Funds transferred successfully.");
+                                            this.Close();
                                         }
                                         catch (Exception ex)
                                         {

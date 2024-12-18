@@ -168,10 +168,7 @@ namespace BankingManagementSystem
 
         private void SearchByReferenceId_btn_Click(object sender, EventArgs e)
         {
-            // Get the reference ID entered by the user in the input box (assuming it's a TextBox named ReferenceIdTxtBox)
             string referenceId = AttributeTxtBox.Text.Trim();
-
-            // Ensure the reference ID is not empty
             if (string.IsNullOrEmpty(referenceId))
             {
                 MessageBox.Show("Please enter a reference ID.");
@@ -181,9 +178,6 @@ namespace BankingManagementSystem
             {
                 MessageBox.Show("Please Enter Valid 7 digits Transaction ID");
             }
-
-
-            // Validate if the entered reference ID is a valid number (assuming REFERENCE_ID is a number)
             if (!long.TryParse(referenceId, out long referenceIdParsed))
             {
                 MessageBox.Show("Invalid reference ID. Please enter a valid number.");
@@ -253,22 +247,16 @@ namespace BankingManagementSystem
               
                 conn.Open();
                 OracleTransaction transaction = conn.BeginTransaction();
-
-                // Query to fetch both the debit and credit transactions with the same reference ID
                 string fetchTransactionsQuery = @"
             SELECT TRANSACTION_ID, ACCOUNT_ID, TRANSACTION_TYPE, AMOUNT, TRANSACTION_DATE, DESCRIPTION, BRANCH_ID, REFERENCE_ID 
             FROM transaction
             WHERE REFERENCE_ID = :referenceId";
-
-                // Insert query for reversal of transactions
                 string insertReversalQuery = @"
             INSERT INTO transaction (
                 TRANSACTION_ID, ACCOUNT_ID, TRANSACTION_TYPE, AMOUNT, TRANSACTION_DATE, DESCRIPTION, BRANCH_ID, REFERENCE_ID
             ) VALUES (
                 :transactionId, :accountId, :transactionType, :amount, :transactionDate, :description, :branchId, :referenceId
             )";
-
-                // Update query for adjusting account balance
                 string updateAccountBalanceQuery = @"
             UPDATE account
             SET ACCOUNT_BALANCE = ACCOUNT_BALANCE + :amount
@@ -278,8 +266,6 @@ namespace BankingManagementSystem
                 {
                     List<OracleCommand> reversalCommands = new List<OracleCommand>();
                     List<OracleCommand> balanceUpdateCommands = new List<OracleCommand>();
-
-                    // Fetch debit and credit transactions with the same reference ID
                     using (OracleCommand fetchCmd = new OracleCommand(fetchTransactionsQuery, conn))
                     {
                         fetchCmd.Parameters.Add(new OracleParameter("referenceId", referenceId));
@@ -290,8 +276,6 @@ namespace BankingManagementSystem
                                 MessageBox.Show("No transactions found for the selected Reference ID.");
                                 return;
                             }
-
-                            // Iterate through the fetched transactions (debit and credit)
                             while (reader.Read())
                             {
                                 int originalTransactionId = Convert.ToInt32(reader["TRANSACTION_ID"]);
@@ -299,27 +283,23 @@ namespace BankingManagementSystem
                                 string transactionType = reader["TRANSACTION_TYPE"].ToString();
                                 decimal amount = Convert.ToDecimal(reader["AMOUNT"]);
                                 int branchId = Convert.ToInt32(reader["BRANCH_ID"]);
-                                string reversalType = transactionType.Equals("Debit", StringComparison.OrdinalIgnoreCase) ? "Credit" : "Debit"; // Reverse the type
+                                string reversalType = transactionType.Equals("Debit", StringComparison.OrdinalIgnoreCase) ? "Credit" : "Debit"; 
                                 string description = $"Reversal of transaction ID {originalTransactionId}";
                                 DateTime reversalDate = DateTime.Now;
-
-                                // Reversal command
                                 OracleCommand reversalCmd = new OracleCommand();
                                 reversalCmd.Connection = conn;
                                 reversalCmd.Transaction = transaction;
                                 reversalCmd.CommandText = insertReversalQuery;
-                                reversalCmd.Parameters.Add(new OracleParameter("transactionId", SendMoney.generateTransactionId())); // Generate new transaction ID
+                                reversalCmd.Parameters.Add(new OracleParameter("transactionId", SendMoney.generateTransactionId()));
                                 reversalCmd.Parameters.Add(new OracleParameter("accountId", accountId));
                                 reversalCmd.Parameters.Add(new OracleParameter("transactionType", reversalType));
                                 reversalCmd.Parameters.Add(new OracleParameter("amount", amount));
                                 reversalCmd.Parameters.Add(new OracleParameter("transactionDate", reversalDate));
                                 reversalCmd.Parameters.Add(new OracleParameter("description", description));
                                 reversalCmd.Parameters.Add(new OracleParameter("branchId", branchId));
-                                reversalCmd.Parameters.Add(new OracleParameter("referenceId", referenceId)); // Use the same reference ID for both transactions
+                                reversalCmd.Parameters.Add(new OracleParameter("referenceId", referenceId));
 
                                 reversalCommands.Add(reversalCmd);
-
-                                // Balance update command
                                 decimal balanceAdjustment = transactionType.Equals("Debit", StringComparison.OrdinalIgnoreCase) ? amount : -amount;
                                 OracleCommand balanceUpdateCmd = new OracleCommand();
                                 balanceUpdateCmd.Connection = conn;

@@ -64,7 +64,7 @@ namespace BankingManagementSystem
 
                         int count = Convert.ToInt32(command.ExecuteScalar());
                     if (count > 0) {
-                        //furtherqueries here 
+                       
                         string balanceQuery = "SELECT ACCOUNT_BALANCE FROM ACCOUNT WHERE ACCOUNT_ID = :senderAccountId";
 
                         using (var balanceCommand = new OracleCommand(balanceQuery, connection))
@@ -73,12 +73,12 @@ namespace BankingManagementSystem
 
                             decimal senderBalance = Convert.ToDecimal(balanceCommand.ExecuteScalar());
 
-                            if (senderBalance < Int32.Parse(SendingAmountTxtBox.Text.ToString()))//Sender balance is less give error 
+                            if (senderBalance < Int32.Parse(SendingAmountTxtBox.Text.ToString()))
                             {
                                 GlobalData.customizedPopup("Insufficient balance in the sender's account.");
                                 return;
                             }
-                            else//if AccountNo is valid and Sender balnce is enough
+                            else
                             {
                                 string customerQuery = "SELECT CUSTOMER_ID FROM ACCOUNT WHERE ACCOUNT_ID = :receiverAccountId";
                                 int receiverCustomerId = 0;
@@ -89,8 +89,6 @@ namespace BankingManagementSystem
                                     customerCommand.Parameters.Add(new OracleParameter("receiverAccountId", RecieverAccountNotxtBox.Text.ToString()));
                                     receiverCustomerId = Convert.ToInt32(customerCommand.ExecuteScalar());
                                 }
-
-                                // Fetch the customer name from the CUSTOMERS table
                                 string nameQuery = "SELECT NAME FROM CUSTOMERS WHERE CUSTOMER_ID = :customerId";
                                 string receiverName = "";
 
@@ -99,8 +97,6 @@ namespace BankingManagementSystem
                                     nameCommand.Parameters.Add(new OracleParameter("customerId", receiverCustomerId));
                                     receiverName = Convert.ToString(nameCommand.ExecuteScalar());
                                 }
-
-                                // Prompt user with receiver's name (account title)
                                 DialogResult dialogResult = MessageBox.Show("Account Title: " + receiverName + "\nAre you sure you want to transfer funds?",
                                                                             "Confirm Transaction", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -113,7 +109,6 @@ namespace BankingManagementSystem
                                     {
                                         try
                                         {
-                                            // Debit from sender account
                                             string debitQuery = "UPDATE ACCOUNT SET ACCOUNT_BALANCE = ACCOUNT_BALANCE - :amount WHERE ACCOUNT_ID = :senderAccountId";
                                             using (var debitCommand = new OracleCommand(debitQuery, connection))
                                             {
@@ -121,8 +116,6 @@ namespace BankingManagementSystem
                                                 debitCommand.Parameters.Add(new OracleParameter("senderAccountId", GlobalData.CustomerAccount.accountId));
                                                 debitCommand.ExecuteNonQuery();
                                             }
-
-                                            // Credit to receiver account
                                             string creditQuery = "UPDATE ACCOUNT SET ACCOUNT_BALANCE = ACCOUNT_BALANCE + :amount WHERE ACCOUNT_ID = :receiverAccountId";
                                             using (var creditCommand = new OracleCommand(creditQuery, connection))
                                             {
