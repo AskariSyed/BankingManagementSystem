@@ -41,6 +41,7 @@
             this.Account_Statment_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Privacy_And_Security_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TransactionHistory_btn_HomeFormUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Logout_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.TermsAndConditions_btn_HomeFormUser = new System.Windows.Forms.Button();
             this.Update_AccountInfo_HomePageUserForm = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.CheckEmployeeLogs = new System.Windows.Forms.Button();
             this.SearchEmployee = new System.Windows.Forms.Button();
             this.CheckTransaction = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -249,6 +249,16 @@
             this.TransactionHistory_btn_HomeFormUser.UseVisualStyleBackColor = false;
             this.TransactionHistory_btn_HomeFormUser.Click += new System.EventHandler(this.TransactionHistory_btn_HomeFormUser_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Logout_btn_HomeFormUser
             // 
             this.Logout_btn_HomeFormUser.BackColor = System.Drawing.Color.RoyalBlue;
@@ -317,6 +327,7 @@
             this.Position_Detail_HomepageUSerForm.Size = new System.Drawing.Size(73, 24);
             this.Position_Detail_HomepageUSerForm.TabIndex = 78;
             this.Position_Detail_HomepageUSerForm.Text = "Bank Teller";
+            this.Position_Detail_HomepageUSerForm.Click += new System.EventHandler(this.Position_Detail_HomepageUSerForm_Click);
             // 
             // AccountTitle_Label_HomePageUSer
             // 
@@ -548,16 +559,6 @@
             this.CheckTransaction.Text = "Search Transactions";
             this.CheckTransaction.UseVisualStyleBackColor = false;
             this.CheckTransaction.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 197);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // ManagerHomePage
             // 

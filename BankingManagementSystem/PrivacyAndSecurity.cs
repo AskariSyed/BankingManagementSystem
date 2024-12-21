@@ -287,7 +287,7 @@ namespace BankingManagementSystem
 
         private void TermsAndConditions_btn_UpdatePersonalINfor_Form_Click(object sender, EventArgs e)
         {
-            this.Hide();
+         
             TermsAndCondition_HomePageUser termsAndCondition_HomePageUser = new TermsAndCondition_HomePageUser();
             termsAndCondition_HomePageUser.Show();
         }

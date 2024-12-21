@@ -16,7 +16,6 @@ namespace BankingManagementSystem
         public static Employee CurrentEmployee { get; set; }
 
         public static string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
-
         public static Dictionary<string, int> cityBranchIDs = new Dictionary<string, int>
         {
             { "Islamabad", 1954 },

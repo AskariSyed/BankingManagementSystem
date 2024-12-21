@@ -19,3 +19,8 @@ Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(O
 Exception: Failure sending mail.
 Stack Trace:    at System.Net.Mail.SmtpClient.Send(MailMessage message)
    at BankingManagementSystem.AddEmployee.SendAdminNotificationEmail(String employeeName, String employeePosition, String employeeEmail, String employeePhoneNumber, String employeepassword) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\AddEmployee.cs:line 168
+--------------------------------------------------------------------------------
+12/20/2024 11:03:43 AM: Failed to send Email
+Exception: Failure sending mail.
+Stack Trace:    at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at BankStatementGenerator.sendPdfToEmail(String recipientEmail, String filePath) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\BankStatementGenerator.cs:line 525

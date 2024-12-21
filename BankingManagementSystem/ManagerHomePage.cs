@@ -17,6 +17,10 @@ namespace BankingManagementSystem
             InitializeComponent();
             this.Paint += new PaintEventHandler(paint);
             Greeting_Label_btn_HomeFormUser.Text = "Hello " + GlobalData.CurrentEmployee.lastName;
+            Position_Detail_HomepageUSerForm.Text = GlobalData.CurrentEmployee.position.ToString();
+            BranchID_Detail_HomepageUSerForm.Text = GlobalData.CurrentEmployee.branchName;
+            Email_Detail_label_HomePageUserInfoForm.Text= GlobalData.CurrentEmployee.email;
+            Employee_NO_Detail_HomepageUSerForm.Text = GlobalData.CurrentEmployee.employeeId.ToString();
         }
         private void paint(object sender, PaintEventArgs e)
         {
@@ -172,6 +176,11 @@ namespace BankingManagementSystem
             signInpage signInpage = new signInpage();
             signInpage.Show();
             this.Close();
+        }
+
+        private void Position_Detail_HomepageUSerForm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
