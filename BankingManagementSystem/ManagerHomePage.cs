@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BankingManagementSystem
 {
@@ -21,7 +22,52 @@ namespace BankingManagementSystem
             BranchID_Detail_HomepageUSerForm.Text = GlobalData.CurrentEmployee.branchName;
             Email_Detail_label_HomePageUserInfoForm.Text= GlobalData.CurrentEmployee.email;
             Employee_NO_Detail_HomepageUSerForm.Text = GlobalData.CurrentEmployee.employeeId.ToString();
+
+            if (CanViewAuditLog())
+            {
+                GrantAccess.Text = "Revoke Audit Log View Access To Customers";
+                GrantAccess.BackColor = Color.Red;
+            }
+            else
+            {
+                GrantAccess.Text = "Grant Audit Log View Access To Customers";
+                GrantAccess.BackColor = Color.Green;
+            }
+
+
         }
+        private Boolean CanViewAuditLog()
+        {
+            string checkAccess = "SELECT COUNT(*) FROM DBA_TAB_PRIVS WHERE GRANTEE = 'C##CUSTOMER1' AND TABLE_NAME = 'AUDITLOG' AND PRIVILEGE = 'SELECT'";
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                {
+                    conn.Open();
+                    using (OracleCommand ocmd = new OracleCommand(checkAccess, conn))
+                    {
+
+                        object result = ocmd.ExecuteScalar();
+                        if (result != DBNull.Value && Convert.ToInt32(result) > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GlobalData.LogError("Error while checking access to AuditLog", ex);
+                MessageBox.Show("An error occurred while checking access. Please check the log file or try again later.",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         private void paint(object sender, PaintEventArgs e)
         {
             
@@ -181,6 +227,73 @@ namespace BankingManagementSystem
         private void Position_Detail_HomepageUSerForm_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void GrantAccess_Click(object sender, EventArgs e)
+        {
+
+            if (!CanViewAuditLog())
+            {
+
+                string checkAccess = "GRANT SELECT ON auditlog to C##Customer1";
+                try
+                {
+                    using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                    {
+                        conn.Open();
+                        using (OracleCommand ocmd = new OracleCommand(checkAccess, conn))
+                        {
+
+                            object result = ocmd.ExecuteNonQuery();
+
+                        }
+                    }
+                    GlobalData.customizedPopup("Access Granted Successfully");
+
+                }
+                catch (Exception ex)
+                {
+                    GlobalData.LogError("Error while granting access to AuditLog", ex);
+                    MessageBox.Show("An error occurred while granting access. Please check the log file or try again later.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                finally { 
+                 GrantAccess.Text = "Revoke Audit Log View Access To Customers";
+                GrantAccess.BackColor = Color.Red;
+                }
+            }
+            else
+            {
+                string checkAccess = "REVOKE SELECT ON auditlog FROM C##Customer1";
+                try
+                {
+                    using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                    {
+                        conn.Open();
+                        using (OracleCommand ocmd = new OracleCommand(checkAccess, conn))
+                        {
+
+                            object result = ocmd.ExecuteNonQuery();
+
+                        }
+                    }
+                    GlobalData.customizedPopup("Access Revoked Successfully");
+                }
+                catch (Exception ex)
+                {
+                    GlobalData.LogError("Error while revoking access to AuditLog", ex);
+                    MessageBox.Show("An error occurred while revoking access. Please check the log file or try again later.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                finally
+                {
+                 
+                    GrantAccess.Text = "Grant Audit Log View Access To Customers";
+                    GrantAccess.BackColor = Color.Green;
+                }
+            }
         }
     }
 }

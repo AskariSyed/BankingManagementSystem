@@ -18,20 +18,73 @@ namespace BankingManagementSystem
         public PrivacyAndSecurity()
         {
             InitializeComponent();
+
+
+
+
             Email_txtBox_Privacy_Form.Text = GlobalData.CurrentCustomer.email;
             Email_txtBox_Privacy_Form.Enabled = false;
 
-            loadRecentActivity();
-            if (RecentActivitiesGridView.Rows.Count > 0)
+
+
+            if (CanViewAuditLog())
             {
-                RecentActivitiesGridView.Visible = true;
+                loadRecentActivity();
+                if (RecentActivitiesGridView.Rows.Count > 0)
+                {
+                    NoAccessImage.Visible = false;
+                    RecentActivitiesGridView.Visible = true;
+                }
+                else
+                {
+                    RecentActivitiesGridView.Visible = false;
+                }
+
+
             }
             else
             {
-                RecentActivitiesGridView.Visible = false;
+                NoAccessImage.Visible = true;
+                    RecentActivitiesGridView.Visible = false;
+
             }
-            this.Paint += new PaintEventHandler(paint);
+
+          
         }
+
+
+        private Boolean CanViewAuditLog()
+        {
+            string checkAccess = "SELECT COUNT(*) FROM DBA_TAB_PRIVS WHERE GRANTEE = 'C##CUSTOMER1' AND TABLE_NAME = 'AUDITLOG' AND PRIVILEGE = 'SELECT'";
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+                {
+                    conn.Open();
+                    using (OracleCommand ocmd = new OracleCommand(checkAccess, conn))
+                    {
+                        
+                        object result = ocmd.ExecuteScalar();
+                        if (result != DBNull.Value && Convert.ToInt32(result) > 0)
+                        {
+                            return true; 
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GlobalData.LogError("Error while checking access to AuditLog", ex);
+                MessageBox.Show("An error occurred while checking access. Please check the log file or try again later.",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; 
+            }
+        }
+
         private void paint(object sender, PaintEventArgs e)
         {
          
@@ -225,7 +278,7 @@ namespace BankingManagementSystem
                      WHERE user_id = :userID 
                      ORDER BY Action_date DESC 
                      FETCH FIRST 3 ROWS ONLY";
-            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            using (OracleConnection conn = new OracleConnection(GlobalData.CustomerconnString))
             {
                 try
                 {
@@ -367,6 +420,11 @@ namespace BankingManagementSystem
         }
 
         private void EnterOTP_txtBox_UpdateUserInfoForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NoAccessImage_Click(object sender, EventArgs e)
         {
 
         }

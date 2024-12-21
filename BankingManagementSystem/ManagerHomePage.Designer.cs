@@ -65,6 +65,7 @@
             this.CheckEmployeeLogs = new System.Windows.Forms.Button();
             this.SearchEmployee = new System.Windows.Forms.Button();
             this.CheckTransaction = new System.Windows.Forms.Button();
+            this.GrantAccess = new System.Windows.Forms.Button();
             this.SideLeft_panel_HomePageForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +78,7 @@
             this.GenerateAccountStatement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateAccountStatement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateAccountStatement.ForeColor = System.Drawing.Color.White;
-            this.GenerateAccountStatement.Location = new System.Drawing.Point(344, 362);
+            this.GenerateAccountStatement.Location = new System.Drawing.Point(344, 315);
             this.GenerateAccountStatement.Name = "GenerateAccountStatement";
             this.GenerateAccountStatement.Size = new System.Drawing.Size(276, 44);
             this.GenerateAccountStatement.TabIndex = 85;
@@ -93,7 +94,7 @@
             this.OpenNewAccount_TellerHomePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenNewAccount_TellerHomePage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OpenNewAccount_TellerHomePage.ForeColor = System.Drawing.Color.White;
-            this.OpenNewAccount_TellerHomePage.Location = new System.Drawing.Point(675, 694);
+            this.OpenNewAccount_TellerHomePage.Location = new System.Drawing.Point(675, 647);
             this.OpenNewAccount_TellerHomePage.Name = "OpenNewAccount_TellerHomePage";
             this.OpenNewAccount_TellerHomePage.Size = new System.Drawing.Size(276, 44);
             this.OpenNewAccount_TellerHomePage.TabIndex = 84;
@@ -109,7 +110,7 @@
             this.TransactionHistoryBTn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TransactionHistoryBTn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransactionHistoryBTn.ForeColor = System.Drawing.Color.White;
-            this.TransactionHistoryBTn.Location = new System.Drawing.Point(344, 694);
+            this.TransactionHistoryBTn.Location = new System.Drawing.Point(344, 647);
             this.TransactionHistoryBTn.Name = "TransactionHistoryBTn";
             this.TransactionHistoryBTn.Size = new System.Drawing.Size(276, 44);
             this.TransactionHistoryBTn.TabIndex = 83;
@@ -125,7 +126,7 @@
             this.TransferFundsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TransferFundsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransferFundsButton.ForeColor = System.Drawing.Color.White;
-            this.TransferFundsButton.Location = new System.Drawing.Point(344, 611);
+            this.TransferFundsButton.Location = new System.Drawing.Point(344, 564);
             this.TransferFundsButton.Name = "TransferFundsButton";
             this.TransferFundsButton.Size = new System.Drawing.Size(276, 44);
             this.TransferFundsButton.TabIndex = 82;
@@ -141,7 +142,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(675, 611);
+            this.button4.Location = new System.Drawing.Point(675, 564);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(276, 44);
             this.button4.TabIndex = 81;
@@ -157,7 +158,7 @@
             this.initiateDebitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.initiateDebitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.initiateDebitButton.ForeColor = System.Drawing.Color.White;
-            this.initiateDebitButton.Location = new System.Drawing.Point(344, 528);
+            this.initiateDebitButton.Location = new System.Drawing.Point(344, 481);
             this.initiateDebitButton.Name = "initiateDebitButton";
             this.initiateDebitButton.Size = new System.Drawing.Size(276, 44);
             this.initiateDebitButton.TabIndex = 80;
@@ -173,7 +174,7 @@
             this.CheckCustomerDetailButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckCustomerDetailButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckCustomerDetailButton.ForeColor = System.Drawing.Color.White;
-            this.CheckCustomerDetailButton.Location = new System.Drawing.Point(675, 528);
+            this.CheckCustomerDetailButton.Location = new System.Drawing.Point(675, 481);
             this.CheckCustomerDetailButton.Name = "CheckCustomerDetailButton";
             this.CheckCustomerDetailButton.Size = new System.Drawing.Size(276, 44);
             this.CheckCustomerDetailButton.TabIndex = 79;
@@ -345,7 +346,7 @@
             this.Transacion_Options_label_HOmePageUSerForm.BackColor = System.Drawing.Color.Transparent;
             this.Transacion_Options_label_HOmePageUSerForm.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Transacion_Options_label_HOmePageUSerForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.Transacion_Options_label_HOmePageUSerForm.Location = new System.Drawing.Point(335, 287);
+            this.Transacion_Options_label_HOmePageUSerForm.Location = new System.Drawing.Point(335, 258);
             this.Transacion_Options_label_HOmePageUSerForm.Name = "Transacion_Options_label_HOmePageUSerForm";
             this.Transacion_Options_label_HOmePageUSerForm.Size = new System.Drawing.Size(170, 50);
             this.Transacion_Options_label_HOmePageUSerForm.TabIndex = 76;
@@ -379,7 +380,7 @@
             this.InitiateCreditTellerHomePAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InitiateCreditTellerHomePAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InitiateCreditTellerHomePAge.ForeColor = System.Drawing.Color.White;
-            this.InitiateCreditTellerHomePAge.Location = new System.Drawing.Point(344, 445);
+            this.InitiateCreditTellerHomePAge.Location = new System.Drawing.Point(344, 398);
             this.InitiateCreditTellerHomePAge.Name = "InitiateCreditTellerHomePAge";
             this.InitiateCreditTellerHomePAge.Size = new System.Drawing.Size(276, 44);
             this.InitiateCreditTellerHomePAge.TabIndex = 65;
@@ -456,7 +457,7 @@
             this.AddEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddEmployee.ForeColor = System.Drawing.Color.White;
-            this.AddEmployee.Location = new System.Drawing.Point(1006, 445);
+            this.AddEmployee.Location = new System.Drawing.Point(1006, 398);
             this.AddEmployee.Name = "AddEmployee";
             this.AddEmployee.Size = new System.Drawing.Size(276, 44);
             this.AddEmployee.TabIndex = 86;
@@ -472,7 +473,7 @@
             this.DeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteEmployee.ForeColor = System.Drawing.Color.White;
-            this.DeleteEmployee.Location = new System.Drawing.Point(1007, 528);
+            this.DeleteEmployee.Location = new System.Drawing.Point(1007, 481);
             this.DeleteEmployee.Name = "DeleteEmployee";
             this.DeleteEmployee.Size = new System.Drawing.Size(276, 44);
             this.DeleteEmployee.TabIndex = 87;
@@ -488,7 +489,7 @@
             this.ReverseTranaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReverseTranaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReverseTranaction.ForeColor = System.Drawing.Color.White;
-            this.ReverseTranaction.Location = new System.Drawing.Point(675, 362);
+            this.ReverseTranaction.Location = new System.Drawing.Point(675, 315);
             this.ReverseTranaction.Name = "ReverseTranaction";
             this.ReverseTranaction.Size = new System.Drawing.Size(276, 44);
             this.ReverseTranaction.TabIndex = 88;
@@ -504,7 +505,7 @@
             this.CheckCustomerLogsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckCustomerLogsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckCustomerLogsBtn.ForeColor = System.Drawing.Color.White;
-            this.CheckCustomerLogsBtn.Location = new System.Drawing.Point(675, 445);
+            this.CheckCustomerLogsBtn.Location = new System.Drawing.Point(675, 398);
             this.CheckCustomerLogsBtn.Name = "CheckCustomerLogsBtn";
             this.CheckCustomerLogsBtn.Size = new System.Drawing.Size(276, 44);
             this.CheckCustomerLogsBtn.TabIndex = 89;
@@ -520,7 +521,7 @@
             this.CheckEmployeeLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckEmployeeLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckEmployeeLogs.ForeColor = System.Drawing.Color.White;
-            this.CheckEmployeeLogs.Location = new System.Drawing.Point(1006, 611);
+            this.CheckEmployeeLogs.Location = new System.Drawing.Point(1006, 564);
             this.CheckEmployeeLogs.Name = "CheckEmployeeLogs";
             this.CheckEmployeeLogs.Size = new System.Drawing.Size(276, 44);
             this.CheckEmployeeLogs.TabIndex = 90;
@@ -536,7 +537,7 @@
             this.SearchEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchEmployee.ForeColor = System.Drawing.Color.White;
-            this.SearchEmployee.Location = new System.Drawing.Point(1006, 694);
+            this.SearchEmployee.Location = new System.Drawing.Point(1006, 647);
             this.SearchEmployee.Name = "SearchEmployee";
             this.SearchEmployee.Size = new System.Drawing.Size(276, 44);
             this.SearchEmployee.TabIndex = 91;
@@ -552,7 +553,7 @@
             this.CheckTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckTransaction.ForeColor = System.Drawing.Color.White;
-            this.CheckTransaction.Location = new System.Drawing.Point(1006, 362);
+            this.CheckTransaction.Location = new System.Drawing.Point(1006, 315);
             this.CheckTransaction.Name = "CheckTransaction";
             this.CheckTransaction.Size = new System.Drawing.Size(276, 44);
             this.CheckTransaction.TabIndex = 92;
@@ -560,11 +561,28 @@
             this.CheckTransaction.UseVisualStyleBackColor = false;
             this.CheckTransaction.Click += new System.EventHandler(this.button3_Click);
             // 
+            // GrantAccess
+            // 
+            this.GrantAccess.BackColor = System.Drawing.Color.RoyalBlue;
+            this.GrantAccess.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GrantAccess.FlatAppearance.BorderSize = 0;
+            this.GrantAccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GrantAccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrantAccess.ForeColor = System.Drawing.Color.White;
+            this.GrantAccess.Location = new System.Drawing.Point(344, 711);
+            this.GrantAccess.Name = "GrantAccess";
+            this.GrantAccess.Size = new System.Drawing.Size(938, 48);
+            this.GrantAccess.TabIndex = 93;
+            this.GrantAccess.Text = "Grant Audit Log View Access To Customer";
+            this.GrantAccess.UseVisualStyleBackColor = false;
+            this.GrantAccess.Click += new System.EventHandler(this.GrantAccess_Click);
+            // 
             // ManagerHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1295, 803);
+            this.Controls.Add(this.GrantAccess);
             this.Controls.Add(this.CheckTransaction);
             this.Controls.Add(this.SearchEmployee);
             this.Controls.Add(this.CheckEmployeeLogs);
@@ -644,5 +662,6 @@
         private System.Windows.Forms.Button CheckEmployeeLogs;
         private System.Windows.Forms.Button SearchEmployee;
         private System.Windows.Forms.Button CheckTransaction;
+        private System.Windows.Forms.Button GrantAccess;
     }
 }
