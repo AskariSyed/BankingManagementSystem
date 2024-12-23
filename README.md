@@ -66,7 +66,7 @@ Database Configuration:
 
 Ensure Oracle database is running.
 
-Load the provided SQL scripts to set up database tables and initial data.
+set up database tables and initial data.
 
 Running the Application:
 
@@ -74,31 +74,8 @@ Open the project in Visual Studio.
 
 Build and run the solution.
 
-Use the provided test credentials for the initial login.
 
-Database Design
-
-The database contains the following main tables:
-
-CUSTOMERS
-
-Columns: CUSTOMER_ID, USER_ID, NAME, EMAIL, PHONE, etc.
-
-EMPLOYEES
-
-Columns: EMPLOYEE_ID, USER_ID, NAME, POSITION, etc.
-
-ACCOUNTS
-
-Columns: ACCOUNT_ID, CUSTOMER_ID, ACCOUNT_BALANCE, DATE_OPENED, etc.
-
-TRANSACTIONS
-
-Columns: TRANSACTION_ID, ACCOUNT_ID, TYPE, AMOUNT, DATE, etc.
-
-ACCOUNT_TYPE
-
-Columns: ACCOUNT_TYPE_ID, ACCOUNT_TYPE_NAME
+Database Design is attached in the same repository .
 
 How to Use
 
