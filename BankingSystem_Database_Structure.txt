@@ -1,0 +1,106 @@
+# Banking Management System Database Structure
+
+## Database: Oracle Database
+The system utilizes an Oracle Database to store and manage data for the Banking Management System. Below is a detailed description of the tables and their structures used in the system.
+
+### Tables:
+
+#### 1. **Branch**
+| Column Name     | Null?   | Type          |
+|-----------------|---------|---------------|
+| BRANCH_NAME     | NOT NULL | VARCHAR2(100) |
+| BRANCH_ADDRESS  | NOT NULL | VARCHAR2(255) |
+| CITY            |          | VARCHAR2(50)  |
+| POSTAL_CODE     |          | VARCHAR2(10)  |
+| PHONE_NUMBER    |          | VARCHAR2(15)  |
+| BRANCH_ID       | NOT NULL | NUMBER(4)     |
+| BRANCH_ID_TEMP  |          | NUMBER(4)     |
+
+#### 2. **Transaction**
+| Column Name     | Null?   | Type          |
+|-----------------|---------|---------------|
+| TRANSACTION_ID  | NOT NULL | NUMBER        |
+| ACCOUNT_ID      | NOT NULL | VARCHAR2(10)  |
+| TRANSACTION_TYPE| NOT NULL | VARCHAR2(20)  |
+| AMOUNT          | NOT NULL | NUMBER(12,2)  |
+| TRANSACTION_DATE|          | DATE          |
+| DESCRIPTION     |          | VARCHAR2(255) |
+| BRANCH_ID       |          | NUMBER(4)     |
+| REFERENCE_ID    |          | NUMBER        |
+
+#### 3. **Customers**
+| Column Name     | Null?   | Type          |
+|-----------------|---------|---------------|
+| CUSTOMER_ID     | NOT NULL | NUMBER        |
+| NAME            | NOT NULL | VARCHAR2(100) |
+| DATE_OF_BIRTH   | NOT NULL | DATE          |
+| ADDRESS         |          | VARCHAR2(255) |
+| CONTACT_NUMBER  | NOT NULL | VARCHAR2(15)  |
+| EMAIL           |          | VARCHAR2(100) |
+| NATIONAL_ID     | NOT NULL | VARCHAR2(20)  |
+| DATE_JOINED     |          | DATE          |
+| CUSTOMER_TYPE   | NOT NULL | VARCHAR2(50)  |
+| USER_ID         |          | VARCHAR2(8)   |
+
+#### 4. **Account**
+| Column Name     | Null?   | Type          |
+|-----------------|---------|---------------|
+| ACCOUNT_ID      | NOT NULL | VARCHAR2(10)  |
+| CUSTOMER_ID     | NOT NULL | NUMBER        |
+| ACCOUNT_BALANCE |          | NUMBER(12,2)  |
+| DATE_OPENED     |          | DATE          |
+| STATUS          |          | VARCHAR2(20)  |
+| BRANCH_ID       |          | NUMBER(4)     |
+| ACCOUNT_TYPE    |          | NUMBER(2)     |
+
+#### 5. **Audit Log**
+| Column Name     | Null?   | Type          |
+|-----------------|---------|---------------|
+| AUDIT_LOG_ID    | NOT NULL | NUMBER(8)     |
+| USER_ID         | NOT NULL | VARCHAR2(8)   |
+| ACTION_PERFORMED| NOT NULL | VARCHAR2(255) |
+| ACTION_DATE     |          | TIMESTAMP(6)  |
+
+#### 6. **Users**
+| Column Name        | Null?   | Type          |
+|--------------------|---------|---------------|
+| USER_ID            | NOT NULL | VARCHAR2(8)   |
+| USERNAME           | NOT NULL | VARCHAR2(50)  |
+| PASSWORDHASH       | NOT NULL | VARCHAR2(255) |
+| ROLE               |          | VARCHAR2(50)  |
+| LAST_LOGIN         |          | TIMESTAMP(6)  |
+| CUSTOMER_ID        |          | NUMBER(38)    |
+| EMPLOYEE_ID        |          | NUMBER(38)    |
+| EMAIL              | NOT NULL | VARCHAR2(255) |
+| FAILEDLOGINATTEMPT |          | NUMBER(3)     |
+| STATUS             |          | VARCHAR2(7)   |
+
+#### 7. **Bank Employee**
+| Column Name    | Null?   | Type          |
+|----------------|---------|---------------|
+| EMPLOYEE_ID    | NOT NULL | NUMBER(38)    |
+| FIRST_NAME     | NOT NULL | VARCHAR2(50)  |
+| LAST_NAME      | NOT NULL | VARCHAR2(50)  |
+| EMAIL          |          | VARCHAR2(100) |
+| PHONE_NUMBER   |          | VARCHAR2(20)  |
+| HIRE_DATE      |          | DATE          |
+| POSITION       |          | VARCHAR2(50)  |
+| SALARY         |          | NUMBER(10,2)  |
+| BRANCH_ID      |          | NUMBER(38)    |
+| USER_ID        |          | VARCHAR2(8)   |
+| CNIC           | NOT NULL | VARCHAR2(15)  |
+| DATEOFBIRTH    | NOT NULL | DATE          |
+
+#### 8. **Account Type**
+| Column Name       | Null?   | Type          |
+|-------------------|---------|---------------|
+| ACCOUNT_TYPE_ID   | NOT NULL | NUMBER(38)    |
+| ACCOUNT_TYPE_NAME | NOT NULL | VARCHAR2(50)  |
+
+---
+### Notes:
+- All primary keys are defined as `NOT NULL`.
+- Foreign key relationships exist between relevant tables (e.g., `BRANCH_ID`, `ACCOUNT_ID`, `USER_ID`, etc.).
+- The database supports functionalities such as user management, transaction recording, branch management, and logging actions for auditing purposes.
+
+For any updates or modifications to the database schema, ensure that this document is updated accordingly.
