@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
 
 namespace BankingManagementSystem
 {
@@ -52,9 +54,9 @@ namespace BankingManagementSystem
 
         private void TransferButton_SendMoneyForm_Click(object sender, EventArgs e)
         {
-
-           
-                using (var connection = new OracleConnection(GlobalData.connString))
+            string receiverName = "";
+            string recieverEmail = "";
+            using (var connection = new OracleConnection(GlobalData.connString))
                 {
                     connection.Open();
                     string query = "SELECT COUNT(*) FROM ACCOUNT WHERE ACCOUNT_ID = :accountId";
@@ -91,12 +93,17 @@ namespace BankingManagementSystem
                                     receiverCustomerId = Convert.ToInt32(customerCommand.ExecuteScalar());
                                 }
                                 string nameQuery = "SELECT NAME FROM CUSTOMERS WHERE CUSTOMER_ID = :customerId";
-                                string receiverName = "";
+                              string recieverEmailQuery= "SELECT email FROM CUSTOMERS WHERE CUSTOMER_ID = :customerId";
 
                                 using (var nameCommand = new OracleCommand(nameQuery, connection))
                                 {
                                     nameCommand.Parameters.Add(new OracleParameter("customerId", receiverCustomerId));
                                     receiverName = Convert.ToString(nameCommand.ExecuteScalar());
+                                }
+                                using (var nameCommand = new OracleCommand(recieverEmailQuery, connection))
+                                {
+                                    nameCommand.Parameters.Add(new OracleParameter("customerId", receiverCustomerId));
+                                    recieverEmail = Convert.ToString(nameCommand.ExecuteScalar());
                                 }
                                 DialogResult dialogResult = MessageBox.Show("Account Title: " + receiverName + "\nAre you sure you want to transfer funds?",
                                                                             "Confirm Transaction", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -144,10 +151,10 @@ namespace BankingManagementSystem
                                         :description, 
                                         :branchId,
                                         :referenceid)";
-
+                                            long currentCustomerTransaction = generateTransactionId();
                                             using (var transactionCommand = new OracleCommand(transactionQuery, connection))
                                             {
-                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", generateTransactionId()));
+                                                transactionCommand.Parameters.Add(new OracleParameter("transactionId", currentCustomerTransaction));
                                                 transactionCommand.Parameters.Add(new OracleParameter("senderAccountId", GlobalData.CustomerAccount.accountId));
                                                 transactionCommand.Parameters.Add(new OracleParameter("transactionType", "Debit"));
                                                 transactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
@@ -179,10 +186,10 @@ namespace BankingManagementSystem
                                         :description, 
                                         :branchId, 
                                         :referenceId)";
-
+                                            long RecievingtransactionId = generateTransactionId();
                                             using (var creditTransactionCommand = new OracleCommand(creditTransactionQuery, connection))
                                             {
-                                                creditTransactionCommand.Parameters.Add(new OracleParameter("transactionId", generateTransactionId())); 
+                                                creditTransactionCommand.Parameters.Add(new OracleParameter("transactionId", RecievingtransactionId)); 
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("receiverAccountId", RecieverAccountNotxtBox.Text.ToString()));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("transactionType", "Credit"));
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(SendingAmountTxtBox.Text.ToString())));
@@ -192,7 +199,10 @@ namespace BankingManagementSystem
                                                 creditTransactionCommand.ExecuteNonQuery();
                                             }
                                             transaction.Commit();
+                                            NotifySenderForSuccessfulTransaction(GlobalData.CurrentCustomer.email, currentCustomerTransaction.ToString(), Convert.ToDecimal(SendingAmountTxtBox.Text), GlobalData.CurrentCustomer.customerName, RecieverAccountNotxtBox.Text, receiverName);
+                                            NotifyReceiverForSuccessfulTransaction(recieverEmail, Convert.ToDecimal(SendingAmountTxtBox.Text), GlobalData.CurrentCustomer.customerName, GlobalData.CustomerAccount.accountId.ToString(), receiverName);
                                             GlobalData.customizedPopup("Funds transferred successfully.");
+
                                         }
                                         catch (Exception ex)
                                         {
@@ -225,6 +235,102 @@ namespace BankingManagementSystem
 
 
 
+        }
+
+        private void NotifySenderForSuccessfulTransaction(
+    string recipientEmail, string transactionID, decimal amount, string senderName,
+    string receiverAccountNumber, string receiverTitle)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            string from, pass, messageBody, to, emailUsername;
+            emailUsername = "Askari Digital Bank Ltd.";
+            from = "AskariDigitalOTP@gmail.com";
+            pass = "mitxehwlyexurspx";
+            to = recipientEmail;
+
+            messageBody = $"Dear {senderName},\n\n" +
+                          $"Your transaction has been successfully processed.\n\n" +
+                          $"Transaction Details:\n" +
+                          $"- Transaction ID: {transactionID}\n" +
+                          $"- Amount: Rs.{amount}\n" +
+                          $"- Receiver Account Number: {receiverAccountNumber}\n" +
+                          $"- Receiver Title: {receiverTitle}\n\n" +
+                          "Thank you for using Askari Digital Banking Services.\n\n" +
+                          "Best Regards,\n" +
+                          "Askari Digital Bank Ltd.";
+
+            MailMessage message = new MailMessage();
+            message.To.Add(to);
+            message.From = new MailAddress(from, emailUsername);
+            message.Body = messageBody;
+            message.Subject = "Transaction Successful - Askari Digital Banking";
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                EnableSsl = true,
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(from, pass)
+            };
+
+            try
+            {
+                smtpClient.Send(message);
+                this.Cursor = Cursors.Default;
+              
+            }
+            catch (Exception ex)
+            {
+                this.Cursor = Cursors.Default;
+                MessageBox.Show($"Failed to send notification: {ex.Message}");
+            }
+        }
+        private void NotifyReceiverForSuccessfulTransaction(
+    string recipientEmail, decimal amount, string senderName,
+    string senderAccountNumber, string receiverTitle)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            string from, pass, messageBody, to, emailUsername;
+            emailUsername = "Askari Digital Bank Ltd.";
+            from = "AskariDigitalOTP@gmail.com";
+            pass = "mitxehwlyexurspx";
+            to = recipientEmail;
+
+            messageBody = $"Dear {receiverTitle},\n\n" +
+                          $"You account have been credited .\n\n" +
+                          $"Transaction Details:\n" +
+                          $"- Amount Credited: Rs.{amount}\n" +
+                          $"- Sender Name: {senderName}\n" +
+                          $"- Sender Account Number: {senderAccountNumber}\n\n" +
+                          "Thank you for banking with Askari Digital Bank Ltd.\n\n" +
+                          "Best Regards,\n" +
+                          "Askari Digital Bank Ltd.";
+
+            MailMessage message = new MailMessage();
+            message.To.Add(to);
+            message.From = new MailAddress(from, emailUsername);
+            message.Body = messageBody;
+            message.Subject = "Amount Credited - Askari Digital Banking";
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                EnableSsl = true,
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(from, pass)
+            };
+
+            try
+            {
+                smtpClient.Send(message);
+                this.Cursor = Cursors.Default;
+              
+            }
+            catch (Exception ex)
+            {
+                this.Cursor = Cursors.Default;
+                MessageBox.Show($"Failed to send notification: {ex.Message}");
+            }
         }
 
 
