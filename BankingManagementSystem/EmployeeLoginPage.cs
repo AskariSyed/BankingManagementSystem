@@ -272,7 +272,7 @@ namespace BankingManagementSystem
                                                     if (res == DialogResult.OK)
                                                     {
                                                         this.Hide();
-                                                        ForgotPassword forgotPassword = new ForgotPassword();
+                                                        EmployeeForgotPassword forgotPassword = new EmployeeForgotPassword();
                                                         forgotPassword.Show();
                                                     }
                                                     else

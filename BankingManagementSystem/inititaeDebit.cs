@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,6 +41,8 @@ namespace BankingManagementSystem
                 MessageBox.Show("Please Enter a valid Amount");
                 return;
             }
+            string receiverName = "";
+            string recieverEmail = "";
 
             using (var connection = new OracleConnection(GlobalData.connString))
             {
@@ -76,8 +80,14 @@ namespace BankingManagementSystem
                             customerCommand.Parameters.Add(new OracleParameter("receiverAccountId", CustomerAccountNotxtBox.Text.ToString()));
                             CustomerId = Convert.ToInt32(customerCommand.ExecuteScalar());
                         }
+                        string recieverEmailQuery = "SELECT email FROM CUSTOMERS WHERE CUSTOMER_ID = :customerId";
+                        using (var nameCommand = new OracleCommand(recieverEmailQuery, connection))
+                        {
+                            nameCommand.Parameters.Add(new OracleParameter("customerId", CustomerId));
+                            recieverEmail = Convert.ToString(nameCommand.ExecuteScalar());
+                        }
                         string nameQuery = "SELECT NAME FROM CUSTOMERS WHERE CUSTOMER_ID = :customerId";
-                        string receiverName = "";
+                      
 
                         using (var nameCommand = new OracleCommand(nameQuery, connection))
                         {
@@ -123,10 +133,10 @@ namespace BankingManagementSystem
                                         :description, 
                                         :branchId, 
                                         :referenceId)";
-
+                                    long transactionid = SendMoney.generateTransactionId();
                                     using (var creditTransactionCommand = new OracleCommand(creditTransactionQuery, connection))
                                     {
-                                        creditTransactionCommand.Parameters.Add(new OracleParameter("transactionId", SendMoney.generateTransactionId()));
+                                        creditTransactionCommand.Parameters.Add(new OracleParameter("transactionId", transactionid));
                                         creditTransactionCommand.Parameters.Add(new OracleParameter("receiverAccountId", CustomerAccountNotxtBox.Text.ToString()));
                                         creditTransactionCommand.Parameters.Add(new OracleParameter("transactionType", "Debit"));
                                         creditTransactionCommand.Parameters.Add(new OracleParameter("amount", Int32.Parse(AmountTxtBox.Text.ToString())));
@@ -136,7 +146,19 @@ namespace BankingManagementSystem
                                         creditTransactionCommand.ExecuteNonQuery();
                                     }
                                     transaction.Commit();
-                                    MessageBox.Show("Funds Debited successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    GlobalData.customizedPopup("Funds Debited successfully.");
+                                    NotifyCustomerForAccountDebit(recieverEmail, Convert.ToDecimal(AmountTxtBox.Text.Trim()), transactionid.ToString(), CustomerAccountNotxtBox.Text.ToString(), GlobalData.CurrentEmployee.lastName,GlobalData.CurrentEmployee.branchId.ToString());
+                                    foreach (Form form in Application.OpenForms)
+                                    {
+                                        if (form.Name == "ManagerHomePage" || form.Name == "tellerHomePage")
+                                        {
+                                            form.BringToFront();
+                                            form.Focus();
+                                            this.Close();
+                                            return;
+                                        }
+                                    }
+                                    this.Close();
                                 }
                                 catch (Exception ex)
                                 {
@@ -160,10 +182,72 @@ namespace BankingManagementSystem
                 }
             }
         }
+        private void NotifyCustomerForAccountDebit(
+    string recipientEmail, decimal amount, string transactionID, string accountNumber, string tellerName,string branchNumber)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            string from, pass, messageBody, to, emailUsername;
+            emailUsername = "Askari Digital Bank Ltd.";
+            from = "AskariDigitalOTP@gmail.com";
+            pass = "mitxehwlyexurspx";
+            to = recipientEmail;
+
+            messageBody = $"Dear Customer,\n\n" +
+                          $"Your account has been debited as per the details below:\n\n" +
+                          $"Transaction Details:\n" +
+                          $"- Transaction ID: {transactionID}\n" +
+                          $"- Amount Debited: Rs.{amount}\n" +
+                          $"- Account Number: {accountNumber}\n" +
+                          $"- Processed By: {tellerName} from Branch {branchNumber}\n\n" +
+                          "If you have any queries or did not authorize this transaction, please contact our support team immediately.\n\n" +
+                          "Thank you for banking with Askari Digital Bank Ltd.\n\n" +
+                          "Best Regards,\n" +
+                          "Askari Digital Bank Ltd.";
+
+            MailMessage message = new MailMessage();
+            message.To.Add(to);
+            message.From = new MailAddress(from, emailUsername);
+            message.Body = messageBody;
+            message.Subject = "Account Debit Notification - Askari Digital Banking";
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                EnableSsl = true,
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(from, pass)
+            };
+
+            try
+            {
+                smtpClient.Send(message);
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                this.Cursor = Cursors.Default;
+                MessageBox.Show($"Failed to send notification: {ex.Message}");
+            }
+        }
+
+
+
+
 
         private void Exit_btn__SendMoney_Form_Click(object sender, EventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name == "ManagerHomePage" || form.Name == "tellerHomePage")
+                {
+                    form.BringToFront();
+                    form.Focus();
+                    this.Close();
+                    return;
+                }
+            }
             this.Close();
+           
         }
 
         private void AmountTxtBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

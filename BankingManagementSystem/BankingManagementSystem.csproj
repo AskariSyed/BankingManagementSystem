@@ -142,6 +142,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessDatabase.Designer.cs">
+      <DependentUpon>AccessDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Account.cs" />
     <Compile Include="AddEmployee.cs">
       <SubType>Form</SubType>
@@ -352,6 +358,9 @@
     <Compile Include="UpdatePersonalDetailsForm.Designer.cs">
       <DependentUpon>UpdatePersonalDetailsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccessDatabase.resx">
+      <DependentUpon>AccessDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
       <SubType>Designer</SubType>

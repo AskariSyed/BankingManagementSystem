@@ -295,5 +295,11 @@ namespace BankingManagementSystem
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AccessDatabase accessDatabase   = new AccessDatabase();
+            accessDatabase.Show();
+        }
     }
 }

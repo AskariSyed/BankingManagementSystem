@@ -357,7 +357,7 @@ namespace BankingManagementSystem
                             if (count == 0)
                             {
                                 isUnique = true;
-                                GlobalData.customizedPopup($"Unique Transaction ID Assigned: {transactionIDAssigned}");
+                               
                             }
                         }
                     }
