@@ -272,43 +272,6 @@ namespace BankingManagementSystem
                                             GlobalData.LogError("Failed to fetch failed login attempt count for user", ex);
                                         }
 
-                                        if (failedLoginAttempt == 3)
-                                        {
-                                            string updateStatusQuery = "UPDATE users SET Status = 'Blocked' WHERE USER_ID = :userId";
-
-                                            try
-                                            {
-                                                using (OracleCommand updateStatusCmd = new OracleCommand(updateStatusQuery, conn))
-                                                {
-                                                    updateStatusCmd.Parameters.Add(new OracleParameter("userId", userId));
-                                                    updateStatusCmd.ExecuteNonQuery();
-
-                                                    DialogResult res = MessageBox.Show("Your account Has Been Blocked. Please Verify Yourself.",
-                                                   "Account Blocked",
-                                                   MessageBoxButtons.OKCancel,
-                                                   MessageBoxIcon.Error);
-                                                    if (res == DialogResult.OK)
-                                                    {
-                                                        this.Hide();
-                                                        ForgotPassword forgotPassword = new ForgotPassword();
-                                                        forgotPassword.Show();
-                                                    }
-                                                    else
-                                                    {
-                                                        MessageBox.Show("You clicked Cancel. No action will be taken.", "No Action");
-                                                        return;
-                                                    }
-                                                }
-                                            }
-                                            catch (Exception ex)
-                                            {
-
-                                                MessageBox.Show("Unable to block the account after too many failed login attempts. Please contact support for immediate assistance.");
-                                                GlobalData.LogError("Failed to update user status to 'Blocked'", ex);
-                                            }
-                                        }
-
-
                                         int newAuditID = GenerateNewLogID();
                                         string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
                                                 "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
@@ -338,6 +301,64 @@ namespace BankingManagementSystem
                                             MessageBox.Show("Failed to record the failed login attempt in system logs. Please contact support if this issue persists.");
                                             GlobalData.LogError("Failed to write failed login attempt to Audit Log", ex);
                                         }
+
+                                        if (failedLoginAttempt == 3)
+                                        {
+                                            string updateStatusQuery = "UPDATE users SET Status = 'Blocked' WHERE USER_ID = :userId";
+
+                                            try
+                                            {
+                                                using (OracleCommand updateStatusCmd = new OracleCommand(updateStatusQuery, conn))
+                                                {
+                                                    updateStatusCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                    updateStatusCmd.ExecuteNonQuery();
+
+                                                    int newAuditId = signInpage.GenerateNewLogID();
+                                                    string accountBlocked = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                            "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+
+                                                    try
+                                                    {
+                                                        using (OracleCommand insertFailedCmd = new OracleCommand(accountBlocked, conn))
+                                                        {
+                                                            insertFailedCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditId));
+                                                            insertFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                            insertFailedCmd.Parameters.Add(new OracleParameter("actionPerformed", "Account Blocked Due to Multiple Invalid Attempts"));
+                                                            insertFailedCmd.ExecuteNonQuery();
+                                                        }
+
+                                                    }
+                                                    catch (Exception ex)
+                                                    {
+                                                        MessageBox.Show(ex.Message);
+                                                    }
+
+                                                    DialogResult res = MessageBox.Show("Your account Has Been Blocked. Please Verify Yourself.",
+                                                   "Account Blocked",
+                                                   MessageBoxButtons.OKCancel,
+                                                   MessageBoxIcon.Error);
+                                                    if (res == DialogResult.OK)
+                                                    {
+                                                        this.Hide();
+                                                        ForgotPassword forgotPassword = new ForgotPassword();
+                                                        forgotPassword.Show();
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("You clicked Cancel. No action will be taken.", "No Action");
+                                                        return;
+                                                    }
+                                                }
+                                            }
+                                            catch (Exception ex)
+                                            {
+
+                                                MessageBox.Show("Unable to block the account after too many failed login attempts. Please contact support for immediate assistance.");
+                                                GlobalData.LogError("Failed to update user status to 'Blocked'", ex);
+                                            }
+                                        }
+
+
                                     }
                                 }
                                 catch (Exception ex)

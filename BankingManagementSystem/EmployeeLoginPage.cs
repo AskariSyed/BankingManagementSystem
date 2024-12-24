@@ -254,41 +254,6 @@ namespace BankingManagementSystem
                                             MessageBox.Show(ex.Message);
                                         }
 
-                                        if (failedLoginAttempt == 3)
-                                        {
-                                            string updateStatusQuery = "UPDATE users SET Status = 'Blocked' WHERE USER_ID = :userId";
-
-                                            try
-                                            {
-                                                using (OracleCommand updateStatusCmd = new OracleCommand(updateStatusQuery, conn))
-                                                {
-                                                    updateStatusCmd.Parameters.Add(new OracleParameter("userId", userId));
-                                                    updateStatusCmd.ExecuteNonQuery();
-
-                                                    DialogResult res = MessageBox.Show("Your account Has Been Blocked. Please Verify Yourself.",
-                                                   "Account Blocked",
-                                                   MessageBoxButtons.OKCancel,
-                                                   MessageBoxIcon.Error);
-                                                    if (res == DialogResult.OK)
-                                                    {
-                                                        this.Hide();
-                                                        EmployeeForgotPassword forgotPassword = new EmployeeForgotPassword();
-                                                        forgotPassword.Show();
-                                                    }
-                                                    else
-                                                    {
-                                                        MessageBox.Show("You clicked Cancel. No action will be taken.", "No Action");
-                                                        return;
-                                                    }
-                                                }
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                MessageBox.Show(ex.Message);
-                                            }
-                                        }
-
-
                                         int newAuditID = signInpage.GenerateNewLogID();
                                         string failedLoginInsertQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
                                                 "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
@@ -317,6 +282,65 @@ namespace BankingManagementSystem
                                         {
                                             MessageBox.Show(ex.Message);
                                         }
+                                        if (failedLoginAttempt == 3)
+                                        {
+                                            string updateStatusQuery = "UPDATE users SET Status = 'Blocked' WHERE USER_ID = :userId";
+
+                                            try
+                                            {
+                                                using (OracleCommand updateStatusCmd = new OracleCommand(updateStatusQuery, conn))
+                                                {
+                                                    updateStatusCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                    updateStatusCmd.ExecuteNonQuery();
+
+                                                  
+
+                                                    DialogResult res = MessageBox.Show("Your account Has Been Blocked. Please Verify Yourself.",
+                                                   "Account Blocked",
+                                                   MessageBoxButtons.OKCancel,
+                                                   MessageBoxIcon.Error);
+                                                    if (res == DialogResult.OK)
+                                                    {
+                                                        this.Hide();
+                                                        EmployeeForgotPassword forgotPassword = new EmployeeForgotPassword();
+                                                        forgotPassword.Show();
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("You clicked Cancel. No action will be taken.", "No Action");
+                                                        return;
+                                                    }
+
+
+
+                                                }
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                MessageBox.Show(ex.Message);
+                                            }
+                                            int newAuditId = signInpage.GenerateNewLogID();
+                                            string accountBlocked = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
+                                                    "VALUES (:auditLogId, :userId, :actionPerformed, SYSTIMESTAMP)";
+
+                                            try
+                                            {
+                                                using (OracleCommand insertFailedCmd = new OracleCommand(accountBlocked, conn))
+                                                {
+                                                    insertFailedCmd.Parameters.Add(new OracleParameter("auditLogId", newAuditId));
+                                                    insertFailedCmd.Parameters.Add(new OracleParameter("userId", userId));
+                                                    insertFailedCmd.Parameters.Add(new OracleParameter("actionPerformed", "Account Blocked Due to Multiple Invalid Attempts"));
+                                                    insertFailedCmd.ExecuteNonQuery();
+                                                }
+
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                MessageBox.Show(ex.Message);
+                                            }
+                                        }
+
+
                                     }
                                 }
                                 catch (Exception ex)
