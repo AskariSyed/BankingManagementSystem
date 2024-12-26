@@ -98,11 +98,20 @@ namespace BankingManagementSystem
                 {
                     MessageBox.Show(ex.Message);
                 }
+                foreach (Form form in Application.OpenForms)
+                {
+                    if(form.Name== "signInpage")
+                    {
+                        continue;
+                    }
+                        form.Close();
+                    }
+                }
                 GlobalData.CurrentCustomer = null;
             }
 
 
-        }
+        
         public static void EmployeeLogout()
         {
             string insertAuditLogQuery = "INSERT INTO AUDITLOG (AUDIT_LOG_ID, USER_ID, ACTION_PERFORMED, ACTION_DATE) " +
@@ -126,7 +135,23 @@ namespace BankingManagementSystem
                 {
                     MessageBox.Show(ex.Message);
                 }
-                GlobalData.CurrentCustomer = null;
+                try
+                {
+                    foreach (Form form in Application.OpenForms)
+                    {
+                        if (form.Name == "signInpage")
+                        {
+                            continue;
+                        }
+                        form.Close();
+                    }
+                }
+                catch (Exception ex) {
+                    LogError("Error While looping through open forms ", ex);
+                    MessageBox.Show("Exception Occured Please Check Log file for more info");
+                }
+            
+            GlobalData.CurrentCustomer = null;
                 GlobalData.CurrentEmployee = null;
             }
 

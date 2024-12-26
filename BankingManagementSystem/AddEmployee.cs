@@ -52,14 +52,23 @@ namespace BankingManagementSystem
                     MessageBox.Show("Please enter a valid email address.");
                     return;
                 }
-
+               
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(position)
                      || salary <= 0 || string.IsNullOrEmpty(branchId) || string.IsNullOrEmpty(cnic) || dob == DateTime.MinValue)
                 {
                     MessageBox.Show("Please fill in all required fields.");
                     return;
+
                 }
-                string username = lastName + firstName;
+                if (Cnic_maskedtextbox.Text.Trim().Length<15|| Cnic_maskedtextbox.Text.Trim().Contains(" "))
+                {
+                    MessageBox.Show("Cnic Should be 13 digits with no blank spaces");
+                    return;
+                }
+               
+                Random random = new Random();
+                string randomCode = (random.Next(000,111)).ToString();
+                string username = lastName.Trim() + firstName.Trim()+randomCode.Trim();
 
                 string employeeQuery = @"INSERT INTO bankemployee (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, POSITION, SALARY, BRANCH_ID, CNIC, DATEOFBIRTH, USER_ID) 
                              VALUES (:employeeId, :firstName, :lastName, :email, :phoneNumber, :hireDate, :position, :salary, :branchId, :cnic, :dob, :userid)";
@@ -82,7 +91,7 @@ namespace BankingManagementSystem
 
                                 if (usernameCount > 0)
                                 {
-                                    MessageBox.Show("Username already exists. Please choose a different username. By Manual adding emooyee from add employee feature from home page", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBox.Show("Username already exists. Please choose a different username. By Manual adding employee from add employee feature from home page", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     return;
                                 }
                             }

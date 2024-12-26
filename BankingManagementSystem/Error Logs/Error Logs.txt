@@ -24,3 +24,36 @@ Stack Trace:    at System.Net.Mail.SmtpClient.Send(MailMessage message)
 Exception: Failure sending mail.
 Stack Trace:    at System.Net.Mail.SmtpClient.Send(MailMessage message)
    at BankStatementGenerator.sendPdfToEmail(String recipientEmail, String filePath) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\BankStatementGenerator.cs:line 525
+--------------------------------------------------------------------------------
+12/26/2024 8:24:28 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout() in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\GlobalData.cs:line 140
+--------------------------------------------------------------------------------
+12/26/2024 9:32:32 PM: Updating user for failed login attempt 
+Exception: ORA-01008: not all variables bound
+https://docs.oracle.com/error-help/db/ora-01008/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader()
+   at BankingManagementSystem.signInpage.SignIn_btn_SigninForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 243
+--------------------------------------------------------------------------------
+12/26/2024 9:32:37 PM: Failed to write failed login attempt to Audit Log
+Exception: The parameter 'addresses' cannot be an empty string.
+Parameter name: addresses
+Stack Trace:    at System.Net.Mail.MailAddressCollection.Add(String addresses)
+   at BankingManagementSystem.signInpage.NotifyInvalidLoginAttempt(String customerEmail) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 516
+   at BankingManagementSystem.signInpage.SignIn_btn_SigninForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 317
+--------------------------------------------------------------------------------
+12/26/2024 9:34:05 PM: Updating user for failed login attempt 
+Exception: ORA-00904: "USERID": invalid identifier
+https://docs.oracle.com/error-help/db/ora-00904/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader()
+   at BankingManagementSystem.signInpage.SignIn_btn_SigninForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 244
+--------------------------------------------------------------------------------
+12/26/2024 9:34:07 PM: Failed to write failed login attempt to Audit Log
+Exception: The parameter 'addresses' cannot be an empty string.
+Parameter name: addresses
+Stack Trace:    at System.Net.Mail.MailAddressCollection.Add(String addresses)
+   at BankingManagementSystem.signInpage.NotifyInvalidLoginAttempt(String customerEmail) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 517
+   at BankingManagementSystem.signInpage.SignIn_btn_SigninForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 318

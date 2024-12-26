@@ -68,12 +68,36 @@ namespace BankingManagementSystem
             string email = Email_txtBox_Sigupfrom.Text;
 
             int accountTypeID = 0;
+            if (Cnic_maskedtextbox_signupform.Text.Trim().Length < 15)
+            {
+                MessageBox.Show("CNIC Should be 13 Digits");
+                return;
+            }
+            if(Cnic_maskedtextbox_signupform.Text.Trim().Contains(" "))
+            {
+                MessageBox.Show("CNIC could not contain Blank Spaces");return;
+            }
+            if (ContactNumber_MaskedTextBox_sigupform.Text.Trim().Length < 12) {
+                MessageBox.Show("Contact Number should 11 Digits");
+                return;
+            }
+            if(ContactNumber_MaskedTextBox_sigupform.Text.Trim().Contains(" ")){
+                MessageBox.Show("Contact Number Could Not Contain Blank Spaces");
+                return;
+            }
+            if (Username_txtBox_signUpForm.Text.Trim().Contains(' ')) {
+                MessageBox.Show("Username Could Not containg Blank Spaces");
+                return;
+            }
+
+
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(name)  || string.IsNullOrWhiteSpace(cnic) || string.IsNullOrWhiteSpace(address) || string.IsNullOrWhiteSpace(accountType) || string.IsNullOrWhiteSpace(contactNumber) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("All Fields are Mandatory \n please fill the form completely");
                 return;
             }
+           
 
             if(username.Contains(" "))
             {
@@ -97,10 +121,6 @@ namespace BankingManagementSystem
                     {
                         MessageBox.Show("Username already exists. Please choose a different username.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Username is available.", "Username Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 

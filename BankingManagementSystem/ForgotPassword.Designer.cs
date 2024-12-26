@@ -192,7 +192,7 @@
             this.Save_Password_BTN__ForgotPasswrod_Form.Name = "Save_Password_BTN__ForgotPasswrod_Form";
             this.Save_Password_BTN__ForgotPasswrod_Form.Size = new System.Drawing.Size(482, 51);
             this.Save_Password_BTN__ForgotPasswrod_Form.TabIndex = 74;
-            this.Save_Password_BTN__ForgotPasswrod_Form.Text = "Save Passsword";
+            this.Save_Password_BTN__ForgotPasswrod_Form.Text = "Save Password";
             this.Save_Password_BTN__ForgotPasswrod_Form.UseVisualStyleBackColor = false;
             this.Save_Password_BTN__ForgotPasswrod_Form.Click += new System.EventHandler(this.Save_Password_BTN__ForgotPasswrod_Form_Click);
             // 

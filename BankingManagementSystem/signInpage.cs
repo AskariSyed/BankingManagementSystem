@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -62,6 +64,7 @@ namespace BankingManagementSystem
         {
             string username = Username_txtBox_signinForm.Text;
             string password = Passworde_txtBox_signinForm.Text;
+            string customerEmailFetched = "";
 
 
             using (OracleConnection conn = new OracleConnection(GlobalData.connString))
@@ -147,6 +150,7 @@ namespace BankingManagementSystem
 
                         else
                         {
+
                             object result2 = null;
                             int customerId = 0;
                             string userId = null; 
@@ -231,8 +235,27 @@ namespace BankingManagementSystem
                                     }
                                     if (userId != null)
                                     {
+                                        string fetchEmail = "Select email from users where user_id= : userid";
 
-                                    
+                                        try
+                                        {
+                                            using(OracleCommand emailcmd= new OracleCommand(fetchEmail, conn)){
+                                                emailcmd.Parameters.Add(new OracleParameter("userid", userId));
+                                                using (OracleDataReader reader = emailcmd.ExecuteReader())
+                                                {
+                                                    if (reader.Read())
+                                                    {
+                                                        customerEmailFetched = reader.GetString(0);
+                                                    }
+                                                } 
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message);
+                                            GlobalData.LogError("Updating user for failed login attempt ", ex);
+                                        }
+
 
                                         string incrementFailedLoginQuery = "UPDATE users SET failedLoginAttempt = failedLoginAttempt + 1 WHERE USER_ID = :userId";
 
@@ -288,9 +311,11 @@ namespace BankingManagementSystem
                                                 if (failedLoginAttempt >= 3)
                                                 {
                                                     MessageBox.Show("Invalid Login Attempt\nYou have zero attempts left.", "Warning");
+                                                    NotifyInvalidLoginAttempt(customerEmailFetched);
                                                 }
                                                 else
                                                 {
+                                                    NotifyInvalidLoginAttempt(customerEmailFetched);
                                                     MessageBox.Show("Invalid Login Attempt\nYou have only " + (3 - failedLoginAttempt) + " attempts left.", "Warning");
                                                 }
                                             }
@@ -332,6 +357,7 @@ namespace BankingManagementSystem
                                                     {
                                                         MessageBox.Show(ex.Message);
                                                     }
+                                                    NotifyAccountBlocked(customerEmailFetched, DateTime.Now);
 
                                                     DialogResult res = MessageBox.Show("Your account Has Been Blocked. Please Verify Yourself.",
                                                    "Account Blocked",
@@ -466,5 +492,97 @@ namespace BankingManagementSystem
                 e.Handled = true;
             }
         }
+        public void NotifyInvalidLoginAttempt(string customerEmail)
+        {
+            string from = "AskariDigitalOTP@gmail.com"; 
+            string password = "mitxehwlyexurspx"; 
+            string emailUsername = "Askari Digital Bank Ltd."; 
+            string subject = "Security Alert: Invalid Login Attempt Detected";
+            string messageBody = $"Dear Customer,\n\n" +
+                                 $"We noticed an invalid login attempt to your account on {DateTime.Now.ToString("f")}.\n" +
+                                 $"If this was you, please ensure your credentials are correct.\n" +
+                                 $"If this wasn't you, we recommend changing your password immediately to secure your account.\n\n" +
+                                 $"For assistance, contact our support team at  AskariDigitalOTP@gmail.com.\n\n" +
+                                 "Thank you,\n" +
+                                 "The Askari Digital Bank Team";
+
+            MailMessage message = new MailMessage
+            {
+                From = new MailAddress(from, emailUsername),
+                Subject = subject,
+                Body = messageBody,
+                IsBodyHtml = false
+            };
+
+            message.To.Add(customerEmail);
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                EnableSsl = true,
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(from, password)
+            };
+
+            try
+            {
+                smtpClient.Send(message);
+             }
+            catch (Exception ex)
+            {
+                GlobalData.LogError("Error Sending Email Plz check log file for more info", ex);
+                
+            }
+        }
+      
+        public void NotifyAccountBlocked(string customerEmail, DateTime blockTime)
+        {
+            string from = "AskariDigitalOTP@gmail.com"; 
+            string password = "mitxehwlyexurspx"; 
+            string emailUsername = "Askari Digital Bank Ltd.";
+            string subject = "Important: Your Account Has Been Blocked";
+
+            
+            string messageBody = $"Dear Customer,\n\n" +
+                                 "We have detected multiple invalid login attempts to your account. As a precaution, your account has been temporarily blocked to safeguard your security.\n\n" +
+                                 $"Details:\n" +
+                                 $"- Account Blocked At: {blockTime.ToString("f")}\n\n" +
+                                 "To regain access to your account, please contact our customer support team or follow the account recovery steps on our online banking portal.\n\n" +
+                                 "For assistance, contact us at  AskariDigitalOTP@gmail.com.\n\n" +
+                                 "Thank you for your understanding and cooperation.\n\n" +
+                                 "Best regards,\n" +
+                                 "The Askari Digital Bank Team";
+
+            MailMessage message = new MailMessage
+            {
+                From = new MailAddress(from, emailUsername),
+                Subject = subject,
+                Body = messageBody,
+                IsBodyHtml = false
+            };
+
+            message.To.Add(customerEmail);
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                EnableSsl = true,
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(from, password)
+            };
+
+            try
+            {
+                smtpClient.Send(message);
+                Console.WriteLine("Account block notification sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                GlobalData.LogError("Failed to process account blocking notification", ex);
+                Console.WriteLine("An error occurred while sending the email: " + ex.Message);
+            }
+        }
     }
+
 }
