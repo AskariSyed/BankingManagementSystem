@@ -218,7 +218,8 @@ namespace BankingManagementSystem
 
         private void UpdateCustomerInformation_Button_Click(object sender, EventArgs e)
         {
-
+            EnterOTPFromEmployeeForUpdate enterOTPFromEmployeeForUpdate = new EnterOTPFromEmployeeForUpdate();
+            enterOTPFromEmployeeForUpdate.Show();
         }
 
         private void BlockCustomerAccount_button_Click(object sender, EventArgs e)

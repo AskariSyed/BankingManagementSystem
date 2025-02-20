@@ -277,12 +277,13 @@ namespace BankingManagementSystem
             {
                 smtpClient.Send(message);
                 this.Cursor = Cursors.Default;
-              
+
             }
             catch (Exception ex)
             {
                 this.Cursor = Cursors.Default;
-                MessageBox.Show($"Failed to send notification: {ex.Message}");
+                MessageBox.Show("Email Error Occured please see  log file  for more information");
+                GlobalData.LogError("Email sending Error Occured ", ex);
             }
         }
         private void NotifyReceiverForSuccessfulTransaction(
@@ -329,7 +330,8 @@ namespace BankingManagementSystem
             catch (Exception ex)
             {
                 this.Cursor = Cursors.Default;
-                MessageBox.Show($"Failed to send notification: {ex.Message}");
+                MessageBox.Show("Failed to send notification please see  log file  for more information");
+                GlobalData.LogError("Failed to send notification ", ex);
             }
         }
 
@@ -363,7 +365,9 @@ namespace BankingManagementSystem
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error while checking transaction ID: {ex.Message}");
+                        
+                        MessageBox.Show("Error while checking transaction ID  please see  log file  for more information");
+                        GlobalData.LogError("Error while checking transaction ID ", ex);
                         break; 
                     }
                 }
@@ -402,7 +406,10 @@ namespace BankingManagementSystem
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error while checking refernce ID: {ex.Message}");
+                       
+
+                        MessageBox.Show("\"Error while checking refernce ID please see  log file  for more information");
+                        GlobalData.LogError("\"Error while checking refernce ID  ", ex);
                         break;
                     }
                 }

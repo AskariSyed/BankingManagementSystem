@@ -38,7 +38,7 @@ namespace BankingManagementSystem
             }
             message.From = new MailAddress(from, Email_username);
             message.Body = messageBody;
-            message.Subject = "Digital On Boarding Askari Digital OTP";
+            message.Subject = "Important: Askari Digital OTP";
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
             smtpClient.EnableSsl = true;
             smtpClient.Port = 587;

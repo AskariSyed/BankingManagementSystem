@@ -111,11 +111,14 @@ namespace BankingManagementSystem
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message);
+
+                                MessageBox.Show("Error Occured while inserting data in auditlog see log file ofr more info ");
+                                GlobalData.LogError("Error Occured while inserting data in auditlog", ex);
                             }
                             string lastloginQuery = "update users set last_login =:lastlogin where user_ID =:userid";
                             try
                             {
+
 
                                 using (OracleCommand lastLogincmd = new OracleCommand(lastloginQuery, conn))
                                 {
@@ -141,7 +144,9 @@ namespace BankingManagementSystem
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message);
+
+                                MessageBox.Show("Error occured while updating customers data see log file for details");
+                                GlobalData.LogError("Error occured while updating customers data ",ex);
                             }
 
 
@@ -166,12 +171,12 @@ namespace BankingManagementSystem
                                 }
                                 customerId = Convert.ToInt32(result2);
                                 userId = "CUS" + customerId;
-                                MessageBox.Show("userid = " + userId);
+                                
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message);    
-
+                                MessageBox.Show("Error occured while sigingin please see log file for more info"); 
+                                GlobalData.LogError("Exception while sigingin ",ex);
                             }
 
                                 if (result2 != null)
@@ -355,7 +360,9 @@ namespace BankingManagementSystem
                                                     }
                                                     catch (Exception ex)
                                                     {
-                                                        MessageBox.Show(ex.Message);
+                                                       
+                                                        MessageBox.Show("Error while inserting in audit logs  please see  log file  for more information");
+                                                        GlobalData.LogError("Error while inserting in audit logs ", ex);
                                                     }
                                                     NotifyAccountBlocked(customerEmailFetched, DateTime.Now);
 
@@ -494,6 +501,7 @@ namespace BankingManagementSystem
         }
         public void NotifyInvalidLoginAttempt(string customerEmail)
         {
+            this.Cursor=Cursors.WaitCursor;
             string from = "AskariDigitalOTP@gmail.com"; 
             string password = "mitxehwlyexurspx"; 
             string emailUsername = "Askari Digital Bank Ltd."; 
@@ -533,10 +541,13 @@ namespace BankingManagementSystem
                 GlobalData.LogError("Error Sending Email Plz check log file for more info", ex);
                 
             }
+            this.Cursor = Cursors.Default;
         }
       
         public void NotifyAccountBlocked(string customerEmail, DateTime blockTime)
         {
+            this.Cursor = Cursors.WaitCursor;
+
             string from = "AskariDigitalOTP@gmail.com"; 
             string password = "mitxehwlyexurspx"; 
             string emailUsername = "Askari Digital Bank Ltd.";
@@ -578,10 +589,12 @@ namespace BankingManagementSystem
             }
             catch (Exception ex)
             {
-                // Log the exception
+               
                 GlobalData.LogError("Failed to process account blocking notification", ex);
                 Console.WriteLine("An error occurred while sending the email: " + ex.Message);
             }
+            this.Cursor = Cursors.Default;
+
         }
     }
 

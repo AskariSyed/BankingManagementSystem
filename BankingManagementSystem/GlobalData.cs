@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -96,19 +97,15 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+
+                    MessageBox.Show("Failed toinsert in audit logs  please see  log file  for more information");
+                    GlobalData.LogError("Failed to insert in auditlogs ", ex);
+                    
                 }
-                foreach (Form form in Application.OpenForms)
-                {
-                    if(form.Name== "signInpage")
-                    {
-                        continue;
-                    }
-                        form.Close();
-                    }
-                }
+              
                 GlobalData.CurrentCustomer = null;
             }
+        }
 
 
         
@@ -134,22 +131,11 @@ namespace BankingManagementSystem
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+
+                    MessageBox.Show("Failed to insert in audit log please see  log file  for more information");
+                    GlobalData.LogError("Failed to insert in audit logs ", ex);
                 }
-                try
-                {
-                    foreach (Form form in Application.OpenForms)
-                    {
-                        if (form.Name == "signInpage")
-                        {
-                            continue;
-                        }
-                        form.Close();
-                    }
-                }
-                catch (Exception ex) {
-                    LogError("Error While looping through open forms ", ex);
-                    MessageBox.Show("Exception Occured Please Check Log file for more info");
-                }
+               
             
             GlobalData.CurrentCustomer = null;
                 GlobalData.CurrentEmployee = null;

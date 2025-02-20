@@ -95,7 +95,9 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                  
+                    MessageBox.Show("Error while selecting employee  please see  log file  for more information");
+                    GlobalData.LogError("Error while selecting employee audit logs ", ex);
                     return;
                 }
             }
@@ -373,6 +375,8 @@ namespace BankingManagementSystem
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error while connecting to db   please see  log file  for more information");
+                GlobalData.LogError("Error while connecting to db ", ex);
             }
         }
 

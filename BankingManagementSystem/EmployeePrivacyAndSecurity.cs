@@ -141,7 +141,9 @@ namespace BankingManagementSystem
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message);
+                            
+                            MessageBox.Show("Error Occured while inserting auditlogs  Please See log file for more information");
+                            GlobalData.LogError("Error Occured while insertng audit logs", ex);
                         }
                         MessageBox.Show("Your Password have been successfully changed ", "Update Password Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GlobalData.customizedPopup("Please Login Again");
@@ -152,12 +154,14 @@ namespace BankingManagementSystem
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        MessageBox.Show($"Error updating details: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error Occured Please See log file for more information");
+                        GlobalData.LogError("Error Occured while updating password", ex);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Database connection error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error Occured while establishing connection with data base please see log file for more information");
+                    GlobalData.LogError("Error Occured while connecting to db", ex);
                 }
             }
         }
@@ -211,7 +215,8 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+                    MessageBox.Show("Error Occured while Fetching audit logs Please See log file for more information");
+                    GlobalData.LogError("Error Occured while Fetching audit logs", ex);
                 }
             }
         }
@@ -256,7 +261,9 @@ namespace BankingManagementSystem
             {
 
                 this.Cursor = Cursors.Default;
-                MessageBox.Show(ex.Message);
+              
+                MessageBox.Show("Error Occured while sending email Please See log file for more information");
+                GlobalData.LogError("Error Occured while Sending emial", ex);
             }
 
         }

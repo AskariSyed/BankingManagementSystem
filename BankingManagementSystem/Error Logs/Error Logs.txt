@@ -57,3 +57,45 @@ Parameter name: addresses
 Stack Trace:    at System.Net.Mail.MailAddressCollection.Add(String addresses)
    at BankingManagementSystem.signInpage.NotifyInvalidLoginAttempt(String customerEmail) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 517
    at BankingManagementSystem.signInpage.SignIn_btn_SigninForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 318
+--------------------------------------------------------------------------------
+12/27/2024 12:23:24 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout() in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\GlobalData.cs:line 148
+--------------------------------------------------------------------------------
+12/27/2024 4:06:47 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout() in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\GlobalData.cs:line 148
+--------------------------------------------------------------------------------
+1/17/2025 8:48:30 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout() in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\GlobalData.cs:line 148
+--------------------------------------------------------------------------------
+1/17/2025 11:12:13 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout() in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\GlobalData.cs:line 140
+--------------------------------------------------------------------------------
+1/17/2025 11:47:21 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout() in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\GlobalData.cs:line 140
+--------------------------------------------------------------------------------
+2/20/2025 7:22:49 PM: Error adding employee
+Exception: ORA-02290: check constraint (SYSTEM.CHK_PHONE_NUMBER_LENGTH) violated
+https://docs.oracle.com/error-help/db/ora-02290/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SearchEmployee.AddNewEmployeeButton_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SearchEmployee.cs:line 348
+--------------------------------------------------------------------------------
+2/20/2025 7:24:38 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout() in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\GlobalData.cs:line 140
+--------------------------------------------------------------------------------
+2/20/2025 7:47:43 PM: Error While looping through open forms 
+Exception: Collection was modified; enumeration operation may not execute.
+Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
+   at BankingManagementSystem.GlobalData.EmployeeLogout()

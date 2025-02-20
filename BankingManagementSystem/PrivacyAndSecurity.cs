@@ -194,7 +194,8 @@ namespace BankingManagementSystem
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message);
+                            MessageBox.Show("Error while inserting in audit logs please see log file for more information");
+                            GlobalData.LogError("Error while inserting in audit logs ", ex);
                         }
                         MessageBox.Show("Your Password have been successfully changed ", "Update Password Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GlobalData.customizedPopup("Please Login Again");
@@ -205,12 +206,15 @@ namespace BankingManagementSystem
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        MessageBox.Show($"Error updating details: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error updating details please see  log file  for more information");
+                        GlobalData.LogError("Error updating details ", ex);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Database connection error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    MessageBox.Show("Database connection error please see  log file  for more information");
+                    GlobalData.LogError("Database connection error ", ex);
                 }
             }
         }
@@ -264,7 +268,9 @@ namespace BankingManagementSystem
             {
 
                 this.Cursor = Cursors.Default;
-                MessageBox.Show(ex.Message);
+            
+                MessageBox.Show("Error sending email please see  log file  for more information");
+                GlobalData.LogError("Error sending email ", ex);
             }
         }
 
@@ -308,7 +314,10 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+
+                    
+                    MessageBox.Show("Error while fetching audit logs for custoemr pelase check log file for more information");
+                    GlobalData.LogError("Error while fetching audit logs ",ex);
                 }
             }
         }

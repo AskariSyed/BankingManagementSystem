@@ -73,7 +73,9 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+
+                    MessageBox.Show("Oracle Error Occured please see auit log for more information");
+                    GlobalData.LogError("Error Occured ", ex);
                 }
             }
 
@@ -165,7 +167,9 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+
+                    MessageBox.Show("Oracle Error Occured please see audit log for more information");
+                    GlobalData.LogError("Error Occured ", ex);
                 }
             }
         }
@@ -195,7 +199,9 @@ namespace BankingManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+
+                    MessageBox.Show("Oracle Error Occured please see auit log for more information");
+                    GlobalData.LogError("Error Occured ", ex);
                 }
             }
         }

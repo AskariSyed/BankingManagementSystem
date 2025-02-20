@@ -59,11 +59,15 @@ namespace BankingManagementSystem
             }
             catch (OracleException ex)
             {
-                MessageBox.Show($"Oracle error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                MessageBox.Show("Oracle Error Occured please see auit log for more information");
+                GlobalData.LogError("Error Occured ", ex);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("Oracle Error Occured please see auit log for more information");
+                GlobalData.LogError("Error Occured ", ex);
             }
         }
 

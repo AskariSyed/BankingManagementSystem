@@ -316,7 +316,8 @@ namespace BankingManagementSystem
                     }
                     transaction.Commit();
 
-                    MessageBox.Show("Transactions reversed and account balances updated successfully!");
+                    GlobalData.customizedPopup("Transactions reversed and account balances updated successfully!");
+                    this.Close();
                 }
                 catch (Exception ex)
                 {

@@ -145,7 +145,11 @@ namespace BankingManagementSystem
                             EnterOTP_txtBox_UpdateUserInfoForm.Visible = true;
                             EmailDetailLabel.Visible = true;
                             EmailLabel.Visible = true;
-                           
+                            pictureBox2.Visible = false;
+                            pictureBox2.Enabled = false;
+
+
+
                         }
                         else
                         {
@@ -329,6 +333,11 @@ namespace BankingManagementSystem
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
