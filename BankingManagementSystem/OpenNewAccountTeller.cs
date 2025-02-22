@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Net.Mail;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static BankingManagementSystem.Account;
-using System.ComponentModel.DataAnnotations;
-using Oracle.ManagedDataAccess;
+
 using Oracle.ManagedDataAccess.Client;
 
 namespace BankingManagementSystem
@@ -46,9 +38,9 @@ namespace BankingManagementSystem
         string email;
         string cnic;
         string password;
-        string otp;
         string randomCode=null;
         int newCustomerID;
+        string otp;
 
 
         private void OpenNewAccountTeller_Load(object sender, EventArgs e)
@@ -275,6 +267,7 @@ namespace BankingManagementSystem
             }
             catch (Exception eee)
             {
+                GlobalData.LogError("Error while sending email:", eee);
 
             }
             message.From = new MailAddress(from, Email_username);

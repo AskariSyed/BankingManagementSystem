@@ -88,7 +88,9 @@ public class BankStatementGenerator
 
                         HeaderFooter footer = section.Footers.Primary;
 
-                       
+                        section.PageSetup.TopMargin = Unit.FromCentimeter(3.5); // Adjust as needed
+                        section.PageSetup.BottomMargin = Unit.FromCentimeter(3.5); // Adjust as needed
+
                         Paragraph paraFooter = footer.AddParagraph();
                         paraFooter.AddText("This is a computer-generated account statement for the purpose of the semester project. It may contain errors or omissions. For inquiries or feedback, please contact: AskariDigitalOTP@gmail.com.");
 
@@ -367,8 +369,9 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                         issuingDate.AddText("\t\t" + DateTime.Now.ToString("yyyy-MM-dd"));
                         issuingDate.Format.Font.Size = 10;
 
+                        section.PageSetup.TopMargin = Unit.FromCentimeter(3.5); 
+                        section.PageSetup.BottomMargin = Unit.FromCentimeter(3.5); 
 
-                        
                         var customerInfo = section.AddParagraph();
                         customerInfo.AddFormattedText("Customer Name: ", TextFormat.Bold);
                         customerInfo.AddText("\t" + customerName + "\n");

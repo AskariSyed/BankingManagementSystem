@@ -61,6 +61,8 @@ namespace BankingManagementSystem
             }
             catch (Exception eee)
             {
+                GlobalData.LogError("Error while sending email:", eee);
+
 
             }
             message.From = new MailAddress(from, Email_username);

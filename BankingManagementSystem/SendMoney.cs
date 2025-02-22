@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
 using System.Net.Mail;
@@ -49,11 +42,14 @@ namespace BankingManagementSystem
 
         private void Exit_btn__SendMoney_Form_Click(object sender, EventArgs e)
         {
+            this.Refresh();
             this.Close();
         }
 
         private void TransferButton_SendMoneyForm_Click(object sender, EventArgs e)
         {
+            long RecievingtransactionId = generateTransactionId();
+            long currentCustomerTransaction = generateTransactionId();
             string receiverName = "";
             string recieverEmail = "";
             using (var connection = new OracleConnection(GlobalData.connString))
@@ -151,7 +147,7 @@ namespace BankingManagementSystem
                                         :description, 
                                         :branchId,
                                         :referenceid)";
-                                            long currentCustomerTransaction = generateTransactionId();
+                                            currentCustomerTransaction = generateTransactionId();
                                             using (var transactionCommand = new OracleCommand(transactionQuery, connection))
                                             {
                                                 transactionCommand.Parameters.Add(new OracleParameter("transactionId", currentCustomerTransaction));
@@ -186,7 +182,8 @@ namespace BankingManagementSystem
                                         :description, 
                                         :branchId, 
                                         :referenceId)";
-                                            long RecievingtransactionId = generateTransactionId();
+                                            RecievingtransactionId = generateTransactionId();
+                                            RecievingtransactionId = generateTransactionId();
                                             using (var creditTransactionCommand = new OracleCommand(creditTransactionQuery, connection))
                                             {
                                                 creditTransactionCommand.Parameters.Add(new OracleParameter("transactionId", RecievingtransactionId)); 
@@ -203,10 +200,22 @@ namespace BankingManagementSystem
                                             NotifyReceiverForSuccessfulTransaction(recieverEmail, Convert.ToDecimal(SendingAmountTxtBox.Text), GlobalData.CurrentCustomer.customerName, GlobalData.CustomerAccount.accountId.ToString(), receiverName);
                                             GlobalData.customizedPopup("Funds transferred successfully.");
 
+                                            GlobalData.CurrentCustomer =new  Customer(GlobalData.CurrentCustomer.customerId);
+                                            if (this.Owner != null)
+                                            {
+                                                this.Owner.Refresh();
+                                                this.Owner.BringToFront();
+                                            }
+
+                                            
+                                            this.Close();
+
+
                                         }
                                         catch (Exception ex)
                                         {
                                             transaction.Rollback();
+                                            GlobalData.LogError("An error occured while transaction please check log file for more info", ex);
                                             MessageBox.Show("An error occurred: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                     }
@@ -338,20 +347,21 @@ namespace BankingManagementSystem
 
         public static long generateTransactionId()
         {
+            
             bool isUnique = false;
             long transactionIDAssigned = 0;
             Random random = new Random();
-            using (OracleConnection conn = new OracleConnection(GlobalData.connString))
+            using (OracleConnection connn = new OracleConnection(GlobalData.connString))
             {
-                conn.Open();
+                connn.Open();
                 while (!isUnique)
                 {
-                    transactionIDAssigned = random.Next(1000000, 10000000); 
+                    transactionIDAssigned = random.Next(1000000, 99999999); 
 
                     try
                     {
                         string query = "SELECT COUNT(*) FROM transaction WHERE transaction_ID = :transactionid";
-                        using (OracleCommand cmd = new OracleCommand(query, conn))
+                        using (OracleCommand cmd = new OracleCommand(query, connn))
                         {
                             cmd.Parameters.Add(new OracleParameter("transactionid", transactionIDAssigned));
 
@@ -359,7 +369,6 @@ namespace BankingManagementSystem
                             if (count == 0)
                             {
                                 isUnique = true;
-                               
                             }
                         }
                     }
@@ -387,7 +396,7 @@ namespace BankingManagementSystem
                 conn.Open();
                 while (!isUnique)
                 {
-                    referenceIDAssigned = random.Next(1000000, 10000000);
+                    referenceIDAssigned = random.Next(1000000, 99999999);
 
                     try
                     {
@@ -400,7 +409,7 @@ namespace BankingManagementSystem
                             if (count == 0)
                             {
                                 isUnique = true;
-                                GlobalData.customizedPopup($"Unique Reference ID Assigned: {referenceIDAssigned}");
+                               
                             }
                         }
                     }

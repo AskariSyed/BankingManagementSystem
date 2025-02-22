@@ -16,6 +16,7 @@ namespace BankingManagementSystem
         public HomePageCustomers()
         {
             InitializeComponent(); this.Paint += new PaintEventHandler(HomePageCustomer_Paint);
+            this.Refresh();
 
         }
 
@@ -94,6 +95,7 @@ namespace BankingManagementSystem
         {
             this.Hide();
             UpdatePersonalDetailsForm updatePersonalDetailsForm = new UpdatePersonalDetailsForm();
+
 
             updatePersonalDetailsForm.Show();
 
@@ -181,18 +183,21 @@ namespace BankingManagementSystem
         private void SendMoney_btn_HomepgeCustomerForm_Click(object sender, EventArgs e)
         {
             SendMoney sendMoney = new SendMoney();
+            sendMoney.Owner = this;
             sendMoney.Show();
         }
 
         private void TransactionHistory_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
-            AllTransactionsTable allTransactionsTable = new AllTransactionsTable(); 
+            AllTransactionsTable allTransactionsTable = new AllTransactionsTable();
+            allTransactionsTable.Owner = this;
             allTransactionsTable.Show();
         }
 
         private void Privacy_And_Security_btn_HomeFormUser_Click(object sender, EventArgs e)
         {
             PrivacyAndSecurity privacy = new PrivacyAndSecurity();
+            privacy.Owner = this;
             privacy.Show();
         }
 

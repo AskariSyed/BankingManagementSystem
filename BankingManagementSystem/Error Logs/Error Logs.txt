@@ -99,3 +99,538 @@ Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNe
 Exception: Collection was modified; enumeration operation may not execute.
 Stack Trace:    at System.Collections.ArrayList.ArrayListEnumeratorSimple.MoveNext()
    at BankingManagementSystem.GlobalData.EmployeeLogout()
+--------------------------------------------------------------------------------
+2/22/2025 4:15:56 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:16:09 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:18:07 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 199
+--------------------------------------------------------------------------------
+2/22/2025 4:24:52 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 194
+--------------------------------------------------------------------------------
+2/22/2025 4:25:44 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:29:12 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:31:36 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:31:38 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:32:52 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:32:57 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:32:59 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:33:01 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:33:03 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:33:14 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:33:16 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:47:09 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:47:13 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:47:30 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:47:59 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:48:28 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 4:52:05 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 4:59:30 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 5:00:06 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:10 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:14 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:46 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:48 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:49 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:50 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:52 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:53 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:55 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:56 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:58 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:00:59 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:01 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:02 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:03 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:05 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:06 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:07 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:08 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:09 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:11 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:14 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:15 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:16 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:19 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:20 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:21 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:22 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:22 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:23 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:23 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:24 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:24 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:25 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:44 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:46 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:47 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:48 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:49 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:01:50 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:02:08 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:02:10 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:02:12 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:02:13 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:02:42 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:03:22 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:03:25 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:06:32 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e)
+--------------------------------------------------------------------------------
+2/22/2025 5:07:12 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 5:07:15 PM: An error occured while transaction please check log file for more info
+Exception: ORA-00001: unique constraint (SYSTEM.SYS_C008329) violated
+https://docs.oracle.com/error-help/db/ora-00001/
+Stack Trace:    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at BankingManagementSystem.SendMoney.TransferButton_SendMoneyForm_Click(Object sender, EventArgs e) in C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\SendMoney.cs:line 195
+--------------------------------------------------------------------------------
+2/22/2025 7:41:26 PM: Error in generating PDF
+Exception: The process cannot access the file 'C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements\AccountStatement20102_20250222.pdf' because it is being used by another process.
+Stack Trace:    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at PdfSharp.Pdf.PdfDocument.Save(String path) in D:\THHO\Repos\PDFsharp\src\foundation\src\PDFsharp\src\PdfSharp\Pdf\PdfDocument.cs:line 223
+   at BankStatementGenerator.GenerateStatementPDFFull()
+--------------------------------------------------------------------------------
+2/22/2025 7:41:30 PM: Error in generating PDF
+Exception: The process cannot access the file 'C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements\AccountStatement20102_20250222.pdf' because it is being used by another process.
+Stack Trace:    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at PdfSharp.Pdf.PdfDocument.Save(String path) in D:\THHO\Repos\PDFsharp\src\foundation\src\PDFsharp\src\PdfSharp\Pdf\PdfDocument.cs:line 223
+   at BankStatementGenerator.GenerateStatementPDFFull()
+--------------------------------------------------------------------------------
+2/22/2025 7:41:46 PM: Error in generating PDF
+Exception: The process cannot access the file 'C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements\AccountStatement20102_20250222.pdf' because it is being used by another process.
+Stack Trace:    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at PdfSharp.Pdf.PdfDocument.Save(String path) in D:\THHO\Repos\PDFsharp\src\foundation\src\PDFsharp\src\PdfSharp\Pdf\PdfDocument.cs:line 223
+   at BankStatementGenerator.GenerateStatementPDFFull()

@@ -317,7 +317,8 @@ namespace BankingManagementSystem
                 message.To.Add(to); }
             catch(Exception eee)
             {
-                
+                GlobalData.LogError("Error while sending email:", eee);
+
             }
             message.From= new MailAddress(from,Email_username);
             message.Body = messageBody;
