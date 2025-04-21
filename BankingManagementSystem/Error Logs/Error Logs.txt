@@ -634,3 +634,13 @@ Stack Trace:    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFul
    at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
    at PdfSharp.Pdf.PdfDocument.Save(String path) in D:\THHO\Repos\PDFsharp\src\foundation\src\PDFsharp\src\PdfSharp\Pdf\PdfDocument.cs:line 223
    at BankStatementGenerator.GenerateStatementPDFFull()
+--------------------------------------------------------------------------------
+3/4/2025 4:18:32 PM: Failed to process account blocking verification
+Exception: ORA-50201: Oracle Communication: Failed to connect to server or failed to parse connect string
+Stack Trace:    at OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPassw, Boolean bGetForApp, OracleConnection connRefForCriteria, String affinityInstanceName, Boolean bForceMatch, Boolean bAsync)
+   at OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassw, Boolean bGetForApp, OracleConnection connRefForCriteria, String affinityInstanceName, Boolean bForceMatch, Boolean bAsync)
+   at OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, OracleOpaqueString securedPassw, OracleOpaqueString securedProxyPassw, OracleConnection connRefForCriteria, Boolean bAsync)
+   at Oracle.ManagedDataAccess.Client.OracleConnectionInternal.OpenInternal(Boolean bAsync)
+   at Oracle.ManagedDataAccess.Client.OracleConnectionInternal.Open()
+   at Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   at BankingManagementSystem.signInpage.SignIn_btn_SigninForm_Click(Object sender, EventArgs e) in C:\Users\DELL\source\repos\AskariSyed\BankingManagementSystem\BankingManagementSystem\signInpage.cs:line 74

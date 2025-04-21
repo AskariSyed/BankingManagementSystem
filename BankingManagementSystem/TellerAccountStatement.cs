@@ -65,7 +65,8 @@ namespace BankingManagementSystem
 
         }
 
-        private void Email_Label_ForgOPasswordForm_Click(object sender, EventArgs e)
+        private void Email_Label_ForgO
+            Form_Click(object sender, EventArgs e)
         {
 
         }

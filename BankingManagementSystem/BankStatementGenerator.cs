@@ -20,7 +20,7 @@ public class BankStatementGenerator
 {
     public static void GenerateStatementPDFFull()
     {
-        string directoryPath = @"C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements";
+        string directoryPath = @"E:\Hassan University\5th Semester\Database systems\AccountStatements";
         string fileName = Path.Combine(directoryPath, "AccountStatement" + GlobalData.CurrentCustomer.customerId + "_" + DateTime.Now.ToString("yyyyMMdd") + ".pdf");
         decimal totalDebit = 0;
         decimal totalCredit = 0;
@@ -71,7 +71,7 @@ public class BankStatementGenerator
                         HeaderFooter header = section.Headers.Primary;
                         Paragraph para = header.AddParagraph();
                         para.Format.Alignment = ParagraphAlignment.Center;
-                        Image image = para.AddImage(@"C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
+                        Image image = para.AddImage(@"C:\Users\DELL\source\repos\AskariSyed\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
                         image.Width = Unit.FromCentimeter(8); 
                         
 
@@ -79,7 +79,7 @@ public class BankStatementGenerator
                         HeaderFooter evenHeader = section.Headers.EvenPage;
                         Paragraph evenPara = evenHeader.AddParagraph();
                         evenPara.Format.Alignment = ParagraphAlignment.Center;
-                        Image evenImage = evenPara.AddImage(@"C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
+                        Image evenImage = evenPara.AddImage(@"C:\Users\DELL\source\repos\AskariSyed\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
                         evenImage.Width = Unit.FromCentimeter(8);
                         header.Format.SpaceAfter=Unit.FromInch(1);
                         evenHeader.Format.SpaceAfter = Unit.FromInch(1);
@@ -88,8 +88,8 @@ public class BankStatementGenerator
 
                         HeaderFooter footer = section.Footers.Primary;
 
-                        section.PageSetup.TopMargin = Unit.FromCentimeter(3.5); // Adjust as needed
-                        section.PageSetup.BottomMargin = Unit.FromCentimeter(3.5); // Adjust as needed
+                        section.PageSetup.TopMargin = Unit.FromCentimeter(3.5); 
+                        section.PageSetup.BottomMargin = Unit.FromCentimeter(3.5);
 
                         Paragraph paraFooter = footer.AddParagraph();
                         paraFooter.AddText("This is a computer-generated account statement for the purpose of the semester project. It may contain errors or omissions. For inquiries or feedback, please contact: AskariDigitalOTP@gmail.com.");
@@ -257,7 +257,7 @@ public class BankStatementGenerator
     
 public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker, DateTimePicker toDatePicker)
 {
-    string directoryPath = @"C:\Users\Dell\Desktop\Hassan University\5th Semester\Database systems\AccountStatements";
+    string directoryPath = @"E:\Hassan University\5th Semester\Database systems\AccountStatements";
         string fileName = Path.Combine(
             directoryPath,
             "AccountStatement"
@@ -334,7 +334,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                         HeaderFooter header = section.Headers.Primary;
                         Paragraph para = header.AddParagraph();
                         para.Format.Alignment = ParagraphAlignment.Center;
-                        Image image = para.AddImage(@"C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
+                        Image image = para.AddImage(@"C:\Users\DELL\source\repos\AskariSyed\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
                         image.Width = Unit.FromCentimeter(8); 
                         header.Format.SpaceAfter=Unit.FromCentimeter(8);
 
@@ -343,7 +343,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                         
                         Paragraph evenPara = evenHeader.AddParagraph();
                         evenPara.Format.Alignment = ParagraphAlignment.Center;
-                        Image evenImage = evenPara.AddImage(@"C:\Users\Dell\source\repos\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
+                        Image evenImage = evenPara.AddImage(@"C:\Users\DELL\source\repos\AskariSyed\BankingManagementSystem\BankingManagementSystem\Resources\New-Logo-1.png");
                         evenImage.Width = Unit.FromCentimeter(8);
 
 
@@ -523,7 +523,7 @@ public static void  GenerateAccountStatementRange(DateTimePicker fromDatePicker,
                 EnableSsl = true,
                 Port = 587,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential("AskariDigitalOTP@gmail.com", "mitxehwlyexurspx")
+                Credentials = new NetworkCredential("AskariDigitalOTP@gmail.com", GlobalData.password)
             };
             smtpClient.Send(message);
             GlobalData.customizedPopup("Email with attachment sent successfully!");

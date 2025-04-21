@@ -199,7 +199,7 @@ namespace BankingManagementSystem
         {
 
             string fromEmail = "AskariDigitalOTP@gmail.com"; 
-            string appPassword = "mitxehwlyexurspx";
+            string appPassword = GlobalData.password;
             Random random = new Random();
             randomCode = (random.Next(100000, 999999)).ToString();
             string subject = "Important: Your One-Time Password (OTP)";

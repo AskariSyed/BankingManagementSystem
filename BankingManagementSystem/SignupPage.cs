@@ -311,7 +311,7 @@ namespace BankingManagementSystem
             MailMessage message = new MailMessage();
             to = (Email_txtBox_Sigupfrom.Text.ToString());
             from = "AskariDigitalOTP@gmail.com";
-            pass = "mitxehwlyexurspx ";
+            pass = GlobalData.password;
             messageBody = "Your OTP code for Askari Digital Banking is : " + randomCode + " ";
             try{
                 message.To.Add(to); }
@@ -493,7 +493,7 @@ public void SendWelcomeEmail(string customerEmail, string customerName, string a
 
         
         string from = "AskariDigitalOTP@gmail.com";
-        string pass = "mitxehwlyexurspx"; 
+        string pass = GlobalData.password; 
         string emailUsername = "Askari Digital Bank Ltd."; 
         string subject = "Welcome to Askari Digital Banking! Your Account is Now Active";
 

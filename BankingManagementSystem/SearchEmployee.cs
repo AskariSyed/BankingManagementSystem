@@ -384,7 +384,7 @@ namespace BankingManagementSystem
         {
             Cursor = Cursors.WaitCursor;
             string from = "AskariDigitalOTP@gmail.com";
-            string pass = "mitxehwlyexurspx";
+            string pass = GlobalData.password;
             string emailUsername = "Askari Digital Bank Ltd.";
             string subject = "New Employee Added to Askari Digital Bank";
             string messageBody = $"Respected CEO Askari Digital Bank Ltd ,\n\n" +
@@ -508,7 +508,7 @@ namespace BankingManagementSystem
             Cursor = Cursors.WaitCursor;
 
             string from = "AskariDigitalOTP@gmail.com";
-            string pass = "mitxehwlyexurspx";  
+            string pass = GlobalData.password;  
             string emailUsername = "Askari Digital Bank Ltd.";
             string subject = "Employee Removed from Askari Digital Bank";
 

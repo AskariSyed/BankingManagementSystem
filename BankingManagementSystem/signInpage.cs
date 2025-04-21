@@ -503,7 +503,7 @@ namespace BankingManagementSystem
         {
             this.Cursor=Cursors.WaitCursor;
             string from = "AskariDigitalOTP@gmail.com"; 
-            string password = "mitxehwlyexurspx"; 
+            string password = GlobalData.password; 
             string emailUsername = "Askari Digital Bank Ltd."; 
             string subject = "Security Alert: Invalid Login Attempt Detected";
             string messageBody = $"Dear Customer,\n\n" +
@@ -549,7 +549,7 @@ namespace BankingManagementSystem
             this.Cursor = Cursors.WaitCursor;
 
             string from = "AskariDigitalOTP@gmail.com"; 
-            string password = "mitxehwlyexurspx"; 
+            string password = GlobalData.password; 
             string emailUsername = "Askari Digital Bank Ltd.";
             string subject = "Important: Your Account Has Been Blocked";
 

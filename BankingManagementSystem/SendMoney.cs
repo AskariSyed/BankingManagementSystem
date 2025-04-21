@@ -254,7 +254,7 @@ namespace BankingManagementSystem
             string from, pass, messageBody, to, emailUsername;
             emailUsername = "Askari Digital Bank Ltd.";
             from = "AskariDigitalOTP@gmail.com";
-            pass = "mitxehwlyexurspx";
+            pass = GlobalData.password;
             to = recipientEmail;
 
             messageBody = $"Dear {senderName},\n\n" +
@@ -303,7 +303,7 @@ namespace BankingManagementSystem
             string from, pass, messageBody, to, emailUsername;
             emailUsername = "Askari Digital Bank Ltd.";
             from = "AskariDigitalOTP@gmail.com";
-            pass = "mitxehwlyexurspx";
+            pass = GlobalData.password;
             to = recipientEmail;
 
             messageBody = $"Dear {receiverTitle},\n\n" +
