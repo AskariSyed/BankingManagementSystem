@@ -19,7 +19,7 @@ namespace BankingManagementSystem
         public static string connString = "User Id=System;Password=syed;Data Source=Askari:1521/XE";
         public static name  ="name";
         public static string CustomerconnString = "User Id=C##Customer1;Password=syed;Data Source=Askari:1521/XE";
-        public static string password = " mitxehwlyexurspx "; 
+        public static string password = " your pass here "; 
 
         public static Dictionary<string, int> cityBranchIDs = new Dictionary<string, int>
         {
